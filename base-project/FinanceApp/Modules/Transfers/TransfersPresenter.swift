@@ -1,0 +1,23 @@
+//
+//  TransfersPresenter.swift
+//  FinanceApp
+//
+//  Created by Rodrigo Borges on 30/12/21.
+//
+
+import Foundation
+
+protocol TransfersPresenterDelegate: AnyObject {
+
+}
+
+class TransfersPresenter: TransfersPresenterProtocol {
+
+    weak var view: TransfersPresenterDelegate?
+    var interactor: TransfersInteractorProtocol?
+    var router: TransfersRouterProtocol?
+}
+
+extension TransfersPresenter: TransfersInteractorDelegate {
+
+}
