@@ -8,15 +8,56 @@
 import Foundation
 import UIKit
 
+protocol TransferViewDelegate: AnyObject {
+
+    func didPressChooseContactButton()
+    func didPressTransferButton()
+}
+
 class TransfersView: UIView {
 
-    private lazy var tableView: UITableView = {
+    weak var delegate: TransferViewDelegate?
 
-        let tableView = UITableView()
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-        tableView.dataSource = self
-        return tableView
+    let stackView: UIStackView = {
+
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.spacing = 8
+
+        return stackView
+    }()
+
+    let amountTextField: UITextField = {
+
+        let textField = UITextField()
+        textField.placeholder = "$0"
+        textField.font = UIFont.boldSystemFont(ofSize: 34)
+        textField.textAlignment = .center
+        textField.keyboardType = .numbersAndPunctuation
+        return textField
+    }()
+
+    let chooseContactButton: UIButton = {
+
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Choose contact", for: .normal)
+        button.setTitleColor(.systemBlue, for: .normal)
+        button.addTarget(self, action: #selector(chooseContact), for: .touchUpInside)
+        return button
+    }()
+
+    let transferButton: UIButton = {
+
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Transfer", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .systemBlue
+        button.layer.cornerRadius = 14
+        button.addTarget(self, action: #selector(transfer), for: .touchUpInside)
+        return button
     }()
 
     init() {
@@ -24,33 +65,36 @@ class TransfersView: UIView {
 
         backgroundColor = .white
 
-        addSubview(tableView)
+        stackView.addArrangedSubview(amountTextField)
+        stackView.addArrangedSubview(chooseContactButton)
+
+        addSubview(stackView)
+        addSubview(transferButton)
 
         NSLayoutConstraint.activate([
-            tableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+            stackView.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
+            stackView.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor),
+
+            transferButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -16),
+            transferButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            transferButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            transferButton.heightAnchor.constraint(equalToConstant: 56)
         ])
     }
-    
+
+    @objc
+    func chooseContact() {
+
+        delegate?.didPressChooseContactButton()
+    }
+
+    @objc
+    func transfer() {
+
+        delegate?.didPressTransferButton()
+    }
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-}
-
-extension TransfersView: UITableViewDataSource {
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        return 3
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-
-        cell.textLabel?.text = "Spending"
-        return cell
     }
 }

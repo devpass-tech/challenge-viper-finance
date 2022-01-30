@@ -7,7 +7,14 @@
 
 import UIKit
 
+protocol ActivityListViewDelegate: AnyObject {
+
+    func didSelectedActivity()
+}
+
 class ActivityListView: UIView {
+
+    weak var delegate: ActivityListViewDelegate?
 
     static let cellSize = CGFloat(82)
 
@@ -79,7 +86,9 @@ extension ActivityListView: UITableViewDelegate {
     }
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
 
+        delegate?.didSelectedActivity()
     }
 }
 

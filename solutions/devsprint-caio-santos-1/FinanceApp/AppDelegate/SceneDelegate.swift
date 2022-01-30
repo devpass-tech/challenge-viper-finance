@@ -16,11 +16,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
-        let module = HomeRouter.createModule()
-
         self.window = UIWindow(frame: UIScreen.main.bounds)
-//        self.window?.rootViewController = module
-        self.window?.rootViewController = UINavigationController(rootViewController: HomeViewController())
+        self.window?.rootViewController = UINavigationController(rootViewController: TabBarController())
         self.window?.windowScene = windowScene
         self.window?.makeKeyAndVisible()
     }

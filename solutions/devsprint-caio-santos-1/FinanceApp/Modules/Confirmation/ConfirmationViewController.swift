@@ -9,13 +9,7 @@ import UIKit
 
 class ConfirmationViewController: UIViewController {
 
-    var presenter: ConfirmationPresenterProtocol?
-
     override func loadView() {
         self.view = ConfirmationView()
     }
-}
-
-extension ConfirmationViewController: ConfirmationPresenterDelegate {
-
 }

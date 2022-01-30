@@ -10,67 +10,76 @@ import UIKit
 
 class ContactListView: UIView {
 
-    let stackView: UIStackView = {
+    static let cellSize = CGFloat(82)
 
-        let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.spacing = 16
-        return stackView
+    private let cellIdentifier = "ContactCellIdentifier"
+
+    lazy var tableView: UITableView = {
+
+        let tableView = UITableView(frame: .zero)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.register(ContactCellView.self, forCellReuseIdentifier: self.cellIdentifier)
+        tableView.dataSource = self
+        tableView.delegate = self
+        return tableView
     }()
-
-    let ContactListHeaderView: ContactListHeaderView = {
-
-        let ContactListHeaderView = ContactListHeaderView()
-        return ContactListHeaderView
-    }()
-
-    let activityListView: ActivityListView = {
-
-        let activityListView = ActivityListView()
-        activityListView.translatesAutoresizingMaskIntoConstraints = false
-        return activityListView
-    }()
-
 
     init() {
         super.init(frame: .zero)
 
         backgroundColor = .white
+        addSubviews()
+        configureConstraints()
 
-        stackView.addArrangedSubview(ContactListHeaderView)
-        stackView.addArrangedSubview(activityListView)
-        stackView.setCustomSpacing(32, after: ContactListHeaderView)
-        addSubview(stackView)
-
-        let estimatedHeight = CGFloat(activityListView.tableView.numberOfRows(inSection: 0))*ActivityListView.cellSize
-
-        NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            stackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
-            
-            activityListView.heightAnchor.constraint(equalToConstant: estimatedHeight)
-        ])
+        tableView.reloadData()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
 
-extension ContactListView: UITableViewDataSource {
+extension ContactListView {
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func addSubviews() {
 
-        return 3
+        addSubview(tableView)
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func configureConstraints() {
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        NSLayoutConstraint.activate([
 
-        cell.textLabel?.text = "Spending"
+            tableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+            tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+        ])
+    }
+}
+
+extension ContactListView: UITableViewDataSource {
+
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+        return 10
+    }
+
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ContactCellView
+
         return cell
+    }
+}
+
+extension ContactListView: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return ContactListView.cellSize
+    }
+
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
     }
 }

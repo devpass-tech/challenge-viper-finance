@@ -8,7 +8,14 @@
 import Foundation
 import UIKit
 
+protocol HomeViewDelegate: AnyObject {
+
+    func didSelectActivity()
+}
+
 class HomeView: UIView {
+
+    weak var delegate: HomeViewDelegate?
 
     let stackView: UIStackView = {
 
@@ -25,10 +32,11 @@ class HomeView: UIView {
         return homeHeaderView
     }()
 
-    let activityListView: ActivityListView = {
+    lazy var activityListView: ActivityListView = {
 
         let activityListView = ActivityListView()
         activityListView.translatesAutoresizingMaskIntoConstraints = false
+        activityListView.delegate = self
         return activityListView
     }()
 
@@ -59,18 +67,10 @@ class HomeView: UIView {
     }
 }
 
-extension HomeView: UITableViewDataSource {
+extension HomeView: ActivityListViewDelegate {
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func didSelectedActivity() {
 
-        return 3
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-
-        cell.textLabel?.text = "Spending"
-        return cell
+        delegate?.didSelectActivity()
     }
 }
