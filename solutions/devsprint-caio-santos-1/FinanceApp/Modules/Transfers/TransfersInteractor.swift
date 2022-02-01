@@ -12,7 +12,7 @@ protocol TransfersInteractorDelegate: AnyObject {
     func didFetchData()
 }
 
-class TransfersInteractor: TransfersInteractorProtocol {
+final class TransfersInteractor: TransfersInteractorProtocol {
     
     weak var presenter: TransfersInteractorDelegate?
     

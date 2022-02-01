@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class SampleRouter: SampleRouterProtocol {
+final class SampleRouter: SampleRouterProtocol {
 
     static func createModule() -> UINavigationController {
 

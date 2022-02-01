@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class TransfersRouter: TransfersRouterProtocol {
+final class TransfersRouter: TransfersRouterProtocol {
 
     static func createModule() -> UINavigationController {
         

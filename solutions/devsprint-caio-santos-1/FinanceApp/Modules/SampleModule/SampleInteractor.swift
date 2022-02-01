@@ -12,7 +12,7 @@ protocol SampleInteractorDelegate: AnyObject {
     func didFetchData()
 }
 
-class SampleInteractor: SampleInteractorProtocol {
+final class SampleInteractor: SampleInteractorProtocol {
 
     weak var presenter: SampleInteractorDelegate?
 

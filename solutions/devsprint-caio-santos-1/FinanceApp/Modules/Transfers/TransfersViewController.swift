@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TransfersViewController: UIViewController {
+final class TransfersViewController: UIViewController {
     
     var presenter: TransfersPresenterProtocol?
 

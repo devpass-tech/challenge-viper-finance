@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SampleViewController: UIViewController {
+final class SampleViewController: UIViewController {
 
     var presenter: SamplePresenterProtocol?
 

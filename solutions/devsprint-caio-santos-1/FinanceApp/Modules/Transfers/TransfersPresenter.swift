@@ -12,7 +12,7 @@ protocol TransfersPresenterDelegate: AnyObject {
     func showData()
 }
 
-class TransfersPresenter: TransfersPresenterProtocol {
+final class TransfersPresenter: TransfersPresenterProtocol {
     
     weak var view: TransfersPresenterDelegate?
     var interactor: TransfersInteractorProtocol?
