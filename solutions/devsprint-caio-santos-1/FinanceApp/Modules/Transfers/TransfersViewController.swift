@@ -8,6 +8,8 @@
 import UIKit
 
 class TransfersViewController: UIViewController {
+    
+    var presenter: TransfersPresenterProtocol?
 
     lazy var transferView: TransfersView = {
 
@@ -16,8 +18,22 @@ class TransfersViewController: UIViewController {
         return transferView
     }()
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        presenter?.viewDidLoad()
+    }
+    
     override func loadView() {
         self.view = transferView
+    }
+}
+
+extension TransfersViewController: TransfersPresenterDelegate {
+    
+    func showData() {
+        
+        print("Here is your data, View!")
     }
 }
 
