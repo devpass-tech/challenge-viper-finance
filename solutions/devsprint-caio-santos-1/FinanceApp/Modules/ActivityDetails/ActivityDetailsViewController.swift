@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ActivityDetailsViewController: UIViewController {
+final class ActivityDetailsViewController: UIViewController {
     
     var presenter: ActivityDetailsPresenterProtocol?
     

@@ -11,7 +11,7 @@ protocol ActivityDetailsPresenterDelegate: AnyObject {
     func showData()
 }
 
-class ActivityDetailsPresenter: ActivityDetailsPresenterProtocol {
+final class ActivityDetailsPresenter: ActivityDetailsPresenterProtocol {
     
     weak var view: ActivityDetailsPresenterDelegate?
     var interactor: ActivityDetailsInteractorProtocol?

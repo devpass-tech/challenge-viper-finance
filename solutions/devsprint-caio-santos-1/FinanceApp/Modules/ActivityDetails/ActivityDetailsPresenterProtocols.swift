@@ -17,7 +17,7 @@ protocol ActivityDetailsPresenterProtocol {
 }
 
 protocol ActivityDetailsRouterProtocol {
-    static func createModule() -> UINavigationController
+    static func createModule() -> UIViewController
     func navigateToNewModule()
 }
 

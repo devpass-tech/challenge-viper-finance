@@ -8,10 +8,9 @@
 import Foundation
 import UIKit
 
-class ActivityDetailsRouter: ActivityDetailsRouterProtocol {
-    static func createModule() -> UINavigationController {
+final class ActivityDetailsRouter: ActivityDetailsRouterProtocol {
+    static func createModule() -> UIViewController {
         let viewController = ActivityDetailsViewController()
-        let navigationController = UINavigationController(rootViewController: viewController)
         
         let presenter: ActivityDetailsPresenterProtocol & ActivityDetailsInteractorDelegate = ActivityDetailsPresenter()
         
@@ -21,7 +20,7 @@ class ActivityDetailsRouter: ActivityDetailsRouterProtocol {
         viewController.presenter?.interactor = ActivityDetailsInteractor()
         viewController.presenter?.interactor?.presenter = presenter
         
-        return navigationController
+        return viewController
     }
     
     func navigateToNewModule() { }
