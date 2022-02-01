@@ -8,11 +8,6 @@
 import Foundation
 import UIKit
 
-protocol HomeViewDelegate: AnyObject {
-
-    func didSelectActivity()
-}
-
 class HomeView: UIView {
 
     weak var delegate: HomeViewDelegate?
