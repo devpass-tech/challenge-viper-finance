@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ConfirmationRouter: ConfirmationRouterProtocol {
+final class ConfirmationRouter: ConfirmationRouterProtocol {
 
     static func createModule() -> UINavigationController {
 
