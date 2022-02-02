@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ConfirmationView: UIView {
+final class ConfirmationView: UIView {
 
     let stackView: UIStackView = {
 
