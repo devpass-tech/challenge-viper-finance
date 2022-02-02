@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+protocol HomeInteractorDelegate: AnyObject {
+    func didFetchData()
+}
+
+final class HomeInteractor: HomeInteractorProtocol {
+    weak var presenter: HomeInteractorDelegate?
+    
+    func didFetchData() {
+        presenter?.didFetchData()
+    }
+}

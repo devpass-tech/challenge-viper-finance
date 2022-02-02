@@ -5,16 +5,17 @@
 //  Created by Rodrigo Borges on 30/12/21.
 //
 
-import Foundation
 import UIKit
 
-class HomeView: UIView {
+protocol HomeViewDelegate: AnyObject {
+    func didSelectActivity()
+}
 
+final class HomeView: UIView {
     weak var delegate: HomeViewDelegate?
 
     let stackView: UIStackView = {
-
-        let stackView = UIStackView()
+        let stackView: UIStackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.spacing = 16
@@ -22,19 +23,16 @@ class HomeView: UIView {
     }()
 
     let homeHeaderView: HomeHeaderView = {
-
-        let homeHeaderView = HomeHeaderView()
+        let homeHeaderView: HomeHeaderView = HomeHeaderView()
         return homeHeaderView
     }()
 
     lazy var activityListView: ActivityListView = {
-
-        let activityListView = ActivityListView()
+        let activityListView: ActivityListView = ActivityListView()
         activityListView.translatesAutoresizingMaskIntoConstraints = false
         activityListView.delegate = self
         return activityListView
     }()
-
 
     init() {
         super.init(frame: .zero)
@@ -46,13 +44,12 @@ class HomeView: UIView {
         stackView.setCustomSpacing(32, after: homeHeaderView)
         addSubview(stackView)
 
-        let estimatedHeight = CGFloat(activityListView.tableView.numberOfRows(inSection: 0))*ActivityListView.cellSize
+        let estimatedHeight: CGFloat = CGFloat(activityListView.tableView.numberOfRows(inSection: 0))*ActivityListView.cellSize
 
         NSLayoutConstraint.activate([
             stackView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             stackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
-            
             activityListView.heightAnchor.constraint(equalToConstant: estimatedHeight)
         ])
     }
@@ -63,9 +60,7 @@ class HomeView: UIView {
 }
 
 extension HomeView: ActivityListViewDelegate {
-
     func didSelectedActivity() {
-
         delegate?.didSelectActivity()
     }
 }

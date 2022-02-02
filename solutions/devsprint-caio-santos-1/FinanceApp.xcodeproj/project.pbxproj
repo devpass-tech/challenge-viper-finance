@@ -45,7 +45,6 @@
 		9D85B4E027A99E2900FA9997 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D85B4DF27A99E2900FA9997 /* HomePresenter.swift */; };
 		9D85B4E227A99E4200FA9997 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D85B4E127A99E4200FA9997 /* HomeRouter.swift */; };
 		9D85B4E427A99E4D00FA9997 /* HomeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D85B4E327A99E4D00FA9997 /* HomeProtocols.swift */; };
-		9D85B4E627A99E5A00FA9997 /* HomeDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D85B4E527A99E5A00FA9997 /* HomeDelegates.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,7 +107,6 @@
 		9D85B4DF27A99E2900FA9997 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		9D85B4E127A99E4200FA9997 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		9D85B4E327A99E4D00FA9997 /* HomeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProtocols.swift; sourceTree = "<group>"; };
-		9D85B4E527A99E5A00FA9997 /* HomeDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDelegates.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,7 +225,6 @@
 				9D85B4DF27A99E2900FA9997 /* HomePresenter.swift */,
 				9D85B4E127A99E4200FA9997 /* HomeRouter.swift */,
 				9D85B4E327A99E4D00FA9997 /* HomeProtocols.swift */,
-				9D85B4E527A99E5A00FA9997 /* HomeDelegates.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -470,7 +467,6 @@
 				98584AE7277E50430028DBEA /* TransfersView.swift in Sources */,
 				98584AF3277E50430028DBEA /* ConfirmationView.swift in Sources */,
 				98584AEE277E50430028DBEA /* UserProfileViewController.swift in Sources */,
-				9D85B4E627A99E5A00FA9997 /* HomeDelegates.swift in Sources */,
 				98584A6D277E32C30028DBEA /* AppDelegate.swift in Sources */,
 				98584A6F277E32C30028DBEA /* SceneDelegate.swift in Sources */,
 				98426FAC27A6FC8000B09645 /* UserProfileHeaderView.swift in Sources */,
