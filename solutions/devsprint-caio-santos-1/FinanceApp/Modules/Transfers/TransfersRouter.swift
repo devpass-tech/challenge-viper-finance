@@ -1,31 +1,31 @@
 //
-//  SampleRouter.swift
+//  TransfersRouter.swift
 //  FinanceApp
 //
-//  Created by Rodrigo Borges on 30/12/21.
+//  Created by Hyago Henrique on 31/01/22.
 //
 
 import Foundation
 import UIKit
 
-final class SampleRouter: SampleRouterProtocol {
+final class TransfersRouter: TransfersRouterProtocol {
 
     static func createModule() -> UINavigationController {
-
-        let viewController = SampleViewController()
+        
+        let viewController = TransfersViewController()
         let navigationController = UINavigationController(rootViewController: viewController)
-
-        let presenter: SamplePresenterProtocol & SampleInteractorDelegate = SamplePresenter()
-
+        
+        let presenter: TransfersPresenterProtocol & TransfersInteractorDelegate = TransfersPresenter()
+        
         viewController.presenter = presenter
-        viewController.presenter?.router = SampleRouter()
+        viewController.presenter?.router = TransfersRouter()
         viewController.presenter?.view = viewController
-        viewController.presenter?.interactor = SampleInteractor()
+        viewController.presenter?.interactor = TransfersInteractor()
         viewController.presenter?.interactor?.presenter = presenter
         return navigationController
     }
-
+    
     func navigateToNewModule() {
-
+       
     }
 }

@@ -7,7 +7,9 @@
 
 import UIKit
 
-class TransfersViewController: UIViewController {
+final class TransfersViewController: UIViewController {
+    
+    var presenter: TransfersPresenterProtocol?
 
     lazy var transferView: TransfersView = {
 
@@ -16,8 +18,22 @@ class TransfersViewController: UIViewController {
         return transferView
     }()
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        presenter?.viewDidLoad()
+    }
+    
     override func loadView() {
         self.view = transferView
+    }
+}
+
+extension TransfersViewController: TransfersPresenterDelegate {
+    
+    func showData() {
+        
+        print("Here is your data, View!")
     }
 }
 
@@ -31,7 +47,7 @@ extension TransfersViewController: TransferViewDelegate {
 
     func didPressTransferButton() {
 
-        let navigationController = UINavigationController(rootViewController: ConfirmationViewController())
+        let navigationController = ConfirmationRounter.createModule()
         self.present(navigationController, animated: true)
     }
 }

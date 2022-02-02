@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class SampleView: UIView {
+final class SampleView: UIView {
 
     private lazy var tableView: UITableView = {
 

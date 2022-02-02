@@ -41,6 +41,14 @@
 		98584B14277E605F0028DBEA /* ActivityDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584B0E277E605F0028DBEA /* ActivityDetailsView.swift */; };
 		98584B1F277E60740028DBEA /* ContactListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584B19277E60740028DBEA /* ContactListView.swift */; };
 		98584B20277E60740028DBEA /* ContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584B1A277E60740028DBEA /* ContactListViewController.swift */; };
+		A0C958B627A9B9FC00715795 /* ConfirmationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C958B527A9B9FC00715795 /* ConfirmationInteractor.swift */; };
+		A0C958B827A9BA0900715795 /* ConfirmationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C958B727A9BA0900715795 /* ConfirmationRouter.swift */; };
+		A0C958BA27A9BA1400715795 /* ConfirmationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C958B927A9BA1400715795 /* ConfirmationPresenter.swift */; };
+		A0C958BC27A9BA2100715795 /* ConfirmationProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C958BB27A9BA2100715795 /* ConfirmationProtocols.swift */; };
+		BC52C70A27AA0BDF00ED7703 /* UserProfileProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC52C70627AA0BDF00ED7703 /* UserProfileProtocols.swift */; };
+		BC52C70B27AA0BDF00ED7703 /* UserProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC52C70727AA0BDF00ED7703 /* UserProfileRouter.swift */; };
+		BC52C70C27AA0BDF00ED7703 /* UserProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC52C70827AA0BDF00ED7703 /* UserProfileInteractor.swift */; };
+		BC52C70D27AA0BDF00ED7703 /* UserProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC52C70927AA0BDF00ED7703 /* UserProfilePresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +107,14 @@
 		98584B0E277E605F0028DBEA /* ActivityDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityDetailsView.swift; sourceTree = "<group>"; };
 		98584B19277E60740028DBEA /* ContactListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListView.swift; sourceTree = "<group>"; };
 		98584B1A277E60740028DBEA /* ContactListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListViewController.swift; sourceTree = "<group>"; };
+		A0C958B527A9B9FC00715795 /* ConfirmationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationInteractor.swift; sourceTree = "<group>"; };
+		A0C958B727A9BA0900715795 /* ConfirmationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationRouter.swift; sourceTree = "<group>"; };
+		A0C958B927A9BA1400715795 /* ConfirmationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationPresenter.swift; sourceTree = "<group>"; };
+		A0C958BB27A9BA2100715795 /* ConfirmationProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationProtocols.swift; sourceTree = "<group>"; };
+		BC52C70627AA0BDF00ED7703 /* UserProfileProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileProtocols.swift; sourceTree = "<group>"; };
+		BC52C70727AA0BDF00ED7703 /* UserProfileRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileRouter.swift; sourceTree = "<group>"; };
+		BC52C70827AA0BDF00ED7703 /* UserProfileInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileInteractor.swift; sourceTree = "<group>"; };
+		BC52C70927AA0BDF00ED7703 /* UserProfilePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfilePresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,6 +274,10 @@
 		98584AD8277E50430028DBEA /* UserProfile */ = {
 			isa = PBXGroup;
 			children = (
+				BC52C70827AA0BDF00ED7703 /* UserProfileInteractor.swift */,
+				BC52C70927AA0BDF00ED7703 /* UserProfilePresenter.swift */,
+				BC52C70627AA0BDF00ED7703 /* UserProfileProtocols.swift */,
+				BC52C70727AA0BDF00ED7703 /* UserProfileRouter.swift */,
 				98584ADA277E50430028DBEA /* UserProfileView.swift */,
 				98584ADB277E50430028DBEA /* UserProfileViewController.swift */,
 			);
@@ -267,8 +287,12 @@
 		98584ADF277E50430028DBEA /* Confirmation */ = {
 			isa = PBXGroup;
 			children = (
+				A0C958B527A9B9FC00715795 /* ConfirmationInteractor.swift */,
 				98584AE1277E50430028DBEA /* ConfirmationView.swift */,
 				98584AE2277E50430028DBEA /* ConfirmationViewController.swift */,
+				A0C958B727A9BA0900715795 /* ConfirmationRouter.swift */,
+				A0C958B927A9BA1400715795 /* ConfirmationPresenter.swift */,
+				A0C958BB27A9BA2100715795 /* ConfirmationProtocols.swift */,
 			);
 			path = Confirmation;
 			sourceTree = "<group>";
@@ -437,10 +461,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				98584AC3277E42E80028DBEA /* FinanceService.swift in Sources */,
+				BC52C70C27AA0BDF00ED7703 /* UserProfileInteractor.swift in Sources */,
 				98584B04277E51DA0028DBEA /* ContactCellView.swift in Sources */,
 				98584B02277E51CF0028DBEA /* ChooseContactView.swift in Sources */,
+				A0C958B627A9B9FC00715795 /* ConfirmationInteractor.swift in Sources */,
 				98584AD0277E4F0A0028DBEA /* SampleProtocols.swift in Sources */,
 				98584B10277E605F0028DBEA /* ActivityDetailsViewController.swift in Sources */,
+				A0C958B827A9BA0900715795 /* ConfirmationRouter.swift in Sources */,
 				98584AFE277E51A70028DBEA /* ActivityListView.swift in Sources */,
 				98584B20277E60740028DBEA /* ContactListViewController.swift in Sources */,
 				98584AF4277E50430028DBEA /* ConfirmationViewController.swift in Sources */,
@@ -451,12 +478,17 @@
 				98584B14277E605F0028DBEA /* ActivityDetailsView.swift in Sources */,
 				98584AE7277E50430028DBEA /* TransfersView.swift in Sources */,
 				98584AF3277E50430028DBEA /* ConfirmationView.swift in Sources */,
+				A0C958BC27A9BA2100715795 /* ConfirmationProtocols.swift in Sources */,
+				BC52C70A27AA0BDF00ED7703 /* UserProfileProtocols.swift in Sources */,
 				98584AEE277E50430028DBEA /* UserProfileViewController.swift in Sources */,
 				98584A6D277E32C30028DBEA /* AppDelegate.swift in Sources */,
 				98584A6F277E32C30028DBEA /* SceneDelegate.swift in Sources */,
 				98426FAC27A6FC8000B09645 /* UserProfileHeaderView.swift in Sources */,
+				BC52C70D27AA0BDF00ED7703 /* UserProfilePresenter.swift in Sources */,
 				98584AA7277E35F10028DBEA /* HomeView.swift in Sources */,
+				BC52C70B27AA0BDF00ED7703 /* UserProfileRouter.swift in Sources */,
 				98584B1F277E60740028DBEA /* ContactListView.swift in Sources */,
+				A0C958BA27A9BA1400715795 /* ConfirmationPresenter.swift in Sources */,
 				98584ACD277E4F0A0028DBEA /* SampleViewController.swift in Sources */,
 				98584ACE277E4F0A0028DBEA /* SampleRouter.swift in Sources */,
 				98584ACB277E4F0A0028DBEA /* SampleInteractor.swift in Sources */,

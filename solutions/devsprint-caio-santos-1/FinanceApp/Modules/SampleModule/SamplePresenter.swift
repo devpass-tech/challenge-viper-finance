@@ -12,7 +12,7 @@ protocol SamplePresenterDelegate: AnyObject {
     func showData()
 }
 
-class SamplePresenter: SamplePresenterProtocol {
+final class SamplePresenter: SamplePresenterProtocol {
 
     weak var view: SamplePresenterDelegate?
     var interactor: SampleInteractorProtocol?
