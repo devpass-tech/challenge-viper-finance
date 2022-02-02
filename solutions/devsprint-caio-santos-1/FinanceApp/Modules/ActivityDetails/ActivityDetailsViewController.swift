@@ -7,9 +7,23 @@
 
 import UIKit
 
-class ActivityDetailsViewController: UIViewController {
+final class ActivityDetailsViewController: UIViewController {
+    
+    var presenter: ActivityDetailsPresenterProtocol?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        presenter?.viewDidLoad()
+    }
 
     override func loadView() {
         self.view = ActivityDetailsView()
+    }
+}
+
+extension ActivityDetailsViewController: ActivityDetailsPresenterDelegate {
+    func showData() {
+        print("Here is your data, ActivityDetailsViewController")
     }
 }
