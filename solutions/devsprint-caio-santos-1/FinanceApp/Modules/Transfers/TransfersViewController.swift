@@ -47,7 +47,7 @@ extension TransfersViewController: TransferViewDelegate {
 
     func didPressTransferButton() {
 
-        let navigationController = UINavigationController(rootViewController: ConfirmationViewController())
+        let navigationController = ConfirmationRounter.createModule()
         self.present(navigationController, animated: true)
     }
 }
