@@ -22,7 +22,7 @@ class ActivityDetailsViewController: UIViewController {
     }
 }
 
-extension ActivityDetailsViewController: ActivityDetailsPresenterDelegate? {
+extension ActivityDetailsViewController: ActivityDetailsPresenterDelegate {
     
     func showData() {
         
