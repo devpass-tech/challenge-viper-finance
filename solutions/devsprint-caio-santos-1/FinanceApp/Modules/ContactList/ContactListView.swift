@@ -5,11 +5,15 @@
 //  Created by Rodrigo Borges on 30/12/21.
 //
 
-import Foundation
 import UIKit
 
-class ContactListView: UIView {
+protocol ContactListViewDelegate: AnyObject {
+    func didSelectContactButton()
+}
 
+final class ContactListView: UIView {
+    weak var delegate: ContactListViewDelegate?
+    
     static let cellSize = CGFloat(82)
 
     private let cellIdentifier = "ContactCellIdentifier"
@@ -80,6 +84,12 @@ extension ContactListView: UITableViewDelegate {
     }
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.didSelectContactButton()
+    }
+}
 
+extension ContactListView: ContactListViewDelegate {
+    func didSelectContactButton() {
+        delegate?.didSelectContactButton()
     }
 }
