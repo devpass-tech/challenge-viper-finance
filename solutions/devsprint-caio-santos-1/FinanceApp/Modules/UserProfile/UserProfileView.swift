@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class UserProfileView: UIView {
+final class UserProfileView: UIView {
 
     private lazy var tableView: UITableView = {
 

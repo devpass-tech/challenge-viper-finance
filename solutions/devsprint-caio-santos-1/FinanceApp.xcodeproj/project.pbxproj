@@ -57,6 +57,12 @@
 		9AB92F4227A8D2ED00A69146 /* TransfersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB92F4127A8D2ED00A69146 /* TransfersRouter.swift */; };
 		9AB92F4427A8D2FC00A69146 /* TransfersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB92F4327A8D2FC00A69146 /* TransfersPresenter.swift */; };
 		9AB92F4627A8D32200A69146 /* TransfersProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB92F4527A8D32200A69146 /* TransfersProtocols.swift */; };
+		F8F7FA0227AAA61E00B32235 /* ContactListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F7FA0127AAA61E00B32235 /* ContactListInteractor.swift */; };
+		F8F7FA0427AAA62900B32235 /* ContactListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F7FA0327AAA62900B32235 /* ContactListPresenter.swift */; };
+		F8F7FA0627AAA63400B32235 /* ContactListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F7FA0527AAA63400B32235 /* ContactListRouter.swift */; };
+		F8F7FA0827AABEB900B32235 /* UserProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F7FA0727AABEB900B32235 /* UserProfileInteractor.swift */; };
+		F8F7FA0A27AABEC700B32235 /* UserProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F7FA0927AABEC700B32235 /* UserProfilePresenter.swift */; };
+		F8F7FA0C27AABED000B32235 /* UserProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F7FA0B27AABED000B32235 /* UserProfileRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +137,12 @@
 		9AB92F4127A8D2ED00A69146 /* TransfersRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransfersRouter.swift; sourceTree = "<group>"; };
 		9AB92F4327A8D2FC00A69146 /* TransfersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransfersPresenter.swift; sourceTree = "<group>"; };
 		9AB92F4527A8D32200A69146 /* TransfersProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransfersProtocols.swift; sourceTree = "<group>"; };
+		F8F7FA0127AAA61E00B32235 /* ContactListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListInteractor.swift; sourceTree = "<group>"; };
+		F8F7FA0327AAA62900B32235 /* ContactListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListPresenter.swift; sourceTree = "<group>"; };
+		F8F7FA0527AAA63400B32235 /* ContactListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListRouter.swift; sourceTree = "<group>"; };
+		F8F7FA0727AABEB900B32235 /* UserProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileInteractor.swift; sourceTree = "<group>"; };
+		F8F7FA0927AABEC700B32235 /* UserProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfilePresenter.swift; sourceTree = "<group>"; };
+		F8F7FA0B27AABED000B32235 /* UserProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,6 +312,9 @@
 			children = (
 				98584ADA277E50430028DBEA /* UserProfileView.swift */,
 				98584ADB277E50430028DBEA /* UserProfileViewController.swift */,
+				F8F7FA0727AABEB900B32235 /* UserProfileInteractor.swift */,
+				F8F7FA0927AABEC700B32235 /* UserProfilePresenter.swift */,
+				F8F7FA0B27AABED000B32235 /* UserProfileRouter.swift */,
 			);
 			path = UserProfile;
 			sourceTree = "<group>";
@@ -350,6 +365,9 @@
 			children = (
 				98584B19277E60740028DBEA /* ContactListView.swift */,
 				98584B1A277E60740028DBEA /* ContactListViewController.swift */,
+				F8F7FA0127AAA61E00B32235 /* ContactListInteractor.swift */,
+				F8F7FA0327AAA62900B32235 /* ContactListPresenter.swift */,
+				F8F7FA0527AAA63400B32235 /* ContactListRouter.swift */,
 			);
 			path = ContactList;
 			sourceTree = "<group>";
@@ -493,6 +511,7 @@
 				9D85B4DE27A99E1E00FA9997 /* HomeInteractor.swift in Sources */,
 				9A7AFC9E27AA069B00B89C12 /* ConfirmationPresenter.swift in Sources */,
 				9AB92F4427A8D2FC00A69146 /* TransfersPresenter.swift in Sources */,
+				F8F7FA0427AAA62900B32235 /* ContactListPresenter.swift in Sources */,
 				9AB92F4627A8D32200A69146 /* TransfersProtocols.swift in Sources */,
 				98584AD0277E4F0A0028DBEA /* SampleProtocols.swift in Sources */,
 				98584B10277E605F0028DBEA /* ActivityDetailsViewController.swift in Sources */,
@@ -507,6 +526,7 @@
 				9A7AFC9A27AA068200B89C12 /* ConfirmationInteractor.swift in Sources */,
 				98584B00277E51BB0028DBEA /* ButtonView.swift in Sources */,
 				98584AE8277E50430028DBEA /* TransfersViewController.swift in Sources */,
+				F8F7FA0227AAA61E00B32235 /* ContactListInteractor.swift in Sources */,
 				98584B14277E605F0028DBEA /* ActivityDetailsView.swift in Sources */,
 				98584AE7277E50430028DBEA /* TransfersView.swift in Sources */,
 				98584AF3277E50430028DBEA /* ConfirmationView.swift in Sources */,
@@ -527,8 +547,12 @@
 				98584AA5277E35E90028DBEA /* HomeViewController.swift in Sources */,
 				98584ACC277E4F0A0028DBEA /* SampleView.swift in Sources */,
 				98426FAA27A6EC8700B09645 /* TabBarController.swift in Sources */,
+				F8F7FA0827AABEB900B32235 /* UserProfileInteractor.swift in Sources */,
 				98584AED277E50430028DBEA /* UserProfileView.swift in Sources */,
+				F8F7FA0A27AABEC700B32235 /* UserProfilePresenter.swift in Sources */,
 				98584ACF277E4F0A0028DBEA /* SamplePresenter.swift in Sources */,
+				F8F7FA0C27AABED000B32235 /* UserProfileRouter.swift in Sources */,
+				F8F7FA0627AAA63400B32235 /* ContactListRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
