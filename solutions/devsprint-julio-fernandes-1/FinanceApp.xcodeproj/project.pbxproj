@@ -41,6 +41,8 @@
 		98584B14277E605F0028DBEA /* ActivityDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584B0E277E605F0028DBEA /* ActivityDetailsView.swift */; };
 		98584B1F277E60740028DBEA /* ContactListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584B19277E60740028DBEA /* ContactListView.swift */; };
 		98584B20277E60740028DBEA /* ContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584B1A277E60740028DBEA /* ContactListViewController.swift */; };
+		BC52C6FF27A9DE3E00ED7703 /* UserProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC52C6FE27A9DE3E00ED7703 /* UserProfilePresenter.swift */; };
+		BC52C70127A9E14200ED7703 /* UserProfileProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC52C70027A9E14200ED7703 /* UserProfileProtocols.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +101,8 @@
 		98584B0E277E605F0028DBEA /* ActivityDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityDetailsView.swift; sourceTree = "<group>"; };
 		98584B19277E60740028DBEA /* ContactListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListView.swift; sourceTree = "<group>"; };
 		98584B1A277E60740028DBEA /* ContactListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListViewController.swift; sourceTree = "<group>"; };
+		BC52C6FE27A9DE3E00ED7703 /* UserProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfilePresenter.swift; sourceTree = "<group>"; };
+		BC52C70027A9E14200ED7703 /* UserProfileProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileProtocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +264,8 @@
 			children = (
 				98584ADA277E50430028DBEA /* UserProfileView.swift */,
 				98584ADB277E50430028DBEA /* UserProfileViewController.swift */,
+				BC52C6FE27A9DE3E00ED7703 /* UserProfilePresenter.swift */,
+				BC52C70027A9E14200ED7703 /* UserProfileProtocols.swift */,
 			);
 			path = UserProfile;
 			sourceTree = "<group>";
@@ -437,12 +443,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				98584AC3277E42E80028DBEA /* FinanceService.swift in Sources */,
+				BC52C6FF27A9DE3E00ED7703 /* UserProfilePresenter.swift in Sources */,
 				98584B04277E51DA0028DBEA /* ContactCellView.swift in Sources */,
 				98584B02277E51CF0028DBEA /* ChooseContactView.swift in Sources */,
 				98584AD0277E4F0A0028DBEA /* SampleProtocols.swift in Sources */,
 				98584B10277E605F0028DBEA /* ActivityDetailsViewController.swift in Sources */,
 				98584AFE277E51A70028DBEA /* ActivityListView.swift in Sources */,
 				98584B20277E60740028DBEA /* ContactListViewController.swift in Sources */,
+				BC52C70127A9E14200ED7703 /* UserProfileProtocols.swift in Sources */,
 				98584AF4277E50430028DBEA /* ConfirmationViewController.swift in Sources */,
 				98584AFC277E51960028DBEA /* ActivityCellView.swift in Sources */,
 				98584AFA277E51850028DBEA /* HomeHeaderView.swift in Sources */,
