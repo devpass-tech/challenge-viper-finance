@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ActivityDetailsView: UIView {
+final class ActivityDetailsView: UIView {
 
     let stackView: UIStackView = {
 
