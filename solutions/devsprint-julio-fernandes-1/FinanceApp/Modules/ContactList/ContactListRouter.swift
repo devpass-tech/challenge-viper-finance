@@ -28,7 +28,4 @@ final class ContactListRouter: ContactListRouterProtocol {
 		return navigationController
 	}
 	
-	func navigateToNewModule() {
-	}
-	
 }

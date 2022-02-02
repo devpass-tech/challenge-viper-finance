@@ -17,7 +17,6 @@ protocol ContactListPresenterProtocol {
 
 protocol ContactListRouterProtocol {
 	static func createModule() -> UINavigationController
-	func navigateToNewModule()
 }
 
 protocol ContactListInteractorProtocol {

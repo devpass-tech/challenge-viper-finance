@@ -34,7 +34,6 @@ final class ContactListViewController: UIViewController {
 extension ContactListViewController: ContactListPresenterDelegate {
 	
 	func showData() {
-		print(#function)
 	}
 
 }
