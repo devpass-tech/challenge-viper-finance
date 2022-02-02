@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ConfirmationView: UIView {
+final class ConfirmationView: UIView {
 
     let stackView: UIStackView = {
 
@@ -78,6 +78,7 @@ class ConfirmationView: UIView {
         ])
     }
 
+    @available (*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
