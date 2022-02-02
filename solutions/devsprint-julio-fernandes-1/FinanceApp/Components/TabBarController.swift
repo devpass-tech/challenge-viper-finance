@@ -10,7 +10,7 @@ import UIKit
 class TabBarController: UITabBarController {
 	
 	override func viewDidLoad() {
-		UITabBar.appearance().backgroundColor = UIColor(red: 0.969, green: 0.969, blue: 0.969, alpha: 1.0)
+		setTabBarColor()
 	}
 
     override func viewWillAppear(_ animated: Bool) {
@@ -27,4 +27,8 @@ class TabBarController: UITabBarController {
 
         self.viewControllers = [homeNavigationController, transfersNavigationController]
     }
+	
+	private func setTabBarColor() {
+		UITabBar.appearance().backgroundColor = UIColor(red: 0.969, green: 0.969, blue: 0.969, alpha: 1.0)
+	}
 }
