@@ -7,9 +7,34 @@
 
 import UIKit
 
-class ContactListViewController: UIViewController {
+final class ContactListViewController: UIViewController {
+	
+	var presenter: ContactListPresenterProtocol
+	
+	init(presenter: ContactListPresenterProtocol) {
+		self.presenter = presenter
+		super.init(nibName: nil, bundle: nil)
+	}
+	
+	@available(*, unavailable)
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+	
+	override func loadView() {
+		self.view = ContactListView()
+	}
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		presenter.viewDidLoad()
+	}
+}
 
-    override func loadView() {
-        self.view = ContactListView()
-    }
+extension ContactListViewController: ContactListPresenterDelegate {
+	
+	func showData() {
+		print(#function)
+	}
+
 }
