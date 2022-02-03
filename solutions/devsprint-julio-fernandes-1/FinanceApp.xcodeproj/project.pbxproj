@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C135B0727AC820800AB010E /* ContactListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C135B0227AC820800AB010E /* ContactListViewControllerTests.swift */; };
+		1C135B0827AC820800AB010E /* ContactListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C135B0327AC820800AB010E /* ContactListInteractorTests.swift */; };
+		1C135B0927AC820800AB010E /* ContactListRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C135B0427AC820800AB010E /* ContactListRouterTests.swift */; };
+		1C135B0A27AC820800AB010E /* ContactListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C135B0527AC820800AB010E /* ContactListPresenterTests.swift */; };
 		1CD45F0F27AA0335007BBB94 /* ConfirmationViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD45F0A27AA0335007BBB94 /* ConfirmationViewControllerTests.swift */; };
 		1CD45F1027AA0335007BBB94 /* ConfirmationInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD45F0B27AA0335007BBB94 /* ConfirmationInteractorTests.swift */; };
 		1CD45F1127AA0335007BBB94 /* ConfirmationRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD45F0C27AA0335007BBB94 /* ConfirmationRouterTests.swift */; };
@@ -80,6 +84,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C135B0227AC820800AB010E /* ContactListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListViewControllerTests.swift; sourceTree = "<group>"; };
+		1C135B0327AC820800AB010E /* ContactListInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListInteractorTests.swift; sourceTree = "<group>"; };
+		1C135B0427AC820800AB010E /* ContactListRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListRouterTests.swift; sourceTree = "<group>"; };
+		1C135B0527AC820800AB010E /* ContactListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListPresenterTests.swift; sourceTree = "<group>"; };
 		1CD45F0A27AA0335007BBB94 /* ConfirmationViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationViewControllerTests.swift; sourceTree = "<group>"; };
 		1CD45F0B27AA0335007BBB94 /* ConfirmationInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationInteractorTests.swift; sourceTree = "<group>"; };
 		1CD45F0C27AA0335007BBB94 /* ConfirmationRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationRouterTests.swift; sourceTree = "<group>"; };
@@ -164,9 +172,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C135B0127AC819800AB010E /* ContactList */ = {
+			isa = PBXGroup;
+			children = (
+				1C135B0227AC820800AB010E /* ContactListViewControllerTests.swift */,
+				1C135B0327AC820800AB010E /* ContactListInteractorTests.swift */,
+				1C135B0427AC820800AB010E /* ContactListRouterTests.swift */,
+				1C135B0527AC820800AB010E /* ContactListPresenterTests.swift */,
+			);
+			path = ContactList;
+			sourceTree = "<group>";
+		};
 		1CD45F0227AA02A4007BBB94 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				1C135B0127AC819800AB010E /* ContactList */,
 				1CFAA9A727AA191C003CEF2F /* UserProfile */,
 				1CD45F0327AA02B6007BBB94 /* Confirmation */,
 			);
@@ -565,6 +585,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C135B0927AC820800AB010E /* ContactListRouterTests.swift in Sources */,
 				1CD45F1127AA0335007BBB94 /* ConfirmationRouterTests.swift in Sources */,
 				1CFAA9AF27AA192F003CEF2F /* UserProfileRouterTests.swift in Sources */,
 				1CD45F1027AA0335007BBB94 /* ConfirmationInteractorTests.swift in Sources */,
@@ -573,6 +594,9 @@
 				1CFAA9B027AA192F003CEF2F /* UserProfilePresenterTests.swift in Sources */,
 				1CFAA9AE27AA192F003CEF2F /* UserProfileInteractorTests.swift in Sources */,
 				1CD45F0F27AA0335007BBB94 /* ConfirmationViewControllerTests.swift in Sources */,
+				1C135B0A27AC820800AB010E /* ContactListPresenterTests.swift in Sources */,
+				1C135B0827AC820800AB010E /* ContactListInteractorTests.swift in Sources */,
+				1C135B0727AC820800AB010E /* ContactListViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
