@@ -1,0 +1,7 @@
+@testable import ___VARIABLE_sdkName___
+
+typealias ___VARIABLE_moduleName___RouterProtocolDummy = ___VARIABLE_moduleName___RouterProtocolSpy
+
+final class ___VARIABLE_moduleName___RouterProtocolSpy: ___VARIABLE_moduleName___RouterProtocol {
+
+}
