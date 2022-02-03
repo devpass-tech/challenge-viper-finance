@@ -7,7 +7,7 @@
 
 import Foundation
 protocol ConfirmationPresenterDelegate: AnyObject {
-    func showData()
+    func showData(confirmation: Confirmation)
 }
 
 final class ConfirmationPresenter: ConfirmationPresenterProtocol {
@@ -28,7 +28,7 @@ final class ConfirmationPresenter: ConfirmationPresenterProtocol {
 
 extension ConfirmationPresenter: ConfirmationInteractorDelegate {
 
-    func didFetchData() {
-        view?.showData()
+    func didFetchData(confirmation: Confirmation) {
+        view?.showData(confirmation: confirmation)
     }
 }

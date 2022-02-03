@@ -9,6 +9,7 @@ import UIKit
 
 final class ConfirmationViewController: UIViewController {
     var presenter: ConfirmationPresenterProtocol
+    private let confirmationView: ConfirmationView = ConfirmationView(state: .loading)
 
     init(presenter: ConfirmationPresenterProtocol) {
         self.presenter = presenter
@@ -26,13 +27,13 @@ final class ConfirmationViewController: UIViewController {
     }
 
     override func loadView() {
-        self.view = ConfirmationView()
+        self.view = self.confirmationView
     }
 }
 
 extension ConfirmationViewController: ConfirmationPresenterDelegate {
 
-    func showData() {
-        print("Here is your data, View!")
+    func showData(confirmation: Confirmation) {
+        self.confirmationView.state = .loaded(confirmation)
     }
 }
