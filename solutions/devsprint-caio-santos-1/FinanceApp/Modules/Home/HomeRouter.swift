@@ -21,5 +21,7 @@ final class HomeRouter: HomeRouterProtocol {
         return viewController
     }
     
-    func navigateToNewModule() { }
+    func pushToActivityDetails(navigation: UINavigationController) {
+        navigation.pushViewController(ActivityDetailsRouter.createModule(), animated: true)
+    }
 }

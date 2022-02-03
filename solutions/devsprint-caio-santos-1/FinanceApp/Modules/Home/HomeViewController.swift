@@ -33,10 +33,9 @@ final class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: HomeViewDelegate {
-
     func didSelectActivity() {
-        let activityDetailsViewController = ActivityDetailsRouter.createModule()
-        self.navigationController?.pushViewController(activityDetailsViewController, animated: true)
+        guard let navigation = self.navigationController else { return }
+        presenter?.pushToActivityDetails(navigation: navigation)
     }
 }
 

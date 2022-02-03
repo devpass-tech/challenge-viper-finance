@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol HomePresenterDelegate: AnyObject {
     func showData()
@@ -18,6 +19,10 @@ final class HomePresenter: HomePresenterProtocol {
     
     func viewDidLoad() {
         interactor?.didFetchData()
+    }
+    
+    func pushToActivityDetails(navigation: UINavigationController) {
+        router?.pushToActivityDetails(navigation: navigation)
     }
 }
 
