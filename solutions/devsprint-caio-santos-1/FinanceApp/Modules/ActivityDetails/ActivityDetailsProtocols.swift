@@ -14,14 +14,16 @@ protocol ActivityDetailsPresenterProtocol {
     var router: ActivityDetailsRouterProtocol? { get set }
     
     func viewDidLoad()
+    func reportIssue()
+    func alert(title: String, message: String, viewController: UIViewController)
 }
 
 protocol ActivityDetailsRouterProtocol {
     static func createModule() -> UIViewController
-    func navigateToNewModule()
 }
 
 protocol ActivityDetailsInteractorProtocol {
     var presenter: ActivityDetailsInteractorDelegate? { get set }
     func fetchData()
+    func reportIssue()
 }

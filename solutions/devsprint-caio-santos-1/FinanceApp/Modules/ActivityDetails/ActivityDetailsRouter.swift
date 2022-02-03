@@ -22,6 +22,4 @@ final class ActivityDetailsRouter: ActivityDetailsRouterProtocol {
         
         return viewController
     }
-    
-    func navigateToNewModule() { }
 }

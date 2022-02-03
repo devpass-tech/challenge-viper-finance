@@ -5,10 +5,11 @@
 //  Created by Douglas Cardoso Ferreira on 31/01/22.
 //
 
-import Foundation
+import UIKit
 
 protocol ActivityDetailsInteractorDelegate: AnyObject {
     func didFetchData()
+    func didReportIssue()
 }
 
 final class ActivityDetailsInteractor: ActivityDetailsInteractorProtocol {
@@ -17,5 +18,9 @@ final class ActivityDetailsInteractor: ActivityDetailsInteractorProtocol {
     
     func fetchData() {
         presenter?.didFetchData()
+    }
+    
+    func reportIssue() {
+        presenter?.didReportIssue()
     }
 }
