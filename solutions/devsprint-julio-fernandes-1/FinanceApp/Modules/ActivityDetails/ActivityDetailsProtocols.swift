@@ -4,7 +4,6 @@
 //
 //  Created by Sara Batista dos Santos Felix (P) on 01/02/22.
 //
-
 import UIKit
 
 protocol ActivityDetailsPresenterProtocol {
@@ -18,7 +17,7 @@ protocol ActivityDetailsPresenterProtocol {
 
 protocol ActivityDetailsRouterProtocol {
     
-    static func createModule() -> UINavigationController
+    static func createModule() -> UIViewController
     
     func navigateToNewModule()
 }
