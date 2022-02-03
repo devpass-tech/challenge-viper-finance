@@ -11,7 +11,7 @@ protocol ActivityDetailsInteractorDelegate: AnyObject {
     func didFetchData()
 }
 
-class ActivityDetailsInteractor: ActivityDetailsInteractorProtocol {
+final class ActivityDetailsInteractor: ActivityDetailsInteractorProtocol {
     
     weak var presenter: ActivityDetailsInteractorDelegate?
     

@@ -6,7 +6,7 @@
 //
 import UIKit
 
-class ActivityDetailsRouter: ActivityDetailsRouterProtocol {
+final class ActivityDetailsRouter: ActivityDetailsRouterProtocol {
     
     static func createModule() -> UIViewController {
         
@@ -17,9 +17,5 @@ class ActivityDetailsRouter: ActivityDetailsRouterProtocol {
         viewController.presenter?.interactor = ActivityDetailsInteractor()
         viewController.presenter?.interactor?.presenter = presenter
         return viewController
-    }
-    
-    func navigateToNewModule() {
-        
     }
 }

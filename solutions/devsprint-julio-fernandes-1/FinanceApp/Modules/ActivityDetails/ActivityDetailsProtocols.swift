@@ -18,8 +18,6 @@ protocol ActivityDetailsPresenterProtocol {
 protocol ActivityDetailsRouterProtocol {
     
     static func createModule() -> UIViewController
-    
-    func navigateToNewModule()
 }
 
 protocol ActivityDetailsInteractorProtocol {
