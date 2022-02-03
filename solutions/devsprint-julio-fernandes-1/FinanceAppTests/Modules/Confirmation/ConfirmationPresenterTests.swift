@@ -10,9 +10,10 @@ import XCTest
 
 final class ConfirmationPresenterTests: XCTestCase {
 
-    private lazy var sut = ConfirmationPresenter()
     private let interactorSpy = ConfirmationInteractorProtocolSpy()
     private let viewContollerSpy = ConfirmationPresenterDelegateSpy()
+    private let routerSpy = ConfirmationRouterProtocolSpy()
+    private lazy var sut = ConfirmationPresenter(interactor: interactorSpy, router: routerSpy)
 
     override func setUp() {
         super.setUp()
@@ -49,4 +50,10 @@ final class ConfirmationInteractorProtocolSpy: ConfirmationInteractorProtocol {
         fetchDataCalled = true
     }
 
+}
+
+final class ConfirmationRouterProtocolSpy: ConfirmationRouterProtocol {
+    static func createModule() -> UINavigationController {
+        return UINavigationController()
+    }
 }

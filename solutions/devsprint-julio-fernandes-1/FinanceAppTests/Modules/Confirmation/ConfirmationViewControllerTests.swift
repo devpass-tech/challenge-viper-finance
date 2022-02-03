@@ -10,8 +10,10 @@ import XCTest
 
 final class ConfirmationViewControllerTests: XCTestCase {
 
-    private let presenterSpy = ConfirmationPresenterProtocolSpy()
-    private lazy var sut = ConfirmationViewController()
+    private let interactorSpy = ConfirmationInteractorProtocolSpy()
+    private let routerSpy = ConfirmationRouterProtocolSpy()
+    private lazy var presenterSpy = ConfirmationPresenterProtocolSpy(interactor: interactorSpy, router: routerSpy)
+    private lazy var sut = ConfirmationViewController(presenter: presenterSpy)
 
     override func setUp() {
         super.setUp()
@@ -31,10 +33,14 @@ final class ConfirmationViewControllerTests: XCTestCase {
 }
 
 final class ConfirmationPresenterProtocolSpy: ConfirmationPresenterProtocol {
-
     var view: ConfirmationPresenterDelegate?
-    var interactor: ConfirmationInteractorProtocol?
-    var router: ConfirmationRouterProtocol?
+    var interactor: ConfirmationInteractorProtocol
+    var router: ConfirmationRouterProtocol
+
+    init(interactor: ConfirmationInteractorProtocol, router: ConfirmationRouterProtocol) {
+        self.interactor = interactor
+        self.router = router
+    }
 
     private(set) var viewDidLoadCalled = false
     func viewDidLoad() {

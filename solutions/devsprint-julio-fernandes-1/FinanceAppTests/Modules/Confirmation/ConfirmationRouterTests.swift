@@ -14,11 +14,9 @@ final class ConfirmationRouterTests: XCTestCase {
         let navigation = ConfirmationRouter.createModule()
         let controller: ConfirmationViewController? = navigation.viewControllers.first as? ConfirmationViewController
         let presenter: ConfirmationPresenterProtocol? = controller?.presenter
-        let interactor: ConfirmationInteractorProtocol? = controller?.presenter?.interactor
 
         XCTAssertEqual(navigation.viewControllers.count, 1)
         XCTAssertNotNil(controller)
         XCTAssertNotNil(presenter)
-        XCTAssertNotNil(interactor)
     }
 }
