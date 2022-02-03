@@ -33,21 +33,19 @@ extension TransfersViewController: TransfersPresenterDelegate {
     
     func showData() {
         
-        print("Here is your data, View!")
+        print("Here is your data, Transfers View!")
     }
 }
 
 extension TransfersViewController: TransferViewDelegate {
 
     func didPressChooseContactButton() {
-
-        let navigationController = ContactListRouter.createModule()
-        self.present(navigationController, animated: true)
+        guard let navigationController = self.navigationController else { return }
+        presenter?.navigateToContactList(navigationController: navigationController)
     }
 
     func didPressTransferButton() {
-
-        let navigationController = ConfirmationRounter.createModule()
-        self.present(navigationController, animated: true)
+        guard let navigationController = self.navigationController else { return }
+        presenter?.navigateToConfirmation(navigationController: navigationController)
     }
 }

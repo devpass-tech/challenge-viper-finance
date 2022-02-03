@@ -26,6 +26,6 @@ extension ConfirmationViewController: ConfirmationPresenterDelegate {
     
     func showData() {
         
-        print("Here is your data, View!")
+        print("Here is your data, Confirmation View!")
     }
 }
