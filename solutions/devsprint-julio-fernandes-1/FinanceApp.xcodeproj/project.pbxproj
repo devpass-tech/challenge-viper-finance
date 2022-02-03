@@ -7,13 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1CD45F0F27AA0335007BBB94 /* ConfirmationViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD45F0A27AA0335007BBB94 /* ConfirmationViewControllerTests.swift */; };
+		1CD45F1027AA0335007BBB94 /* ConfirmationInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD45F0B27AA0335007BBB94 /* ConfirmationInteractorTests.swift */; };
+		1CD45F1127AA0335007BBB94 /* ConfirmationRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD45F0C27AA0335007BBB94 /* ConfirmationRouterTests.swift */; };
+		1CD45F1227AA0335007BBB94 /* ConfirmationPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD45F0D27AA0335007BBB94 /* ConfirmationPresenterTests.swift */; };
+		1CFAA9AD27AA192F003CEF2F /* UserProfileViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAA9A827AA192F003CEF2F /* UserProfileViewControllerTests.swift */; };
+		1CFAA9AE27AA192F003CEF2F /* UserProfileInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAA9A927AA192F003CEF2F /* UserProfileInteractorTests.swift */; };
+		1CFAA9AF27AA192F003CEF2F /* UserProfileRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAA9AA27AA192F003CEF2F /* UserProfileRouterTests.swift */; };
+		1CFAA9B027AA192F003CEF2F /* UserProfilePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAA9AB27AA192F003CEF2F /* UserProfilePresenterTests.swift */; };
 		98426FAA27A6EC8700B09645 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FA927A6EC8700B09645 /* TabBarController.swift */; };
 		98426FAC27A6FC8000B09645 /* UserProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */; };
 		98584A6D277E32C30028DBEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584A6C277E32C30028DBEA /* AppDelegate.swift */; };
 		98584A6F277E32C30028DBEA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584A6E277E32C30028DBEA /* SceneDelegate.swift */; };
 		98584A76277E32C50028DBEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98584A75277E32C50028DBEA /* Assets.xcassets */; };
 		98584A79277E32C50028DBEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98584A77277E32C50028DBEA /* LaunchScreen.storyboard */; };
-		98584A84277E32C60028DBEA /* FinanceAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584A83277E32C60028DBEA /* FinanceAppTests.swift */; };
 		98584A8E277E32C60028DBEA /* FinanceAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584A8D277E32C60028DBEA /* FinanceAppUITests.swift */; };
 		98584A90277E32C60028DBEA /* FinanceAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584A8F277E32C60028DBEA /* FinanceAppUITestsLaunchTests.swift */; };
 		98584AA5277E35E90028DBEA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584AA4277E35E90028DBEA /* HomeViewController.swift */; };
@@ -73,6 +80,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1CD45F0A27AA0335007BBB94 /* ConfirmationViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationViewControllerTests.swift; sourceTree = "<group>"; };
+		1CD45F0B27AA0335007BBB94 /* ConfirmationInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationInteractorTests.swift; sourceTree = "<group>"; };
+		1CD45F0C27AA0335007BBB94 /* ConfirmationRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationRouterTests.swift; sourceTree = "<group>"; };
+		1CD45F0D27AA0335007BBB94 /* ConfirmationPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationPresenterTests.swift; sourceTree = "<group>"; };
+		1CFAA9A827AA192F003CEF2F /* UserProfileViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewControllerTests.swift; sourceTree = "<group>"; };
+		1CFAA9A927AA192F003CEF2F /* UserProfileInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileInteractorTests.swift; sourceTree = "<group>"; };
+		1CFAA9AA27AA192F003CEF2F /* UserProfileRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileRouterTests.swift; sourceTree = "<group>"; };
+		1CFAA9AB27AA192F003CEF2F /* UserProfilePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfilePresenterTests.swift; sourceTree = "<group>"; };
 		98426FA927A6EC8700B09645 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeaderView.swift; sourceTree = "<group>"; };
 		98584A69277E32C30028DBEA /* FinanceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinanceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,7 +97,6 @@
 		98584A78277E32C50028DBEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		98584A7A277E32C50028DBEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98584A7F277E32C60028DBEA /* FinanceAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinanceAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		98584A83277E32C60028DBEA /* FinanceAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceAppTests.swift; sourceTree = "<group>"; };
 		98584A89277E32C60028DBEA /* FinanceAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinanceAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		98584A8D277E32C60028DBEA /* FinanceAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceAppUITests.swift; sourceTree = "<group>"; };
 		98584A8F277E32C60028DBEA /* FinanceAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -150,6 +164,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1CD45F0227AA02A4007BBB94 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				1CFAA9A727AA191C003CEF2F /* UserProfile */,
+				1CD45F0327AA02B6007BBB94 /* Confirmation */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		1CD45F0327AA02B6007BBB94 /* Confirmation */ = {
+			isa = PBXGroup;
+			children = (
+				1CD45F0A27AA0335007BBB94 /* ConfirmationViewControllerTests.swift */,
+				1CD45F0B27AA0335007BBB94 /* ConfirmationInteractorTests.swift */,
+				1CD45F0C27AA0335007BBB94 /* ConfirmationRouterTests.swift */,
+				1CD45F0D27AA0335007BBB94 /* ConfirmationPresenterTests.swift */,
+			);
+			path = Confirmation;
+			sourceTree = "<group>";
+		};
+		1CFAA9A727AA191C003CEF2F /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				1CFAA9A827AA192F003CEF2F /* UserProfileViewControllerTests.swift */,
+				1CFAA9A927AA192F003CEF2F /* UserProfileInteractorTests.swift */,
+				1CFAA9AA27AA192F003CEF2F /* UserProfileRouterTests.swift */,
+				1CFAA9AB27AA192F003CEF2F /* UserProfilePresenterTests.swift */,
+			);
+			path = UserProfile;
+			sourceTree = "<group>";
+		};
 		98584A60277E32C30028DBEA = {
 			isa = PBXGroup;
 			children = (
@@ -185,7 +230,7 @@
 		98584A82277E32C60028DBEA /* FinanceAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				98584A83277E32C60028DBEA /* FinanceAppTests.swift */,
+				1CD45F0227AA02A4007BBB94 /* Modules */,
 			);
 			path = FinanceAppTests;
 			sourceTree = "<group>";
@@ -520,7 +565,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98584A84277E32C60028DBEA /* FinanceAppTests.swift in Sources */,
+				1CD45F1127AA0335007BBB94 /* ConfirmationRouterTests.swift in Sources */,
+				1CFAA9AF27AA192F003CEF2F /* UserProfileRouterTests.swift in Sources */,
+				1CD45F1027AA0335007BBB94 /* ConfirmationInteractorTests.swift in Sources */,
+				1CFAA9AD27AA192F003CEF2F /* UserProfileViewControllerTests.swift in Sources */,
+				1CD45F1227AA0335007BBB94 /* ConfirmationPresenterTests.swift in Sources */,
+				1CFAA9B027AA192F003CEF2F /* UserProfilePresenterTests.swift in Sources */,
+				1CFAA9AE27AA192F003CEF2F /* UserProfileInteractorTests.swift in Sources */,
+				1CD45F0F27AA0335007BBB94 /* ConfirmationViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
