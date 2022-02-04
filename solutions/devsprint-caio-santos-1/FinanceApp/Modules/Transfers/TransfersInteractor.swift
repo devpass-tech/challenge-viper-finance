@@ -10,6 +10,7 @@ import Foundation
 protocol TransfersInteractorDelegate: AnyObject {
     
     func didFetchData()
+    func didCreateTransfer(status: Bool)
 }
 
 final class TransfersInteractor: TransfersInteractorProtocol {
@@ -19,5 +20,13 @@ final class TransfersInteractor: TransfersInteractorProtocol {
     func fetchData() {
         
         presenter?.didFetchData()
+    }
+    
+    func createTransfer(value: Float) {
+        if value <= 100.0 {
+            presenter?.didCreateTransfer(status: true)
+        } else {
+            presenter?.didCreateTransfer(status: false)
+        }
     }
 }

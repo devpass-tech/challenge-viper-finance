@@ -19,8 +19,7 @@ protocol ConfirmationPresenterProtocol {
 
 protocol ConfirmationRouterProtocol {
     
-    static func createModule() -> UINavigationController
-    func navigateToNewModule()
+    static func createModule(statusTransfer: Bool) -> UINavigationController
 }
 
 protocol ConfirmationInteractorProtocol {

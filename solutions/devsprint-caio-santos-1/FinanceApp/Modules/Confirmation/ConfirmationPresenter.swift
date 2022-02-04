@@ -17,6 +17,7 @@ final class ConfirmationPresenter: ConfirmationPresenterProtocol {
     weak var view: ConfirmationPresenterDelegate?
     var interactor: ConfirmationInteractorProtocol?
     var router: ConfirmationRouterProtocol?
+    var statusTransfer: Bool?
     
     func viewDidLoad() {
         

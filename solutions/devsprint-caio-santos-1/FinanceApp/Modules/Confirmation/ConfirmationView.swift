@@ -8,8 +8,14 @@
 import Foundation
 import UIKit
 
-final class ConfirmationView: UIView {
+protocol ConfirmationViewDelegate: AnyObject {
+    func didPressConfirmationButton()
+}
 
+final class ConfirmationView: UIView {
+    
+    weak var delegate: ConfirmationViewDelegate?
+    
     let stackView: UIStackView = {
 
         let stackView = UIStackView()
@@ -26,14 +32,12 @@ final class ConfirmationView: UIView {
         imageView.image = UIImage(named: "checkmark.circle.fill")
         imageView.layer.cornerRadius = 50
         imageView.clipsToBounds = true
-        imageView.tintColor = .systemGreen
         return imageView
     }()
 
     let confirmationLabel: UILabel = {
 
         let label = UILabel()
-        label.text = "Your transfer was successful"
         label.font = UIFont.boldSystemFont(ofSize: 17)
         label.textAlignment = .center
         return label
@@ -43,7 +47,6 @@ final class ConfirmationView: UIView {
 
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Nice!", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 14
@@ -51,9 +54,20 @@ final class ConfirmationView: UIView {
     }()
 
 
-    init() {
+    init(isTransferSuccess: Bool) {
+       
+        if isTransferSuccess {
+            confirmationImageView.tintColor = .systemGreen
+            confirmationLabel.text = "Your Transfer was successful"
+            confirmationButton.setTitle("Nice!", for: .normal)
+        } else {
+            confirmationImageView.tintColor = .systemRed
+            confirmationLabel.text = "Your Transfer was failed"
+            confirmationButton.setTitle("Ok!", for: .normal)
+        }
+        
         super.init(frame: .zero)
-
+        
         backgroundColor = .white
 
         stackView.addArrangedSubview(confirmationImageView)
@@ -76,6 +90,11 @@ final class ConfirmationView: UIView {
             confirmationButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
             confirmationButton.heightAnchor.constraint(equalToConstant: 56)
         ])
+    }
+    
+    @objc
+    func didTouchConfirmationButton() {
+        delegate?.didPressConfirmationButton()
     }
 
     required init?(coder: NSCoder) {

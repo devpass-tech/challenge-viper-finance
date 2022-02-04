@@ -10,6 +10,7 @@ import UIKit
 final class ConfirmationViewController: UIViewController {
     
     var presenter: ConfirmationPresenterProtocol?
+    var isTransferSuccess: Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +19,13 @@ final class ConfirmationViewController: UIViewController {
     }
 
     override func loadView() {
-        self.view = ConfirmationView()
+        self.view = ConfirmationView(isTransferSuccess: isTransferSuccess ?? false)
+    }
+}
+
+extension ConfirmationViewController: ConfirmationViewDelegate {
+    func didPressConfirmationButton() {
+        
     }
 }
 
