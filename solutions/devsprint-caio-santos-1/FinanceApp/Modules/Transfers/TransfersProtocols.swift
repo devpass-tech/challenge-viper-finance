@@ -15,12 +15,15 @@ protocol TransfersPresenterProtocol {
     var router: TransfersRouterProtocol? { get set }
     
     func viewDidLoad()
+    func navigateToContactList(navigationController: UINavigationController)
+    func navigateToConfirmation(navigationController: UINavigationController)
 }
 
 protocol TransfersRouterProtocol {
     
     static func createModule() -> UINavigationController
-    func navigateToNewModule()
+    func navigateToContactList(navigationController: UINavigationController)
+    func navigateToConfirmation(navigationController: UINavigationController)
 }
 
 protocol TransfersInteractorProtocol {

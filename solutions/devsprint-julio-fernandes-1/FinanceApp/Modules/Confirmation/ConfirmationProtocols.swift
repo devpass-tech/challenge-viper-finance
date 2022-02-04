@@ -10,8 +10,8 @@ import UIKit
 
 protocol ConfirmationPresenterProtocol {
     var view: ConfirmationPresenterDelegate? { get set }
-    var interactor: ConfirmationInteractorProtocol? { get set }
-    var router: ConfirmationRouterProtocol? { get set }
+    var interactor: ConfirmationInteractorProtocol { get set }
+    var router: ConfirmationRouterProtocol { get set }
 
     func viewDidLoad()
 }

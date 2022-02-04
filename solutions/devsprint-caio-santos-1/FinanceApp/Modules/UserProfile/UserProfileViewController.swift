@@ -7,9 +7,26 @@
 
 import UIKit
 
-class UserProfileViewController: UIViewController {
+final class UserProfileViewController: UIViewController {
+    var presenter: UserProfilePresenterProtocol?
+    
+    lazy var userProfileView: UserProfileView = {
+        let userProfileView = UserProfileView()
+        return userProfileView
+    }()
 
     override func loadView() {
-        self.view = UserProfileView()
+        self.view = userProfileView
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        presenter?.viewDidLoad()
+    }
+}
+
+extension UserProfileViewController: UserProfilePresenterDelegate {
+    func showData() {
+        print("Here is your data, User Profile View!")
     }
 }

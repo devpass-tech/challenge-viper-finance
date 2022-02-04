@@ -13,11 +13,16 @@ protocol ConfirmationPresenterDelegate: AnyObject {
 final class ConfirmationPresenter: ConfirmationPresenterProtocol {
 
     weak var view: ConfirmationPresenterDelegate?
-    var interactor: ConfirmationInteractorProtocol?
-    var router: ConfirmationRouterProtocol?
+    var interactor: ConfirmationInteractorProtocol
+    var router: ConfirmationRouterProtocol
+
+    init(interactor: ConfirmationInteractorProtocol, router: ConfirmationRouterProtocol) {
+        self.interactor = interactor
+        self.router = router
+    }
 
     func viewDidLoad() {
-        interactor?.fetchData()
+        interactor.fetchData()
     }
 }
 

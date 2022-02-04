@@ -8,20 +8,25 @@
 import Foundation
 import UIKit
 
+typealias ConfirmationInterable = ConfirmationPresenterProtocol & ConfirmationInteractorDelegate
+
 final class ConfirmationRouter: ConfirmationRouterProtocol {
 
     static func createModule() -> UINavigationController {
+        let interactor: ConfirmationInteractorProtocol = ConfirmationInteractor()
+        let router: ConfirmationRouterProtocol = ConfirmationRouter()
 
-        let viewController = ConfirmationViewController()
+        let presenter: ConfirmationInterable = ConfirmationPresenter(
+            interactor: interactor,
+            router: router
+        )
+
+        let viewController = ConfirmationViewController(presenter: presenter)
         let navigationController = UINavigationController(rootViewController: viewController)
 
-        let presenter: ConfirmationPresenterProtocol & ConfirmationInteractorDelegate = ConfirmationPresenter()
+        viewController.presenter.view = viewController
+        viewController.presenter.interactor.presenter = presenter
 
-        viewController.presenter = presenter
-        viewController.presenter?.router = ConfirmationRouter()
-        viewController.presenter?.view = viewController
-        viewController.presenter?.interactor = ConfirmationInteractor()
-        viewController.presenter?.interactor?.presenter = presenter
         return navigationController
     }
 

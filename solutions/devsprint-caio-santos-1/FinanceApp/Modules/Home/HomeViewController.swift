@@ -27,7 +27,7 @@ final class HomeViewController: UIViewController {
 
     @objc
     func openProfile() {
-        let navigationController: UINavigationController = UINavigationController(rootViewController: UserProfileViewController())
+        let navigationController = UserProfileRouter.createModule()
         self.present(navigationController, animated: true)
     }
 }
