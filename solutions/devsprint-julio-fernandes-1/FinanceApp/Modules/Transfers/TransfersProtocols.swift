@@ -20,10 +20,8 @@ protocol TransfersInteractorProtocol {
 	func fetchData()
 }
 
-
 protocol TransfersRouterProtocol {
 	static func createModule() -> UIViewController
 	func navigateToContactList()
 	func navigateToConfirmation()
 }
-

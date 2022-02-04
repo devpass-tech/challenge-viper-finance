@@ -9,7 +9,7 @@ import UIKit
 
 final class TransfersViewController: UIViewController {
 	
-	var presenter: TransfersPresenterProtocol
+	private var presenter: TransfersPresenterProtocol
 	
 	lazy var transferView: TransfersView = {
 		
@@ -29,7 +29,6 @@ final class TransfersViewController: UIViewController {
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
-	
 	
 	override func loadView() {
 		self.view = transferView

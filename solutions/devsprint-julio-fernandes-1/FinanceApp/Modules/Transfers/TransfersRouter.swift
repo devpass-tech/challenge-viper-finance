@@ -16,16 +16,15 @@ final class TransfersRouter: TransfersRouterProtocol {
 	static func createModule() -> UIViewController {
 		let interactor = TransfersInteractor()
 		let router = TransfersRouter()
-		let presenter: TransfersInterable = TransfersPresenter(
+		var presenter: TransfersInterable = TransfersPresenter(
 			interactor: interactor,
 			router: router
 		)
 		let viewController = TransfersViewController(presenter: presenter)
 		
 		router.viewController = viewController
-		
-		viewController.presenter.view = viewController
-		viewController.presenter.interactor.presenter = presenter
+		presenter.view = viewController
+		presenter.interactor.presenter = presenter
 		
 		return viewController
 	}
