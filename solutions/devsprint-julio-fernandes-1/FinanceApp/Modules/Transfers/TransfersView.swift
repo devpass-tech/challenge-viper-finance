@@ -14,7 +14,7 @@ protocol TransferViewDelegate: AnyObject {
     func didPressTransferButton()
 }
 
-class TransfersView: UIView {
+final class TransfersView: UIView {
 
     weak var delegate: TransferViewDelegate?
 
@@ -94,6 +94,7 @@ class TransfersView: UIView {
         delegate?.didPressTransferButton()
     }
 
+	 @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
