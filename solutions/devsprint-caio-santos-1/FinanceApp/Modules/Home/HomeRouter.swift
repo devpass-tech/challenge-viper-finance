@@ -21,6 +21,10 @@ final class HomeRouter: HomeRouterProtocol {
         return viewController
     }
     
+    func pushToUserProfile(navigation: UINavigationController) {
+        navigation.present(UserProfileRouter.createModule(), animated: true)
+    }
+    
     func pushToActivityDetails(navigation: UINavigationController) {
         navigation.pushViewController(ActivityDetailsRouter.createModule(), animated: true)
     }

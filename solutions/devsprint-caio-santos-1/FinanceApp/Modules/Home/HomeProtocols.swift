@@ -14,6 +14,7 @@ protocol HomeInteractorProtocol {
 
 protocol HomeRouterProtocol {
     static func createModule() -> UIViewController
+    func pushToUserProfile(navigation: UINavigationController)
     func pushToActivityDetails(navigation: UINavigationController)
 }
 
@@ -23,5 +24,6 @@ protocol HomePresenterProtocol {
     var router: HomeRouterProtocol? { get set }
     
     func viewDidLoad()
+    func pushToUserProfile(navigation: UINavigationController)
     func pushToActivityDetails(navigation: UINavigationController)
 }
