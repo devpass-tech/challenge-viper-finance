@@ -14,7 +14,9 @@ final class ConfirmationRounter: ConfirmationRouterProtocol {
         let viewController = ConfirmationViewController()
         let navigationController = UINavigationController(rootViewController: viewController)
         let presenter: ConfirmationPresenterProtocol & ConfirmationInteractorDelegate = ConfirmationPresenter()
-        viewController.isTransferSuccess = statusTransfer
+        if let confirmationPresenter = presenter as? ConfirmationPresenter {
+            confirmationPresenter.statusTransfer = statusTransfer
+        }
         viewController.presenter = presenter
         viewController.presenter?.router = ConfirmationRounter()
         viewController.presenter?.view = viewController

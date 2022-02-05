@@ -6,10 +6,10 @@
 //
 
 import Foundation
+import UIKit
 
 protocol ConfirmationPresenterDelegate: AnyObject {
     
-    func showData()
 }
 
 final class ConfirmationPresenter: ConfirmationPresenterProtocol {
@@ -20,15 +20,23 @@ final class ConfirmationPresenter: ConfirmationPresenterProtocol {
     var statusTransfer: Bool?
     
     func viewDidLoad() {
-        
-        interactor?.fetchData()
+        //get data
     }
+    
+    func getText() -> String {
+        statusTransfer ?? false ? "Your transfer was successful" : "Your transfer was failed"
+    }
+    
+    func getColorIcon() -> UIColor {
+        statusTransfer ?? false ? .systemGreen : .systemRed
+    }
+    
+    func getButtonTitle() -> String {
+        statusTransfer ?? false ? "Nice!" : "OK"
+    }
+   
 }
 
 extension ConfirmationPresenter: ConfirmationInteractorDelegate {
     
-    func didFetchData() {
-        
-        view?.showData()
-    }
 }

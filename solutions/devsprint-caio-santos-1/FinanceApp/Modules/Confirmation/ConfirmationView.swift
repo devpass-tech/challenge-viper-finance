@@ -8,13 +8,10 @@
 import Foundation
 import UIKit
 
-protocol ConfirmationViewDelegate: AnyObject {
-    func didPressConfirmationButton()
-}
-
 final class ConfirmationView: UIView {
     
-    weak var delegate: ConfirmationViewDelegate?
+
+    var viewController: ConfirmationViewControllerProtocol?
     
     let stackView: UIStackView = {
 
@@ -49,26 +46,23 @@ final class ConfirmationView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .systemBlue
+        button.setTitle("BUTTON", for: .normal)
         button.layer.cornerRadius = 14
+        button.addTarget(self, action: #selector(didTouchConfirmationButton), for: .touchUpInside)
         return button
     }()
 
 
-    init(isTransferSuccess: Bool) {
-       
-        if isTransferSuccess {
-            confirmationImageView.tintColor = .systemGreen
-            confirmationLabel.text = "Your Transfer was successful"
-            confirmationButton.setTitle("Nice!", for: .normal)
-        } else {
-            confirmationImageView.tintColor = .systemRed
-            confirmationLabel.text = "Your Transfer was failed"
-            confirmationButton.setTitle("Ok!", for: .normal)
-        }
-        
+    init(viewController: ConfirmationViewControllerProtocol) {
         super.init(frame: .zero)
         
         backgroundColor = .white
+        
+        self.viewController = viewController
+        
+        confirmationButton.setTitle(self.viewController?.getButtonTitle(), for: .normal)
+        confirmationLabel.text = self.viewController?.getText()
+        confirmationImageView.tintColor = self.viewController?.getColorIcon()
 
         stackView.addArrangedSubview(confirmationImageView)
         stackView.addArrangedSubview(confirmationLabel)
@@ -94,7 +88,7 @@ final class ConfirmationView: UIView {
     
     @objc
     func didTouchConfirmationButton() {
-        delegate?.didPressConfirmationButton()
+        viewController?.dismissThisScreen()
     }
 
     required init?(coder: NSCoder) {

@@ -15,6 +15,9 @@ protocol ConfirmationPresenterProtocol {
     var router: ConfirmationRouterProtocol? { get set }
     
     func viewDidLoad()
+    func getText() -> String
+    func getColorIcon() -> UIColor
+    func getButtonTitle() -> String
 }
 
 protocol ConfirmationRouterProtocol {
@@ -25,5 +28,4 @@ protocol ConfirmationRouterProtocol {
 protocol ConfirmationInteractorProtocol {
     
     var presenter: ConfirmationInteractorDelegate? { get set }
-    func fetchData()
 }
