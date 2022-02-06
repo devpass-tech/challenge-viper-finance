@@ -26,7 +26,8 @@ final class HomePresenter: HomePresenterProtocol {
     }
     
     func pushToActivityDetails(navigation: UINavigationController) {
-        router?.pushToActivityDetails(navigation: navigation)
+//        router?.pushToActivityDetails(navigation: navigation)
+        router?.pushToSampleV2(navigation: navigation)
     }
 }
 
