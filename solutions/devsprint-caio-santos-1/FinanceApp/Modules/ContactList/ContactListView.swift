@@ -8,11 +8,19 @@
 import UIKit
 
 protocol ContactListViewDelegate: AnyObject {
+//    func setContactList(with contactList: ContactListEntity)
     func didSelectContactButton()
 }
 
 final class ContactListView: UIView {
     weak var delegate: ContactListViewDelegate?
+    weak var viewController: ContactListViewController?
+    
+    var contactList: ContactListEntity = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
     static let cellSize = CGFloat(82)
 
@@ -34,7 +42,7 @@ final class ContactListView: UIView {
         backgroundColor = .white
         addSubviews()
         configureConstraints()
-
+        contactList = viewController?.contactList ?? []
         tableView.reloadData()
     }
 
@@ -66,12 +74,14 @@ extension ContactListView: UITableViewDataSource {
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return 10
+        return contactList.count
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ContactCellView
+        cell.contactNameLabel.text = viewController?.contactList?[indexPath.row].name
+        cell.contactPhoneLabel.text = viewController?.contactList?[indexPath.row].phone
 
         return cell
     }

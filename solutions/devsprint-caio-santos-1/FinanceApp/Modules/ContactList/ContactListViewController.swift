@@ -10,6 +10,7 @@ import UIKit
 final class ContactListViewController: UIViewController {
 
     var presenter: ContactListPresenterProtocol?
+    var contactList: ContactListEntity?
     
     lazy var contactListView: ContactListView = {
 
@@ -29,8 +30,8 @@ final class ContactListViewController: UIViewController {
 }
 
 extension ContactListViewController: ContactListPresenterDelegate {
-    func showData() {
-        print("Here is your data, Contact List View!")
+    func showData(with contactList: ContactListEntity) {
+        self.contactList = contactList
     }
 }
 

@@ -16,7 +16,7 @@ protocol ContactListPresenterProtocol {
 }
 
 protocol ContactListPresenterDelegate: AnyObject {
-    func showData()
+    func showData(with contactList: ContactListEntity)
 }
 
 
@@ -31,8 +31,7 @@ final class ContactListPresenter: ContactListPresenterProtocol {
 }
 
 extension ContactListPresenter: ContactListInteractorDelegate {
-    func didFetchData() {
-        view?.showData()
+    func didFetchData(_ contactList: ContactListEntity) {
+        view?.showData(with: contactList)
     }
-    
 }
