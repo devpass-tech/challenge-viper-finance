@@ -24,19 +24,19 @@ final class TransfersRouter: TransfersRouterProtocol {
 		
 		router.viewController = viewController
 		presenter.view = viewController
-		presenter.interactor.presenter = presenter
+		interactor.presenter = presenter
 		
 		return viewController
 	}
 	
 	func navigateToContactList() {
 		let navController = ContactListRouter.createModule()
-		self.viewController?.present(navController, animated: true)
+		self.viewController?.show(navController, sender: self)
 	}
 	
 	func navigateToConfirmation() {
 		let navController = ConfirmationRouter.createModule()
-		self.viewController?.present(navController, animated: true)
+		self.viewController?.show(navController, sender: self)
 	}
 	
 }

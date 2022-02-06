@@ -9,10 +9,10 @@ import UIKit
 
 protocol TransfersPresenterProtocol {
 	var view: TransfersPresenterDelegate? { get set }
-	var interactor: TransfersInteractorProtocol { get set }
-	var router: TransfersRouterProtocol { get set }
 	
 	func viewDidLoad()
+	func navigateToContactList()
+	func navigateToConfirmation()
 }
 
 protocol TransfersInteractorProtocol {

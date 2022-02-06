@@ -13,10 +13,9 @@ protocol TransfersPresenterDelegate: AnyObject {
 }
 
 final class TransfersPresenter: TransfersPresenterProtocol {
-	
 	weak var view: TransfersPresenterDelegate?
-	var interactor: TransfersInteractorProtocol
-	var router: TransfersRouterProtocol
+	private var interactor: TransfersInteractorProtocol
+	private var router: TransfersRouterProtocol
 	
 	init(
 		interactor: TransfersInteractorProtocol,
@@ -28,6 +27,14 @@ final class TransfersPresenter: TransfersPresenterProtocol {
 	
 	func viewDidLoad() {
 		interactor.fetchData()
+	}
+	
+	func navigateToContactList() {
+		router.navigateToContactList()
+	}
+	
+	func navigateToConfirmation() {
+		router.navigateToConfirmation()
 	}
 		
 }

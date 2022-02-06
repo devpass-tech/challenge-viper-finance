@@ -43,11 +43,11 @@ final class TransfersViewController: UIViewController {
 extension TransfersViewController: TransferViewDelegate {
 	
 	func didPressChooseContactButton() {
-		presenter.router.navigateToContactList()
+		presenter.navigateToContactList()
 	}
 	
 	func didPressTransferButton() {
-		presenter.router.navigateToConfirmation()
+		presenter.navigateToConfirmation()
 	}
 }
 
