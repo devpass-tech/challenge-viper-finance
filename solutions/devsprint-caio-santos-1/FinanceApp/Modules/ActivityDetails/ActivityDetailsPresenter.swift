@@ -25,15 +25,6 @@ final class ActivityDetailsPresenter: ActivityDetailsPresenterProtocol {
     func reportIssue() {
         interactor?.reportIssue()
     }
-    
-    func alert(title: String, message: String, viewController: UIViewController) {
-        showAlert(title: title, message: message, viewController: viewController)
-    }
-    
-    private func showAlert(title: String, message: String, viewController: UIViewController) {
-        let alert = AlertView.showAlert(title: title , message: message)
-        viewController.present(alert, animated: true, completion: nil)
-    }
 }
 
 extension ActivityDetailsPresenter: ActivityDetailsInteractorDelegate {

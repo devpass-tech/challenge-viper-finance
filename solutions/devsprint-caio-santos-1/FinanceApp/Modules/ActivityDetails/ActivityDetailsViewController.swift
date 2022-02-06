@@ -25,6 +25,11 @@ final class ActivityDetailsViewController: UIViewController {
     override func loadView() {
         self.view = activityDetailsView
     }
+    
+    private func showAlert(title: String, message: String) {
+        let alert = AlertView.showAlert(title: title , message: message)
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 extension ActivityDetailsViewController: ActivityDetailsPresenterDelegate {
@@ -33,7 +38,7 @@ extension ActivityDetailsViewController: ActivityDetailsPresenterDelegate {
     }
     
     func didReportIssue() {
-        presenter?.alert(title: "Issue Reported!", message: "Your issue has been reported successfully!", viewController: self)
+        showAlert(title: "Issue Reported!", message: "Your issue has been reported successfully!")
     }
 }
 

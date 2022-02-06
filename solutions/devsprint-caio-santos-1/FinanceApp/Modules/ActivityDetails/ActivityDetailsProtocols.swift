@@ -15,7 +15,6 @@ protocol ActivityDetailsPresenterProtocol {
     
     func viewDidLoad()
     func reportIssue()
-    func alert(title: String, message: String, viewController: UIViewController)
 }
 
 protocol ActivityDetailsRouterProtocol {
