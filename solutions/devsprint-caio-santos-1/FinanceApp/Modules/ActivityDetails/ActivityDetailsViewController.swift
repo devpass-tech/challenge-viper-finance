@@ -11,6 +11,12 @@ final class ActivityDetailsViewController: UIViewController {
     
     var presenter: ActivityDetailsPresenterProtocol?
     
+    var activity: ActivityDetailsEntity? {
+        didSet {
+            self.activityDetailsView.setupView(activity: self.activity)
+        }
+    }
+    
     lazy var activityDetailsView: ActivityDetailsView = {
         let view: ActivityDetailsView = ActivityDetailsView()
         view.delegate = self
@@ -33,8 +39,8 @@ final class ActivityDetailsViewController: UIViewController {
 }
 
 extension ActivityDetailsViewController: ActivityDetailsPresenterDelegate {
-    func showData() {
-        print("Here is your data, ActivityDetailsViewController")
+    func showData(activity: ActivityDetailsEntity) {
+        self.activity = activity
     }
     
     func didReportIssue() {

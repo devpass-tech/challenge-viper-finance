@@ -5,7 +5,6 @@
 //  Created by Douglas Cardoso Ferreira on 31/01/22.
 //
 
-import Foundation
 import UIKit
 
 protocol ActivityDetailsPresenterProtocol {
@@ -18,7 +17,7 @@ protocol ActivityDetailsPresenterProtocol {
 }
 
 protocol ActivityDetailsRouterProtocol {
-    static func createModule() -> UIViewController
+    static func createModule(activity: ActivityDetailsEntity?) -> UIViewController
 }
 
 protocol ActivityDetailsInteractorProtocol {

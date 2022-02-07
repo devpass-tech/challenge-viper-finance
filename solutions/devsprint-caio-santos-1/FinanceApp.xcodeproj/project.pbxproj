@@ -49,6 +49,7 @@
 		9AB92F4227A8D2ED00A69146 /* TransfersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB92F4127A8D2ED00A69146 /* TransfersRouter.swift */; };
 		9AB92F4427A8D2FC00A69146 /* TransfersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB92F4327A8D2FC00A69146 /* TransfersPresenter.swift */; };
 		9AB92F4627A8D32200A69146 /* TransfersProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB92F4527A8D32200A69146 /* TransfersProtocols.swift */; };
+		9D81A08627B06B8A00AE2BEB /* ActivityDetailsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D81A08527B06B8A00AE2BEB /* ActivityDetailsEntity.swift */; };
 		9D85B4DE27A99E1E00FA9997 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D85B4DD27A99E1E00FA9997 /* HomeInteractor.swift */; };
 		9D85B4E027A99E2900FA9997 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D85B4DF27A99E2900FA9997 /* HomePresenter.swift */; };
 		9D85B4E227A99E4200FA9997 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D85B4E127A99E4200FA9997 /* HomeRouter.swift */; };
@@ -130,6 +131,7 @@
 		9AB92F4127A8D2ED00A69146 /* TransfersRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransfersRouter.swift; sourceTree = "<group>"; };
 		9AB92F4327A8D2FC00A69146 /* TransfersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransfersPresenter.swift; sourceTree = "<group>"; };
 		9AB92F4527A8D32200A69146 /* TransfersProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransfersProtocols.swift; sourceTree = "<group>"; };
+		9D81A08527B06B8A00AE2BEB /* ActivityDetailsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsEntity.swift; sourceTree = "<group>"; };
 		9D85B4DD27A99E1E00FA9997 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		9D85B4DF27A99E2900FA9997 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		9D85B4E127A99E4200FA9997 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
@@ -359,6 +361,7 @@
 				A35FDB0027A9D322004E6498 /* ActivityDetailsRouter.swift */,
 				A35FDB0227A9D341004E6498 /* ActivityDetailsPresenter.swift */,
 				A35FDAFC27A9D2E1004E6498 /* ActivityDetailsProtocols.swift */,
+				9D81A08527B06B8A00AE2BEB /* ActivityDetailsEntity.swift */,
 			);
 			path = ActivityDetails;
 			sourceTree = "<group>";
@@ -536,6 +539,7 @@
 				98584AF3277E50430028DBEA /* ConfirmationView.swift in Sources */,
 				A35FDAFF27A9D307004E6498 /* ActivityDetailsInteractor.swift in Sources */,
 				98584AEE277E50430028DBEA /* UserProfileViewController.swift in Sources */,
+				9D81A08627B06B8A00AE2BEB /* ActivityDetailsEntity.swift in Sources */,
 				9AB92F4227A8D2ED00A69146 /* TransfersRouter.swift in Sources */,
 				9A7AFCA027AA06AF00B89C12 /* ConfirmationProtocols.swift in Sources */,
 				98584A6D277E32C30028DBEA /* AppDelegate.swift in Sources */,

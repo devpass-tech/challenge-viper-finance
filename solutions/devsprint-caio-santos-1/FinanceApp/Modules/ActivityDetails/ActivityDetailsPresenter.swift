@@ -5,15 +5,15 @@
 //  Created by Douglas Cardoso Ferreira on 31/01/22.
 //
 
-import Foundation
 import UIKit
 
 protocol ActivityDetailsPresenterDelegate: AnyObject {
-    func showData()
+    func showData(activity: ActivityDetailsEntity)
     func didReportIssue()
 }
 
 final class ActivityDetailsPresenter: ActivityDetailsPresenterProtocol {
+    
     weak var view: ActivityDetailsPresenterDelegate?
     var interactor: ActivityDetailsInteractorProtocol?
     var router: ActivityDetailsRouterProtocol?
@@ -32,7 +32,7 @@ extension ActivityDetailsPresenter: ActivityDetailsInteractorDelegate {
         view?.didReportIssue()
     }
     
-    func didFetchData() {
-        view?.showData()
+    func didFetchData(activity: ActivityDetailsEntity) {
+        view?.showData(activity: activity)
     }
 }
