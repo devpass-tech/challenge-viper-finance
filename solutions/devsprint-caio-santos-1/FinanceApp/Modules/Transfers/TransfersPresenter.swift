@@ -6,14 +6,16 @@
 //
 
 import Foundation
+import UIKit
 
 protocol TransfersPresenterDelegate: AnyObject {
      
     func showData()
+    func didCreateTransfer(status: Bool)
 }
 
 final class TransfersPresenter: TransfersPresenterProtocol {
-    
+
     weak var view: TransfersPresenterDelegate?
     var interactor: TransfersInteractorProtocol?
     var router: TransfersRouterProtocol?
@@ -22,9 +24,24 @@ final class TransfersPresenter: TransfersPresenterProtocol {
         
         interactor?.fetchData()
     }
+    
+    func navigateToContactList(navigationController: UINavigationController) {
+        router?.navigateToContactList(navigationController: navigationController)
+    }
+    
+    func navigateToConfirmation(navigationController: UINavigationController, isTransferSuccess: Bool) {
+        router?.navigateToConfirmation(navigationController: navigationController, isTransferSuccess: isTransferSuccess)
+    }
+    
+    func createTransfer(value: Float) {
+        interactor?.createTransfer(value: value)
+    }
 }
 
 extension TransfersPresenter: TransfersInteractorDelegate {
+    func didCreateTransfer(status: Bool) {
+        view?.didCreateTransfer(status: status)
+    }
     
     func didFetchData() {
         

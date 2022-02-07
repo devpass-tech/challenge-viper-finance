@@ -25,7 +25,11 @@ final class TransfersRouter: TransfersRouterProtocol {
         return navigationController
     }
     
-    func navigateToNewModule() {
-       
+    func navigateToContactList(navigationController: UINavigationController) {
+        navigationController.present(ContactListRouter.createModule(), animated: true)
+    }
+    
+    func navigateToConfirmation(navigationController: UINavigationController, isTransferSuccess: Bool) {
+        navigationController.present(ConfirmationRounter.createModule(statusTransfer: isTransferSuccess), animated: true)
     }
 }

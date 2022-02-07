@@ -5,10 +5,9 @@
 //  Created by Rodrigo Borges on 30/12/21.
 //
 
-import Foundation
 import UIKit
 
-class ContactListView: UIView {
+final class ContactListView: UIView {
 
     static let cellSize = CGFloat(82)
 

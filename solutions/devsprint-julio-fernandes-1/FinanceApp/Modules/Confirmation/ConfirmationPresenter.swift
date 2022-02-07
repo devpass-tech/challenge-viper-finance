@@ -7,23 +7,28 @@
 
 import Foundation
 protocol ConfirmationPresenterDelegate: AnyObject {
-    func showData()
+    func showData(confirmation: ConfirmationEntity)
 }
 
 final class ConfirmationPresenter: ConfirmationPresenterProtocol {
 
     weak var view: ConfirmationPresenterDelegate?
-    var interactor: ConfirmationInteractorProtocol?
-    var router: ConfirmationRouterProtocol?
+    var interactor: ConfirmationInteractorProtocol
+    var router: ConfirmationRouterProtocol
+
+    init(interactor: ConfirmationInteractorProtocol, router: ConfirmationRouterProtocol) {
+        self.interactor = interactor
+        self.router = router
+    }
 
     func viewDidLoad() {
-        interactor?.fetchData()
+        interactor.fetchData()
     }
 }
 
 extension ConfirmationPresenter: ConfirmationInteractorDelegate {
 
-    func didFetchData() {
-        view?.showData()
+    func didFetchData(confirmation: ConfirmationEntity) {
+        view?.showData(confirmation: confirmation)
     }
 }

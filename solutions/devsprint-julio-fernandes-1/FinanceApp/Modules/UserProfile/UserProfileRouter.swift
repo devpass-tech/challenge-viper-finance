@@ -28,7 +28,4 @@ final class UserProfileRouter: UserProfileRouterProtocol {
 		return navigationController
 	}
 	
-	func navigateToNewModule() {
-	}
-	
 }

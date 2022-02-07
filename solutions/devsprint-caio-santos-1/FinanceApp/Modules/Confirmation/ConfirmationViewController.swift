@@ -7,7 +7,14 @@
 
 import UIKit
 
-final class ConfirmationViewController: UIViewController {
+protocol ConfirmationViewControllerProtocol {
+    func getText() -> String
+    func getColorIcon() -> UIColor
+    func getButtonTitle() -> String
+    func dismissThisScreen()
+}
+
+final class ConfirmationViewController: UIViewController, ConfirmationViewControllerProtocol {
     
     var presenter: ConfirmationPresenterProtocol?
     
@@ -16,16 +23,29 @@ final class ConfirmationViewController: UIViewController {
         
         presenter?.viewDidLoad()
     }
-
+    
     override func loadView() {
-        self.view = ConfirmationView()
+        self.view = ConfirmationView(viewController: self)
     }
+    
+    func getText() -> String {
+        presenter?.getText() ?? ""
+    }
+    
+    func getColorIcon() -> UIColor {
+        presenter?.getColorIcon() ?? .systemBlue
+    }
+    
+    func getButtonTitle() -> String {
+        presenter?.getButtonTitle() ?? ""
+    }
+    
+    func dismissThisScreen() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }
 
 extension ConfirmationViewController: ConfirmationPresenterDelegate {
-    
-    func showData() {
-        
-        print("Here is your data, View!")
-    }
+
 }
