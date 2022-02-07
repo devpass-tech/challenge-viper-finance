@@ -5,10 +5,11 @@
 //  Created by Douglas Cardoso Ferreira on 31/01/22.
 //
 
-import Foundation
+import UIKit
 
 protocol ActivityDetailsPresenterDelegate: AnyObject {
-    func showData()
+    func showData(activity: ActivityDetailsEntity)
+    func didReportIssue()
 }
 
 final class ActivityDetailsPresenter: ActivityDetailsPresenterProtocol {
@@ -20,10 +21,18 @@ final class ActivityDetailsPresenter: ActivityDetailsPresenterProtocol {
     func viewDidLoad() {
         interactor?.fetchData()
     }
+    
+    func reportIssue() {
+        interactor?.reportIssue()
+    }
 }
 
 extension ActivityDetailsPresenter: ActivityDetailsInteractorDelegate {
-    func didFetchData() {
-        view?.showData()
+    func didReportIssue() {
+        view?.didReportIssue()
+    }
+    
+    func didFetchData(activity: ActivityDetailsEntity) {
+        view?.showData(activity: activity)
     }
 }

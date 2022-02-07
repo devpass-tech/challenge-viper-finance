@@ -16,18 +16,21 @@ protocol TransfersPresenterProtocol {
     
     func viewDidLoad()
     func navigateToContactList(navigationController: UINavigationController)
-    func navigateToConfirmation(navigationController: UINavigationController)
+    func navigateToConfirmation(navigationController: UINavigationController, isTransferSuccess: Bool)
+    
+    func createTransfer(value: Float)
 }
 
 protocol TransfersRouterProtocol {
     
     static func createModule() -> UINavigationController
     func navigateToContactList(navigationController: UINavigationController)
-    func navigateToConfirmation(navigationController: UINavigationController)
+    func navigateToConfirmation(navigationController: UINavigationController, isTransferSuccess: Bool)
 }
 
 protocol TransfersInteractorProtocol {
     
     var presenter: TransfersInteractorDelegate? { get set }
     func fetchData()
+    func createTransfer(value: Float)
 }

@@ -34,13 +34,19 @@ final class HomeViewController: UIViewController {
 
 extension HomeViewController: HomeViewDelegate {
     func didSelectActivity() {
-        guard let navigation = self.navigationController else { return }
-        presenter?.pushToActivityDetails(navigation: navigation)
+        let activityDetailsViewController = ActivityDetailsRouter.createModule(activity: nil)
+        self.navigationController?.pushViewController(activityDetailsViewController, animated: true)
     }
 }
 
 extension HomeViewController: HomePresenterDelegate {
-    func showData() {
-        print("HomeViewController - HomePresenterDelegate - showData()")
+    func showSuccess(message: String) {
+        homeView.homeHeaderView.label.textColor = .green
+        homeView.homeHeaderView.label.text = message
+    }
+    
+    func showError(message: String) {
+        homeView.homeHeaderView.label.textColor = .red
+        homeView.homeHeaderView.label.text = message
     }
 }
