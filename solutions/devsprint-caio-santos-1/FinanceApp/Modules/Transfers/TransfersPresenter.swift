@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol TransfersPresenterDelegate: AnyObject {
      
@@ -22,6 +23,15 @@ final class TransfersPresenter: TransfersPresenterProtocol {
         
         interactor?.fetchData()
     }
+    
+    func navigateToContactList(navigationController: UINavigationController) {
+        router?.navigateToContactList(navigationController: navigationController)
+    }
+    
+    func navigateToConfirmation(navigationController: UINavigationController) {
+        router?.navigateToConfirmation(navigationController: navigationController)
+    }
+    
 }
 
 extension TransfersPresenter: TransfersInteractorDelegate {
