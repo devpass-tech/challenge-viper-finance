@@ -5,7 +5,6 @@
 //  Created by Rodrigo Borges on 30/12/21.
 //
 
-import Foundation
 import UIKit
 
 protocol HomeViewDelegate: AnyObject {
@@ -13,7 +12,7 @@ protocol HomeViewDelegate: AnyObject {
     func didSelectActivity()
 }
 
-class HomeView: UIView {
+final class HomeView: UIView {
 
     weak var delegate: HomeViewDelegate?
 
@@ -62,7 +61,8 @@ class HomeView: UIView {
         ])
     }
     
-    required init?(coder: NSCoder) {
+    @available(*, unavailable)
+	 required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }

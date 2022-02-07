@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController {
 
     lazy var homeView: HomeView = {
 
@@ -18,7 +18,12 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
 
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Profile", style: .plain, target: self, action: #selector(openProfile))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+			title: "Profile",
+			style: .plain,
+			target: self,
+			action: #selector(openProfile)
+		  )
     }
 
     override func loadView() {
