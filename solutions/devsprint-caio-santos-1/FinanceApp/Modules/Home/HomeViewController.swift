@@ -40,7 +40,13 @@ extension HomeViewController: HomeViewDelegate {
 }
 
 extension HomeViewController: HomePresenterDelegate {
-    func showData() {
-        print("HomeViewController - HomePresenterDelegate - showData()")
+    func showSuccess(message: String) {
+        homeView.homeHeaderView.label.textColor = .green
+        homeView.homeHeaderView.label.text = message
+    }
+    
+    func showError(message: String) {
+        homeView.homeHeaderView.label.textColor = .red
+        homeView.homeHeaderView.label.text = message
     }
 }
