@@ -10,13 +10,7 @@ import UIKit
 
 enum ConfirmationViewState {
     case loading
-    case loaded(Confirmation)
-}
-
-struct Confirmation {
-    let success: Bool
-    let image: UIImage?
-    let message: String
+    case loaded(ConfirmationEntity)
 }
 
 final class ConfirmationView: UIView {
@@ -116,7 +110,7 @@ final class ConfirmationView: UIView {
             loadingIndicator.isHidden = true
             stackView.isHidden = false
 
-            confirmationImageView.image = confirmation.image
+            confirmationImageView.image = UIImage(named: confirmation.imageName)
             confirmationLabel.text = confirmation.message
         case .loading:
             loadingIndicator.startAnimating()

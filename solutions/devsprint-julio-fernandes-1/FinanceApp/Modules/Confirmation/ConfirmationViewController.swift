@@ -33,7 +33,7 @@ final class ConfirmationViewController: UIViewController {
 
 extension ConfirmationViewController: ConfirmationPresenterDelegate {
 
-    func showData(confirmation: Confirmation) {
+    func showData(confirmation: ConfirmationEntity) {
         self.confirmationView.state = .loaded(confirmation)
     }
 }

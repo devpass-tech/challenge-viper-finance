@@ -45,6 +45,7 @@
 		A0C958B827A9BA0900715795 /* ConfirmationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C958B727A9BA0900715795 /* ConfirmationRouter.swift */; };
 		A0C958BA27A9BA1400715795 /* ConfirmationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C958B927A9BA1400715795 /* ConfirmationPresenter.swift */; };
 		A0C958BC27A9BA2100715795 /* ConfirmationProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C958BB27A9BA2100715795 /* ConfirmationProtocols.swift */; };
+		A0C958C327AC7D7600715795 /* ConfirmationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C958C227AC7D7600715795 /* ConfirmationEntity.swift */; };
 		BC52C70A27AA0BDF00ED7703 /* UserProfileProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC52C70627AA0BDF00ED7703 /* UserProfileProtocols.swift */; };
 		BC52C70B27AA0BDF00ED7703 /* UserProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC52C70727AA0BDF00ED7703 /* UserProfileRouter.swift */; };
 		BC52C70C27AA0BDF00ED7703 /* UserProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC52C70827AA0BDF00ED7703 /* UserProfileInteractor.swift */; };
@@ -115,6 +116,7 @@
 		A0C958B727A9BA0900715795 /* ConfirmationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationRouter.swift; sourceTree = "<group>"; };
 		A0C958B927A9BA1400715795 /* ConfirmationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationPresenter.swift; sourceTree = "<group>"; };
 		A0C958BB27A9BA2100715795 /* ConfirmationProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationProtocols.swift; sourceTree = "<group>"; };
+		A0C958C227AC7D7600715795 /* ConfirmationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationEntity.swift; sourceTree = "<group>"; };
 		BC52C70627AA0BDF00ED7703 /* UserProfileProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileProtocols.swift; sourceTree = "<group>"; };
 		BC52C70727AA0BDF00ED7703 /* UserProfileRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileRouter.swift; sourceTree = "<group>"; };
 		BC52C70827AA0BDF00ED7703 /* UserProfileInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileInteractor.swift; sourceTree = "<group>"; };
@@ -245,16 +247,9 @@
 			isa = PBXGroup;
 			children = (
 				98584AC2277E42E80028DBEA /* FinanceService.swift */,
-				98584AC1277E42CB0028DBEA /* Entities */,
+				A0C958C127AC7D6400715795 /* Entity */,
 			);
 			path = Service;
-			sourceTree = "<group>";
-		};
-		98584AC1277E42CB0028DBEA /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Entities;
 			sourceTree = "<group>";
 		};
 		98584AC4277E4F0A0028DBEA /* SampleModule */ = {
@@ -340,6 +335,14 @@
 				BCF76FC327AAA60D003B321F /* ContactListRouter.swift */,
 			);
 			path = ContactList;
+			sourceTree = "<group>";
+		};
+		A0C958C127AC7D6400715795 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				A0C958C227AC7D7600715795 /* ConfirmationEntity.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -493,6 +496,7 @@
 				98584AE7277E50430028DBEA /* TransfersView.swift in Sources */,
 				98584AF3277E50430028DBEA /* ConfirmationView.swift in Sources */,
 				A0C958BC27A9BA2100715795 /* ConfirmationProtocols.swift in Sources */,
+				A0C958C327AC7D7600715795 /* ConfirmationEntity.swift in Sources */,
 				BC52C70A27AA0BDF00ED7703 /* UserProfileProtocols.swift in Sources */,
 				98584AEE277E50430028DBEA /* UserProfileViewController.swift in Sources */,
 				98584A6D277E32C30028DBEA /* AppDelegate.swift in Sources */,

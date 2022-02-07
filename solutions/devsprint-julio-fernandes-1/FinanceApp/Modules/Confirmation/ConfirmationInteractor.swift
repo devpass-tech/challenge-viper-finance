@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol ConfirmationInteractorDelegate: AnyObject {
-    func didFetchData(confirmation: Confirmation)
+    func didFetchData(confirmation: ConfirmationEntity)
 }
 
 final class ConfirmationInteractor: ConfirmationInteractorProtocol {
@@ -18,7 +18,7 @@ final class ConfirmationInteractor: ConfirmationInteractorProtocol {
     func fetchData() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [weak self] in
             guard let self = self else { return }
-            let confirmation = Confirmation(success: true, image: UIImage(named: "checkmark.circle.fill"), message: "Your transfer was successful")
+            let confirmation = ConfirmationEntity(success: true, imageName: "checkmark.circle.fill", message: "Your transfer was successful")
             self.presenter?.didFetchData(confirmation: confirmation)
         }
     }
