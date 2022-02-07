@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit
 
 protocol ConfirmationInteractorDelegate: AnyObject {
     func didFetchData(confirmation: ConfirmationEntity)
