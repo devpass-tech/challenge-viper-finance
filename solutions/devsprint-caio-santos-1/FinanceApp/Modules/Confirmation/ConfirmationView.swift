@@ -48,7 +48,6 @@ final class ConfirmationView: UIView {
         button.backgroundColor = .systemBlue
         button.setTitle("BUTTON", for: .normal)
         button.layer.cornerRadius = 14
-        button.addTarget(self, action: #selector(didTouchConfirmationButton), for: .touchUpInside)
         return button
     }()
 
@@ -61,6 +60,7 @@ final class ConfirmationView: UIView {
         self.viewController = viewController
         
         confirmationButton.setTitle(self.viewController?.getButtonTitle(), for: .normal)
+        confirmationButton.addAction(UIAction { _ in viewController.dismissThisScreen() }, for: .touchUpInside)
         confirmationLabel.text = self.viewController?.getText()
         confirmationImageView.tintColor = self.viewController?.getColorIcon()
 
