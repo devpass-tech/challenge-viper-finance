@@ -7,8 +7,15 @@
 import UIKit
 
 struct ActivityDetailsEntity {
-    let name: String?
-    let category: String?
-    let time: String?
-    let price: Double?
+    let name: String
+    let category: String
+    let time: String
+    let price: Double
+    
+    init(name: String, category: String, time: String, price: Double) {
+        self.name = name
+        self.category = category
+        self.time = time
+        self.price = price
+    }
 }
