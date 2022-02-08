@@ -19,6 +19,7 @@
 		1CFAA9AE27AA192F003CEF2F /* UserProfileInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAA9A927AA192F003CEF2F /* UserProfileInteractorTests.swift */; };
 		1CFAA9AF27AA192F003CEF2F /* UserProfileRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAA9AA27AA192F003CEF2F /* UserProfileRouterTests.swift */; };
 		1CFAA9B027AA192F003CEF2F /* UserProfilePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAA9AB27AA192F003CEF2F /* UserProfilePresenterTests.swift */; };
+		6C8C188127B2086E00BEE243 /* ActivityDetailsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8C188027B2086E00BEE243 /* ActivityDetailsEntity.swift */; };
 		6CC0698327AA108000973C57 /* ActivityDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC0698227AA108000973C57 /* ActivityDetailsInteractor.swift */; };
 		6CC0698527AA109100973C57 /* ActivityDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC0698427AA109100973C57 /* ActivityDetailsPresenter.swift */; };
 		6CC0698727AA109C00973C57 /* ActivityDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC0698627AA109C00973C57 /* ActivityDetailsRouter.swift */; };
@@ -101,6 +102,7 @@
 		1CFAA9A927AA192F003CEF2F /* UserProfileInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileInteractorTests.swift; sourceTree = "<group>"; };
 		1CFAA9AA27AA192F003CEF2F /* UserProfileRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileRouterTests.swift; sourceTree = "<group>"; };
 		1CFAA9AB27AA192F003CEF2F /* UserProfilePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfilePresenterTests.swift; sourceTree = "<group>"; };
+		6C8C188027B2086E00BEE243 /* ActivityDetailsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsEntity.swift; sourceTree = "<group>"; };
 		6CC0698227AA108000973C57 /* ActivityDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsInteractor.swift; sourceTree = "<group>"; };
 		6CC0698427AA109100973C57 /* ActivityDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsPresenter.swift; sourceTree = "<group>"; };
 		6CC0698627AA109C00973C57 /* ActivityDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsRouter.swift; sourceTree = "<group>"; };
@@ -418,6 +420,7 @@
 			isa = PBXGroup;
 			children = (
 				A0C958C227AC7D7600715795 /* ConfirmationEntity.swift */,
+				6C8C188027B2086E00BEE243 /* ActivityDetailsEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -574,6 +577,7 @@
 				98584B14277E605F0028DBEA /* ActivityDetailsView.swift in Sources */,
 				98584AE7277E50430028DBEA /* TransfersView.swift in Sources */,
 				98584AF3277E50430028DBEA /* ConfirmationView.swift in Sources */,
+				6C8C188127B2086E00BEE243 /* ActivityDetailsEntity.swift in Sources */,
 				A0C958BC27A9BA2100715795 /* ConfirmationProtocols.swift in Sources */,
 				A0C958C327AC7D7600715795 /* ConfirmationEntity.swift in Sources */,
 				BC52C70A27AA0BDF00ED7703 /* UserProfileProtocols.swift in Sources */,

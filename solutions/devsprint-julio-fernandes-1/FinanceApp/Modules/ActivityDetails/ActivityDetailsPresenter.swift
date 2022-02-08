@@ -8,23 +8,28 @@ import UIKit
 
 protocol ActivityDetailsPresenterDelegate: AnyObject {
     
-    func showData()
+    func showData(activity: ActivityDetailsEntity)
 }
 
 final class ActivityDetailsPresenter: ActivityDetailsPresenterProtocol {
     
     weak var view: ActivityDetailsPresenterDelegate?
-    var interactor: ActivityDetailsInteractorProtocol?
-    var router: ActivityDetailsRouterProtocol?
+    var interactor: ActivityDetailsInteractorProtocol
+    var router: ActivityDetailsRouterProtocol
+    
+    init(interactor: ActivityDetailsInteractorProtocol, router: ActivityDetailsRouterProtocol){
+        self.interactor = interactor
+        self.router = router
+    }
     
     func viewDidLoad() {
-        interactor?.fetchData()
+        interactor.fetchData()
     }
 }
 
 extension ActivityDetailsPresenter: ActivityDetailsInteractorDelegate {
     
-    func didFetchData() {
-        view?.showData()
+    func didFetchData(activity: ActivityDetailsEntity) {
+        view?.showData(activity: activity)
     }
 }
