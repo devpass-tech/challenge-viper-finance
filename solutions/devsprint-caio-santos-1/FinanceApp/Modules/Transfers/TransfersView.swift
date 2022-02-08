@@ -11,7 +11,7 @@ import UIKit
 protocol TransferViewDelegate: AnyObject {
 
     func didPressChooseContactButton()
-    func didPressTransferButton()
+    func didPressTransferButton(value: String)
 }
 
 final class TransfersView: UIView {
@@ -84,14 +84,12 @@ final class TransfersView: UIView {
 
     @objc
     func chooseContact() {
-
         delegate?.didPressChooseContactButton()
     }
 
     @objc
     func transfer() {
-
-        delegate?.didPressTransferButton()
+        delegate?.didPressTransferButton(value: amountTextField.text ?? "")
     }
 
     required init?(coder: NSCoder) {
