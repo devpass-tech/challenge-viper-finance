@@ -333,8 +333,6 @@
 		98584AC1277E42CB0028DBEA /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				BC2DA7BB27B052AE00EBC2BF /* UserEntity.swift */,
-				BC2DA7BD27B0535A00EBC2BF /* AccountEntity.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -364,6 +362,7 @@
 		98584AD8277E50430028DBEA /* UserProfile */ = {
 			isa = PBXGroup;
 			children = (
+				BCE618FE27B324350058BD36 /* Entities */,
 				BC52C70827AA0BDF00ED7703 /* UserProfileInteractor.swift */,
 				BC52C70927AA0BDF00ED7703 /* UserProfilePresenter.swift */,
 				BC52C70627AA0BDF00ED7703 /* UserProfileProtocols.swift */,
@@ -426,6 +425,15 @@
 				BCF76FC327AAA60D003B321F /* ContactListRouter.swift */,
 			);
 			path = ContactList;
+			sourceTree = "<group>";
+		};
+		BCE618FE27B324350058BD36 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				BC2DA7BB27B052AE00EBC2BF /* UserEntity.swift */,
+				BC2DA7BD27B0535A00EBC2BF /* AccountEntity.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
