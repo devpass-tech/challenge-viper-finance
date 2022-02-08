@@ -30,13 +30,14 @@ final class TransfersRouter: TransfersRouterProtocol {
 	}
 	
 	func navigateToContactList() {
-		let navController = ContactListRouter.createModule()
-		self.viewController?.show(navController, sender: self)
+		let viewController = ContactListRouter.createModule()
+		let navController = UINavigationController(rootViewController: viewController)
+		self.viewController?.present(navController, animated: true)
 	}
 	
 	func navigateToConfirmation() {
-		let navController = ConfirmationRouter.createModule()
-		self.viewController?.show(navController, sender: self)
+		let viewController = ConfirmationRouter.createModule()
+		self.viewController?.showDetailViewController(viewController, sender: self)
 	}
 	
 }

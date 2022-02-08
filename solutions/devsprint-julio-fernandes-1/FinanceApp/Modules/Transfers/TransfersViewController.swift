@@ -11,7 +11,7 @@ final class TransfersViewController: UIViewController {
 	
 	private var presenter: TransfersPresenterProtocol
 	
-	lazy var transferView: TransfersView = {
+	private lazy var transferView: TransfersView = {
 		
 		let transferView = TransfersView()
 		transferView.delegate = self
