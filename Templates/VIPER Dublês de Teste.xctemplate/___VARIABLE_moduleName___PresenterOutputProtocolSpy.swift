@@ -1,6 +1,0 @@
-@testable import ___VARIABLE_sdkName___
-
-typealias ___VARIABLE_moduleName___PresenterOutputProtocolDummy = ___VARIABLE_moduleName___PresenterOutputProtocolSpy
-
-final class ___VARIABLE_moduleName___PresenterOutputProtocolSpy: ___VARIABLE_moduleName___PresenterOutputProtocol {
-}

@@ -1,7 +1,0 @@
-@testable import ___VARIABLE_sdkName___
-
-typealias ___VARIABLE_moduleName___InteractorOutputProtocolDummy = ___VARIABLE_moduleName___InteractorOutputProtocolSpy
-
-final class ___VARIABLE_moduleName___InteractorOutputProtocolSpy: ___VARIABLE_moduleName___InteractorOutputProtocol {
-
-}
