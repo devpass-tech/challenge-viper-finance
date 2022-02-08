@@ -17,7 +17,7 @@ final class ActivityDetailsPresenter: ActivityDetailsPresenterProtocol {
     var interactor: ActivityDetailsInteractorProtocol
     var router: ActivityDetailsRouterProtocol
     
-    init(interactor: ActivityDetailsInteractorProtocol, router: ActivityDetailsRouterProtocol){
+    init(interactor: ActivityDetailsInteractorProtocol, router: ActivityDetailsRouterProtocol) {
         self.interactor = interactor
         self.router = router
     }

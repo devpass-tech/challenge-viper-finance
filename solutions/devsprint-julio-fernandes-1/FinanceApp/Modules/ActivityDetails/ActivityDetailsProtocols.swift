@@ -9,8 +9,8 @@ import UIKit
 protocol ActivityDetailsPresenterProtocol {
     
     var view: ActivityDetailsPresenterDelegate? { get set }
-    var interactor: ActivityDetailsInteractorProtocol? {get set}
-    var router: ActivityDetailsRouterProtocol? { get set }
+    var interactor: ActivityDetailsInteractorProtocol {get set}
+    var router: ActivityDetailsRouterProtocol { get set }
     
     func viewDidLoad()
 }
