@@ -65,6 +65,9 @@
 		BC52C70B27AA0BDF00ED7703 /* UserProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC52C70727AA0BDF00ED7703 /* UserProfileRouter.swift */; };
 		BC52C70C27AA0BDF00ED7703 /* UserProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC52C70827AA0BDF00ED7703 /* UserProfileInteractor.swift */; };
 		BC52C70D27AA0BDF00ED7703 /* UserProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC52C70927AA0BDF00ED7703 /* UserProfilePresenter.swift */; };
+		BCE618F927B2A8AB0058BD36 /* HomeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE618F827B2A8AB0058BD36 /* HomeEntity.swift */; };
+		BCE618FB27B2B44C0058BD36 /* ActivityEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE618FA27B2B44C0058BD36 /* ActivityEntity.swift */; };
+		BCE618FD27B2B4980058BD36 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE618FC27B2B4980058BD36 /* HomeService.swift */; };
 		BCF76FBE27AAA4FB003B321F /* ContactListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF76FBD27AAA4FB003B321F /* ContactListProtocols.swift */; };
 		BCF76FC027AAA550003B321F /* ContactListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF76FBF27AAA550003B321F /* ContactListPresenter.swift */; };
 		BCF76FC227AAA5C2003B321F /* ContactListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF76FC127AAA5C2003B321F /* ContactListInteractor.swift */; };
@@ -151,6 +154,9 @@
 		BC52C70727AA0BDF00ED7703 /* UserProfileRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileRouter.swift; sourceTree = "<group>"; };
 		BC52C70827AA0BDF00ED7703 /* UserProfileInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileInteractor.swift; sourceTree = "<group>"; };
 		BC52C70927AA0BDF00ED7703 /* UserProfilePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfilePresenter.swift; sourceTree = "<group>"; };
+		BCE618F827B2A8AB0058BD36 /* HomeEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEntity.swift; sourceTree = "<group>"; };
+		BCE618FA27B2B44C0058BD36 /* ActivityEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityEntity.swift; sourceTree = "<group>"; };
+		BCE618FC27B2B4980058BD36 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		BCF76FBD27AAA4FB003B321F /* ContactListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListProtocols.swift; sourceTree = "<group>"; };
 		BCF76FBF27AAA550003B321F /* ContactListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListPresenter.swift; sourceTree = "<group>"; };
 		BCF76FC127AAA5C2003B321F /* ContactListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListInteractor.swift; sourceTree = "<group>"; };
@@ -320,6 +326,7 @@
 			isa = PBXGroup;
 			children = (
 				98584AC2277E42E80028DBEA /* FinanceService.swift */,
+				BCE618FC27B2B4980058BD36 /* HomeService.swift */,
 				A0C958C127AC7D6400715795 /* Entity */,
 			);
 			path = Service;
@@ -418,6 +425,8 @@
 			isa = PBXGroup;
 			children = (
 				A0C958C227AC7D7600715795 /* ConfirmationEntity.swift */,
+				BCE618F827B2A8AB0058BD36 /* HomeEntity.swift */,
+				BCE618FA27B2B44C0058BD36 /* ActivityEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -561,9 +570,11 @@
 				98584AD0277E4F0A0028DBEA /* SampleProtocols.swift in Sources */,
 				98584B10277E605F0028DBEA /* ActivityDetailsViewController.swift in Sources */,
 				A0C958B827A9BA0900715795 /* ConfirmationRouter.swift in Sources */,
+				BCE618FB27B2B44C0058BD36 /* ActivityEntity.swift in Sources */,
 				98584AFE277E51A70028DBEA /* ActivityListView.swift in Sources */,
 				BCF76FC427AAA60D003B321F /* ContactListRouter.swift in Sources */,
 				98584B20277E60740028DBEA /* ContactListViewController.swift in Sources */,
+				BCE618F927B2A8AB0058BD36 /* HomeEntity.swift in Sources */,
 				98584AF4277E50430028DBEA /* ConfirmationViewController.swift in Sources */,
 				6CC0698927AA115300973C57 /* ActivityDetailsProtocols.swift in Sources */,
 				98584AFC277E51960028DBEA /* ActivityCellView.swift in Sources */,
@@ -571,6 +582,7 @@
 				6CC0698327AA108000973C57 /* ActivityDetailsInteractor.swift in Sources */,
 				98584B00277E51BB0028DBEA /* ButtonView.swift in Sources */,
 				98584AE8277E50430028DBEA /* TransfersViewController.swift in Sources */,
+				BCE618FD27B2B4980058BD36 /* HomeService.swift in Sources */,
 				98584B14277E605F0028DBEA /* ActivityDetailsView.swift in Sources */,
 				98584AE7277E50430028DBEA /* TransfersView.swift in Sources */,
 				98584AF3277E50430028DBEA /* ConfirmationView.swift in Sources */,
