@@ -27,6 +27,7 @@ final class ContactListViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		title = "Contact list"
 		presenter.viewDidLoad()
 	}
 }

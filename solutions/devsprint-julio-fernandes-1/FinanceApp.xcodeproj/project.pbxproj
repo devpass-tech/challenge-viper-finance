@@ -72,6 +72,10 @@
 		BC52C70B27AA0BDF00ED7703 /* UserProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC52C70727AA0BDF00ED7703 /* UserProfileRouter.swift */; };
 		BC52C70C27AA0BDF00ED7703 /* UserProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC52C70827AA0BDF00ED7703 /* UserProfileInteractor.swift */; };
 		BC52C70D27AA0BDF00ED7703 /* UserProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC52C70927AA0BDF00ED7703 /* UserProfilePresenter.swift */; };
+		BCA90EAF27ACAED9006CA89F /* TransferPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA90EAE27ACAED9006CA89F /* TransferPresenter.swift */; };
+		BCA90EB127ACB086006CA89F /* TransfersProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA90EB027ACB086006CA89F /* TransfersProtocols.swift */; };
+		BCA90EB327ACB46D006CA89F /* TransfersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA90EB227ACB46D006CA89F /* TransfersInteractor.swift */; };
+		BCA90EB527ACB5A7006CA89F /* TransfersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA90EB427ACB5A7006CA89F /* TransfersRouter.swift */; };
 		BCF76FBE27AAA4FB003B321F /* ContactListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF76FBD27AAA4FB003B321F /* ContactListProtocols.swift */; };
 		BCF76FC027AAA550003B321F /* ContactListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF76FBF27AAA550003B321F /* ContactListPresenter.swift */; };
 		BCF76FC227AAA5C2003B321F /* ContactListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF76FC127AAA5C2003B321F /* ContactListInteractor.swift */; };
@@ -165,6 +169,10 @@
 		BC52C70727AA0BDF00ED7703 /* UserProfileRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileRouter.swift; sourceTree = "<group>"; };
 		BC52C70827AA0BDF00ED7703 /* UserProfileInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileInteractor.swift; sourceTree = "<group>"; };
 		BC52C70927AA0BDF00ED7703 /* UserProfilePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfilePresenter.swift; sourceTree = "<group>"; };
+		BCA90EAE27ACAED9006CA89F /* TransferPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferPresenter.swift; sourceTree = "<group>"; };
+		BCA90EB027ACB086006CA89F /* TransfersProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransfersProtocols.swift; sourceTree = "<group>"; };
+		BCA90EB227ACB46D006CA89F /* TransfersInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransfersInteractor.swift; sourceTree = "<group>"; };
+		BCA90EB427ACB5A7006CA89F /* TransfersRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransfersRouter.swift; sourceTree = "<group>"; };
 		BCF76FBD27AAA4FB003B321F /* ContactListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListProtocols.swift; sourceTree = "<group>"; };
 		BCF76FBF27AAA550003B321F /* ContactListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListPresenter.swift; sourceTree = "<group>"; };
 		BCF76FC127AAA5C2003B321F /* ContactListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListInteractor.swift; sourceTree = "<group>"; };
@@ -371,6 +379,10 @@
 			children = (
 				98584AD3277E50430028DBEA /* TransfersView.swift */,
 				98584AD4277E50430028DBEA /* TransfersViewController.swift */,
+				BCA90EAE27ACAED9006CA89F /* TransferPresenter.swift */,
+				BCA90EB027ACB086006CA89F /* TransfersProtocols.swift */,
+				BCA90EB227ACB46D006CA89F /* TransfersInteractor.swift */,
+				BCA90EB427ACB5A7006CA89F /* TransfersRouter.swift */,
 			);
 			path = Transfers;
 			sourceTree = "<group>";
@@ -583,6 +595,7 @@
 			files = (
 				BC52C70C27AA0BDF00ED7703 /* UserProfileInteractor.swift in Sources */,
 				BCF76FC027AAA550003B321F /* ContactListPresenter.swift in Sources */,
+				BCA90EAF27ACAED9006CA89F /* TransferPresenter.swift in Sources */,
 				98584B04277E51DA0028DBEA /* ContactCellView.swift in Sources */,
 				98584B02277E51CF0028DBEA /* ChooseContactView.swift in Sources */,
 				A0C958B627A9B9FC00715795 /* ConfirmationInteractor.swift in Sources */,
@@ -597,12 +610,14 @@
 				98584AFC277E51960028DBEA /* ActivityCellView.swift in Sources */,
 				98584AFA277E51850028DBEA /* HomeHeaderView.swift in Sources */,
 				6CC0698327AA108000973C57 /* ActivityDetailsInteractor.swift in Sources */,
+				BCA90EB527ACB5A7006CA89F /* TransfersRouter.swift in Sources */,
 				98584B00277E51BB0028DBEA /* ButtonView.swift in Sources */,
 				A0FD66F327B46A6B00B3C6D3 /* FinanceServiceError.swift in Sources */,
 				98584AE8277E50430028DBEA /* TransfersViewController.swift in Sources */,
 				98584B14277E605F0028DBEA /* ActivityDetailsView.swift in Sources */,
 				98584AE7277E50430028DBEA /* TransfersView.swift in Sources */,
 				98584AF3277E50430028DBEA /* ConfirmationView.swift in Sources */,
+				BCA90EB127ACB086006CA89F /* TransfersProtocols.swift in Sources */,
 				A0C958BC27A9BA2100715795 /* ConfirmationProtocols.swift in Sources */,
 				A0FD66E827B350A500B3C6D3 /* ContactEntity.swift in Sources */,
 				A0C958C327AC7D7600715795 /* ConfirmationEntity.swift in Sources */,
@@ -621,6 +636,7 @@
 				6CC0698527AA109100973C57 /* ActivityDetailsPresenter.swift in Sources */,
 				A0FD66F127B46A4B00B3C6D3 /* FinanceEndpoint.swift in Sources */,
 				98584ACD277E4F0A0028DBEA /* SampleViewController.swift in Sources */,
+				BCA90EB327ACB46D006CA89F /* TransfersInteractor.swift in Sources */,
 				98584ACE277E4F0A0028DBEA /* SampleRouter.swift in Sources */,
 				BCF76FC227AAA5C2003B321F /* ContactListInteractor.swift in Sources */,
 				98584ACB277E4F0A0028DBEA /* SampleInteractor.swift in Sources */,
