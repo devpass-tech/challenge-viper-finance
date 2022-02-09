@@ -11,7 +11,7 @@ typealias ContactListInterable = ContactListPresenterProtocol & ContactListInter
 
 final class ContactListRouter: ContactListRouterProtocol {
 	
-	static func createModule() -> UINavigationController {
+	static func createModule() -> UIViewController {
 		let interactor = ContactListInteractor()
 		let router = ContactListRouter()
 		let presenter: ContactListInterable = ContactListPresenter(
@@ -20,12 +20,10 @@ final class ContactListRouter: ContactListRouterProtocol {
 		)
 		
 		let viewController = ContactListViewController(presenter: presenter)
-		let navigationController = UINavigationController(rootViewController: viewController)
-		
 		viewController.presenter.view = viewController
 		viewController.presenter.interactor.presenter = presenter
 		
-		return navigationController
+		return viewController
 	}
 	
 }

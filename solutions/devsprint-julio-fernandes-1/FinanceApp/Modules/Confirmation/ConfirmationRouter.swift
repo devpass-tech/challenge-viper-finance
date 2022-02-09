@@ -12,7 +12,7 @@ typealias ConfirmationInterable = ConfirmationPresenterProtocol & ConfirmationIn
 
 final class ConfirmationRouter: ConfirmationRouterProtocol {
 
-    static func createModule() -> UINavigationController {
+    static func createModule() -> UIViewController {
         let interactor: ConfirmationInteractorProtocol = ConfirmationInteractor()
         let router: ConfirmationRouterProtocol = ConfirmationRouter()
 
@@ -22,12 +22,11 @@ final class ConfirmationRouter: ConfirmationRouterProtocol {
         )
 
         let viewController = ConfirmationViewController(presenter: presenter)
-        let navigationController = UINavigationController(rootViewController: viewController)
 
         viewController.presenter.view = viewController
         viewController.presenter.interactor.presenter = presenter
 
-        return navigationController
+        return viewController
     }
 
 }
