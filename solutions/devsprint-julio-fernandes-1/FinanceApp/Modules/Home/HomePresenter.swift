@@ -17,8 +17,8 @@ protocol HomePresenterDelegate: AnyObject {
 final class HomePresenter: HomePresenterProtocol {
     // MARK: Properties
     weak var view: HomePresenterDelegate?
-    var interactor: HomeInteractorProtocol?
-    var router: HomeRouterProtocol?
+    var interactor: HomeInteractorProtocol
+    var router: HomeRouterProtocol
     
     // MARK: Init
     init(
@@ -30,7 +30,7 @@ final class HomePresenter: HomePresenterProtocol {
     }
     
     func viewDidLoad() {
-        interactor?.didFetchData()
+        interactor.didFetchData()
     }
 }
 

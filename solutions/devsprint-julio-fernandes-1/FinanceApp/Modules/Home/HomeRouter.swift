@@ -23,7 +23,7 @@ final class HomeRouter: HomeRouterProtocol {
         viewController.presenter?.router = HomeRouter()
         viewController.presenter?.view = viewController
         viewController.presenter?.interactor = HomeInteractor()
-        viewController.presenter?.interactor?.presenter = presenter
+        viewController.presenter?.interactor.presenter = presenter
         
         return viewController
     }

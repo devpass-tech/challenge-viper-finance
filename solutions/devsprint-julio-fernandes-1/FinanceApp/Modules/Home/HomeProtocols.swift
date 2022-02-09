@@ -10,8 +10,8 @@ import UIKit
 
 protocol HomePresenterProtocol {
     var view: HomePresenterDelegate? { get set }
-    var interactor: HomeInteractorProtocol? { get set }
-    var router: HomeRouterProtocol? { get set }
+    var interactor: HomeInteractorProtocol { get set }
+    var router: HomeRouterProtocol { get set }
     
     func viewDidLoad()
 }

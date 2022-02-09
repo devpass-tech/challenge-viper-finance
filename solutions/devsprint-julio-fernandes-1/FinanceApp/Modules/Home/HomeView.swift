@@ -14,7 +14,7 @@ protocol HomeViewDelegate: AnyObject {
 }
 
 // MARK: Class
-class HomeView: UIView {
+final class HomeView: UIView {
     
     // MARK: Properties
     weak var delegate: HomeViewDelegate?
