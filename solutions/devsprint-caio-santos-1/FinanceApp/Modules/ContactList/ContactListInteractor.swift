@@ -30,7 +30,5 @@ final class ContactListInteractor: ContactListInteractorProtocol {
             }
         })
         presenter?.didFetchData(list)
-    }
-    
-    
+    }  
 }

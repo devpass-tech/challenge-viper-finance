@@ -8,13 +8,12 @@
 import UIKit
 
 protocol ContactListViewDelegate: AnyObject {
-//    func setContactList(with contactList: ContactListEntity)
     func didSelectContactButton()
 }
 
 final class ContactListView: UIView {
     weak var delegate: ContactListViewDelegate?
-    weak var viewController: ContactListViewController?
+    var viewController: ContactListViewControllerProtocol?
     
     var contactList: ContactListEntity = [] {
         didSet {
@@ -36,13 +35,13 @@ final class ContactListView: UIView {
         return tableView
     }()
 
-    init() {
+    init(viewController: ContactListViewControllerProtocol) {
         super.init(frame: .zero)
 
+        self.viewController = viewController
         backgroundColor = .white
         addSubviews()
         configureConstraints()
-        contactList = viewController?.contactList ?? []
         tableView.reloadData()
     }
 
@@ -54,14 +53,11 @@ final class ContactListView: UIView {
 extension ContactListView {
 
     func addSubviews() {
-
         addSubview(tableView)
     }
 
     func configureConstraints() {
-
         NSLayoutConstraint.activate([
-
             tableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
@@ -73,15 +69,14 @@ extension ContactListView {
 extension ContactListView: UITableViewDataSource {
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        return contactList.count
+        return  viewController?.numberOfRowsInSection() ?? 0
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ContactCellView
-        cell.contactNameLabel.text = viewController?.contactList?[indexPath.row].name
-        cell.contactPhoneLabel.text = viewController?.contactList?[indexPath.row].phone
+        cell.contactNameLabel.text = viewController?.getNameLabel(at: indexPath.row)
+        cell.contactPhoneLabel.text = viewController?.getPhoneLabel(at: indexPath.row)
 
         return cell
     }
