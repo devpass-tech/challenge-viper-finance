@@ -11,19 +11,16 @@ typealias HomeInterable = HomePresenterProtocol & HomeInteractorDelegate
 
 final class HomeRouter: HomeRouterProtocol {
     static func createModule() -> UIViewController {
-        let viewController: HomeViewController = HomeViewController()
         let interactor = HomeInteractor()
         let router = HomeRouter()
-        let presenter: HomeInterable = HomePresenter(
+        var presenter: HomeInterable = HomePresenter(
             interactor: interactor,
             router: router
         )
+        let viewController: HomeViewController = HomeViewController(presenter: presenter)
         
-        viewController.presenter = presenter
-        viewController.presenter?.router = HomeRouter()
-        viewController.presenter?.view = viewController
-        viewController.presenter?.interactor = HomeInteractor()
-        viewController.presenter?.interactor.presenter = presenter
+        presenter.view = viewController
+        interactor.presenter = presenter
         
         return viewController
     }

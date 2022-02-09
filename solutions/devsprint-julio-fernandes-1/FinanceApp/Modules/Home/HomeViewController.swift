@@ -10,7 +10,7 @@ import UIKit
 class HomeViewController: UIViewController {
     
     // MARK: Properties
-    var presenter: HomePresenterProtocol?
+    var presenter: HomePresenterProtocol
     
     // MARK: Components
     lazy var homeView: HomeView = {
@@ -20,8 +20,17 @@ class HomeViewController: UIViewController {
     }()
     
     // MARK: Init
+    init(presenter: HomePresenterProtocol) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
-        presenter?.viewDidLoad()
+        presenter.viewDidLoad()
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Profile", style: .plain, target: self, action: #selector(openProfile))
     }
 
