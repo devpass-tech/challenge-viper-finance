@@ -8,13 +8,20 @@
 import Foundation
 
 protocol HomeInteractorDelegate: AnyObject {
-    func didFetchData()
+    func didRetriveHomeInfo(message: String)
+    func onError(message: String)
 }
 
 final class HomeInteractor: HomeInteractorProtocol {
     weak var presenter: HomeInteractorDelegate?
     
+    let isSuccess = Bool.random()
+    
     func didFetchData() {
-        presenter?.didFetchData()
+        if isSuccess {
+            presenter?.didRetriveHomeInfo(message: "Deu bom! 😃")
+        } else {
+            presenter?.onError(message: "Deu ruim! 😢")
+        }
     }
 }

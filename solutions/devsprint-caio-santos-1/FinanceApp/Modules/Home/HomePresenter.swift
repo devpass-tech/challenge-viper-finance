@@ -9,7 +9,8 @@ import Foundation
 import UIKit
 
 protocol HomePresenterDelegate: AnyObject {
-    func showData()
+    func showSuccess(message: String)
+    func showError(message: String)
 }
 
 final class HomePresenter: HomePresenterProtocol {
@@ -32,7 +33,11 @@ final class HomePresenter: HomePresenterProtocol {
 }
 
 extension HomePresenter: HomeInteractorDelegate {
-    func didFetchData() {
-        view?.showData()
+    func didRetriveHomeInfo(message: String) {
+        view?.showSuccess(message: message)
+    }
+    
+    func onError(message: String) {
+        view?.showError(message: message)
     }
 }

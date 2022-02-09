@@ -2,19 +2,53 @@
 //  FinanceService.swift
 //  FinanceApp
 //
-//  Created by Rodrigo Borges on 30/12/21.
+//  Created by Lucas Eduardo Schlogl on 08/02/22.
 //
 
 import Foundation
 
-protocol FinanceServiceProtocol: AnyObject {
-
-    func fetchHomeData()
+protocol FinanceServiceProtocol {
+    func load<T: Decodable>(endpoint: FinanceEndpoint, completion: @escaping (Result<T, Error>) -> Void)
+    func cancel()
 }
 
-class FinanceService: FinanceServiceProtocol {
+final class FinanceService: FinanceServiceProtocol {
+    private var session: URLSession
+    private var dataTask: URLSessionDataTask?
 
-    func fetchHomeData() {
-        
+    init(session: URLSession = .shared) {
+        self.session = session
+    }
+
+    func load<T: Decodable>(endpoint: FinanceEndpoint, completion: @escaping (Result<T, Error>) -> Void) {
+        guard let url = URL(string: "https://raw.githubusercontent.com/devpass-tech/challenge-viper-finance/main/api/\(endpoint.rawValue).json") else {
+            DispatchQueue.main.async {
+                completion(.failure(FinanceServiceError.invalidURL))
+            }
+            return
+        }
+        let request = URLRequest(url: url)
+
+        dataTask = session.dataTask(with: request, completionHandler: { data, response, error in
+            guard let data = data else {
+                DispatchQueue.main.async {
+                    completion(.failure(FinanceServiceError.invalidData))
+                }
+                return
+            }
+            guard let decodedData = try? JSONDecoder().decode(T.self, from: data) else {
+                DispatchQueue.main.async {
+                    completion(.failure(FinanceServiceError.decode))
+                }
+                return
+            }
+            completion(.success(decodedData))
+        })
+
+        dataTask?.resume()
+    }
+
+    func cancel() {
+        self.dataTask?.cancel()
     }
 }
