@@ -35,4 +35,8 @@ extension ContactListViewController: ContactListPresenterDelegate {
     func showData(_ contactList: [ContactEntity]) {
         //Setup contact list
     }
+
+    func showError(_ error: Error) {
+        //Setup error
+    }
 }

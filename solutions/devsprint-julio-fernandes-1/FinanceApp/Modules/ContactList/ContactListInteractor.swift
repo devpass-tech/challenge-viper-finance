@@ -9,22 +9,24 @@ import Foundation
 
 protocol ContactListInteractorDelegate: AnyObject {
     func didFetchData(contactList: [ContactEntity])
+    func didReceiveError(error: Error)
 }
 
 final class ContactListInteractor: ContactListInteractorProtocol {
     weak var presenter: ContactListInteractorDelegate?
-    private let provider: ContentProviderProtocol
+    private let service: FinanceServiceProtocol
 
-    init(provider: ContentProviderProtocol) {
-        self.provider = provider
+    init(service: FinanceServiceProtocol) {
+        self.service = service
     }
 
     func fetchData() {
-        provider.load(jsonName: "contact_list_endpoint") { (result: Result<[ContactEntity], Error>) in
+        service.load(endpoint: .contactList) { (result: Result<[ContactEntity], Error>) in
             switch result {
             case .success(let list):
                 self.presenter?.didFetchData(contactList: list)
-            case .failure(let error): break
+            case .failure(let error):
+                self.presenter?.didReceiveError(error: error)
             }
         }
     }
