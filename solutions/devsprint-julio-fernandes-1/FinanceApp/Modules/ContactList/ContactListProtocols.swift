@@ -16,7 +16,7 @@ protocol ContactListPresenterProtocol {
 }
 
 protocol ContactListRouterProtocol {
-	static func createModule() -> UINavigationController
+	static func createModule() -> UIViewController
 }
 
 protocol ContactListInteractorProtocol {

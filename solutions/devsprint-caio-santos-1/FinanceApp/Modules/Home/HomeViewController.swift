@@ -27,21 +27,26 @@ final class HomeViewController: UIViewController {
 
     @objc
     func openProfile() {
-        let navigationController = UserProfileRouter.createModule()
-        self.present(navigationController, animated: true)
+        guard let navigation = self.navigationController else { return }
+        presenter?.pushToUserProfile(navigation: navigation)
     }
 }
 
 extension HomeViewController: HomeViewDelegate {
-
     func didSelectActivity() {
-        let activityDetailsViewController = ActivityDetailsRouter.createModule()
+        let activityDetailsViewController = ActivityDetailsRouter.createModule(activity: nil)
         self.navigationController?.pushViewController(activityDetailsViewController, animated: true)
     }
 }
 
 extension HomeViewController: HomePresenterDelegate {
-    func showData() {
-        print("HomeViewController - HomePresenterDelegate - showData()")
+    func showSuccess(message: String) {
+        homeView.homeHeaderView.label.textColor = .green
+        homeView.homeHeaderView.label.text = message
+    }
+    
+    func showError(message: String) {
+        homeView.homeHeaderView.label.textColor = .red
+        homeView.homeHeaderView.label.text = message
     }
 }

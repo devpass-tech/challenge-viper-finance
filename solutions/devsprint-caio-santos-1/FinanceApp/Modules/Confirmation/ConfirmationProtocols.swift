@@ -15,16 +15,17 @@ protocol ConfirmationPresenterProtocol {
     var router: ConfirmationRouterProtocol? { get set }
     
     func viewDidLoad()
+    func getText() -> String
+    func getColorIcon() -> UIColor
+    func getButtonTitle() -> String
 }
 
 protocol ConfirmationRouterProtocol {
     
-    static func createModule() -> UINavigationController
-    func navigateToNewModule()
+    static func createModule(statusTransfer: Bool) -> UINavigationController
 }
 
 protocol ConfirmationInteractorProtocol {
     
     var presenter: ConfirmationInteractorDelegate? { get set }
-    func fetchData()
 }
