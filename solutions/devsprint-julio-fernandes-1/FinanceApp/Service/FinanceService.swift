@@ -1,5 +1,5 @@
 //
-//  NetworkProvider.swift
+//  FinanceService.swift
 //  FinanceApp
 //
 //  Created by Lucas Eduardo Schlogl on 08/02/22.

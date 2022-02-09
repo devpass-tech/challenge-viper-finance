@@ -438,6 +438,7 @@
 				BCF76FBF27AAA550003B321F /* ContactListPresenter.swift */,
 				BCF76FC127AAA5C2003B321F /* ContactListInteractor.swift */,
 				BCF76FC327AAA60D003B321F /* ContactListRouter.swift */,
+				A0FD66E727B350A500B3C6D3 /* ContactEntity.swift */,
 			);
 			path = ContactList;
 			sourceTree = "<group>";
@@ -446,7 +447,6 @@
 			isa = PBXGroup;
 			children = (
 				A0C958C227AC7D7600715795 /* ConfirmationEntity.swift */,
-				A0FD66E727B350A500B3C6D3 /* ContactEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";

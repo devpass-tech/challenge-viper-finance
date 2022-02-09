@@ -21,7 +21,8 @@ final class ContactListInteractor: ContactListInteractorProtocol {
     }
 
     func fetchData() {
-        service.load(endpoint: .contactList) { (result: Result<[ContactEntity], Error>) in
+        service.load(endpoint: .contactList) { [weak self] (result: Result<[ContactEntity], Error>) in
+            guard let self = self else { return }
             switch result {
             case .success(let list):
                 self.presenter?.didFetchData(contactList: list)
