@@ -37,7 +37,7 @@ final class TransfersRouter: TransfersRouterProtocol {
 	
 	func navigateToConfirmation() {
 		let viewController = ConfirmationRouter.createModule()
-		self.viewController?.showDetailViewController(viewController, sender: self)
+		self.viewController?.present(viewController, animated: true)
 	}
 	
 }

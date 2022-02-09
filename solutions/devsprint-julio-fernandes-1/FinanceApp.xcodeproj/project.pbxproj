@@ -11,6 +11,10 @@
 		1C135B0827AC820800AB010E /* ContactListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C135B0327AC820800AB010E /* ContactListInteractorTests.swift */; };
 		1C135B0927AC820800AB010E /* ContactListRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C135B0427AC820800AB010E /* ContactListRouterTests.swift */; };
 		1C135B0A27AC820800AB010E /* ContactListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C135B0527AC820800AB010E /* ContactListPresenterTests.swift */; };
+		1C185D4527B4738000CBABD6 /* TransfersViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C185D4027B4738000CBABD6 /* TransfersViewControllerTests.swift */; };
+		1C185D4627B4738000CBABD6 /* TransfersInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C185D4127B4738000CBABD6 /* TransfersInteractorTests.swift */; };
+		1C185D4727B4738000CBABD6 /* TransfersRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C185D4227B4738000CBABD6 /* TransfersRouterTests.swift */; };
+		1C185D4827B4738000CBABD6 /* TransfersPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C185D4327B4738000CBABD6 /* TransfersPresenterTests.swift */; };
 		1C49E9CE27B1C7680026DEB5 /* ActivityDetailsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C49E9C927B1C7680026DEB5 /* ActivityDetailsViewControllerTests.swift */; };
 		1C49E9CF27B1C7680026DEB5 /* ActivityDetailsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C49E9CA27B1C7680026DEB5 /* ActivityDetailsInteractorTests.swift */; };
 		1C49E9D027B1C7680026DEB5 /* ActivityDetailsRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C49E9CB27B1C7680026DEB5 /* ActivityDetailsRouterTests.swift */; };
@@ -104,6 +108,10 @@
 		1C135B0327AC820800AB010E /* ContactListInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListInteractorTests.swift; sourceTree = "<group>"; };
 		1C135B0427AC820800AB010E /* ContactListRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListRouterTests.swift; sourceTree = "<group>"; };
 		1C135B0527AC820800AB010E /* ContactListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListPresenterTests.swift; sourceTree = "<group>"; };
+		1C185D4027B4738000CBABD6 /* TransfersViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransfersViewControllerTests.swift; sourceTree = "<group>"; };
+		1C185D4127B4738000CBABD6 /* TransfersInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransfersInteractorTests.swift; sourceTree = "<group>"; };
+		1C185D4227B4738000CBABD6 /* TransfersRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransfersRouterTests.swift; sourceTree = "<group>"; };
+		1C185D4327B4738000CBABD6 /* TransfersPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransfersPresenterTests.swift; sourceTree = "<group>"; };
 		1C49E9C927B1C7680026DEB5 /* ActivityDetailsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewControllerTests.swift; sourceTree = "<group>"; };
 		1C49E9CA27B1C7680026DEB5 /* ActivityDetailsInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsInteractorTests.swift; sourceTree = "<group>"; };
 		1C49E9CB27B1C7680026DEB5 /* ActivityDetailsRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsRouterTests.swift; sourceTree = "<group>"; };
@@ -215,6 +223,17 @@
 			path = ContactList;
 			sourceTree = "<group>";
 		};
+		1C185D3F27B4736E00CBABD6 /* Transfers */ = {
+			isa = PBXGroup;
+			children = (
+				1C185D4027B4738000CBABD6 /* TransfersViewControllerTests.swift */,
+				1C185D4127B4738000CBABD6 /* TransfersInteractorTests.swift */,
+				1C185D4227B4738000CBABD6 /* TransfersRouterTests.swift */,
+				1C185D4327B4738000CBABD6 /* TransfersPresenterTests.swift */,
+			);
+			path = Transfers;
+			sourceTree = "<group>";
+		};
 		1C49E9C827B1C7570026DEB5 /* ActivityDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,6 +248,7 @@
 		1CD45F0227AA02A4007BBB94 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				1C185D3F27B4736E00CBABD6 /* Transfers */,
 				1C49E9C827B1C7570026DEB5 /* ActivityDetails */,
 				1C135B0127AC819800AB010E /* ContactList */,
 				1CFAA9A727AA191C003CEF2F /* UserProfile */,
@@ -653,8 +673,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C185D4527B4738000CBABD6 /* TransfersViewControllerTests.swift in Sources */,
 				1C135B0927AC820800AB010E /* ContactListRouterTests.swift in Sources */,
 				1CD45F1127AA0335007BBB94 /* ConfirmationRouterTests.swift in Sources */,
+				1C185D4827B4738000CBABD6 /* TransfersPresenterTests.swift in Sources */,
 				1CFAA9AF27AA192F003CEF2F /* UserProfileRouterTests.swift in Sources */,
 				1CD45F1027AA0335007BBB94 /* ConfirmationInteractorTests.swift in Sources */,
 				1CFAA9AD27AA192F003CEF2F /* UserProfileViewControllerTests.swift in Sources */,
@@ -665,10 +687,12 @@
 				1CD45F0F27AA0335007BBB94 /* ConfirmationViewControllerTests.swift in Sources */,
 				1C135B0A27AC820800AB010E /* ContactListPresenterTests.swift in Sources */,
 				1C135B0827AC820800AB010E /* ContactListInteractorTests.swift in Sources */,
+				1C185D4627B4738000CBABD6 /* TransfersInteractorTests.swift in Sources */,
 				1C49E9D127B1C7680026DEB5 /* ActivityDetailsPresenterTests.swift in Sources */,
 				1C49E9CF27B1C7680026DEB5 /* ActivityDetailsInteractorTests.swift in Sources */,
 				1C135B0727AC820800AB010E /* ContactListViewControllerTests.swift in Sources */,
 				1C49E9D027B1C7680026DEB5 /* ActivityDetailsRouterTests.swift in Sources */,
+				1C185D4727B4738000CBABD6 /* TransfersRouterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

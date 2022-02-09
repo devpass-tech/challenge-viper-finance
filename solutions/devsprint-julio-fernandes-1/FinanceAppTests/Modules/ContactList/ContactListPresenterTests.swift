@@ -26,7 +26,7 @@ final class ContactListPresenterTests: XCTestCase {
     }
 
     func test_didFetchData() {
-        sut.didFetchData()
+        sut.didFetchData(contactList: [])
         XCTAssertTrue(viewContollerSpy.showDataCalled)
     }
 }
@@ -34,8 +34,13 @@ final class ContactListPresenterTests: XCTestCase {
 final class ContactListPresenterDelegateSpy: ContactListPresenterDelegate {
 
     private(set) var showDataCalled = false
-    func showData() {
+    func showData(_ contactList: [ContactEntity]) {
         showDataCalled = true
+    }
+
+    private(set) var showErrorCalled = false
+    func showError(_ error: Error) {
+        showErrorCalled = true
     }
 
 }
