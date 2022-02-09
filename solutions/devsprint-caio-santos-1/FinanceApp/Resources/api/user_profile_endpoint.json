@@ -5,6 +5,7 @@
 	"address": "Rua Bela Cintra, 495",
 	"account": {
 		"agency": "0001",
-		"account": "123456-7"
+		"account": "123456-7",
+        "bank": "Devpass Private Bank"
 	}
 }

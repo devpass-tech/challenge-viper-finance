@@ -54,7 +54,6 @@
 		9D85B4E027A99E2900FA9997 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D85B4DF27A99E2900FA9997 /* HomePresenter.swift */; };
 		9D85B4E227A99E4200FA9997 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D85B4E127A99E4200FA9997 /* HomeRouter.swift */; };
 		9D85B4E427A99E4D00FA9997 /* HomeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D85B4E327A99E4D00FA9997 /* HomeProtocols.swift */; };
-		A35FDAFD27A9D2E2004E6498 /* ActivityDetailsPresenterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35FDAFC27A9D2E1004E6498 /* ActivityDetailsPresenterProtocols.swift */; };
 		9DC5C71627AB658500784A34 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC5C71527AB658500784A34 /* AlertView.swift */; };
 		A35FDAFD27A9D2E2004E6498 /* ActivityDetailsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35FDAFC27A9D2E1004E6498 /* ActivityDetailsProtocols.swift */; };
 		A35FDAFF27A9D307004E6498 /* ActivityDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35FDAFE27A9D307004E6498 /* ActivityDetailsInteractor.swift */; };
@@ -73,6 +72,8 @@
 		F8F7FA2527B064AD00B32235 /* user_profile_endpoint.json in Resources */ = {isa = PBXBuildFile; fileRef = F8F7FA2027B064AD00B32235 /* user_profile_endpoint.json */; };
 		F8F7FA2627B064AD00B32235 /* home_endpoint.json in Resources */ = {isa = PBXBuildFile; fileRef = F8F7FA2127B064AD00B32235 /* home_endpoint.json */; };
 		F8F7FA2727B064AD00B32235 /* transfer_successful_endpoint.json in Resources */ = {isa = PBXBuildFile; fileRef = F8F7FA2227B064AD00B32235 /* transfer_successful_endpoint.json */; };
+		F8F7FA6527B35B0000B32235 /* UserProfileEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F7FA6427B35B0000B32235 /* UserProfileEntity.swift */; };
+		F8F7FA6727B35B8300B32235 /* UserProfileWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F7FA6627B35B8300B32235 /* UserProfileWorker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,7 +145,6 @@
 		9D85B4DF27A99E2900FA9997 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		9D85B4E127A99E4200FA9997 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		9D85B4E327A99E4D00FA9997 /* HomeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProtocols.swift; sourceTree = "<group>"; };
-		A35FDAFC27A9D2E1004E6498 /* ActivityDetailsPresenterProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsPresenterProtocols.swift; sourceTree = "<group>"; };
 		9DC5C71527AB658500784A34 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		A35FDAFC27A9D2E1004E6498 /* ActivityDetailsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsProtocols.swift; sourceTree = "<group>"; };
 		A35FDAFE27A9D307004E6498 /* ActivityDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsInteractor.swift; sourceTree = "<group>"; };
@@ -163,6 +163,8 @@
 		F8F7FA2027B064AD00B32235 /* user_profile_endpoint.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user_profile_endpoint.json; sourceTree = "<group>"; };
 		F8F7FA2127B064AD00B32235 /* home_endpoint.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = home_endpoint.json; sourceTree = "<group>"; };
 		F8F7FA2227B064AD00B32235 /* transfer_successful_endpoint.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = transfer_successful_endpoint.json; sourceTree = "<group>"; };
+		F8F7FA6427B35B0000B32235 /* UserProfileEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileEntity.swift; sourceTree = "<group>"; };
+		F8F7FA6627B35B8300B32235 /* UserProfileWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileWorker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -329,6 +331,7 @@
 				F8F7FA0727AABEB900B32235 /* UserProfileInteractor.swift */,
 				F8F7FA0927AABEC700B32235 /* UserProfilePresenter.swift */,
 				F8F7FA0B27AABED000B32235 /* UserProfileRouter.swift */,
+				F8F7FA6627B35B8300B32235 /* UserProfileWorker.swift */,
 			);
 			path = UserProfile;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 			isa = PBXGroup;
 			children = (
 				F8F7FA0D27AEF18E00B32235 /* ContactEntity.swift */,
+				F8F7FA6427B35B0000B32235 /* UserProfileEntity.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -551,12 +555,14 @@
 				9D85B4E027A99E2900FA9997 /* HomePresenter.swift in Sources */,
 				9D85B4E427A99E4D00FA9997 /* HomeProtocols.swift in Sources */,
 				9D85B4DE27A99E1E00FA9997 /* HomeInteractor.swift in Sources */,
+				F8F7FA6527B35B0000B32235 /* UserProfileEntity.swift in Sources */,
 				9A7AFC9E27AA069B00B89C12 /* ConfirmationPresenter.swift in Sources */,
 				F8F7FA1027AEF7EB00B32235 /* ContactWorker.swift in Sources */,
 				9AB92F4427A8D2FC00A69146 /* TransfersPresenter.swift in Sources */,
 				F8F7FA0427AAA62900B32235 /* ContactListPresenter.swift in Sources */,
 				9AB92F4627A8D32200A69146 /* TransfersProtocols.swift in Sources */,
 				98584AD0277E4F0A0028DBEA /* SampleProtocols.swift in Sources */,
+				F8F7FA6727B35B8300B32235 /* UserProfileWorker.swift in Sources */,
 				98584B10277E605F0028DBEA /* ActivityDetailsViewController.swift in Sources */,
 				98584AFE277E51A70028DBEA /* ActivityListView.swift in Sources */,
 				98584B20277E60740028DBEA /* ContactListViewController.swift in Sources */,
