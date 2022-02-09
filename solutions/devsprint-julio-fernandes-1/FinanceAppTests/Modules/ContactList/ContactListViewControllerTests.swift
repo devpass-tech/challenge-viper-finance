@@ -46,7 +46,7 @@ final class ContactListInteractorProtocolSpy: ContactListInteractorProtocol {
 }
 
 final class ContactListRouterProtocolSpy: ContactListRouterProtocol {
-    static func createModule() -> UINavigationController {
-        return UINavigationController()
+    static func createModule() -> UIViewController {
+        return UIViewController()
     }
 }

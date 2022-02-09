@@ -54,7 +54,7 @@ final class ConfirmationInteractorProtocolSpy: ConfirmationInteractorProtocol {
 }
 
 final class ConfirmationRouterProtocolSpy: ConfirmationRouterProtocol {
-    static func createModule() -> UINavigationController {
-        return UINavigationController()
+    static func createModule() -> UIViewController {
+        return UIViewController()
     }
 }

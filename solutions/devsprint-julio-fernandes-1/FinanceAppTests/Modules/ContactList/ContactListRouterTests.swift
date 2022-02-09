@@ -10,8 +10,7 @@ import XCTest
 
 final class ContactListRouterTests: XCTestCase {    
     func test_createModule() {
-        let navigation = ContactListRouter.createModule()
-        XCTAssertEqual(navigation.viewControllers.count, 1)
-        XCTAssertTrue(navigation.viewControllers.first is ContactListViewController)
+        let sut = ContactListRouter.createModule()
+        XCTAssertTrue(sut is ContactListViewController)
     }
 }
