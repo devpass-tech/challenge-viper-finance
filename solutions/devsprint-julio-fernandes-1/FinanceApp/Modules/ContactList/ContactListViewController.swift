@@ -32,8 +32,7 @@ final class ContactListViewController: UIViewController {
 }
 
 extension ContactListViewController: ContactListPresenterDelegate {
-	
-	func showData() {
-	}
-
+    func showData(_ contactList: [ContactEntity]) {
+        //Setup contact list
+    }
 }

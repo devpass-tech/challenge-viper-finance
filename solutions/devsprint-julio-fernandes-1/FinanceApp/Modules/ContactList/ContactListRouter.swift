@@ -12,7 +12,8 @@ typealias ContactListInterable = ContactListPresenterProtocol & ContactListInter
 final class ContactListRouter: ContactListRouterProtocol {
 	
 	static func createModule() -> UINavigationController {
-		let interactor = ContactListInteractor()
+        let provider: ContentProviderProtocol = LocalJSONProvider()
+        let interactor = ContactListInteractor(provider: provider)
 		let router = ContactListRouter()
 		let presenter: ContactListInterable = ContactListPresenter(
 			interactor: interactor,
