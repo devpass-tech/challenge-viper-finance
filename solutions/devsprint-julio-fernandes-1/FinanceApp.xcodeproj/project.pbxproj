@@ -64,7 +64,7 @@
 		A0C958BA27A9BA1400715795 /* ConfirmationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C958B927A9BA1400715795 /* ConfirmationPresenter.swift */; };
 		A0C958BC27A9BA2100715795 /* ConfirmationProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C958BB27A9BA2100715795 /* ConfirmationProtocols.swift */; };
 		A0C958C327AC7D7600715795 /* ConfirmationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C958C227AC7D7600715795 /* ConfirmationEntity.swift */; };
-		A0FD66E627B34EC300B3C6D3 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FD66E527B34EC300B3C6D3 /* NetworkProvider.swift */; };
+		A0FD66E627B34EC300B3C6D3 /* FinanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FD66E527B34EC300B3C6D3 /* FinanceService.swift */; };
 		A0FD66E827B350A500B3C6D3 /* ContactEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FD66E727B350A500B3C6D3 /* ContactEntity.swift */; };
 		A0FD66F127B46A4B00B3C6D3 /* FinanceEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FD66F027B46A4B00B3C6D3 /* FinanceEndpoint.swift */; };
 		A0FD66F327B46A6B00B3C6D3 /* FinanceServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FD66F227B46A6B00B3C6D3 /* FinanceServiceError.swift */; };
@@ -157,7 +157,7 @@
 		A0C958B927A9BA1400715795 /* ConfirmationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationPresenter.swift; sourceTree = "<group>"; };
 		A0C958BB27A9BA2100715795 /* ConfirmationProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationProtocols.swift; sourceTree = "<group>"; };
 		A0C958C227AC7D7600715795 /* ConfirmationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationEntity.swift; sourceTree = "<group>"; };
-		A0FD66E527B34EC300B3C6D3 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
+		A0FD66E527B34EC300B3C6D3 /* FinanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceService.swift; sourceTree = "<group>"; };
 		A0FD66E727B350A500B3C6D3 /* ContactEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactEntity.swift; sourceTree = "<group>"; };
 		A0FD66F027B46A4B00B3C6D3 /* FinanceEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceEndpoint.swift; sourceTree = "<group>"; };
 		A0FD66F227B46A6B00B3C6D3 /* FinanceServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceServiceError.swift; sourceTree = "<group>"; };
@@ -345,7 +345,7 @@
 		98584AB8277E374A0028DBEA /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				A0FD66E527B34EC300B3C6D3 /* NetworkProvider.swift */,
+				A0FD66E527B34EC300B3C6D3 /* FinanceService.swift */,
 				A0FD66F027B46A4B00B3C6D3 /* FinanceEndpoint.swift */,
 				A0FD66F227B46A6B00B3C6D3 /* FinanceServiceError.swift */,
 				A0C958C127AC7D6400715795 /* Entity */,
@@ -624,7 +624,7 @@
 				98584ACE277E4F0A0028DBEA /* SampleRouter.swift in Sources */,
 				BCF76FC227AAA5C2003B321F /* ContactListInteractor.swift in Sources */,
 				98584ACB277E4F0A0028DBEA /* SampleInteractor.swift in Sources */,
-				A0FD66E627B34EC300B3C6D3 /* NetworkProvider.swift in Sources */,
+				A0FD66E627B34EC300B3C6D3 /* FinanceService.swift in Sources */,
 				98584AA5277E35E90028DBEA /* HomeViewController.swift in Sources */,
 				98584ACC277E4F0A0028DBEA /* SampleView.swift in Sources */,
 				98426FAA27A6EC8700B09645 /* TabBarController.swift in Sources */,
