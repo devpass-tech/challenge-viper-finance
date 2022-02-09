@@ -71,7 +71,6 @@
 		BC52C70D27AA0BDF00ED7703 /* UserProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC52C70927AA0BDF00ED7703 /* UserProfilePresenter.swift */; };
 		BCE6190227B3255B0058BD36 /* AccountEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE6190027B3255B0058BD36 /* AccountEntity.swift */; };
 		BCE6190327B3255B0058BD36 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE6190127B3255B0058BD36 /* UserEntity.swift */; };
-		BCE6190527B3258A0058BD36 /* UserProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE6190427B3258A0058BD36 /* UserProfileService.swift */; };
 		BCF76FBE27AAA4FB003B321F /* ContactListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF76FBD27AAA4FB003B321F /* ContactListProtocols.swift */; };
 		BCF76FC027AAA550003B321F /* ContactListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF76FBF27AAA550003B321F /* ContactListPresenter.swift */; };
 		BCF76FC227AAA5C2003B321F /* ContactListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF76FC127AAA5C2003B321F /* ContactListInteractor.swift */; };
@@ -164,7 +163,6 @@
 		BC52C70927AA0BDF00ED7703 /* UserProfilePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfilePresenter.swift; sourceTree = "<group>"; };
 		BCE6190027B3255B0058BD36 /* AccountEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountEntity.swift; sourceTree = "<group>"; };
 		BCE6190127B3255B0058BD36 /* UserEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
-		BCE6190427B3258A0058BD36 /* UserProfileService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileService.swift; sourceTree = "<group>"; };
 		BCF76FBD27AAA4FB003B321F /* ContactListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListProtocols.swift; sourceTree = "<group>"; };
 		BCF76FBF27AAA550003B321F /* ContactListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListPresenter.swift; sourceTree = "<group>"; };
 		BCF76FC127AAA5C2003B321F /* ContactListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListInteractor.swift; sourceTree = "<group>"; };
@@ -345,7 +343,6 @@
 		98584AB8277E374A0028DBEA /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				BCE6190427B3258A0058BD36 /* UserProfileService.swift */,
 				98584AC2277E42E80028DBEA /* FinanceService.swift */,
 				A0C958C127AC7D6400715795 /* Entity */,
 			);
@@ -600,7 +597,6 @@
 				98584B10277E605F0028DBEA /* ActivityDetailsViewController.swift in Sources */,
 				A0C958B827A9BA0900715795 /* ConfirmationRouter.swift in Sources */,
 				98584AFE277E51A70028DBEA /* ActivityListView.swift in Sources */,
-				BCE6190527B3258A0058BD36 /* UserProfileService.swift in Sources */,
 				BCF76FC427AAA60D003B321F /* ContactListRouter.swift in Sources */,
 				98584B20277E60740028DBEA /* ContactListViewController.swift in Sources */,
 				98584AF4277E50430028DBEA /* ConfirmationViewController.swift in Sources */,
