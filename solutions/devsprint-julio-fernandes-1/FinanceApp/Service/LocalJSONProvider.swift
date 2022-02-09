@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ContentProvider: Error {
+enum ContentProviderError: Error {
     case decode, fileNotFound, invalidData
 }
 
@@ -18,17 +18,17 @@ protocol ContentProviderProtocol {
 final class LocalJSONProvider: ContentProviderProtocol {
     func load<T: Decodable>(jsonName: String, completion: @escaping (Result<T, Error>) -> Void) {
         guard let path = Bundle.main.path(forResource: jsonName, ofType: "json") else {
-            completion(.failure(ContentProvider.fileNotFound))
+            completion(.failure(ContentProviderError.fileNotFound))
             return
         }
 
         guard let jsonData = try? String(contentsOfFile: path).data(using: .utf8) else {
-            completion(.failure(ContentProvider.invalidData))
+            completion(.failure(ContentProviderError.invalidData))
             return
         }
 
         guard let decodedData = try? JSONDecoder().decode(T.self, from: jsonData) else {
-            completion(.failure(ContentProvider.decode))
+            completion(.failure(ContentProviderError.decode))
             return
         }
 
