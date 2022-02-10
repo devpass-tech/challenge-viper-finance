@@ -14,7 +14,8 @@ final class TransfersRouter: TransfersRouterProtocol {
 	weak var viewController: UIViewController?
 	
 	static func createModule() -> UIViewController {
-		let interactor = TransfersInteractor()
+        let service = FinanceService()
+        let interactor = TransfersInteractor(service: service)
 		let router = TransfersRouter()
 		var presenter: TransfersInterable = TransfersPresenter(
 			interactor: interactor,

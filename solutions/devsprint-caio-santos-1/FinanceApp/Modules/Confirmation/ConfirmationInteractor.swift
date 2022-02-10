@@ -7,11 +7,28 @@
 
 import Foundation
 
-protocol ConfirmationInteractorDelegate: AnyObject {
+
+final class ConfirmationInteractor {
     
+    // MARK: - VIPER Properties
+    weak var output: ConfirmationInteractorOutputProtocol?
+    
+    // MARK: - Private Properties
+    
+    var jsonLoader: JsonLoaderProtocol
+    
+    // MARK: - Inits
+    
+    init(jsonLoader: JsonLoaderProtocol) {
+        self.jsonLoader = jsonLoader
+    }
+    
+    // MARK: - Internal Methods
+    
+    
+    // MARK: - Private Methods
 }
 
-final class ConfirmationInteractor: ConfirmationInteractorProtocol {
+extension ConfirmationInteractor: ConfirmationInteractorInputProtocol {
     
-    weak var presenter: ConfirmationInteractorDelegate?
 }

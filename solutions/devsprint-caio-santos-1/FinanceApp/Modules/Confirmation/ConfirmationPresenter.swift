@@ -8,35 +8,46 @@
 import Foundation
 import UIKit
 
-protocol ConfirmationPresenterDelegate: AnyObject {
+final class ConfirmationPresenter {
+
+    // MARK: - VIPER Properties
     
+    weak var viewController: ConfirmationViewController?
+    private let router: ConfirmationRouterProtocol
+    private let interactor: ConfirmationInteractorInputProtocol
+    
+    // MARK: Internal Properties
+    
+    private var transporter: ConfirmationTransporter?
+    
+    // MARK: - Private Properties
+    
+    // MARK: - Inits
+    
+    init(
+        router: ConfirmationRouterProtocol,
+        interactor: ConfirmationInteractorInputProtocol,
+        transporter: Transporter<Any>?
+    ) {
+        self.router = router
+        self.interactor = interactor
+        self.transporter = transporter?.data as? ConfirmationTransporter
+    }
 }
 
-final class ConfirmationPresenter: ConfirmationPresenterProtocol {
-    
-    weak var view: ConfirmationPresenterDelegate?
-    var interactor: ConfirmationInteractorProtocol?
-    var router: ConfirmationRouterProtocol?
-    var statusTransfer: Bool?
-    
-    func viewDidLoad() {
-        //get data
-    }
-    
+extension ConfirmationPresenter: ConfirmationPresenterInputProtocol {
     func getText() -> String {
-        statusTransfer ?? false ? "Your transfer was successful" : "Your transfer was failed"
+        transporter?.success ?? false ? "Your transfer was successful" : "Your transfer was failed"
     }
-    
     func getColorIcon() -> UIColor {
-        statusTransfer ?? false ? .systemGreen : .systemRed
+        transporter?.success ?? false ? .systemGreen : .systemRed
+    }
+    func getButtonTitle() -> String {
+        transporter?.success ?? false ? "Nice!" : "Ok"
     }
     
-    func getButtonTitle() -> String {
-        statusTransfer ?? false ? "Nice!" : "OK"
-    }
-   
 }
 
-extension ConfirmationPresenter: ConfirmationInteractorDelegate {
+extension ConfirmationPresenter: ConfirmationInteractorOutputProtocol {
     
 }

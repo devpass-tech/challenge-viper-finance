@@ -7,26 +7,45 @@
 
 import Foundation
 
-protocol TransfersInteractorDelegate: AnyObject {
-    
-    func didFetchData()
-    func didCreateTransfer(status: Bool)
-}
 
-final class TransfersInteractor: TransfersInteractorProtocol {
+final class TransfersInteractor {
     
-    weak var presenter: TransfersInteractorDelegate?
+    // MARK: - VIPER Properties
+    weak var output: TransfersInteractorOutputProtocol?
     
-    func fetchData() {
-        
-        presenter?.didFetchData()
+    
+    // MARK: - Private Properties
+    
+    var jsonLoader: JsonLoaderProtocol
+    
+    // MARK: - Inits
+    
+    init(jsonLoader: JsonLoaderProtocol) {
+        self.jsonLoader = jsonLoader
     }
     
-    func createTransfer(value: Float) {
-        if value <= 100.0 {
-            presenter?.didCreateTransfer(status: true)
+    // MARK: - Internal Methods
+    
+    
+    // MARK: - Private Methods
+}
+
+extension TransfersInteractor: TransfersInteractorInputProtocol {
+    func createTransfer(value: String) {
+        if let data = jsonLoader.readLocalFile(forName: "transfer_successful_endpoint") {
+            do {
+                let decodedData = try JSONDecoder().decode(TransfersEntity.self, from: data)
+                if decodedData.success {
+                    output?.didCreateTransferSuccessful()
+                } else {
+                    output?.didErrorTransfer()
+                }
+            } catch {
+                print(error)
+                output?.didErrorTransfer()
+            }
         } else {
-            presenter?.didCreateTransfer(status: false)
+            output?.didErrorTransfer()
         }
     }
 }
