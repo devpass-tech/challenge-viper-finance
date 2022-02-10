@@ -27,13 +27,17 @@ final class ContactListViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		title = "Contact list"
 		presenter.viewDidLoad()
 	}
 }
 
 extension ContactListViewController: ContactListPresenterDelegate {
-	
-	func showData() {
-	}
+    func showData(_ contactList: [ContactEntity]) {
+        //Setup contact list
+    }
 
+    func showError(_ error: Error) {
+        //Setup error
+    }
 }

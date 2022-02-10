@@ -15,14 +15,25 @@ protocol UserProfileInteractorProtocol {
 
 protocol UserProfileInteractorDelegate: AnyObject {
     
-    func didFetchData()
+    func didFetchData(_ user: UserProfileEntity?)
 }
 
 final class UserProfileInteractor: UserProfileInteractorProtocol {
     weak var presenter: UserProfileInteractorDelegate?
     
     func fetchData() {
-        presenter?.didFetchData()
+        var userProfile: UserProfileEntity?
+        
+        UserProfileWorker(service: FinanceService()).fetchUserProfile(completion: { result in
+            switch result {
+            case .success(let user):
+                userProfile = user
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        })
+        
+        presenter?.didFetchData(userProfile)
     }
     
     
