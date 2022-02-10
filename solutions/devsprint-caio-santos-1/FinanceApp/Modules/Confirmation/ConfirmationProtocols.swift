@@ -8,24 +8,35 @@
 import Foundation
 import UIKit
 
-protocol ConfirmationPresenterProtocol {
+ // MARK: - ViewController
+protocol ConfirmationViewControllerInputProtocol: AnyObject {
+    func getText() -> String
+    func getColorIcon() -> UIColor
+    func getButtonTitle() -> String
+    func didTapConfirmationButton()
+}
+
+protocol ConfirmationPresenterOutputProtocol: AnyObject {
     
-    var view: ConfirmationPresenterDelegate? { get set }
-    var interactor: ConfirmationInteractorProtocol? { get set }
-    var router: ConfirmationRouterProtocol? { get set }
-    
-    func viewDidLoad()
+}
+
+ // MARK: - Presenter
+protocol ConfirmationPresenterInputProtocol: AnyObject {
     func getText() -> String
     func getColorIcon() -> UIColor
     func getButtonTitle() -> String
 }
 
-protocol ConfirmationRouterProtocol {
+ // MARK: - Interactor
+protocol ConfirmationInteractorInputProtocol: AnyObject {
     
-    static func createModule(statusTransfer: Bool) -> UINavigationController
 }
 
-protocol ConfirmationInteractorProtocol {
+protocol ConfirmationInteractorOutputProtocol: AnyObject {
     
-    var presenter: ConfirmationInteractorDelegate? { get set }
+}
+
+ // MARK: - Router
+protocol ConfirmationRouterProtocol: AnyObject {
+    
 }
