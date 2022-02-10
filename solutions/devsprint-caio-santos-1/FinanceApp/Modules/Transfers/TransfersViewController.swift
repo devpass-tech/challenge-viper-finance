@@ -30,9 +30,13 @@ final class TransfersViewController: UIViewController {
 }
 
 extension TransfersViewController: TransfersPresenterDelegate {
+
+    func didCreateTransfer(status: Bool) {
+        guard let navigationController = self.navigationController else { return }
+        presenter?.navigateToConfirmation(navigationController: navigationController, isTransferSuccess: status)
+    }
     
     func showData() {
-        
         print("Here is your data, Transfers View!")
     }
 }
@@ -44,8 +48,11 @@ extension TransfersViewController: TransferViewDelegate {
         presenter?.navigateToContactList(navigationController: navigationController)
     }
 
-    func didPressTransferButton() {
-        guard let navigationController = self.navigationController else { return }
-        presenter?.navigateToConfirmation(navigationController: navigationController)
+    func didPressTransferButton(value: String) {
+        if let valueString = Float(value), !value.isEmpty {
+            presenter?.createTransfer(value: valueString)
+        } else {
+            print("Alerta de valor invalido.")
+        }
     }
 }

@@ -11,7 +11,7 @@ typealias UserProfileInterable = UserProfilePresenterProtocol & UserProfileInter
 
 final class UserProfileRouter: UserProfileRouterProtocol {
 	
-	static func createModule() -> UINavigationController {
+	static func createModule() -> UIViewController {
 		let interactor = UserProfileInteractor()
 		let router = UserProfileRouter()
 		let presenter: UserProfileInterable = UserProfilePresenter(
@@ -20,12 +20,10 @@ final class UserProfileRouter: UserProfileRouterProtocol {
 		)
 		
 		let viewController = UserProfileViewController(presenter: presenter)
-		let navigationController = UINavigationController(rootViewController: viewController)
-		
 		viewController.presenter.view = viewController
 		viewController.presenter.interactor.presenter = presenter
 		
-		return navigationController
+		return viewController
 	}
 	
 }

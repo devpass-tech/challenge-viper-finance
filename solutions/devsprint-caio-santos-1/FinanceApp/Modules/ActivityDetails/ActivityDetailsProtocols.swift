@@ -5,7 +5,6 @@
 //  Created by Douglas Cardoso Ferreira on 31/01/22.
 //
 
-import Foundation
 import UIKit
 
 protocol ActivityDetailsPresenterProtocol {
@@ -14,14 +13,15 @@ protocol ActivityDetailsPresenterProtocol {
     var router: ActivityDetailsRouterProtocol? { get set }
     
     func viewDidLoad()
+    func reportIssue()
 }
 
 protocol ActivityDetailsRouterProtocol {
-    static func createModule() -> UIViewController
-    func navigateToNewModule()
+    static func createModule(activity: ActivityDetailsEntity?) -> UIViewController
 }
 
 protocol ActivityDetailsInteractorProtocol {
     var presenter: ActivityDetailsInteractorDelegate? { get set }
     func fetchData()
+    func reportIssue()
 }

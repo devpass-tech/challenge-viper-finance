@@ -27,7 +27,8 @@ final class ConfirmationPresenterTests: XCTestCase {
     }
 
     func test_didFetchData() {
-        sut.didFetchData()
+        let response = ConfirmationEntity(success: true, imageName: "imageName", message: "message")
+        sut.didFetchData(confirmation: response)
         XCTAssertTrue(viewContollerSpy.showDataCalled)
     }
 }
@@ -35,7 +36,7 @@ final class ConfirmationPresenterTests: XCTestCase {
 final class ConfirmationPresenterDelegateSpy: ConfirmationPresenterDelegate {
 
     private(set) var showDataCalled = true
-    func showData() {
+    func showData(confirmation: ConfirmationEntity) {
         showDataCalled = true
     }
 
