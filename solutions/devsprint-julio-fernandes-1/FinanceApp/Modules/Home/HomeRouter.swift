@@ -10,6 +10,9 @@ import UIKit
 typealias HomeInterable = HomePresenterProtocol & HomeInteractorDelegate
 
 final class HomeRouter: HomeRouterProtocol {
+
+    weak var viewController: UIViewController?
+
     static func createModule() -> UIViewController {
         let interactor = HomeInteractor()
         let router = HomeRouter()
