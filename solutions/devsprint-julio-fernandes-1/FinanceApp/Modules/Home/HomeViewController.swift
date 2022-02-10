@@ -41,16 +41,14 @@ class HomeViewController: UIViewController {
     // MARK: Methods
     @objc
     func openProfile() {
-		 presenter.navigateToUserProfile()
+        presenter.navigateToUserProfile()
     }
 }
 
 // MARK: Extensions
 extension HomeViewController: HomeViewDelegate {
     func didSelectActivity() {
-//        let activityDetailsViewController = ActivityDetailsRouter.createModule()
-//        self.navigationController?.pushViewController(activityDetailsViewController, animated: true)
-		 presenter.navigateToActivity()
+        presenter.navigateToActivity()
     }
 }
 

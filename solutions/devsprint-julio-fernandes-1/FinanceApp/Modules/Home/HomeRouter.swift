@@ -22,7 +22,7 @@ final class HomeRouter: HomeRouterProtocol {
         )
 		 
         let viewController: HomeViewController = HomeViewController(presenter: presenter)
-		 router.viewController = viewController
+        router.viewController = viewController
         
         presenter.view = viewController
         interactor.presenter = presenter
