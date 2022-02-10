@@ -11,8 +11,8 @@ final class SampleV2Presenter {
     
     // MARK: - Viper Properties
     
-    weak var viewController: SampleV2PresenterOutputProtocol?
     private let router: SampleV2RouterProtocol
+    weak var viewController: SampleV2PresenterOutputProtocol?
     private let interactor: SampleV2InteractorInputProtocol
     
     // MARK: - Internal Properties
