@@ -54,7 +54,6 @@
 		9AB92F4427A8D2FC00A69146 /* TransfersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB92F4327A8D2FC00A69146 /* TransfersPresenter.swift */; };
 		9AB92F4627A8D32200A69146 /* TransfersProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB92F4527A8D32200A69146 /* TransfersProtocols.swift */; };
 		9D3E7F7027B5BAB8005EF22F /* ActivityDetailsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3E7F6F27B5BAB8005EF22F /* ActivityDetailsWorker.swift */; };
-		9D3E7F7627B5CFC1005EF22F /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3E7F7527B5CFC1005EF22F /* UIView+Extensions.swift */; };
 		9D81A08627B06B8A00AE2BEB /* ActivityDetailsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D81A08527B06B8A00AE2BEB /* ActivityDetailsEntity.swift */; };
 		9D85B4DE27A99E1E00FA9997 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D85B4DD27A99E1E00FA9997 /* HomeInteractor.swift */; };
 		9D85B4E027A99E2900FA9997 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D85B4DF27A99E2900FA9997 /* HomePresenter.swift */; };
@@ -162,7 +161,6 @@
 		9AB92F4327A8D2FC00A69146 /* TransfersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransfersPresenter.swift; sourceTree = "<group>"; };
 		9AB92F4527A8D32200A69146 /* TransfersProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransfersProtocols.swift; sourceTree = "<group>"; };
 		9D3E7F6F27B5BAB8005EF22F /* ActivityDetailsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsWorker.swift; sourceTree = "<group>"; };
-		9D3E7F7527B5CFC1005EF22F /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		9D81A08527B06B8A00AE2BEB /* ActivityDetailsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsEntity.swift; sourceTree = "<group>"; };
 		9D85B4DD27A99E1E00FA9997 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		9D85B4DF27A99E2900FA9997 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
@@ -400,7 +398,6 @@
 				98426FA927A6EC8700B09645 /* TabBarController.swift */,
 				98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */,
 				9DC5C71527AB658500784A34 /* AlertView.swift */,
-				9D3E7F7527B5CFC1005EF22F /* UIView+Extensions.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -682,7 +679,6 @@
 				A1386A9B27B0778900F62839 /* SampleV2ViewController.swift in Sources */,
 				98426FAA27A6EC8700B09645 /* TabBarController.swift in Sources */,
 				F8F7FA0827AABEB900B32235 /* UserProfileInteractor.swift in Sources */,
-				9D3E7F7627B5CFC1005EF22F /* UIView+Extensions.swift in Sources */,
 				A1386A9E27B0778900F62839 /* SampleV2Router.swift in Sources */,
 				98584AED277E50430028DBEA /* UserProfileView.swift in Sources */,
 				F8F7FA0A27AABEC700B32235 /* UserProfilePresenter.swift in Sources */,
