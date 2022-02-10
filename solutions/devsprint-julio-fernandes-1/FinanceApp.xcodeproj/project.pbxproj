@@ -68,6 +68,7 @@
 		A0FD66E827B350A500B3C6D3 /* ContactEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FD66E727B350A500B3C6D3 /* ContactEntity.swift */; };
 		A0FD66F127B46A4B00B3C6D3 /* FinanceEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FD66F027B46A4B00B3C6D3 /* FinanceEndpoint.swift */; };
 		A0FD66F327B46A6B00B3C6D3 /* FinanceServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FD66F227B46A6B00B3C6D3 /* FinanceServiceError.swift */; };
+		A0FD66F527B588CF00B3C6D3 /* TransfersEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FD66F427B588CF00B3C6D3 /* TransfersEntity.swift */; };
 		BC52C70A27AA0BDF00ED7703 /* UserProfileProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC52C70627AA0BDF00ED7703 /* UserProfileProtocols.swift */; };
 		BC52C70B27AA0BDF00ED7703 /* UserProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC52C70727AA0BDF00ED7703 /* UserProfileRouter.swift */; };
 		BC52C70C27AA0BDF00ED7703 /* UserProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC52C70827AA0BDF00ED7703 /* UserProfileInteractor.swift */; };
@@ -76,8 +77,8 @@
 		BCA90EB127ACB086006CA89F /* TransfersProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA90EB027ACB086006CA89F /* TransfersProtocols.swift */; };
 		BCA90EB327ACB46D006CA89F /* TransfersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA90EB227ACB46D006CA89F /* TransfersInteractor.swift */; };
 		BCA90EB527ACB5A7006CA89F /* TransfersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA90EB427ACB5A7006CA89F /* TransfersRouter.swift */; };
-		BCE6190D27B49A3F0058BD36 /* AccountEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE6190B27B49A3F0058BD36 /* AccountEntity.swift */; };
-		BCE6190E27B49A3F0058BD36 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE6190C27B49A3F0058BD36 /* UserEntity.swift */; };
+		BCE6191827B5BAB80058BD36 /* AccountEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE6191627B5BAB80058BD36 /* AccountEntity.swift */; };
+		BCE6191927B5BAB80058BD36 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE6191727B5BAB80058BD36 /* UserEntity.swift */; };
 		BCF76FBE27AAA4FB003B321F /* ContactListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF76FBD27AAA4FB003B321F /* ContactListProtocols.swift */; };
 		BCF76FC027AAA550003B321F /* ContactListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF76FBF27AAA550003B321F /* ContactListPresenter.swift */; };
 		BCF76FC227AAA5C2003B321F /* ContactListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF76FC127AAA5C2003B321F /* ContactListInteractor.swift */; };
@@ -171,6 +172,7 @@
 		A0FD66E727B350A500B3C6D3 /* ContactEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactEntity.swift; sourceTree = "<group>"; };
 		A0FD66F027B46A4B00B3C6D3 /* FinanceEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceEndpoint.swift; sourceTree = "<group>"; };
 		A0FD66F227B46A6B00B3C6D3 /* FinanceServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceServiceError.swift; sourceTree = "<group>"; };
+		A0FD66F427B588CF00B3C6D3 /* TransfersEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransfersEntity.swift; sourceTree = "<group>"; };
 		BC52C70627AA0BDF00ED7703 /* UserProfileProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileProtocols.swift; sourceTree = "<group>"; };
 		BC52C70727AA0BDF00ED7703 /* UserProfileRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileRouter.swift; sourceTree = "<group>"; };
 		BC52C70827AA0BDF00ED7703 /* UserProfileInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileInteractor.swift; sourceTree = "<group>"; };
@@ -179,8 +181,8 @@
 		BCA90EB027ACB086006CA89F /* TransfersProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransfersProtocols.swift; sourceTree = "<group>"; };
 		BCA90EB227ACB46D006CA89F /* TransfersInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransfersInteractor.swift; sourceTree = "<group>"; };
 		BCA90EB427ACB5A7006CA89F /* TransfersRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransfersRouter.swift; sourceTree = "<group>"; };
-		BCE6190B27B49A3F0058BD36 /* AccountEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountEntity.swift; sourceTree = "<group>"; };
-		BCE6190C27B49A3F0058BD36 /* UserEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
+		BCE6191627B5BAB80058BD36 /* AccountEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountEntity.swift; sourceTree = "<group>"; };
+		BCE6191727B5BAB80058BD36 /* UserEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
 		BCF76FBD27AAA4FB003B321F /* ContactListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListProtocols.swift; sourceTree = "<group>"; };
 		BCF76FBF27AAA550003B321F /* ContactListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListPresenter.swift; sourceTree = "<group>"; };
 		BCF76FC127AAA5C2003B321F /* ContactListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListInteractor.swift; sourceTree = "<group>"; };
@@ -372,7 +374,6 @@
 				A0FD66E527B34EC300B3C6D3 /* FinanceService.swift */,
 				A0FD66F027B46A4B00B3C6D3 /* FinanceEndpoint.swift */,
 				A0FD66F227B46A6B00B3C6D3 /* FinanceServiceError.swift */,
-				A0C958C127AC7D6400715795 /* Entity */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -399,6 +400,7 @@
 				BCA90EB027ACB086006CA89F /* TransfersProtocols.swift */,
 				BCA90EB227ACB46D006CA89F /* TransfersInteractor.swift */,
 				BCA90EB427ACB5A7006CA89F /* TransfersRouter.swift */,
+				A0FD66F427B588CF00B3C6D3 /* TransfersEntity.swift */,
 			);
 			path = Transfers;
 			sourceTree = "<group>";
@@ -406,7 +408,7 @@
 		98584AD8277E50430028DBEA /* UserProfile */ = {
 			isa = PBXGroup;
 			children = (
-				BCE6190A27B49A3F0058BD36 /* Entities */,
+				BCE6191527B5BAB80058BD36 /* Entities */,
 				BC52C70827AA0BDF00ED7703 /* UserProfileInteractor.swift */,
 				BC52C70927AA0BDF00ED7703 /* UserProfilePresenter.swift */,
 				BC52C70627AA0BDF00ED7703 /* UserProfileProtocols.swift */,
@@ -426,6 +428,7 @@
 				A0C958B727A9BA0900715795 /* ConfirmationRouter.swift */,
 				A0C958B927A9BA1400715795 /* ConfirmationPresenter.swift */,
 				A0C958BB27A9BA2100715795 /* ConfirmationProtocols.swift */,
+				A0C958C227AC7D7600715795 /* ConfirmationEntity.swift */,
 			);
 			path = Confirmation;
 			sourceTree = "<group>";
@@ -472,19 +475,11 @@
 			path = ContactList;
 			sourceTree = "<group>";
 		};
-		A0C958C127AC7D6400715795 /* Entity */ = {
+		BCE6191527B5BAB80058BD36 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				A0C958C227AC7D7600715795 /* ConfirmationEntity.swift */,
-			);
-			path = Entity;
-			sourceTree = "<group>";
-		};
-		BCE6190A27B49A3F0058BD36 /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-				BCE6190B27B49A3F0058BD36 /* AccountEntity.swift */,
-				BCE6190C27B49A3F0058BD36 /* UserEntity.swift */,
+				BCE6191627B5BAB80058BD36 /* AccountEntity.swift */,
+				BCE6191727B5BAB80058BD36 /* UserEntity.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -622,9 +617,9 @@
 				BC52C70C27AA0BDF00ED7703 /* UserProfileInteractor.swift in Sources */,
 				BCF76FC027AAA550003B321F /* ContactListPresenter.swift in Sources */,
 				BCA90EAF27ACAED9006CA89F /* TransferPresenter.swift in Sources */,
-				BCE6190E27B49A3F0058BD36 /* UserEntity.swift in Sources */,
+				A0FD66F527B588CF00B3C6D3 /* TransfersEntity.swift in Sources */,
 				98584B04277E51DA0028DBEA /* ContactCellView.swift in Sources */,
-				BCE6190D27B49A3F0058BD36 /* AccountEntity.swift in Sources */,
+				BCE6191827B5BAB80058BD36 /* AccountEntity.swift in Sources */,
 				98584B02277E51CF0028DBEA /* ChooseContactView.swift in Sources */,
 				A0C958B627A9B9FC00715795 /* ConfirmationInteractor.swift in Sources */,
 				98584AD0277E4F0A0028DBEA /* SampleProtocols.swift in Sources */,
@@ -662,6 +657,7 @@
 				98584AA7277E35F10028DBEA /* HomeView.swift in Sources */,
 				BC52C70B27AA0BDF00ED7703 /* UserProfileRouter.swift in Sources */,
 				98584B1F277E60740028DBEA /* ContactListView.swift in Sources */,
+				BCE6191927B5BAB80058BD36 /* UserEntity.swift in Sources */,
 				A0C958BA27A9BA1400715795 /* ConfirmationPresenter.swift in Sources */,
 				6CC0698727AA109C00973C57 /* ActivityDetailsRouter.swift in Sources */,
 				6CC0698527AA109100973C57 /* ActivityDetailsPresenter.swift in Sources */,

@@ -52,8 +52,11 @@ extension TransfersViewController: TransferViewDelegate {
 }
 
 extension TransfersViewController: TransfersPresenterDelegate {
+    func showData(transfer: TransfersEntity) {
+        //Show data in the controller
+    }
 
-	func showData() {
-	}
-	
+    func showError(error: Error) {
+        //Show error in the controller
+    }
 }
