@@ -7,18 +7,16 @@
 
 import UIKit
 
+//protocol ActivityDetailsViewControllerDelegate {
+//    func refreshData()
+//}
+
 final class ActivityDetailsViewController: UIViewController {
     
     var presenter: ActivityDetailsPresenterProtocol?
     
-    var activity: ActivityDetailsEntity? {
-        didSet {
-            self.activityDetailsView.setupView(activity: self.activity)
-        }
-    }
-    
     lazy var activityDetailsView: ActivityDetailsView = {
-        let view: ActivityDetailsView = ActivityDetailsView()
+        let view: ActivityDetailsView = ActivityDetailsView(viewController: self)
         view.delegate = self
         return view
     }()
@@ -39,10 +37,6 @@ final class ActivityDetailsViewController: UIViewController {
 }
 
 extension ActivityDetailsViewController: ActivityDetailsPresenterDelegate {
-    func showData(activity: ActivityDetailsEntity) {
-        self.activity = activity
-    }
-    
     func didReportIssue() {
         showAlert(title: "Issue Reported!", message: "Your issue has been reported successfully!")
     }
@@ -51,5 +45,23 @@ extension ActivityDetailsViewController: ActivityDetailsPresenterDelegate {
 extension ActivityDetailsViewController: ActivityDetailsViewDelegate {
     func reportIssue() {
         presenter?.reportIssue()
+    }
+}
+
+extension ActivityDetailsViewController: ActivityDetailsViewControllerProtocol {
+    func getName() -> String {
+        return presenter?.getName() ?? ""
+    }
+    
+    func getCategory() -> String {
+        return presenter?.getCategory() ?? ""
+    }
+    
+    func getPrice() -> String {
+        return presenter?.getPrice() ?? ""
+    }
+    
+    func getTime() -> String {
+        return presenter?.getTime() ?? ""
     }
 }
