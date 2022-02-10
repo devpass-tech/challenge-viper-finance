@@ -7,10 +7,6 @@
 
 import UIKit
 
-//protocol ActivityDetailsViewControllerDelegate {
-//    func refreshData()
-//}
-
 final class ActivityDetailsViewController: UIViewController {
     
     var presenter: ActivityDetailsPresenterProtocol?
@@ -21,12 +17,21 @@ final class ActivityDetailsViewController: UIViewController {
         return view
     }()
     
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter?.viewDidLoad()
     }
 
     override func loadView() {
+        presenter?.viewDidLoad()
         self.view = activityDetailsView
     }
     

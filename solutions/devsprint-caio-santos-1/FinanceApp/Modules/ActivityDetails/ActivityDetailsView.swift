@@ -115,11 +115,6 @@ final class ActivityDetailsView: UIView {
     }
     
     func setupView() {
-        print("GET Name \(viewController?.getName())")
-        print("GET Category \(viewController?.getCategory())")
-        print("GET Price \(viewController?.getPrice())")
-        print("GET Time \(viewController?.getTime())")
-        
         activityNameLabel.text = viewController?.getName() ?? ""
         categoryLabel.text = viewController?.getCategory() ?? ""
         priceLabel.text = viewController?.getPrice() ?? ""
