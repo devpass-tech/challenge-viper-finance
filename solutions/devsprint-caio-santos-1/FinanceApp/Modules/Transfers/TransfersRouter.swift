@@ -8,28 +8,20 @@
 import Foundation
 import UIKit
 
-final class TransfersRouter: TransfersRouterProtocol {
+final class TransfersRouter {
 
-    static func createModule() -> UINavigationController {
-        
-        let viewController = TransfersViewController()
-        let navigationController = UINavigationController(rootViewController: viewController)
-        
-        let presenter: TransfersPresenterProtocol & TransfersInteractorDelegate = TransfersPresenter()
-        
-        viewController.presenter = presenter
-        viewController.presenter?.router = TransfersRouter()
-        viewController.presenter?.view = viewController
-        viewController.presenter?.interactor = TransfersInteractor()
-        viewController.presenter?.interactor?.presenter = presenter
-        return navigationController
+    // MARK: - VIPER Properties
+    
+    weak var viewController: UIViewController?
+}
+
+extension TransfersRouter: TransfersRouterProtocol {
+    func navigateToContactList() {
+        viewController?.navigationController?.present(ContactListRouter.createModule(), animated: true)
     }
     
-    func navigateToContactList(navigationController: UINavigationController) {
-        navigationController.present(ContactListRouter.createModule(), animated: true)
-    }
-    
-    func navigateToConfirmation(navigationController: UINavigationController, isTransferSuccess: Bool) {
-        navigationController.present(ConfirmationRounter.createModule(statusTransfer: isTransferSuccess), animated: true)
+    func navigateToConfirmation(isTransferSuccess: Bool) {
+        let transporter = ConfirmationTransporter(success: isTransferSuccess)
+        viewController?.navigationController?.present(ConfirmationConfigurator().createModule(transporter: Transporter(data: transporter)), animated: true)
     }
 }

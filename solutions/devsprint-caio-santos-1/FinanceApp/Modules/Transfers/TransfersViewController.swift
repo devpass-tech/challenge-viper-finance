@@ -9,19 +9,34 @@ import UIKit
 
 final class TransfersViewController: UIViewController {
     
-    var presenter: TransfersPresenterProtocol?
+    
+    // MARK: - VIPER Properties
+    private let presenter: TransfersPresenterInputProtocol?
 
+    // MARK: - Internal Properties
     lazy var transferView: TransfersView = {
 
-        let transferView = TransfersView()
-        transferView.delegate = self
+        let transferView = TransfersView(viewController: self)
         return transferView
     }()
 
+    // MARK: - Private Properties
+    
+    // MARK: - Inits
+    
+    init(presenter: TransfersPresenterInputProtocol) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        nil
+    }
+    
+    // MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        presenter?.viewDidLoad()
     }
     
     override func loadView() {
@@ -29,30 +44,14 @@ final class TransfersViewController: UIViewController {
     }
 }
 
-extension TransfersViewController: TransfersPresenterDelegate {
-
-    func didCreateTransfer(status: Bool) {
-        guard let navigationController = self.navigationController else { return }
-        presenter?.navigateToConfirmation(navigationController: navigationController, isTransferSuccess: status)
+extension TransfersViewController: TransfersViewControllerInputProtocol {
+    
+    // MARK: Methods
+    func didTapContactButton() {
+        presenter?.navigateToContactView()
     }
     
-    func showData() {
-        print("Here is your data, Transfers View!")
-    }
-}
-
-extension TransfersViewController: TransferViewDelegate {
-
-    func didPressChooseContactButton() {
-        guard let navigationController = self.navigationController else { return }
-        presenter?.navigateToContactList(navigationController: navigationController)
-    }
-
-    func didPressTransferButton(value: String) {
-        if let valueString = Float(value), !value.isEmpty {
-            presenter?.createTransfer(value: valueString)
-        } else {
-            print("Alerta de valor invalido.")
-        }
+    func didTapConfirmationButton(value: String) {
+        presenter?.createTransfer(value: value)
     }
 }
