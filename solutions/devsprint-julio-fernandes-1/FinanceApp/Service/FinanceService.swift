@@ -42,7 +42,9 @@ final class FinanceService: FinanceServiceProtocol {
                 }
                 return
             }
-            completion(.success(decodedData))
+            DispatchQueue.main.async {
+                completion(.success(decodedData))
+            }
         })
 
         dataTask?.resume()
@@ -51,4 +53,5 @@ final class FinanceService: FinanceServiceProtocol {
     func cancel() {
         self.dataTask?.cancel()
     }
+	
 }
