@@ -8,22 +8,27 @@
 import Foundation
 
 protocol ContactListInteractorProtocol {
-    
     var presenter: ContactListInteractorDelegate? { get set }
     func fetchData()
 }
 
 protocol ContactListInteractorDelegate: AnyObject {
-    
-    func didFetchData()
+    func didFetchData(_ contactList: ContactListEntity)
 }
 
 final class ContactListInteractor: ContactListInteractorProtocol {
     weak var presenter: ContactListInteractorDelegate?
     
     func fetchData() {
-        presenter?.didFetchData()
-    }
-    
-    
+        var list: ContactListEntity = []
+        ContactListWorker(service: FinanceService()).fetchContactList(completion: { result in
+            switch result {
+            case .success(let contactList):
+                list.append(contentsOf: contactList)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        })
+        presenter?.didFetchData(list)
+    }  
 }
