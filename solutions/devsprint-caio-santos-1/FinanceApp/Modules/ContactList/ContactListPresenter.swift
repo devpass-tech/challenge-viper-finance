@@ -13,14 +13,31 @@ protocol ContactListPresenterProtocol {
     var router: ContactListRouterProtocol? { get set }
     
     func viewDidLoad()
+    func getNameLabel(at index: Int) -> String
+    func getPhoneLabel(at index: Int) -> String
+    func numberOfRowsInSection() -> Int
 }
 
 protocol ContactListPresenterDelegate: AnyObject {
-    func showData()
+    func showData(with contactList: ContactListEntity)
 }
 
 
 final class ContactListPresenter: ContactListPresenterProtocol {
+    var contactList: ContactListEntity = []
+    
+    func getNameLabel(at index: Int) -> String {
+        self.contactList[index].name
+    }
+    
+    func getPhoneLabel(at index: Int) -> String {
+        self.contactList[index].phone
+    }
+    
+    func numberOfRowsInSection() -> Int {
+        self.contactList.count
+    }
+    
     weak var view: ContactListPresenterDelegate?
     var interactor: ContactListInteractorProtocol?
     var router: ContactListRouterProtocol?
@@ -31,8 +48,7 @@ final class ContactListPresenter: ContactListPresenterProtocol {
 }
 
 extension ContactListPresenter: ContactListInteractorDelegate {
-    func didFetchData() {
-        view?.showData()
+    func didFetchData(_ contactList: ContactListEntity) {
+        self.contactList = contactList
     }
-    
 }
