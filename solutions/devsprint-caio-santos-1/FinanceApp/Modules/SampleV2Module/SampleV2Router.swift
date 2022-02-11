@@ -18,6 +18,6 @@ final class SampleV2Router {
 extension SampleV2Router: SampleV2RouterProtocol {
     func navigateToViewXPTO() {
         let viewControllerToNavigateTo = SampleViewController()
-        self.viewController?.navigationController?.present(viewControllerToNavigateTo, animated: true)
+        self.viewController?.navigationController?.pushViewController(viewControllerToNavigateTo, animated: true)
     }
 }

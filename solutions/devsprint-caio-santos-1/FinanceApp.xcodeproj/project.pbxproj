@@ -68,6 +68,8 @@
 		A1386AAC27B082CE00F62839 /* sample.json in Resources */ = {isa = PBXBuildFile; fileRef = A1386AAB27B082CD00F62839 /* sample.json */; };
 		A1386AC027B47DD500F62839 /* SampleV2InteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1386ABF27B47DD500F62839 /* SampleV2InteractorTests.swift */; };
 		A1386AC727B47E7400F62839 /* SampleV2ConfiguratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1386AC627B47E7400F62839 /* SampleV2ConfiguratorTests.swift */; };
+		A183BC0627B5D0490027CDA2 /* Mirror+Extensoins.swift in Sources */ = {isa = PBXBuildFile; fileRef = A183BC0527B5D0490027CDA2 /* Mirror+Extensoins.swift */; };
+		A183BC0827B5DA3B0027CDA2 /* SampleV2RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A183BC0727B5DA3B0027CDA2 /* SampleV2RouterTests.swift */; };
 		A35FDAFD27A9D2E2004E6498 /* ActivityDetailsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35FDAFC27A9D2E1004E6498 /* ActivityDetailsProtocols.swift */; };
 		A35FDAFF27A9D307004E6498 /* ActivityDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35FDAFE27A9D307004E6498 /* ActivityDetailsInteractor.swift */; };
 		A35FDB0127A9D322004E6498 /* ActivityDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35FDB0027A9D322004E6498 /* ActivityDetailsRouter.swift */; };
@@ -163,6 +165,8 @@
 		A1386AAB27B082CD00F62839 /* sample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sample.json; sourceTree = "<group>"; };
 		A1386ABF27B47DD500F62839 /* SampleV2InteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleV2InteractorTests.swift; sourceTree = "<group>"; };
 		A1386AC627B47E7400F62839 /* SampleV2ConfiguratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleV2ConfiguratorTests.swift; sourceTree = "<group>"; };
+		A183BC0527B5D0490027CDA2 /* Mirror+Extensoins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mirror+Extensoins.swift"; sourceTree = "<group>"; };
+		A183BC0727B5DA3B0027CDA2 /* SampleV2RouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleV2RouterTests.swift; sourceTree = "<group>"; };
 		A35FDAFC27A9D2E1004E6498 /* ActivityDetailsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsProtocols.swift; sourceTree = "<group>"; };
 		A35FDAFE27A9D307004E6498 /* ActivityDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsInteractor.swift; sourceTree = "<group>"; };
 		A35FDB0027A9D322004E6498 /* ActivityDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsRouter.swift; sourceTree = "<group>"; };
@@ -223,6 +227,7 @@
 		98584A6B277E32C30028DBEA /* FinanceApp */ = {
 			isa = PBXGroup;
 			children = (
+				A183BC0427B5D0300027CDA2 /* Extensions */,
 				A1386AA027B07A6100F62839 /* Commons */,
 				98584A9D277E351B0028DBEA /* Resources */,
 				98584A9C277E350D0028DBEA /* AppDelegate */,
@@ -437,8 +442,17 @@
 			children = (
 				A1386ABF27B47DD500F62839 /* SampleV2InteractorTests.swift */,
 				A1386AC627B47E7400F62839 /* SampleV2ConfiguratorTests.swift */,
+				A183BC0727B5DA3B0027CDA2 /* SampleV2RouterTests.swift */,
 			);
 			path = SampleV2Module;
+			sourceTree = "<group>";
+		};
+		A183BC0427B5D0300027CDA2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A183BC0527B5D0490027CDA2 /* Mirror+Extensoins.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -585,6 +599,7 @@
 				9AB92F4427A8D2FC00A69146 /* TransfersPresenter.swift in Sources */,
 				F8F7FA0427AAA62900B32235 /* ContactListPresenter.swift in Sources */,
 				9AB92F4627A8D32200A69146 /* TransfersProtocols.swift in Sources */,
+				A183BC0627B5D0490027CDA2 /* Mirror+Extensoins.swift in Sources */,
 				98584AD0277E4F0A0028DBEA /* SampleProtocols.swift in Sources */,
 				A1386A9D27B0778900F62839 /* SampleV2Presenter.swift in Sources */,
 				A1386A9A27B0778900F62839 /* SampleV2Interactor.swift in Sources */,
@@ -645,6 +660,7 @@
 			files = (
 				A1386AC727B47E7400F62839 /* SampleV2ConfiguratorTests.swift in Sources */,
 				A1386AC027B47DD500F62839 /* SampleV2InteractorTests.swift in Sources */,
+				A183BC0827B5DA3B0027CDA2 /* SampleV2RouterTests.swift in Sources */,
 				98584A84277E32C60028DBEA /* FinanceAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
