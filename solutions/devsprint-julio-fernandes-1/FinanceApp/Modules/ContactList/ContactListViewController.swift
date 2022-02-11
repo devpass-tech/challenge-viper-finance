@@ -8,15 +8,19 @@
 import UIKit
 
 final class ContactListViewController: UIViewController {
-    private var contentView: ContactListView?
-    private var contactList: [ContactEntity] = []
+
+    private lazy var contentView: ContactListView = {
+        return ContactListView(tableViewDataSource: self,
+                               tableViewDelegate: self)
+    }()
+
+    private(set) var contactList: [ContactEntity] = []
 
     var presenter: ContactListPresenterProtocol
 
     init(presenter: ContactListPresenterProtocol) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
-        self.contentView = ContactListView(tableViewDataSource: self, tableViewDelegate: self)
     }
 
     @available(*, unavailable)
@@ -64,7 +68,7 @@ extension ContactListViewController: UITableViewDelegate {
 extension ContactListViewController: ContactListPresenterDelegate {
     func showData(_ contactList: [ContactEntity]) {
         self.contactList = contactList
-        self.contentView?.loadData()
+        self.contentView.loadData()
     }
 
     func showError(_ error: Error) {

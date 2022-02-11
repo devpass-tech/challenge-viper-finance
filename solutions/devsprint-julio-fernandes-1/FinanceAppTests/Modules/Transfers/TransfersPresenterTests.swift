@@ -36,7 +36,7 @@ final class TransfersPresenterTests: XCTestCase {
     }
 
     func test_didFetchData() {
-        sut.didFetchData()
+        sut.didFetchData(transfer: TransfersEntity(success: true))
         XCTAssertTrue(viewContollerSpy.showDataCalled)
     }
 }
@@ -72,8 +72,13 @@ final class TransfersRouterProtocolSpy: TransfersRouterProtocol {
 final class TransfersPresenterDelegateSpy: TransfersPresenterDelegate {
 
     private(set) var showDataCalled = false
-    func showData() {
+    func showData(transfer: TransfersEntity) {
         showDataCalled = true
+    }
+
+    private(set) var showErrorCalled = false
+    func showError(error: Error) {
+        showErrorCalled = true
     }
 
 }

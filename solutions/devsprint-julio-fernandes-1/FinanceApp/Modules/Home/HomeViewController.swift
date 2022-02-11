@@ -65,32 +65,3 @@ extension HomeViewController: HomePresenterDelegate {
         print("HomeViewController - HomePresenterDelegate - showData()")
     }
 }
-
-// MARK: UITableViewDataSource
-extension HomeViewController: UITableViewDataSource {
-
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        return 5
-    }
-
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ActivityCellView
-
-        return cell
-    }
-}
-
-extension HomeViewController: UITableViewDelegate {
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return ActivityListView.cellSize
-    }
-
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-
-        delegate?.didSelectedActivity()
-    }
-}

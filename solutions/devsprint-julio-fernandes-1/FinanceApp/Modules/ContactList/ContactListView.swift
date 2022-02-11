@@ -27,11 +27,7 @@ final class ContactListView: UIView {
         loadData()
     }
 
-<<<<<<< .merge_file_bMVK3k
-    @available(*, unavailable)
-=======
     @available (*, unavailable)
->>>>>>> .merge_file_NCtuid
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
