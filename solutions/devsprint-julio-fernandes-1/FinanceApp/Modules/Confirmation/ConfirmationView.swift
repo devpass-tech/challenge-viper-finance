@@ -13,7 +13,13 @@ enum ConfirmationViewState {
     case loaded(ConfirmationEntity)
 }
 
+protocol ConfirmationViewDelegate: AnyObject {
+    func didTapConfirmation()
+}
+
 final class ConfirmationView: UIView {
+
+    weak var delegate: ConfirmationViewDelegate?
 
     let stackView: UIStackView = {
 
@@ -30,7 +36,7 @@ final class ConfirmationView: UIView {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 50
         imageView.clipsToBounds = true
-        imageView.tintColor = .systemGreen
+        imageView.tintColor = .white
         return imageView
     }()
 
@@ -96,6 +102,7 @@ final class ConfirmationView: UIView {
         ])
 
         configureView()
+        confirmationButton.addTarget(self, action: #selector(didTapConfirmationButton), for: .touchUpInside)
     }
 
     @available (*, unavailable)
@@ -111,11 +118,17 @@ final class ConfirmationView: UIView {
             stackView.isHidden = false
 
             confirmationImageView.image = UIImage(named: confirmation.imageName)
+            confirmationImageView.tintColor = confirmation.color
             confirmationLabel.text = confirmation.message
+
         case .loading:
             loadingIndicator.startAnimating()
             loadingIndicator.isHidden = false
             stackView.isHidden = true
         }
+    }
+
+    @objc private func didTapConfirmationButton() {
+        delegate?.didTapConfirmation()
     }
 }

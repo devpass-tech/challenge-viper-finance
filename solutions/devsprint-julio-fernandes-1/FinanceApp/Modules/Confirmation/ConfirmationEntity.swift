@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import UIKit
 
 struct ConfirmationEntity {
     let success: Bool
     let imageName: String
     let message: String
+    let color: UIColor
 }
