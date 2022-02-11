@@ -25,7 +25,7 @@ final class ConfirmationViewController: UIViewController {
         super.viewDidLoad()
         presenter.viewDidLoad()
 
-        self.confirmationView.delegate = self
+        confirmationView.delegate = self
     }
 
     override func loadView() {
@@ -36,12 +36,12 @@ final class ConfirmationViewController: UIViewController {
 extension ConfirmationViewController: ConfirmationPresenterDelegate {
 
     func showData(confirmation: ConfirmationEntity) {
-        self.confirmationView.state = .loaded(confirmation)
+        confirmationView.state = .loaded(confirmation)
     }
 }
 
 extension ConfirmationViewController: ConfirmationViewDelegate {
     func didTapConfirmation() {
-        self.dismiss(animated: true)
+        dismiss(animated: true)
     }
 }
