@@ -60,9 +60,9 @@ extension TransfersViewController: TransfersPresenterDelegate {
     func showData(transfer: TransfersEntity) {
         let confirmation: ConfirmationEntity
         if transfer.success {
-            confirmation = ConfirmationEntity(success: true, imageName: "checkmark.circle.fill", message: "Your transfer was successful", color: .systemGreen)
+            confirmation = ConfirmationEntity(success: true, imageName: "checkmark.circle.fill", message: "Your transfer was successful")
         } else {
-            confirmation = ConfirmationEntity(success: true, imageName: "x.circle.fill", message: "Something went wrong :(", color: .systemRed)
+            confirmation = ConfirmationEntity(success: true, imageName: "x.circle.fill", message: "Something went wrong :(")
         }
         presenter.navigateToConfirmation(confirmation: confirmation)
     }

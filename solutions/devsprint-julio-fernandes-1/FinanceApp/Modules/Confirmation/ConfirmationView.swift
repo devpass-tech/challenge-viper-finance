@@ -118,7 +118,7 @@ final class ConfirmationView: UIView {
             stackView.isHidden = false
 
             confirmationImageView.image = UIImage(named: confirmation.imageName)
-            confirmationImageView.tintColor = confirmation.color
+            confirmationImageView.tintColor = confirmation.success ? .systemGreen : .systemRed
             confirmationLabel.text = confirmation.message
 
         case .loading:
