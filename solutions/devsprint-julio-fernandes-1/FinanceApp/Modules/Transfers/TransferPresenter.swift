@@ -25,16 +25,16 @@ final class TransfersPresenter: TransfersPresenterProtocol {
 		self.router = router
 	}
 	
-	func viewDidLoad() {
-		interactor.fetchData()
+    func didTapTransfer(value: String) {
+		interactor.transfer(value: value)
 	}
 	
 	func navigateToContactList() {
 		router.navigateToContactList()
 	}
 	
-	func navigateToConfirmation() {
-		router.navigateToConfirmation()
+	func navigateToConfirmation(confirmation: ConfirmationEntity) {
+        router.navigateToConfirmation(confirmation: confirmation)
 	}
 
 }

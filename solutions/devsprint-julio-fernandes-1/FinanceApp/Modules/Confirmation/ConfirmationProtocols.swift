@@ -10,17 +10,16 @@ import UIKit
 
 protocol ConfirmationPresenterProtocol {
     var view: ConfirmationPresenterDelegate? { get set }
-    var interactor: ConfirmationInteractorProtocol { get set }
     var router: ConfirmationRouterProtocol { get set }
+    var confirmation: ConfirmationEntity { get set }
 
     func viewDidLoad()
 }
 
 protocol ConfirmationRouterProtocol {
-    static func createModule() -> UIViewController
+    static func createModule(confirmation: ConfirmationEntity) -> UIViewController
 }
 
 protocol ConfirmationInteractorProtocol {
-    var presenter: ConfirmationInteractorDelegate? { get set }
     func fetchData()
 }

@@ -20,7 +20,7 @@ final class TransfersInteractor: TransfersInteractorProtocol {
         self.service = service
     }
 
-    func fetchData() {
+    func transfer(value: String) {
         service.load(endpoint: .transfer) { [weak self] (result: Result<TransfersEntity, Error>) in
             guard let self = self else { return }
             switch result {
