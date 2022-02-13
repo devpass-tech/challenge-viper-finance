@@ -8,27 +8,27 @@
 import Foundation
 
 protocol UserProfileInteractorDelegate: AnyObject {
-	func didFetchData(_ userProfile: UserEntity)
-   func didReceiveError(error: Error)
+    func didFetchData(_ userProfile: UserEntity)
+    func didReceiveError(error: Error)
 }
 
 final class UserProfileInteractor: UserProfileInteractorProtocol {
-	weak var presenter: UserProfileInteractorDelegate?
-   private let service: FinanceServiceProtocol
+    weak var presenter: UserProfileInteractorDelegate?
+    private let service: FinanceServiceProtocol
 	
-   init(service: FinanceServiceProtocol) {
-		self.service = service
-   }
+    init(service: FinanceServiceProtocol) {
+        self.service = service
+    }
 	
-	func fetchData() {
-		service.load(endpoint: .userProfile) { (response: Result<UserEntity, Error>) in
-			switch response {
-				case let .success(userProfile):
-					self.presenter?.didFetchData(userProfile)
-				case let .failure(error):
-					self.presenter?.didReceiveError(error: error)
-			}
-		}
-	}
+    func fetchData() {
+        service.load(endpoint: .userProfile) { (response: Result<UserEntity, Error>) in
+            switch response {
+                case let .success(userProfile):
+                    self.presenter?.didFetchData(userProfile)
+                case let .failure(error):
+                    self.presenter?.didReceiveError(error: error)
+            }
+         }
+    }
 
 }

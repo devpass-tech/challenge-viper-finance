@@ -33,7 +33,7 @@ final class UserProfilePresenter: UserProfilePresenterProtocol {
 extension UserProfilePresenter: UserProfileInteractorDelegate {
 
     func didFetchData(_ userProfile: UserEntity) {
-       view?.showData()
+        view?.showData()
     }
 
     func didReceiveError(error: Error) {
