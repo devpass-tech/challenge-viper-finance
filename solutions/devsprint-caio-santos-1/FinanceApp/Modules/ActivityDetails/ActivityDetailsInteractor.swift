@@ -5,20 +5,25 @@
 //  Created by Douglas Cardoso Ferreira on 31/01/22.
 //
 
-import UIKit
+import Foundation
 
 protocol ActivityDetailsInteractorDelegate: AnyObject {
-    func didFetchData(activity: ActivityDetailsEntity)
+    func didFetchData(_ activity: ActivityDetailsEntity?)
     func didReportIssue()
 }
 
 final class ActivityDetailsInteractor: ActivityDetailsInteractorProtocol {
-    
     weak var presenter: ActivityDetailsInteractorDelegate?
     
     func fetchData() {
-        let activity: ActivityDetailsEntity = ActivityDetailsEntity(name: "Mall 3", category: "Shopping", price: 99.0, time: "10:01 AM")
-        presenter?.didFetchData(activity: activity)
+        ActivityDetailsWorker(service: FinanceService()).fetchData { result in
+            switch result {
+            case .success(let activity):
+                self.presenter?.didFetchData(activity)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
     
     func reportIssue() {

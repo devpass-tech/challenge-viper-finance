@@ -8,29 +8,34 @@
 import Foundation
 import UIKit
 
-protocol TransfersPresenterProtocol {
-    
-    var view: TransfersPresenterDelegate? { get set }
-    var interactor: TransfersInteractorProtocol? { get set }
-    var router: TransfersRouterProtocol? { get set }
-    
-    func viewDidLoad()
-    func navigateToContactList(navigationController: UINavigationController)
-    func navigateToConfirmation(navigationController: UINavigationController, isTransferSuccess: Bool)
-    
-    func createTransfer(value: Float)
+// MARK: - ViewController
+protocol TransfersViewControllerInputProtocol: AnyObject {
+    func didTapContactButton()
+    func didTapConfirmationButton(value: String)
 }
 
-protocol TransfersRouterProtocol {
-    
-    static func createModule() -> UINavigationController
-    func navigateToContactList(navigationController: UINavigationController)
-    func navigateToConfirmation(navigationController: UINavigationController, isTransferSuccess: Bool)
+protocol TransfersPresenterOutputProtocol: AnyObject {
+
 }
 
-protocol TransfersInteractorProtocol {
-    
-    var presenter: TransfersInteractorDelegate? { get set }
-    func fetchData()
-    func createTransfer(value: Float)
+// MARK: - Presenter
+protocol TransfersPresenterInputProtocol: AnyObject {
+    func navigateToContactView()
+    func createTransfer(value: String)
+}
+
+// MARK: - Interactor
+protocol TransfersInteractorInputProtocol: AnyObject {
+    func createTransfer(value: String)
+}
+
+protocol TransfersInteractorOutputProtocol: AnyObject {
+    func didCreateTransferSuccessful()
+    func didErrorTransfer()
+}
+
+// MARK: - Router
+protocol TransfersRouterProtocol: AnyObject {
+    func navigateToContactList()
+    func navigateToConfirmation(isTransferSuccess: Bool)
 }

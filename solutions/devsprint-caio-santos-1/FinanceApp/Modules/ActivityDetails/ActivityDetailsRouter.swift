@@ -8,11 +8,10 @@
 import UIKit
 
 final class ActivityDetailsRouter: ActivityDetailsRouterProtocol {
-    static func createModule(activity: ActivityDetailsEntity?) -> UIViewController {
+    static func createModule() -> UIViewController {
         let viewController = ActivityDetailsViewController()
         let presenter: ActivityDetailsPresenterProtocol & ActivityDetailsInteractorDelegate = ActivityDetailsPresenter()
         
-        viewController.activity = activity
         viewController.presenter = presenter
         viewController.presenter?.view = viewController
         viewController.presenter?.router = ActivityDetailsRouter()

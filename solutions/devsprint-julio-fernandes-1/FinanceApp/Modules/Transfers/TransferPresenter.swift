@@ -8,8 +8,8 @@
 import Foundation
 
 protocol TransfersPresenterDelegate: AnyObject {
-
-	 func showData()
+    func showData(transfer: TransfersEntity)
+    func showError(error: Error)
 }
 
 final class TransfersPresenter: TransfersPresenterProtocol {
@@ -25,24 +25,26 @@ final class TransfersPresenter: TransfersPresenterProtocol {
 		self.router = router
 	}
 	
-	func viewDidLoad() {
-		interactor.fetchData()
+    func didTapTransfer(value: String) {
+		interactor.transfer(value: value)
 	}
 	
 	func navigateToContactList() {
 		router.navigateToContactList()
 	}
 	
-	func navigateToConfirmation() {
-		router.navigateToConfirmation()
+	func navigateToConfirmation(confirmation: ConfirmationEntity) {
+        router.navigateToConfirmation(confirmation: confirmation)
 	}
-		
+
 }
 
 extension TransfersPresenter: TransfersInteractorDelegate {
-	
-	func didFetchData() {
-		view?.showData()
-	}
-	
+    func didFetchData(transfer: TransfersEntity) {
+        view?.showData(transfer: transfer)
+    }
+
+    func didReceiveError(error: Error) {
+        view?.showError(error: error)
+    }
 }
