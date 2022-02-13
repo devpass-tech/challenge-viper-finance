@@ -7,13 +7,13 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController {
     
     // MARK: Properties
-    var presenter: HomePresenterProtocol
+    private var presenter: HomePresenterProtocol
     
     // MARK: Components
-    lazy var homeView: HomeView = {
+    private lazy var homeView: HomeView = {
         let homeView = HomeView()
         homeView.delegate = self
         return homeView
