@@ -21,7 +21,7 @@ final class ActivityDetailsRouter: ActivityDetailsRouterProtocol {
         let viewController = ActivityDetailsViewController(presenter: presenter)
         
         viewController.presenter.view = viewController
-        viewController.presenter.interactor?.presenter = presenter
+        viewController.presenter.interactor.presenter = presenter
         
         return viewController
     }
