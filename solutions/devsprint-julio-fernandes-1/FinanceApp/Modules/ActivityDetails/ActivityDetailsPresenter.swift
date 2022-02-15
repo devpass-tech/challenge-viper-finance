@@ -14,8 +14,8 @@ protocol ActivityDetailsPresenterDelegate: AnyObject {
 final class ActivityDetailsPresenter: ActivityDetailsPresenterProtocol {
     
     weak var view: ActivityDetailsPresenterDelegate?
-    var interactor: ActivityDetailsInteractorProtocol?
-    var router: ActivityDetailsRouterProtocol?
+    var interactor: ActivityDetailsInteractorProtocol
+    var router: ActivityDetailsRouterProtocol
     
     init(interactor: ActivityDetailsInteractorProtocol, router: ActivityDetailsRouterProtocol) {
         self.interactor = interactor
@@ -23,7 +23,7 @@ final class ActivityDetailsPresenter: ActivityDetailsPresenterProtocol {
     }
     
     func viewDidLoad() {
-        interactor?.fetchData()
+        interactor.fetchData()
     }
 }
 
