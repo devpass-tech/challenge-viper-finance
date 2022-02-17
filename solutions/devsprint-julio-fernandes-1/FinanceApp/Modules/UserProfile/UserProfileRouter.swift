@@ -12,7 +12,8 @@ typealias UserProfileInterable = UserProfilePresenterProtocol & UserProfileInter
 final class UserProfileRouter: UserProfileRouterProtocol {
 	
 	static func createModule() -> UINavigationController {
-		let interactor = UserProfileInteractor()
+		let service: FinanceService = .init()
+		let interactor = UserProfileInteractor(service: service)
 		let router = UserProfileRouter()
 		let presenter: UserProfileInterable = UserProfilePresenter(
 			interactor: interactor,
