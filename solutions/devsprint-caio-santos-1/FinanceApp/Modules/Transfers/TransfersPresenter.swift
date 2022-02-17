@@ -8,43 +8,57 @@
 import Foundation
 import UIKit
 
-protocol TransfersPresenterDelegate: AnyObject {
-     
-    func showData()
-    func didCreateTransfer(status: Bool)
+final class TransfersPresenter {
+    
+    // MARK: - VIPER Properties
+    
+    weak var viewController: TransfersViewController?
+    private let router: TransfersRouterProtocol
+    private let interactor: TransfersInteractorInputProtocol
+    
+    // MARK: Internal Properties
+    
+    // MARK: - Private Properties
+    
+    // MARK: - Inits
+    
+    init(router: TransfersRouterProtocol,
+         interactor: TransfersInteractorInputProtocol) {
+        self.router = router
+        self.interactor = interactor
+    }
+    
+    // MARK: - Internal Methods
+    
+    // MARK: - Private Methods
 }
 
-final class TransfersPresenter: TransfersPresenterProtocol {
+extension TransfersPresenter: TransfersPresenterInputProtocol {
+    func navigateToContactView() {
+        router.navigateToContactList()
+    }
+    
+    func createTransfer(value: String) {
+        interactor.createTransfer(value: value)
+    }
+    
+    
+}
 
-    weak var view: TransfersPresenterDelegate?
-    var interactor: TransfersInteractorProtocol?
-    var router: TransfersRouterProtocol?
-    
-    func viewDidLoad() {
-        
-        interactor?.fetchData()
+extension TransfersPresenter: TransfersInteractorOutputProtocol {
+    func didCreateTransferSuccessful() {
+        router.navigateToConfirmation(isTransferSuccess: true)
     }
     
-    func navigateToContactList(navigationController: UINavigationController) {
-        router?.navigateToContactList(navigationController: navigationController)
-    }
-    
-    func navigateToConfirmation(navigationController: UINavigationController, isTransferSuccess: Bool) {
-        router?.navigateToConfirmation(navigationController: navigationController, isTransferSuccess: isTransferSuccess)
-    }
-    
-    func createTransfer(value: Float) {
-        interactor?.createTransfer(value: value)
+    func didErrorTransfer() {
+        router.navigateToConfirmation(isTransferSuccess: false)
     }
 }
 
-extension TransfersPresenter: TransfersInteractorDelegate {
-    func didCreateTransfer(status: Bool) {
-        view?.didCreateTransfer(status: status)
-    }
-    
-    func didFetchData() {
-        
-        view?.showData()
+
+// MARK: - Analytics
+extension TransfersPresenter {
+    func tackScreenView() {
+        // TODO: CALL YOUR OWN VIEW TRACKER
     }
 }

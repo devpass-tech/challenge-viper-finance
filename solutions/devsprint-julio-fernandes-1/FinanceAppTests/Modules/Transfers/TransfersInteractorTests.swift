@@ -17,15 +17,15 @@ final class TransfersInteractorTests: XCTestCase {
         sut.presenter = presenterSpy
     }
 
-    func test_fetchData_returned_sucess() {
+    func test_transfer_returned_sucess() {
         serviceSpy.requestResultToBeReturned = TransfersEntity(success: true)
-        sut.fetchData()
+        sut.transfer(value: "value")
         XCTAssertTrue(presenterSpy.didFetchDataCalled)
     }
 
-    func test_fetchData_returned_failure() {
-        sut.fetchData()
-        XCTAssertTrue(presenterSpy.didReceiveErrorCalled)
+    func test_transfer_returned_failure() {
+        sut.transfer(value: "value")
+        XCTAssertFalse(presenterSpy.didFetchDataCalled)
     }
 }
 

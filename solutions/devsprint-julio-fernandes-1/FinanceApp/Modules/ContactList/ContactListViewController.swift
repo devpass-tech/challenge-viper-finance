@@ -70,8 +70,4 @@ extension ContactListViewController: ContactListPresenterDelegate {
         self.contactList = contactList
         self.contentView.loadData()
     }
-
-    func showError(_ error: Error) {
-        //Setup error
-    }
 }

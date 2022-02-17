@@ -20,18 +20,14 @@ final class TransfersPresenterTests: XCTestCase {
         sut.view = viewContollerSpy
     }
 
-    func test_viewDidLoad() {
-        sut.viewDidLoad()
-        XCTAssertTrue(interactorSpy.fetchDataCalled)
-    }
-
     func test_navigateToContactList() {
         sut.navigateToContactList()
         XCTAssertTrue(routerSpy.navigateToContactListCalled)
     }
 
     func test_navigateToConfirmation() {
-        sut.navigateToConfirmation()
+        let confirmation = ConfirmationEntity(success: true, imageName: "image", message: "messa")
+        sut.navigateToConfirmation(confirmation: confirmation)
         XCTAssertTrue(routerSpy.navigateToConfirmationCalled)
     }
 
@@ -40,24 +36,25 @@ final class TransfersPresenterTests: XCTestCase {
         XCTAssertTrue(viewContollerSpy.showDataCalled)
     }
 
-    func test_didReceiveError() {
-        sut.didReceiveError(error: ContactListErrorMock.generic)
-        XCTAssertTrue(viewContollerSpy.showErrorCalled)
+    func test_didTapTransfer() {
+        sut.didTapTransfer(value: "value")
+        XCTAssertTrue(interactorSpy.transferCalled)
     }
+
 }
 
 final class TransfersInteractorProtocolSpy: TransfersInteractorProtocol {
+
     var presenter: TransfersInteractorDelegate?
 
-    private(set) var fetchDataCalled = false
-    func fetchData() {
-        fetchDataCalled = true
+    private(set) var transferCalled = false
+    func transfer(value: String) {
+        transferCalled = true
     }
 
 }
 
 final class TransfersRouterProtocolSpy: TransfersRouterProtocol {
-
     static func createModule() -> UIViewController {
         return UIViewController()
     }
@@ -68,7 +65,7 @@ final class TransfersRouterProtocolSpy: TransfersRouterProtocol {
     }
 
     private(set) var navigateToConfirmationCalled = false
-    func navigateToConfirmation() {
+    func navigateToConfirmation(confirmation: ConfirmationEntity) {
         navigateToConfirmationCalled = true
     }
 
@@ -79,11 +76,6 @@ final class TransfersPresenterDelegateSpy: TransfersPresenterDelegate {
     private(set) var showDataCalled = false
     func showData(transfer: TransfersEntity) {
         showDataCalled = true
-    }
-
-    private(set) var showErrorCalled = false
-    func showError(error: Error) {
-        showErrorCalled = true
     }
 
 }

@@ -29,11 +29,6 @@ final class ContactListPresenterTests: XCTestCase {
         sut.didFetchData(contactList: [])
         XCTAssertTrue(viewContollerSpy.showDataCalled)
     }
-
-    func test_didReceiveError() {
-        sut.didReceiveError(error: ContactListErrorMock.generic)
-        XCTAssertTrue(viewContollerSpy.showErrorCalled)
-    }
 }
 
 enum ContactListErrorMock: Error {

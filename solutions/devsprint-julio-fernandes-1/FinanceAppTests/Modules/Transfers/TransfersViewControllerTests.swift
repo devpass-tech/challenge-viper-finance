@@ -14,12 +14,7 @@ final class TransfersViewControllerTests: XCTestCase {
 
     func test_loadView() {
         sut.loadView()
-        XCTAssertFalse(presenterSpy.viewDidLoadCalled)
-    }
-
-    func test_viewDidLoad() {
-        sut.viewDidLoad()
-        XCTAssertTrue(presenterSpy.viewDidLoadCalled)
+        XCTAssertTrue(sut.view is TransfersView)
     }
 
     func test_didPressChooseContactButton() {
@@ -29,18 +24,30 @@ final class TransfersViewControllerTests: XCTestCase {
 
     func test_didPressTransferButton() {
         sut.didPressTransferButton()
+        XCTAssertTrue(presenterSpy.didTapTransferCalled)
+    }
+
+    func test_didAmountChange() {
+        XCTAssertEqual(sut.transferValue, "")
+        sut.didAmountChange(value: "value")
+        XCTAssertEqual(sut.transferValue, "value")
+    }
+
+    func test_showData_with_transfer_true() {
+        sut.showData(transfer: TransfersEntity(success: true))
         XCTAssertTrue(presenterSpy.navigateToConfirmationCalled)
     }
+
+    func test_showData_with_transfer_false() {
+        sut.showData(transfer: TransfersEntity(success: false))
+        XCTAssertTrue(presenterSpy.navigateToConfirmationCalled)
+    }
+
 }
 
-final class TransfersPresenterProtocolSpy: TransfersPresenterProtocol {
+final class TransfersPresenterProtocolSpy: TransfersPresenterProtocol, TransferViewDelegate {
 
     var view: TransfersPresenterDelegate?
-
-    private(set) var viewDidLoadCalled = false
-    func viewDidLoad() {
-        viewDidLoadCalled = true
-    }
 
     private(set) var navigateToContactListCalled = false
     func navigateToContactList() {
@@ -48,9 +55,28 @@ final class TransfersPresenterProtocolSpy: TransfersPresenterProtocol {
     }
 
     private(set) var navigateToConfirmationCalled = false
-    func navigateToConfirmation() {
+    func navigateToConfirmation(confirmation: ConfirmationEntity) {
         navigateToConfirmationCalled = true
     }
 
+    private(set) var didTapTransferCalled = false
+    func didTapTransfer(value: String) {
+        didTapTransferCalled = true
+    }
+
+    private(set) var didPressChooseContactButtonCalled = false
+    func didPressChooseContactButton() {
+        didPressChooseContactButtonCalled = true
+    }
+
+    private(set) var didPressTransferButtonCalled = false
+    func didPressTransferButton() {
+        didPressTransferButtonCalled = true
+    }
+
+    private(set) var didAmountChangeCalled = false
+    func didAmountChange(value: String) {
+        didAmountChangeCalled = true
+    }
 
 }

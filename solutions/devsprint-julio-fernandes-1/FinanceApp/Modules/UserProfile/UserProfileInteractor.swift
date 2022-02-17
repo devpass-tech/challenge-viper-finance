@@ -8,14 +8,24 @@
 import Foundation
 
 protocol UserProfileInteractorDelegate: AnyObject {
-	func didFetchData()
+    func didFetchData(_ userProfile: UserEntity)
 }
 
 final class UserProfileInteractor: UserProfileInteractorProtocol {
-	weak var presenter: UserProfileInteractorDelegate?
+    weak var presenter: UserProfileInteractorDelegate?
+    private let service: FinanceServiceProtocol
 	
-	func fetchData() {
-		presenter?.didFetchData()
-	}
+    init(service: FinanceServiceProtocol) {
+        self.service = service
+    }
+	
+    func fetchData() {
+        service.load(endpoint: .userProfile) { (response: Result<UserEntity, Error>) in
+            switch response {
+            case let .success(userProfile): self.presenter?.didFetchData(userProfile)
+            default: break
+            }
+         }
+    }
 
 }

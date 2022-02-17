@@ -10,25 +10,18 @@ import XCTest
 
 final class ConfirmationPresenterTests: XCTestCase {
 
-    private let interactorSpy = ConfirmationInteractorProtocolSpy()
     private let viewContollerSpy = ConfirmationPresenterDelegateSpy()
     private let routerSpy = ConfirmationRouterProtocolSpy()
-    private lazy var sut = ConfirmationPresenter(interactor: interactorSpy, router: routerSpy)
+    private lazy var sut = ConfirmationPresenter(router: routerSpy,
+                                                 confirmation: ConfirmationEntity(success: true, imageName: "image", message: "message"))
 
     override func setUp() {
         super.setUp()
-        sut.interactor = interactorSpy
         sut.view = viewContollerSpy
     }
 
     func test_viewDidLoad() {
         sut.viewDidLoad()
-        XCTAssertTrue(interactorSpy.fetchDataCalled)
-    }
-
-    func test_didFetchData() {
-        let response = ConfirmationEntity(success: true, imageName: "imageName", message: "message")
-        sut.didFetchData(confirmation: response)
         XCTAssertTrue(viewContollerSpy.showDataCalled)
     }
 }
@@ -42,19 +35,10 @@ final class ConfirmationPresenterDelegateSpy: ConfirmationPresenterDelegate {
 
 }
 
-final class ConfirmationInteractorProtocolSpy: ConfirmationInteractorProtocol {
-
-    var presenter: ConfirmationInteractorDelegate?
-
-    private(set) var fetchDataCalled = false
-    func fetchData() {
-        fetchDataCalled = true
-    }
-
-}
-
 final class ConfirmationRouterProtocolSpy: ConfirmationRouterProtocol {
-    static func createModule() -> UIViewController {
+
+    static func createModule(confirmation: ConfirmationEntity) -> UIViewController {
         return UIViewController()
     }
+
 }

@@ -14,14 +14,25 @@ protocol ActivityDetailsPresenterProtocol {
     
     func viewDidLoad()
     func reportIssue()
+    func getName() -> String
+    func getCategory() -> String
+    func getPrice() -> String
+    func getTime() -> String
 }
 
 protocol ActivityDetailsRouterProtocol {
-    static func createModule(activity: ActivityDetailsEntity?) -> UIViewController
+    static func createModule() -> UIViewController
 }
 
 protocol ActivityDetailsInteractorProtocol {
     var presenter: ActivityDetailsInteractorDelegate? { get set }
     func fetchData()
     func reportIssue()
+}
+
+protocol ActivityDetailsViewControllerProtocol {
+    func getName() -> String
+    func getCategory() -> String
+    func getPrice() -> String
+    func getTime() -> String
 }

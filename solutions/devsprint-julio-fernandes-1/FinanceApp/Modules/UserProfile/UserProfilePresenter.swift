@@ -31,8 +31,9 @@ final class UserProfilePresenter: UserProfilePresenterProtocol {
 }
 
 extension UserProfilePresenter: UserProfileInteractorDelegate {
-	
-	func didFetchData() {
-		view?.showData()
-	}
+
+    func didFetchData(_ userProfile: UserEntity) {
+        view?.showData()
+    }
+
 }

@@ -10,8 +10,7 @@ import UIKit
 
 final class ConfirmationView: UIView {
     
-
-    var viewController: ConfirmationViewControllerProtocol?
+    var viewController: ConfirmationViewControllerInputProtocol?
     
     let stackView: UIStackView = {
 
@@ -48,12 +47,10 @@ final class ConfirmationView: UIView {
         button.backgroundColor = .systemBlue
         button.setTitle("BUTTON", for: .normal)
         button.layer.cornerRadius = 14
-        button.addTarget(self, action: #selector(didTouchConfirmationButton), for: .touchUpInside)
         return button
     }()
 
-
-    init(viewController: ConfirmationViewControllerProtocol) {
+    init(viewController: ConfirmationViewControllerInputProtocol) {
         super.init(frame: .zero)
         
         backgroundColor = .white
@@ -61,6 +58,7 @@ final class ConfirmationView: UIView {
         self.viewController = viewController
         
         confirmationButton.setTitle(self.viewController?.getButtonTitle(), for: .normal)
+        confirmationButton.addAction(UIAction { _ in viewController.didTapConfirmationButton() }, for: .touchUpInside)
         confirmationLabel.text = self.viewController?.getText()
         confirmationImageView.tintColor = self.viewController?.getColorIcon()
 
@@ -86,11 +84,6 @@ final class ConfirmationView: UIView {
         ])
     }
     
-    @objc
-    func didTouchConfirmationButton() {
-        viewController?.dismissThisScreen()
-    }
-
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

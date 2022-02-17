@@ -32,21 +32,28 @@ final class TransfersRouterTests: XCTestCase {
     }
 
     func test_navigateToConfirmation() {
-        sut.navigateToConfirmation()
-        XCTAssertTrue(viewControllerSpy.presentViewControllerCalled)
-        XCTAssertTrue(viewControllerSpy.presentViewControllerPassed is ConfirmationViewController)
+        sut.navigateToConfirmation(confirmation: ConfirmationEntity(success: true, imageName: "imageName", message: "message"))
+        XCTAssertTrue(viewControllerSpy.showDetailViewControllerCalled)
+        XCTAssertTrue(viewControllerSpy.showDetailViewControllerPassed is ConfirmationViewController)
     }
 }
 
 final class ViewControllerSpy: UIViewController {
 
-    public private(set) var presentViewControllerCalled = false
-    public private(set) var presentViewControllerPassed: UIViewController?
-    public private(set) var presentViewControllerAnimatedPassed: Bool?
-    public override func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)? = nil) {
+    private(set) var presentViewControllerCalled = false
+    private(set) var presentViewControllerPassed: UIViewController?
+    private(set) var presentViewControllerAnimatedPassed: Bool?
+    override func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)? = nil) {
         presentViewControllerCalled = true
         presentViewControllerPassed = viewControllerToPresent
         presentViewControllerAnimatedPassed = flag
+    }
+
+    private(set) var showDetailViewControllerCalled = false
+    private(set) var showDetailViewControllerPassed: UIViewController?
+    override func showDetailViewController(_ vc: UIViewController, sender: Any?) {
+        showDetailViewControllerCalled = true
+        showDetailViewControllerPassed = vc
     }
 
 }

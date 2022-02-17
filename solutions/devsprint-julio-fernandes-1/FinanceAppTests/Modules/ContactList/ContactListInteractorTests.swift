@@ -25,7 +25,7 @@ final class ContactListInteractorTests: XCTestCase {
 
     func test_fetchData_returned_error() {
         sut.fetchData()
-        XCTAssertTrue(presenterSpy.didReceiveErrorCalled)
+        XCTAssertFalse(presenterSpy.didFetchDataCalled)
     }
 }
 
@@ -34,11 +34,6 @@ final class ContactListInteractorDelegateSpy: ContactListInteractorDelegate {
     private(set) var didFetchDataCalled = false
     func didFetchData(contactList: [ContactEntity]) {
         didFetchDataCalled = true
-    }
-
-    private(set) var didReceiveErrorCalled = false
-    func didReceiveError(error: Error) {
-        didReceiveErrorCalled = true
     }
 
 }

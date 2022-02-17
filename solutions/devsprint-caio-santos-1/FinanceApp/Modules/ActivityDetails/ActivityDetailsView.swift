@@ -14,6 +14,7 @@ protocol ActivityDetailsViewDelegate : AnyObject {
 final class ActivityDetailsView: UIView {
     
     weak var delegate: ActivityDetailsViewDelegate?
+    var viewController: ActivityDetailsViewControllerProtocol?
 
     let stackView: UIStackView = {
         let stackView = UIStackView()
@@ -75,8 +76,10 @@ final class ActivityDetailsView: UIView {
     }()
 
 
-    init() {
+    init(viewController: ActivityDetailsViewControllerProtocol) {
         super.init(frame: .zero)
+        self.viewController = viewController
+        setupView()
 
         backgroundColor = .white
 
@@ -111,11 +114,11 @@ final class ActivityDetailsView: UIView {
         ])
     }
     
-    func setupView(activity: ActivityDetailsEntity?) {
-        activityNameLabel.text  = activity?.name
-        categoryLabel.text      = activity?.category
-        priceLabel.text         = "R$\(activity?.price ?? 0.0 )"
-        timeLabel.text          = activity?.time
+    func setupView() {
+        activityNameLabel.text = viewController?.getName() ?? ""
+        categoryLabel.text = viewController?.getCategory() ?? ""
+        priceLabel.text = viewController?.getPrice() ?? ""
+        timeLabel.text  = viewController?.getTime() ?? ""
     }
     
     required init?(coder: NSCoder) {
