@@ -9,7 +9,6 @@ import Foundation
 
 protocol TransfersInteractorDelegate: AnyObject {
     func didFetchData(transfer: TransfersEntity)
-    func didReceiveError(error: Error)
 }
 
 final class TransfersInteractor: TransfersInteractorProtocol {
@@ -26,8 +25,7 @@ final class TransfersInteractor: TransfersInteractorProtocol {
             switch result {
             case .success(let transfer):
                 self.presenter?.didFetchData(transfer: transfer)
-            case .failure(let error):
-                self.presenter?.didReceiveError(error: error)
+            default: break
             }
         }
     }

@@ -18,7 +18,7 @@ final class TransfersViewController: UIViewController {
 		return transferView
 	}()
 
-    private var transferValue: String = ""
+    private(set) var transferValue: String = ""
 	
 	// MARK: - Init
 	
@@ -36,9 +36,6 @@ final class TransfersViewController: UIViewController {
 		self.view = transferView
 	}
 	
-	override func viewDidLoad() {
-		super.viewDidLoad()
-	}
 }
 
 extension TransfersViewController: TransferViewDelegate {
@@ -58,16 +55,9 @@ extension TransfersViewController: TransferViewDelegate {
 
 extension TransfersViewController: TransfersPresenterDelegate {
     func showData(transfer: TransfersEntity) {
-        let confirmation: ConfirmationEntity
-        if transfer.success {
-            confirmation = ConfirmationEntity(success: true, imageName: "checkmark.circle.fill", message: "Your transfer was successful")
-        } else {
-            confirmation = ConfirmationEntity(success: true, imageName: "x.circle.fill", message: "Something went wrong :(")
-        }
+        let imageName = transfer.success ? "checkmark.circle.fill" : "x.circle.fill"
+        let message = transfer.success ? "Your transfer was successful" : "Something went wrong :("
+        let confirmation = ConfirmationEntity(success: true, imageName: imageName, message: message)
         presenter.navigateToConfirmation(confirmation: confirmation)
-    }
-
-    func showError(error: Error) {
-        //Show error in the controller
     }
 }

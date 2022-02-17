@@ -9,7 +9,6 @@ import Foundation
 
 protocol ContactListInteractorDelegate: AnyObject {
     func didFetchData(contactList: [ContactEntity])
-    func didReceiveError(error: Error)
 }
 
 final class ContactListInteractor: ContactListInteractorProtocol {
@@ -26,8 +25,7 @@ final class ContactListInteractor: ContactListInteractorProtocol {
             switch result {
             case .success(let list):
                 self.presenter?.didFetchData(contactList: list)
-            case .failure(let error):
-                self.presenter?.didReceiveError(error: error)
+            default: break
             }
         }
     }

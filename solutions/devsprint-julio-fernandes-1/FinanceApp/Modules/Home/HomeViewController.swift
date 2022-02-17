@@ -10,9 +10,11 @@ import UIKit
 class HomeViewController: UIViewController {
     
     // MARK: Properties
+
     var presenter: HomePresenterProtocol
     
     // MARK: Components
+
     lazy var homeView: HomeView = {
         let homeView = HomeView()
         homeView.delegate = self
@@ -20,11 +22,13 @@ class HomeViewController: UIViewController {
     }()
     
     // MARK: Init
+
     init(presenter: HomePresenterProtocol) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
-    
+
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -39,6 +43,7 @@ class HomeViewController: UIViewController {
     }
     
     // MARK: Methods
+
     @objc
     func openProfile() {
         let navigationController = UserProfileRouter.createModule()
@@ -47,6 +52,7 @@ class HomeViewController: UIViewController {
 }
 
 // MARK: Extensions
+
 extension HomeViewController: HomeViewDelegate {
     func didSelectActivity() {
         let activityDetailsViewController = ActivityDetailsRouter.createModule()

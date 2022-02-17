@@ -9,7 +9,6 @@ import Foundation
 
 protocol UserProfileInteractorDelegate: AnyObject {
     func didFetchData(_ userProfile: UserEntity)
-    func didReceiveError(error: Error)
 }
 
 final class UserProfileInteractor: UserProfileInteractorProtocol {
@@ -23,10 +22,8 @@ final class UserProfileInteractor: UserProfileInteractorProtocol {
     func fetchData() {
         service.load(endpoint: .userProfile) { (response: Result<UserEntity, Error>) in
             switch response {
-                case let .success(userProfile):
-                    self.presenter?.didFetchData(userProfile)
-                case let .failure(error):
-                    self.presenter?.didReceiveError(error: error)
+            case let .success(userProfile): self.presenter?.didFetchData(userProfile)
+            default: break
             }
          }
     }

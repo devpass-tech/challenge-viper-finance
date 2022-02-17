@@ -9,7 +9,6 @@ import Foundation
 
 protocol TransfersPresenterDelegate: AnyObject {
     func showData(transfer: TransfersEntity)
-    func showError(error: Error)
 }
 
 final class TransfersPresenter: TransfersPresenterProtocol {
@@ -42,9 +41,5 @@ final class TransfersPresenter: TransfersPresenterProtocol {
 extension TransfersPresenter: TransfersInteractorDelegate {
     func didFetchData(transfer: TransfersEntity) {
         view?.showData(transfer: transfer)
-    }
-
-    func didReceiveError(error: Error) {
-        view?.showError(error: error)
     }
 }

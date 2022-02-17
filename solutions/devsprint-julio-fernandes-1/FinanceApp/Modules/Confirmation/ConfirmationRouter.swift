@@ -21,7 +21,6 @@ final class ConfirmationRouter: ConfirmationRouterProtocol {
         )
 
         let viewController = ConfirmationViewController(presenter: presenter)
-
         viewController.presenter.view = viewController
 
         return viewController
