@@ -46,12 +46,6 @@
 		98584A90277E32C60028DBEA /* FinanceAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584A8F277E32C60028DBEA /* FinanceAppUITestsLaunchTests.swift */; };
 		98584AA5277E35E90028DBEA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584AA4277E35E90028DBEA /* HomeViewController.swift */; };
 		98584AA7277E35F10028DBEA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584AA6277E35F10028DBEA /* HomeView.swift */; };
-		98584ACB277E4F0A0028DBEA /* SampleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584AC5277E4F0A0028DBEA /* SampleInteractor.swift */; };
-		98584ACC277E4F0A0028DBEA /* SampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584AC6277E4F0A0028DBEA /* SampleView.swift */; };
-		98584ACD277E4F0A0028DBEA /* SampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584AC7277E4F0A0028DBEA /* SampleViewController.swift */; };
-		98584ACE277E4F0A0028DBEA /* SampleRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584AC8277E4F0A0028DBEA /* SampleRouter.swift */; };
-		98584ACF277E4F0A0028DBEA /* SamplePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584AC9277E4F0A0028DBEA /* SamplePresenter.swift */; };
-		98584AD0277E4F0A0028DBEA /* SampleProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584ACA277E4F0A0028DBEA /* SampleProtocols.swift */; };
 		98584AE7277E50430028DBEA /* TransfersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584AD3277E50430028DBEA /* TransfersView.swift */; };
 		98584AE8277E50430028DBEA /* TransfersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584AD4277E50430028DBEA /* TransfersViewController.swift */; };
 		98584AED277E50430028DBEA /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584ADA277E50430028DBEA /* UserProfileView.swift */; };
@@ -159,12 +153,6 @@
 		98584A8F277E32C60028DBEA /* FinanceAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		98584AA4277E35E90028DBEA /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		98584AA6277E35F10028DBEA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		98584AC5277E4F0A0028DBEA /* SampleInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleInteractor.swift; sourceTree = "<group>"; };
-		98584AC6277E4F0A0028DBEA /* SampleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleView.swift; sourceTree = "<group>"; };
-		98584AC7277E4F0A0028DBEA /* SampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleViewController.swift; sourceTree = "<group>"; };
-		98584AC8277E4F0A0028DBEA /* SampleRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleRouter.swift; sourceTree = "<group>"; };
-		98584AC9277E4F0A0028DBEA /* SamplePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SamplePresenter.swift; sourceTree = "<group>"; };
-		98584ACA277E4F0A0028DBEA /* SampleProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleProtocols.swift; sourceTree = "<group>"; };
 		98584AD3277E50430028DBEA /* TransfersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransfersView.swift; sourceTree = "<group>"; };
 		98584AD4277E50430028DBEA /* TransfersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransfersViewController.swift; sourceTree = "<group>"; };
 		98584ADA277E50430028DBEA /* UserProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
@@ -387,7 +375,6 @@
 		98584A9E277E35700028DBEA /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				98584AC4277E4F0A0028DBEA /* SampleModule */,
 				98584B08277E602C0028DBEA /* ContactList */,
 				98584ADF277E50430028DBEA /* Confirmation */,
 				98584AD1277E50430028DBEA /* Transfers */,
@@ -419,19 +406,6 @@
 				A0FD66F227B46A6B00B3C6D3 /* FinanceServiceError.swift */,
 			);
 			path = Service;
-			sourceTree = "<group>";
-		};
-		98584AC4277E4F0A0028DBEA /* SampleModule */ = {
-			isa = PBXGroup;
-			children = (
-				98584AC5277E4F0A0028DBEA /* SampleInteractor.swift */,
-				98584AC6277E4F0A0028DBEA /* SampleView.swift */,
-				98584AC7277E4F0A0028DBEA /* SampleViewController.swift */,
-				98584AC8277E4F0A0028DBEA /* SampleRouter.swift */,
-				98584AC9277E4F0A0028DBEA /* SamplePresenter.swift */,
-				98584ACA277E4F0A0028DBEA /* SampleProtocols.swift */,
-			);
-			path = SampleModule;
 			sourceTree = "<group>";
 		};
 		98584AD1277E50430028DBEA /* Transfers */ = {
@@ -665,7 +639,6 @@
 				BCE6191827B5BAB80058BD36 /* AccountEntity.swift in Sources */,
 				98584B02277E51CF0028DBEA /* ChooseContactView.swift in Sources */,
 				A0C958B627A9B9FC00715795 /* ConfirmationInteractor.swift in Sources */,
-				98584AD0277E4F0A0028DBEA /* SampleProtocols.swift in Sources */,
 				98584B10277E605F0028DBEA /* ActivityDetailsViewController.swift in Sources */,
 				A0C958B827A9BA0900715795 /* ConfirmationRouter.swift in Sources */,
 				DD21958927B42C8500911352 /* HomeRouter.swift in Sources */,
@@ -705,18 +678,13 @@
 				6CC0698727AA109C00973C57 /* ActivityDetailsRouter.swift in Sources */,
 				6CC0698527AA109100973C57 /* ActivityDetailsPresenter.swift in Sources */,
 				A0FD66F127B46A4B00B3C6D3 /* FinanceEndpoint.swift in Sources */,
-				98584ACD277E4F0A0028DBEA /* SampleViewController.swift in Sources */,
 				BCA90EB327ACB46D006CA89F /* TransfersInteractor.swift in Sources */,
-				98584ACE277E4F0A0028DBEA /* SampleRouter.swift in Sources */,
 				BCF76FC227AAA5C2003B321F /* ContactListInteractor.swift in Sources */,
-				98584ACB277E4F0A0028DBEA /* SampleInteractor.swift in Sources */,
 				A0FD66E627B34EC300B3C6D3 /* FinanceService.swift in Sources */,
 				98584AA5277E35E90028DBEA /* HomeViewController.swift in Sources */,
-				98584ACC277E4F0A0028DBEA /* SampleView.swift in Sources */,
 				98426FAA27A6EC8700B09645 /* TabBarController.swift in Sources */,
 				DD21958327B42C5600911352 /* HomeInteractor.swift in Sources */,
 				98584AED277E50430028DBEA /* UserProfileView.swift in Sources */,
-				98584ACF277E4F0A0028DBEA /* SamplePresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

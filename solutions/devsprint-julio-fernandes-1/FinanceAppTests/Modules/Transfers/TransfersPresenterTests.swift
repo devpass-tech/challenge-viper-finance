@@ -39,6 +39,11 @@ final class TransfersPresenterTests: XCTestCase {
         sut.didFetchData(transfer: TransfersEntity(success: true))
         XCTAssertTrue(viewContollerSpy.showDataCalled)
     }
+
+    func test_didReceiveError() {
+        sut.didReceiveError(error: ContactListErrorMock.generic)
+        XCTAssertTrue(viewContollerSpy.showErrorCalled)
+    }
 }
 
 final class TransfersInteractorProtocolSpy: TransfersInteractorProtocol {

@@ -30,6 +30,15 @@ final class ConfirmationViewControllerTests: XCTestCase {
         sut.viewDidLoad()
         XCTAssertTrue(presenterSpy.viewDidLoadCalled)
     }
+
+    func test_showData() {
+        XCTAssertEqual(sut.confirmationView.loadingIndicator.isAnimating, true)
+
+        let confirmation = ConfirmationEntity(success: true, imageName: "image", message: "message")
+        sut.showData(confirmation: confirmation)
+
+        XCTAssertEqual(sut.confirmationView.loadingIndicator.isAnimating, false)
+    }
 }
 
 final class ConfirmationPresenterProtocolSpy: ConfirmationPresenterProtocol {

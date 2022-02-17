@@ -21,6 +21,16 @@ final class TransfersViewControllerTests: XCTestCase {
         sut.viewDidLoad()
         XCTAssertTrue(presenterSpy.viewDidLoadCalled)
     }
+
+    func test_didPressChooseContactButton() {
+        sut.didPressChooseContactButton()
+        XCTAssertTrue(presenterSpy.navigateToContactListCalled)
+    }
+
+    func test_didPressTransferButton() {
+        sut.didPressTransferButton()
+        XCTAssertTrue(presenterSpy.navigateToConfirmationCalled)
+    }
 }
 
 final class TransfersPresenterProtocolSpy: TransfersPresenterProtocol {
