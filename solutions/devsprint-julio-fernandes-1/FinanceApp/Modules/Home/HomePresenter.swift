@@ -35,11 +35,11 @@ final class HomePresenter: HomePresenterProtocol {
     }
 	
     func navigateToActivity() {
-		 router.navigateToActivity()
+        router.navigateToActivity()
     }
 	
     func navigateToUserProfile() {
-		 router.navigateToUserProfile()
+        router.navigateToUserProfile()
     }
 
 }
