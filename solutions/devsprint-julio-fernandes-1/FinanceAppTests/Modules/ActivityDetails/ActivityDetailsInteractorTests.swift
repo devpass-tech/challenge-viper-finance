@@ -1,18 +1,19 @@
 //
-//  ConfirmationInteractorTests.swift
+//  ActivityDetailsInteractorTests.swift
 //  FinanceApp
 //
-//  Created by Julio Fernandes on 01/02/22.
+//  Created by Julio Fernandes on 07/02/22.
 //
 
 import XCTest
 @testable import FinanceApp
 
-final class ConfirmationInteractorTests: XCTestCase {
-    private let presenterSpy = ConfirmationInteractorDelegateSpy()
-    private let sut = ConfirmationInteractor()
+final class ActivityDetailsInteractorTests: XCTestCase {
+    private let presenterSpy = ActivityDetailsInteractorDelegateSpy()
+    private let sut = ActivityDetailsInteractor()
 
     override func setUp() {
+        super.setUp()
         sut.presenter = presenterSpy
     }
 
@@ -22,8 +23,7 @@ final class ConfirmationInteractorTests: XCTestCase {
     }
 }
 
-final class ConfirmationInteractorDelegateSpy: ConfirmationInteractorDelegate {
-
+final class ActivityDetailsInteractorDelegateSpy: ActivityDetailsInteractorDelegate {
     private(set) var didFetchDataCalled = false
     func didFetchData() {
         didFetchDataCalled = true

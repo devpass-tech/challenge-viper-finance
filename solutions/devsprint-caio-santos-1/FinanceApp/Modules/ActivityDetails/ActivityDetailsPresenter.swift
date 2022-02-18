@@ -5,18 +5,16 @@
 //  Created by Douglas Cardoso Ferreira on 31/01/22.
 //
 
-import UIKit
-
 protocol ActivityDetailsPresenterDelegate: AnyObject {
-    func showData(activity: ActivityDetailsEntity)
     func didReportIssue()
 }
 
 final class ActivityDetailsPresenter: ActivityDetailsPresenterProtocol {
-    
     weak var view: ActivityDetailsPresenterDelegate?
     var interactor: ActivityDetailsInteractorProtocol?
     var router: ActivityDetailsRouterProtocol?
+    
+    private var activityDetails: ActivityDetailsEntity?
     
     func viewDidLoad() {
         interactor?.fetchData()
@@ -25,6 +23,23 @@ final class ActivityDetailsPresenter: ActivityDetailsPresenterProtocol {
     func reportIssue() {
         interactor?.reportIssue()
     }
+    
+    func getName() -> String {
+        return self.activityDetails?.name ?? ""
+    }
+    
+    func getCategory() -> String {
+        return self.activityDetails?.category ?? ""
+    }
+    
+    func getPrice() -> String {
+        return "R$\(self.activityDetails?.price ?? 0.0)"
+    }
+    
+    func getTime() -> String {
+        return self.activityDetails?.time ?? ""
+    }
+    
 }
 
 extension ActivityDetailsPresenter: ActivityDetailsInteractorDelegate {
@@ -32,7 +47,7 @@ extension ActivityDetailsPresenter: ActivityDetailsInteractorDelegate {
         view?.didReportIssue()
     }
     
-    func didFetchData(activity: ActivityDetailsEntity) {
-        view?.showData(activity: activity)
+    func didFetchData(_ activity: ActivityDetailsEntity?) {
+        self.activityDetails = activity
     }
 }

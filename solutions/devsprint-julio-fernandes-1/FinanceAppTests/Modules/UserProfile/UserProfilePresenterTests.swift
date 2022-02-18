@@ -26,7 +26,11 @@ final class UserProfilePresenterTests: XCTestCase {
     }
 
     func test_didFetchData() {
-        sut.didFetchData()
+        sut.didFetchData(UserEntity(name: "name",
+                                    phone: "phone",
+                                    email: "email",
+                                    address: "address",
+                                    account: AccountEntity(agency: "agency", account: "account")))
         XCTAssertTrue(viewContollerSpy.showDataCalled)
     }
 }

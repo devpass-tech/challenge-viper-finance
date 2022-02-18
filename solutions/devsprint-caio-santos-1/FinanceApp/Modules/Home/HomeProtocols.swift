@@ -16,6 +16,7 @@ protocol HomeRouterProtocol {
     static func createModule() -> UIViewController
     func pushToUserProfile(navigation: UINavigationController)
     func pushToActivityDetails(navigation: UINavigationController)
+    func pushToSampleV2(navigation: UINavigationController)
 }
 
 protocol HomePresenterProtocol {
