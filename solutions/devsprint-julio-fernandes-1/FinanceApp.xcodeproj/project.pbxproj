@@ -393,6 +393,7 @@
 		98584B07277E5FF60028DBEA /* ActivityDetails */ = {
 			isa = PBXGroup;
 			children = (
+				6C8C188027B2086E00BEE243 /* ActivityDetailsEntity.swift */,
 				98584B0E277E605F0028DBEA /* ActivityDetailsView.swift */,
 				98584B0A277E605F0028DBEA /* ActivityDetailsViewController.swift */,
 				6CC0698227AA108000973C57 /* ActivityDetailsInteractor.swift */,
@@ -420,7 +421,6 @@
 			isa = PBXGroup;
 			children = (
 				A0C958C227AC7D7600715795 /* ConfirmationEntity.swift */,
-				6C8C188027B2086E00BEE243 /* ActivityDetailsEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
