@@ -8,7 +8,6 @@
 import UIKit
 
 protocol ContactListRouterProtocol {
-    
     static func createModule() -> UINavigationController
     func navigateToNewModule()
 }

@@ -8,7 +8,18 @@
 import Foundation
 import UIKit
 
+enum ConfirmationViewState {
+    case loading
+    case loaded(ConfirmationEntity)
+}
+
+protocol ConfirmationViewDelegate: AnyObject {
+    func didTapConfirmation()
+}
+
 final class ConfirmationView: UIView {
+
+    weak var delegate: ConfirmationViewDelegate?
 
     let stackView: UIStackView = {
 
@@ -23,17 +34,15 @@ final class ConfirmationView: UIView {
     let confirmationImageView: UIImageView = {
 
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "checkmark.circle.fill")
         imageView.layer.cornerRadius = 50
         imageView.clipsToBounds = true
-        imageView.tintColor = .systemGreen
+        imageView.tintColor = .white
         return imageView
     }()
 
     let confirmationLabel: UILabel = {
 
         let label = UILabel()
-        label.text = "Your transfer was successful"
         label.font = UIFont.boldSystemFont(ofSize: 17)
         label.textAlignment = .center
         return label
@@ -50,8 +59,19 @@ final class ConfirmationView: UIView {
         return button
     }()
 
+    let loadingIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView(style: .medium)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        return activityIndicator
+    }()
 
-    init() {
+    var state: ConfirmationViewState = .loading {
+        didSet {
+            configureView()
+        }
+    }
+
+    init(state: ConfirmationViewState) {
         super.init(frame: .zero)
 
         backgroundColor = .white
@@ -61,6 +81,7 @@ final class ConfirmationView: UIView {
 
         addSubview(stackView)
         addSubview(confirmationButton)
+        addSubview(loadingIndicator)
 
         NSLayoutConstraint.activate([
             stackView.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
@@ -74,12 +95,40 @@ final class ConfirmationView: UIView {
             confirmationButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -16),
             confirmationButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
             confirmationButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            confirmationButton.heightAnchor.constraint(equalToConstant: 56)
+            confirmationButton.heightAnchor.constraint(equalToConstant: 56),
+
+            loadingIndicator.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
+            loadingIndicator.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor)
         ])
+
+        configureView()
+        confirmationButton.addTarget(self, action: #selector(didTapConfirmationButton), for: .touchUpInside)
     }
 
     @available (*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    private func configureView() {
+        switch self.state {
+        case .loaded(let confirmation):
+            loadingIndicator.stopAnimating()
+            loadingIndicator.isHidden = true
+            stackView.isHidden = false
+
+            confirmationImageView.image = UIImage(named: confirmation.imageName)
+            confirmationImageView.tintColor = confirmation.success ? .systemGreen : .systemRed
+            confirmationLabel.text = confirmation.message
+
+        case .loading:
+            loadingIndicator.startAnimating()
+            loadingIndicator.isHidden = false
+            stackView.isHidden = true
+        }
+    }
+
+    @objc private func didTapConfirmationButton() {
+        delegate?.didTapConfirmation()
     }
 }

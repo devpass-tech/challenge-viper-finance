@@ -9,23 +9,54 @@ import UIKit
 
 final class ConfirmationViewController: UIViewController {
     
-    var presenter: ConfirmationPresenterProtocol?
+    // MARK: - VIPER Properties
+    private var presenter: ConfirmationPresenterInputProtocol? = nil
     
+    // MARK: - Internal Properties
+    lazy var confirmationView: ConfirmationView = {
+        
+        let confirmationView = ConfirmationView(viewController: self)
+        return confirmationView
+    }()
+    
+    // MARK: - Inits
+    
+    init(presenter: ConfirmationPresenterInputProtocol) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        nil
+    }
+    
+    // MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        presenter?.viewDidLoad()
+    }
+    
+    override func loadView() {
+        self.view = confirmationView
     }
 
-    override func loadView() {
-        self.view = ConfirmationView()
-    }
 }
 
-extension ConfirmationViewController: ConfirmationPresenterDelegate {
+extension ConfirmationViewController: ConfirmationViewControllerInputProtocol {
     
-    func showData() {
-        
-        print("Here is your data, View!")
+    func getText() -> String {
+        presenter?.getText() ?? ""
+    }
+
+    func getColorIcon() -> UIColor {
+        presenter?.getColorIcon() ?? .systemBlue
+    }
+
+    func getButtonTitle() -> String {
+        presenter?.getButtonTitle() ?? ""
+    }
+    
+    func didTapConfirmationButton() {
+        self.dismiss(animated: true, completion: nil)
     }
 }

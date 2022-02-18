@@ -9,19 +9,34 @@ import UIKit
 
 final class TransfersViewController: UIViewController {
     
-    var presenter: TransfersPresenterProtocol?
+    
+    // MARK: - VIPER Properties
+    private let presenter: TransfersPresenterInputProtocol?
 
+    // MARK: - Internal Properties
     lazy var transferView: TransfersView = {
 
-        let transferView = TransfersView()
-        transferView.delegate = self
+        let transferView = TransfersView(viewController: self)
         return transferView
     }()
 
+    // MARK: - Private Properties
+    
+    // MARK: - Inits
+    
+    init(presenter: TransfersPresenterInputProtocol) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        nil
+    }
+    
+    // MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        presenter?.viewDidLoad()
     }
     
     override func loadView() {
@@ -29,25 +44,14 @@ final class TransfersViewController: UIViewController {
     }
 }
 
-extension TransfersViewController: TransfersPresenterDelegate {
+extension TransfersViewController: TransfersViewControllerInputProtocol {
     
-    func showData() {
-        
-        print("Here is your data, View!")
+    // MARK: Methods
+    func didTapContactButton() {
+        presenter?.navigateToContactView()
     }
-}
-
-extension TransfersViewController: TransferViewDelegate {
-
-    func didPressChooseContactButton() {
-
-        let navigationController = ContactListRouter.createModule()
-        self.present(navigationController, animated: true)
-    }
-
-    func didPressTransferButton() {
-
-        let navigationController = ConfirmationRounter.createModule()
-        self.present(navigationController, animated: true)
+    
+    func didTapConfirmationButton(value: String) {
+        presenter?.createTransfer(value: value)
     }
 }

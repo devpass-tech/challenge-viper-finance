@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import UIKit
 
 protocol HomePresenterDelegate: AnyObject {
-    func showData()
+    func showSuccess(message: String)
+    func showError(message: String)
 }
 
 final class HomePresenter: HomePresenterProtocol {
@@ -19,10 +21,23 @@ final class HomePresenter: HomePresenterProtocol {
     func viewDidLoad() {
         interactor?.didFetchData()
     }
+    
+    func pushToUserProfile(navigation: UINavigationController) {
+        router?.pushToUserProfile(navigation: navigation)
+    }
+    
+    func pushToActivityDetails(navigation: UINavigationController) {
+//        router?.pushToActivityDetails(navigation: navigation)
+        router?.pushToSampleV2(navigation: navigation)
+    }
 }
 
 extension HomePresenter: HomeInteractorDelegate {
-    func didFetchData() {
-        view?.showData()
+    func didRetriveHomeInfo(message: String) {
+        view?.showSuccess(message: message)
+    }
+    
+    func onError(message: String) {
+        view?.showError(message: message)
     }
 }

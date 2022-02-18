@@ -11,12 +11,8 @@ import XCTest
 final class ConfirmationRouterTests: XCTestCase {    
 
     func test_createModule() {
-        let navigation = ConfirmationRouter.createModule()
-        let controller: ConfirmationViewController? = navigation.viewControllers.first as? ConfirmationViewController
-        let presenter: ConfirmationPresenterProtocol? = controller?.presenter
-
-        XCTAssertEqual(navigation.viewControllers.count, 1)
-        XCTAssertNotNil(controller)
-        XCTAssertNotNil(presenter)
+        let confirmation = ConfirmationEntity(success: true, imageName: "image", message: "message")
+        let sut = ConfirmationRouter.createModule(confirmation: confirmation)
+        XCTAssertNotNil(sut as? ConfirmationViewController)
     }
 }

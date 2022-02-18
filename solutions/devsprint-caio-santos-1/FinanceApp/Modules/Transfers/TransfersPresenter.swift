@@ -6,28 +6,59 @@
 //
 
 import Foundation
+import UIKit
 
-protocol TransfersPresenterDelegate: AnyObject {
-     
-    func showData()
+final class TransfersPresenter {
+    
+    // MARK: - VIPER Properties
+    
+    weak var viewController: TransfersViewController?
+    private let router: TransfersRouterProtocol
+    private let interactor: TransfersInteractorInputProtocol
+    
+    // MARK: Internal Properties
+    
+    // MARK: - Private Properties
+    
+    // MARK: - Inits
+    
+    init(router: TransfersRouterProtocol,
+         interactor: TransfersInteractorInputProtocol) {
+        self.router = router
+        self.interactor = interactor
+    }
+    
+    // MARK: - Internal Methods
+    
+    // MARK: - Private Methods
 }
 
-final class TransfersPresenter: TransfersPresenterProtocol {
+extension TransfersPresenter: TransfersPresenterInputProtocol {
+    func navigateToContactView() {
+        router.navigateToContactList()
+    }
     
-    weak var view: TransfersPresenterDelegate?
-    var interactor: TransfersInteractorProtocol?
-    var router: TransfersRouterProtocol?
+    func createTransfer(value: String) {
+        interactor.createTransfer(value: value)
+    }
     
-    func viewDidLoad() {
-        
-        interactor?.fetchData()
+    
+}
+
+extension TransfersPresenter: TransfersInteractorOutputProtocol {
+    func didCreateTransferSuccessful() {
+        router.navigateToConfirmation(isTransferSuccess: true)
+    }
+    
+    func didErrorTransfer() {
+        router.navigateToConfirmation(isTransferSuccess: false)
     }
 }
 
-extension TransfersPresenter: TransfersInteractorDelegate {
-    
-    func didFetchData() {
-        
-        view?.showData()
+
+// MARK: - Analytics
+extension TransfersPresenter {
+    func tackScreenView() {
+        // TODO: CALL YOUR OWN VIEW TRACKER
     }
 }

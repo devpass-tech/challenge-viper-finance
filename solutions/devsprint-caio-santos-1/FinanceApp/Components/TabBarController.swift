@@ -15,10 +15,11 @@ final class TabBarController: UITabBarController {
         let homeTabBar: UITabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "house.fill"), tag: 0)
         homeNavigationController.tabBarItem = homeTabBar
 
-        let transfersNavigationViewController = TransfersRouter.createModule()
+        let transfersViewController: UIViewController = TransfersConfigurator().createModule()
+        let transfersNavigationController: UINavigationController = UINavigationController(rootViewController: transfersViewController)
         let transfersTabBar = UITabBarItem(title: "Transfers", image: UIImage(named: "arrow.up.arrow.down"), tag: 1)
-        transfersNavigationViewController.tabBarItem = transfersTabBar
+        transfersNavigationController.tabBarItem = transfersTabBar
 
-        self.viewControllers = [homeNavigationController, transfersNavigationViewController]
+        self.viewControllers = [homeNavigationController, transfersNavigationController]
     }
 }

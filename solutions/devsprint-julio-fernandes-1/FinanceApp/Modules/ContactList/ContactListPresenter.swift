@@ -8,7 +8,7 @@
 import Foundation
 
 protocol ContactListPresenterDelegate: AnyObject {
-	func showData()
+    func showData(_ contactList: [ContactEntity])
 }
 
 final class ContactListPresenter: ContactListPresenterProtocol {
@@ -31,8 +31,7 @@ final class ContactListPresenter: ContactListPresenterProtocol {
 }
 
 extension ContactListPresenter: ContactListInteractorDelegate {
-	
-	func didFetchData() {
-		view?.showData()
-	}
+    func didFetchData(contactList: [ContactEntity]) {
+        view?.showData(contactList)
+    }
 }

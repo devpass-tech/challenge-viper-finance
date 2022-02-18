@@ -6,28 +6,48 @@
 //
 
 import Foundation
+import UIKit
 
-protocol ConfirmationPresenterDelegate: AnyObject {
-    
-    func showData()
-}
+final class ConfirmationPresenter {
 
-final class ConfirmationPresenter: ConfirmationPresenterProtocol {
+    // MARK: - VIPER Properties
     
-    weak var view: ConfirmationPresenterDelegate?
-    var interactor: ConfirmationInteractorProtocol?
-    var router: ConfirmationRouterProtocol?
+    weak var viewController: ConfirmationViewController?
+    private let router: ConfirmationRouterProtocol
+    private let interactor: ConfirmationInteractorInputProtocol
     
-    func viewDidLoad() {
-        
-        interactor?.fetchData()
+    // MARK: Internal Properties
+    
+    private var transporter: ConfirmationTransporter?
+    
+    // MARK: - Private Properties
+    
+    // MARK: - Inits
+    
+    init(
+        router: ConfirmationRouterProtocol,
+        interactor: ConfirmationInteractorInputProtocol,
+        transporter: Transporter<Any>?
+    ) {
+        self.router = router
+        self.interactor = interactor
+        self.transporter = transporter?.data as? ConfirmationTransporter
     }
 }
 
-extension ConfirmationPresenter: ConfirmationInteractorDelegate {
-    
-    func didFetchData() {
-        
-        view?.showData()
+extension ConfirmationPresenter: ConfirmationPresenterInputProtocol {
+    func getText() -> String {
+        transporter?.success ?? false ? "Your transfer was successful" : "Your transfer was failed"
     }
+    func getColorIcon() -> UIColor {
+        transporter?.success ?? false ? .systemGreen : .systemRed
+    }
+    func getButtonTitle() -> String {
+        transporter?.success ?? false ? "Nice!" : "Ok"
+    }
+    
+}
+
+extension ConfirmationPresenter: ConfirmationInteractorOutputProtocol {
+    
 }

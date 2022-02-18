@@ -9,7 +9,9 @@ import Foundation
 import UIKit
 
 final class ConfirmationView: UIView {
-
+    
+    var viewController: ConfirmationViewControllerInputProtocol?
+    
     let stackView: UIStackView = {
 
         let stackView = UIStackView()
@@ -26,14 +28,12 @@ final class ConfirmationView: UIView {
         imageView.image = UIImage(named: "checkmark.circle.fill")
         imageView.layer.cornerRadius = 50
         imageView.clipsToBounds = true
-        imageView.tintColor = .systemGreen
         return imageView
     }()
 
     let confirmationLabel: UILabel = {
 
         let label = UILabel()
-        label.text = "Your transfer was successful"
         label.font = UIFont.boldSystemFont(ofSize: 17)
         label.textAlignment = .center
         return label
@@ -43,18 +43,24 @@ final class ConfirmationView: UIView {
 
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Nice!", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .systemBlue
+        button.setTitle("BUTTON", for: .normal)
         button.layer.cornerRadius = 14
         return button
     }()
 
-
-    init() {
+    init(viewController: ConfirmationViewControllerInputProtocol) {
         super.init(frame: .zero)
-
+        
         backgroundColor = .white
+        
+        self.viewController = viewController
+        
+        confirmationButton.setTitle(self.viewController?.getButtonTitle(), for: .normal)
+        confirmationButton.addAction(UIAction { _ in viewController.didTapConfirmationButton() }, for: .touchUpInside)
+        confirmationLabel.text = self.viewController?.getText()
+        confirmationImageView.tintColor = self.viewController?.getColorIcon()
 
         stackView.addArrangedSubview(confirmationImageView)
         stackView.addArrangedSubview(confirmationLabel)
@@ -77,7 +83,7 @@ final class ConfirmationView: UIView {
             confirmationButton.heightAnchor.constraint(equalToConstant: 56)
         ])
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

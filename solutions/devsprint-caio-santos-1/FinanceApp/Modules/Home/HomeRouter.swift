@@ -21,5 +21,17 @@ final class HomeRouter: HomeRouterProtocol {
         return viewController
     }
     
-    func navigateToNewModule() { }
+    func pushToUserProfile(navigation: UINavigationController) {
+        navigation.present(UserProfileRouter.createModule(), animated: true)
+    }
+    
+    func pushToActivityDetails(navigation: UINavigationController) {
+//        navigation.pushViewController(ActivityDetailsRouter.createModule(), animated: true)
+    }
+    
+    func pushToSampleV2(navigation: UINavigationController) {
+        let transporter = SampleV2Transporter(value1: nil, value2: nil)
+        let configurator = SampleV2Configurator()
+        navigation.pushViewController(configurator.createModule(transporter: Transporter(data: transporter)), animated: true)
+    }
 }
