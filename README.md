@@ -57,8 +57,10 @@ Tela sem muitos segredos, basicamento recebe os dados que serão apresentados da
 
 ## 3. Transfers
 
+<p float="left">
 <img src="screenshots/screenshot-3.png" alt="drawing" width="200"/>
 <img src="screenshots/screenshot-5.png" alt="drawing" width="200"/>
+</p>
 
 Tela para realizar uma transferencia de valores para contatos. A ideia é informar um valor, selecionar um contato da lista (apresentado em outro módulo) e então efetuar a transferencia tocando no botão *Transfer*.
 
