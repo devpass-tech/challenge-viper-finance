@@ -5,10 +5,9 @@
 //  Created by Rodrigo Borges on 30/12/21.
 //
 
-import Foundation
 import UIKit
 
-class UserProfileView: UIView {
+final class UserProfileView: UIView {
 
     private lazy var tableView: UITableView = {
 
@@ -38,6 +37,7 @@ class UserProfileView: UIView {
         ])
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

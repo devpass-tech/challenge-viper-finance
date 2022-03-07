@@ -10,11 +10,23 @@ import Foundation
 protocol FinanceServiceProtocol: AnyObject {
 
     func fetchHomeData()
+    func readLocalFile(forName name: String) -> Data?
 }
 
-class FinanceService: FinanceServiceProtocol {
+final class FinanceService: FinanceServiceProtocol {
 
-    func fetchHomeData() {
-        
+    func fetchHomeData() {}
+
+    func readLocalFile(forName name: String) -> Data? {
+        do {
+            if let bundlePath: String = Bundle.main.path(forResource: name,
+                                                 ofType: "json"),
+               let jsonData: Data = try String(contentsOfFile: bundlePath).data(using: .utf8) {
+                return jsonData
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+        return nil
     }
 }

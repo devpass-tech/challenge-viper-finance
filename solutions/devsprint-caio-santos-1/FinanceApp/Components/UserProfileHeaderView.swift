@@ -8,7 +8,6 @@
 import UIKit
 
 class UserProfileHeaderView: UIView {
-
     let stackView: UIStackView = {
 
         let stackView = UIStackView()
@@ -66,8 +65,13 @@ class UserProfileHeaderView: UIView {
         return label
     }()
 
-    init() {
+    init(userName: String, agency: String, account: String, bank: String) {
         super.init(frame: .zero)
+        
+        self.nameLabel.text = userName
+        self.agencyLabel.text = agency
+        self.accountLabel.text = account
+        self.bankLabel.text = bank
 
         backgroundColor = .white
 

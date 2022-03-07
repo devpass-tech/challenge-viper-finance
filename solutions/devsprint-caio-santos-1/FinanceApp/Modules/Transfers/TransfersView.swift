@@ -8,15 +8,9 @@
 import Foundation
 import UIKit
 
-protocol TransferViewDelegate: AnyObject {
+final class TransfersView: UIView {
 
-    func didPressChooseContactButton()
-    func didPressTransferButton()
-}
-
-class TransfersView: UIView {
-
-    weak var delegate: TransferViewDelegate?
+    var viewController: TransfersViewControllerInputProtocol
 
     let stackView: UIStackView = {
 
@@ -60,7 +54,8 @@ class TransfersView: UIView {
         return button
     }()
 
-    init() {
+    init(viewController: TransfersViewControllerInputProtocol) {
+        self.viewController = viewController
         super.init(frame: .zero)
 
         backgroundColor = .white
@@ -84,14 +79,12 @@ class TransfersView: UIView {
 
     @objc
     func chooseContact() {
-
-        delegate?.didPressChooseContactButton()
+        viewController.didTapContactButton()
     }
 
     @objc
     func transfer() {
-
-        delegate?.didPressTransferButton()
+        viewController.didTapConfirmationButton(value: amountTextField.text ?? "")
     }
 
     required init?(coder: NSCoder) {

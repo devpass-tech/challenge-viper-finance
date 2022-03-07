@@ -5,26 +5,51 @@
 //  Created by Rodrigo Borges on 30/12/21.
 //
 
-import Foundation
 import UIKit
 
-class UserProfileView: UIView {
+protocol UserProfileViewDelegate: AnyObject {
+    func didSelectContactButton()
+}
 
-    private lazy var tableView: UITableView = {
+final class UserProfileView: UIView {
+    
+    weak var delegate: UserProfileViewDelegate?
+    var viewController: UserProfileViewControllerProtocol?
+    
+    var userProfile: UserProfileEntity = UserProfileEntity(name: "",
+                                                           phone: "",
+                                                           email: "",
+                                                           address: "",
+                                                           account: AccountEntity(agency: "",
+                                                                                  account: "",
+                                                                                  bank: "")) {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+
+    private func setupHeaderView(_ tableView: UITableView) {
+        let headerView = UserProfileHeaderView(userName: viewController?.getUserName() ?? "",
+                                               agency: viewController?.getAgency() ?? "",
+                                               account: viewController?.getAccount() ?? "",
+                                               bank: viewController?.getBank() ?? "")
+        
+        headerView.frame = CGRect(x: 0, y: 0, width: 0, height: 242)
+        tableView.tableHeaderView = headerView
+    }
+    
+    var tableView: UITableView = {
 
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-        tableView.dataSource = self
-
-        let headerView = UserProfileHeaderView()
-        headerView.frame = CGRect(x: 0, y: 0, width: 0, height: 232)
-        tableView.tableHeaderView = headerView
         return tableView
     }()
 
-    init() {
+    init(viewController: UserProfileViewControllerProtocol) {
         super.init(frame: .zero)
+        self.viewController = viewController
+        
 
         backgroundColor = .white
 
@@ -36,6 +61,10 @@ class UserProfileView: UIView {
             tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])
+        
+        tableView.dataSource = self
+        setupHeaderView(tableView)
+        tableView.reloadData()
     }
     
     required init?(coder: NSCoder) {
@@ -47,31 +76,31 @@ extension UserProfileView: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
 
-        return 1
+        return viewController?.numberOfSections() ?? 0
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return 3
+        return viewController?.numberOfRows() ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        setupHeaderView(tableView)
         let cell = UITableViewCell(style: .value1, reuseIdentifier: "Cell")
 
         switch indexPath.row {
         case 0:
 
             cell.textLabel?.text = "Phone"
-            cell.detailTextLabel?.text = "+55 (11) 99999-9999"
+            cell.detailTextLabel?.text = viewController?.getPhone() ?? ""
         case 1:
 
             cell.textLabel?.text = "E-mail"
-            cell.detailTextLabel?.text = "user@devpass.com"
+            cell.detailTextLabel?.text = viewController?.getEmail() ?? ""
         case 2:
 
             cell.textLabel?.text = "Address"
-            cell.detailTextLabel?.text = "Rua Bela Cintra, 495"
+            cell.detailTextLabel?.text = viewController?.getAddress() ?? ""
         default:
             break
         }
