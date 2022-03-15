@@ -39,6 +39,10 @@
 		98584B14277E605F0028DBEA /* ActivityDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584B0E277E605F0028DBEA /* ActivityDetailsView.swift */; };
 		98584B1F277E60740028DBEA /* ContactListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584B19277E60740028DBEA /* ContactListView.swift */; };
 		98584B20277E60740028DBEA /* ContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584B1A277E60740028DBEA /* ContactListViewController.swift */; };
+		FCFC264B27E00BB00017B4AF /* ActivityDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFC264A27E00BB00017B4AF /* ActivityDetailsInteractor.swift */; };
+		FCFC264D27E00BC20017B4AF /* ActivityDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFC264C27E00BC20017B4AF /* ActivityDetailsPresenter.swift */; };
+		FCFC264F27E00BCF0017B4AF /* ActivityDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFC264E27E00BCF0017B4AF /* ActivityDetailsRouter.swift */; };
+		FCFC265127E00BE80017B4AF /* ActivityDetailsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFC265027E00BE80017B4AF /* ActivityDetailsProtocols.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +99,10 @@
 		98584B0E277E605F0028DBEA /* ActivityDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityDetailsView.swift; sourceTree = "<group>"; };
 		98584B19277E60740028DBEA /* ContactListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListView.swift; sourceTree = "<group>"; };
 		98584B1A277E60740028DBEA /* ContactListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListViewController.swift; sourceTree = "<group>"; };
+		FCFC264A27E00BB00017B4AF /* ActivityDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsInteractor.swift; sourceTree = "<group>"; };
+		FCFC264C27E00BC20017B4AF /* ActivityDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsPresenter.swift; sourceTree = "<group>"; };
+		FCFC264E27E00BCF0017B4AF /* ActivityDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsRouter.swift; sourceTree = "<group>"; };
+		FCFC265027E00BE80017B4AF /* ActivityDetailsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsProtocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -285,6 +293,10 @@
 		98584B07277E5FF60028DBEA /* ActivityDetails */ = {
 			isa = PBXGroup;
 			children = (
+				FCFC264A27E00BB00017B4AF /* ActivityDetailsInteractor.swift */,
+				FCFC264C27E00BC20017B4AF /* ActivityDetailsPresenter.swift */,
+				FCFC265027E00BE80017B4AF /* ActivityDetailsProtocols.swift */,
+				FCFC264E27E00BCF0017B4AF /* ActivityDetailsRouter.swift */,
 				98584B0E277E605F0028DBEA /* ActivityDetailsView.swift */,
 				98584B0A277E605F0028DBEA /* ActivityDetailsViewController.swift */,
 			);
@@ -432,14 +444,18 @@
 			files = (
 				98584AC3277E42E80028DBEA /* FinanceService.swift in Sources */,
 				98584B04277E51DA0028DBEA /* ContactCellView.swift in Sources */,
+				FCFC264F27E00BCF0017B4AF /* ActivityDetailsRouter.swift in Sources */,
 				98584AD0277E4F0A0028DBEA /* SampleProtocols.swift in Sources */,
 				98584B10277E605F0028DBEA /* ActivityDetailsViewController.swift in Sources */,
 				98584AFE277E51A70028DBEA /* ActivityListView.swift in Sources */,
 				98584B20277E60740028DBEA /* ContactListViewController.swift in Sources */,
 				98584AF4277E50430028DBEA /* ConfirmationViewController.swift in Sources */,
+				FCFC265127E00BE80017B4AF /* ActivityDetailsProtocols.swift in Sources */,
 				98584AFC277E51960028DBEA /* ActivityCellView.swift in Sources */,
+				FCFC264B27E00BB00017B4AF /* ActivityDetailsInteractor.swift in Sources */,
 				98584AFA277E51850028DBEA /* HomeHeaderView.swift in Sources */,
 				98584AE8277E50430028DBEA /* TransfersViewController.swift in Sources */,
+				FCFC264D27E00BC20017B4AF /* ActivityDetailsPresenter.swift in Sources */,
 				98584B14277E605F0028DBEA /* ActivityDetailsView.swift in Sources */,
 				98584AE7277E50430028DBEA /* TransfersView.swift in Sources */,
 				98584AF3277E50430028DBEA /* ConfirmationView.swift in Sources */,
