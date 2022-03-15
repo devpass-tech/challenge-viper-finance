@@ -10,6 +10,9 @@
 		19AAF6AA27E0EA840030BBF2 /* Transfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AAF6A927E0EA840030BBF2 /* Transfer.swift */; };
 		19AAF6AC27E0EACB0030BBF2 /* TransferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AAF6AB27E0EACB0030BBF2 /* TransferService.swift */; };
 		19AAF6B027E113850030BBF2 /* TransferPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AAF6AF27E113850030BBF2 /* TransferPresenter.swift */; };
+		19AAF6B827E138E60030BBF2 /* TransferInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AAF6B727E138E60030BBF2 /* TransferInteractor.swift */; };
+		19AAF6BB27E13D5D0030BBF2 /* TransferRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AAF6BA27E13D5D0030BBF2 /* TransferRouter.swift */; };
+		19AAF6BD27E13E230030BBF2 /* TransferProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AAF6BC27E13E230030BBF2 /* TransferProtocols.swift */; };
 		98426FAA27A6EC8700B09645 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FA927A6EC8700B09645 /* TabBarController.swift */; };
 		98426FAC27A6FC8000B09645 /* UserProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */; };
 		98584A6D277E32C30028DBEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584A6C277E32C30028DBEA /* AppDelegate.swift */; };
@@ -65,6 +68,9 @@
 		19AAF6A927E0EA840030BBF2 /* Transfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transfer.swift; sourceTree = "<group>"; };
 		19AAF6AB27E0EACB0030BBF2 /* TransferService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferService.swift; sourceTree = "<group>"; };
 		19AAF6AF27E113850030BBF2 /* TransferPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferPresenter.swift; sourceTree = "<group>"; };
+		19AAF6B727E138E60030BBF2 /* TransferInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferInteractor.swift; sourceTree = "<group>"; };
+		19AAF6BA27E13D5D0030BBF2 /* TransferRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferRouter.swift; sourceTree = "<group>"; };
+		19AAF6BC27E13E230030BBF2 /* TransferProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferProtocols.swift; sourceTree = "<group>"; };
 		98426FA927A6EC8700B09645 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeaderView.swift; sourceTree = "<group>"; };
 		98584A69277E32C30028DBEA /* FinanceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinanceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,53 +134,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		19AAF6A827E0EA620030BBF2 /* Entity */ = {
-			isa = PBXGroup;
-			children = (
-				19AAF6A927E0EA840030BBF2 /* Transfer.swift */,
-			);
-			path = Entity;
-			sourceTree = "<group>";
-		};
-		19AAF6AD27E0EADD0030BBF2 /* Service */ = {
+		19AAF6B927E13CF50030BBF2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				19AAF6AB27E0EACB0030BBF2 /* TransferService.swift */,
-			);
-			path = Service;
-			sourceTree = "<group>";
-		};
-		19AAF6AE27E1132C0030BBF2 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				19AAF6AF27E113850030BBF2 /* TransferPresenter.swift */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
-		19AAF6B127E116260030BBF2 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				19AAF6A827E0EA620030BBF2 /* Entity */,
-				19AAF6AD27E0EADD0030BBF2 /* Service */,
+				19AAF6A927E0EA840030BBF2 /* Transfer.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		19AAF6B227E1167F0030BBF2 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				98584AD4277E50430028DBEA /* TransfersViewController.swift */,
-				98584AD3277E50430028DBEA /* TransfersView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		19AAF6B327E1168B0030BBF2 /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Interactor;
 			sourceTree = "<group>";
 		};
 		98584A60277E32C30028DBEA = {
@@ -300,10 +266,13 @@
 		98584AD1277E50430028DBEA /* Transfers */ = {
 			isa = PBXGroup;
 			children = (
-				19AAF6B327E1168B0030BBF2 /* Interactor */,
-				19AAF6B227E1167F0030BBF2 /* View */,
-				19AAF6B127E116260030BBF2 /* Model */,
-				19AAF6AE27E1132C0030BBF2 /* Presenter */,
+				19AAF6B927E13CF50030BBF2 /* Model */,
+				19AAF6B727E138E60030BBF2 /* TransferInteractor.swift */,
+				19AAF6AF27E113850030BBF2 /* TransferPresenter.swift */,
+				98584AD3277E50430028DBEA /* TransfersView.swift */,
+				98584AD4277E50430028DBEA /* TransfersViewController.swift */,
+				19AAF6BA27E13D5D0030BBF2 /* TransferRouter.swift */,
+				19AAF6BC27E13E230030BBF2 /* TransferProtocols.swift */,
 			);
 			path = Transfers;
 			sourceTree = "<group>";
@@ -505,13 +474,16 @@
 				98584A6D277E32C30028DBEA /* AppDelegate.swift in Sources */,
 				98584A6F277E32C30028DBEA /* SceneDelegate.swift in Sources */,
 				98426FAC27A6FC8000B09645 /* UserProfileHeaderView.swift in Sources */,
+				19AAF6B827E138E60030BBF2 /* TransferInteractor.swift in Sources */,
 				98584AA7277E35F10028DBEA /* HomeView.swift in Sources */,
 				98584B1F277E60740028DBEA /* ContactListView.swift in Sources */,
+				19AAF6BB27E13D5D0030BBF2 /* TransferRouter.swift in Sources */,
 				98584ACD277E4F0A0028DBEA /* SampleViewController.swift in Sources */,
 				98584ACE277E4F0A0028DBEA /* SampleRouter.swift in Sources */,
 				98584ACB277E4F0A0028DBEA /* SampleInteractor.swift in Sources */,
 				19AAF6AA27E0EA840030BBF2 /* Transfer.swift in Sources */,
 				98584AA5277E35E90028DBEA /* HomeViewController.swift in Sources */,
+				19AAF6BD27E13E230030BBF2 /* TransferProtocols.swift in Sources */,
 				98584ACC277E4F0A0028DBEA /* SampleView.swift in Sources */,
 				98426FAA27A6EC8700B09645 /* TabBarController.swift in Sources */,
 				19AAF6B027E113850030BBF2 /* TransferPresenter.swift in Sources */,
