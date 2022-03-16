@@ -7,14 +7,14 @@ protocol TransferPresenterProtocol {
     var interactor: TransferInteractorProtocol? { get set }
     var router: TransferRouterProtocol? { get set }
 
-    func didPressChooseContactButton()
-    func didPressTransferButton()
+    func didPressChooseContactButton(controller: UIViewController)
+    func didPressTransferButton(controller: UIViewController)
 }
 
 protocol TransferRouterProtocol {
     static func createModule() -> UINavigationController
-    func navigateToChooseContacts()
-    func navigateToTransfer()
+    func navigateToTransfer(controller: UIViewController)
+    func navigateToChooseContacts(controller: UIViewController)
 }
 
 protocol TransferInteractorProtocol {

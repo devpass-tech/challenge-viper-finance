@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		19AAF6AA27E0EA840030BBF2 /* Transfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AAF6A927E0EA840030BBF2 /* Transfer.swift */; };
-		19AAF6AC27E0EACB0030BBF2 /* TransferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AAF6AB27E0EACB0030BBF2 /* TransferService.swift */; };
 		19AAF6B027E113850030BBF2 /* TransferPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AAF6AF27E113850030BBF2 /* TransferPresenter.swift */; };
 		19AAF6B827E138E60030BBF2 /* TransferInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AAF6B727E138E60030BBF2 /* TransferInteractor.swift */; };
 		19AAF6BB27E13D5D0030BBF2 /* TransferRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AAF6BA27E13D5D0030BBF2 /* TransferRouter.swift */; };
@@ -65,8 +63,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		19AAF6A927E0EA840030BBF2 /* Transfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transfer.swift; sourceTree = "<group>"; };
-		19AAF6AB27E0EACB0030BBF2 /* TransferService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferService.swift; sourceTree = "<group>"; };
 		19AAF6AF27E113850030BBF2 /* TransferPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferPresenter.swift; sourceTree = "<group>"; };
 		19AAF6B727E138E60030BBF2 /* TransferInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferInteractor.swift; sourceTree = "<group>"; };
 		19AAF6BA27E13D5D0030BBF2 /* TransferRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferRouter.swift; sourceTree = "<group>"; };
@@ -134,15 +130,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		19AAF6B927E13CF50030BBF2 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				19AAF6AB27E0EACB0030BBF2 /* TransferService.swift */,
-				19AAF6A927E0EA840030BBF2 /* Transfer.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		98584A60277E32C30028DBEA = {
 			isa = PBXGroup;
 			children = (
@@ -266,7 +253,6 @@
 		98584AD1277E50430028DBEA /* Transfers */ = {
 			isa = PBXGroup;
 			children = (
-				19AAF6B927E13CF50030BBF2 /* Model */,
 				19AAF6B727E138E60030BBF2 /* TransferInteractor.swift */,
 				19AAF6AF27E113850030BBF2 /* TransferPresenter.swift */,
 				98584AD3277E50430028DBEA /* TransfersView.swift */,
@@ -457,7 +443,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				98584AC3277E42E80028DBEA /* FinanceService.swift in Sources */,
-				19AAF6AC27E0EACB0030BBF2 /* TransferService.swift in Sources */,
 				98584B04277E51DA0028DBEA /* ContactCellView.swift in Sources */,
 				98584AD0277E4F0A0028DBEA /* SampleProtocols.swift in Sources */,
 				98584B10277E605F0028DBEA /* ActivityDetailsViewController.swift in Sources */,
@@ -481,7 +466,6 @@
 				98584ACD277E4F0A0028DBEA /* SampleViewController.swift in Sources */,
 				98584ACE277E4F0A0028DBEA /* SampleRouter.swift in Sources */,
 				98584ACB277E4F0A0028DBEA /* SampleInteractor.swift in Sources */,
-				19AAF6AA27E0EA840030BBF2 /* Transfer.swift in Sources */,
 				98584AA5277E35E90028DBEA /* HomeViewController.swift in Sources */,
 				19AAF6BD27E13E230030BBF2 /* TransferProtocols.swift in Sources */,
 				98584ACC277E4F0A0028DBEA /* SampleView.swift in Sources */,

@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 protocol TransferPresenterDelegate: AnyObject {
 
@@ -7,13 +8,18 @@ protocol TransferPresenterDelegate: AnyObject {
 
 class TransferPresenter: TransferPresenterProtocol {
     
-    func didPressChooseContactButton() {}
-    func didPressTransferButton() {}
-    
-
     weak var view: TransferPresenterDelegate?
     var interactor: TransferInteractorProtocol?
     var router: TransferRouterProtocol?
+    
+    
+    func didPressChooseContactButton(controller: UIViewController) {
+        router?.navigateToChooseContacts(controller: controller)
+    }
+    
+    func didPressTransferButton(controller: UIViewController) {
+        router?.navigateToTransfer(controller: controller)
+    }
 
 }
 
