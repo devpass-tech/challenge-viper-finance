@@ -21,15 +21,9 @@ final class ActivityDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        presenter?.viewDidLoad()
     }
 }
 
 // MARK: - ActivityDetailsPresenterDelegate
 
-extension ActivityDetailsViewController: ActivityDetailsPresenterDelegate {
-    func showData() {
-        
-    }
-}
+extension ActivityDetailsViewController: ActivityDetailsPresenterDelegate {}

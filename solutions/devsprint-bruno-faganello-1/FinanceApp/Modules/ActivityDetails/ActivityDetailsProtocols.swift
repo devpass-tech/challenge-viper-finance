@@ -13,15 +13,12 @@ protocol ActivityDetailsPresenterProtocol {
     var view: ActivityDetailsPresenterDelegate? { get set }
     var interactor: ActivityDetailsInteractorProtocol? { get set }
     var router: ActivityDetailsRouterProtocol? { get set }
-
-    func viewDidLoad()
 }
 
 // MARK: - ActivityDetailsRouterProtocol
 
 protocol ActivityDetailsRouterProtocol {
     static func createModule() -> UIViewController
-    func navigateToNewModule()
 }
 
 // MARK: - ActivityDetailsInteractorProtocol

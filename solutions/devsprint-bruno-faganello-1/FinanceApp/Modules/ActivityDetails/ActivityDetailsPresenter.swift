@@ -9,9 +9,7 @@ import Foundation
 
 // MARK: - ActivityDetailsPresenterDelegate
 
-protocol ActivityDetailsPresenterDelegate: AnyObject {
-    func showData()
-}
+protocol ActivityDetailsPresenterDelegate: AnyObject {}
 
 // MARK: - ActivityDetailsPresenter
 
@@ -22,12 +20,6 @@ final class ActivityDetailsPresenter: ActivityDetailsPresenterProtocol {
     weak var view: ActivityDetailsPresenterDelegate?
     var interactor: ActivityDetailsInteractorProtocol?
     var router: ActivityDetailsRouterProtocol?
-    
-    // MARK: Public Methods
-
-    func viewDidLoad() {
-        // next sprint
-    }
 }
 
 // MARK: - ActivityDetailsInteractorDelegate
