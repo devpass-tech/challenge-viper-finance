@@ -7,9 +7,23 @@
 
 import UIKit
 
-class ActivityDetailsViewController: UIViewController {
+final class ActivityDetailsViewController: UIViewController {
+
+    // MARK: Public Properties
+
+    var presenter: ActivityDetailsPresenterProtocol?
+    
+    // MARK: UIViewController LifeCycle
 
     override func loadView() {
         self.view = ActivityDetailsView()
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
 }
+
+// MARK: - ActivityDetailsPresenterDelegate
+
+extension ActivityDetailsViewController: ActivityDetailsPresenterDelegate {}
