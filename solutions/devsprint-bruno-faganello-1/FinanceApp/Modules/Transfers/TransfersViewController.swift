@@ -19,13 +19,11 @@ class TransfersViewController: UIViewController {
 extension TransfersViewController: TransferViewDelegate {
 
     func didPressChooseContactButton() {
-        let contactsController = ContactListViewController()
-        presenter?.didPressChooseContactButton(controller: contactsController)
+        presenter?.didPressChooseContactButton(controller: self)
     }
 
     func didPressTransferButton() {
-        let confirmationViewController = ConfirmationViewController()
-        presenter?.didPressTransferButton(controller: confirmationViewController)
+        presenter?.didPressTransferButton(controller: self)
     }
 }
 

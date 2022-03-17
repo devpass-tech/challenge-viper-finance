@@ -7,19 +7,13 @@ import UIKit
 
 class TransferRouter: TransferRouterProtocol {
     
-    let viewController: TransfersViewController?
-
-    init(viewController: TransfersViewController) {
-        self.viewController = viewController
-    }
-    
-    static func createModule() -> UINavigationController {
+  static func createModule() -> UINavigationController {
 
         let viewController = TransfersViewController()
         let navigationController = UINavigationController(rootViewController: viewController)
         let presenter: TransferPresenterProtocol & TransferInteractorDelegate = TransferPresenter()
         viewController.presenter = presenter
-        viewController.presenter?.router = TransferRouter(viewController: viewController)
+        viewController.presenter?.router = TransferRouter()
         viewController.presenter?.view = viewController
         viewController.presenter?.interactor = TransferInteractor()
         viewController.presenter?.interactor?.presenter = presenter
@@ -27,15 +21,14 @@ class TransferRouter: TransferRouterProtocol {
     }
     
     func navigateToChooseContacts(controller: UIViewController) {
-        present(controller: controller)
+        let contactsController = ContactListViewController()
+        controller.navigationController?.present(contactsController, animated: true)
     }
     
     func navigateToTransfer(controller: UIViewController) {
-        present(controller: controller)
+        let confirmationViewController = ConfirmationViewController()
+        controller.navigationController?.present(confirmationViewController, animated: true)
     }
-    
-    private func present(controller: UIViewController) {
-        self.viewController?.navigationController?.present(controller, animated: true)
-    }
+
 }
 
