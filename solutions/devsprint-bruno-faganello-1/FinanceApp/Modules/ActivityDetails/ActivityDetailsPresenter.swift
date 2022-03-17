@@ -9,7 +9,9 @@ import Foundation
 
 // MARK: - ActivityDetailsPresenterDelegate
 
-protocol ActivityDetailsPresenterDelegate: AnyObject {}
+protocol ActivityDetailsPresenterDelegate: AnyObject {
+    func showData(_ activity: Activity)
+}
 
 // MARK: - ActivityDetailsPresenter
 
@@ -20,10 +22,18 @@ final class ActivityDetailsPresenter: ActivityDetailsPresenterProtocol {
     weak var view: ActivityDetailsPresenterDelegate?
     var interactor: ActivityDetailsInteractorProtocol?
     var router: ActivityDetailsRouterProtocol?
+    
+    // MARK: Public Methods
+
+    func viewDidLoad() {
+        interactor?.fetchData()
+    }
 }
 
 // MARK: - ActivityDetailsInteractorDelegate
 
 extension ActivityDetailsPresenter: ActivityDetailsInteractorDelegate {
-    
+    func didFetchActivity(_ activity: Activity) {
+        view?.showData(activity)
+    }
 }

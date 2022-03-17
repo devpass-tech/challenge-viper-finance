@@ -39,6 +39,13 @@
 		98584B14277E605F0028DBEA /* ActivityDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584B0E277E605F0028DBEA /* ActivityDetailsView.swift */; };
 		98584B1F277E60740028DBEA /* ContactListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584B19277E60740028DBEA /* ContactListView.swift */; };
 		98584B20277E60740028DBEA /* ContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584B1A277E60740028DBEA /* ContactListViewController.swift */; };
+		FCDDEF9F27E3807F00D04706 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDDEF9E27E3807F00D04706 /* HTTPClient.swift */; };
+		FCDDEFA127E3809F00D04706 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDDEFA027E3809F00D04706 /* RequestError.swift */; };
+		FCDDEFA327E380AF00D04706 /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDDEFA227E380AF00D04706 /* RequestMethod.swift */; };
+		FCDDEFA527E380C300D04706 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDDEFA427E380C300D04706 /* Endpoint.swift */; };
+		FCDDEFA827E3824F00D04706 /* FinanceEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDDEFA727E3824F00D04706 /* FinanceEndpoint.swift */; };
+		FCDDEFAA27E3840900D04706 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDDEFA927E3840900D04706 /* Activity.swift */; };
+		FCDDEFAF27E3ED8B00D04706 /* FinanceApp+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDDEFAE27E3ED8B00D04706 /* FinanceApp+Double.swift */; };
 		FCFC264B27E00BB00017B4AF /* ActivityDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFC264A27E00BB00017B4AF /* ActivityDetailsInteractor.swift */; };
 		FCFC264D27E00BC20017B4AF /* ActivityDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFC264C27E00BC20017B4AF /* ActivityDetailsPresenter.swift */; };
 		FCFC264F27E00BCF0017B4AF /* ActivityDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFC264E27E00BCF0017B4AF /* ActivityDetailsRouter.swift */; };
@@ -99,6 +106,13 @@
 		98584B0E277E605F0028DBEA /* ActivityDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityDetailsView.swift; sourceTree = "<group>"; };
 		98584B19277E60740028DBEA /* ContactListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListView.swift; sourceTree = "<group>"; };
 		98584B1A277E60740028DBEA /* ContactListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListViewController.swift; sourceTree = "<group>"; };
+		FCDDEF9E27E3807F00D04706 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		FCDDEFA027E3809F00D04706 /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
+		FCDDEFA227E380AF00D04706 /* RequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
+		FCDDEFA427E380C300D04706 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		FCDDEFA727E3824F00D04706 /* FinanceEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceEndpoint.swift; sourceTree = "<group>"; };
+		FCDDEFA927E3840900D04706 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Activity.swift; path = FinanceApp/Service/Finance/Activity.swift; sourceTree = SOURCE_ROOT; };
+		FCDDEFAE27E3ED8B00D04706 /* FinanceApp+Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FinanceApp+Double.swift"; sourceTree = "<group>"; };
 		FCFC264A27E00BB00017B4AF /* ActivityDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsInteractor.swift; sourceTree = "<group>"; };
 		FCFC264C27E00BC20017B4AF /* ActivityDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsPresenter.swift; sourceTree = "<group>"; };
 		FCFC264E27E00BCF0017B4AF /* ActivityDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsRouter.swift; sourceTree = "<group>"; };
@@ -153,6 +167,8 @@
 		98584A6B277E32C30028DBEA /* FinanceApp */ = {
 			isa = PBXGroup;
 			children = (
+				FCDDEFAB27E3ED3A00D04706 /* Extensions */,
+				FCDDEF9D27E3804300D04706 /* Network */,
 				98584A9D277E351B0028DBEA /* Resources */,
 				98584A9C277E350D0028DBEA /* AppDelegate */,
 				98584A9E277E35700028DBEA /* Modules */,
@@ -224,7 +240,7 @@
 		98584AB8277E374A0028DBEA /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				98584AC2277E42E80028DBEA /* FinanceService.swift */,
+				FCDDEFA627E3823900D04706 /* Finance */,
 				98584AC1277E42CB0028DBEA /* Entities */,
 			);
 			path = Service;
@@ -233,6 +249,7 @@
 		98584AC1277E42CB0028DBEA /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				FCDDEFA927E3840900D04706 /* Activity.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -310,6 +327,35 @@
 				98584B1A277E60740028DBEA /* ContactListViewController.swift */,
 			);
 			path = ContactList;
+			sourceTree = "<group>";
+		};
+		FCDDEF9D27E3804300D04706 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				FCDDEF9E27E3807F00D04706 /* HTTPClient.swift */,
+				FCDDEFA027E3809F00D04706 /* RequestError.swift */,
+				FCDDEFA227E380AF00D04706 /* RequestMethod.swift */,
+				FCDDEFA427E380C300D04706 /* Endpoint.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		FCDDEFA627E3823900D04706 /* Finance */ = {
+			isa = PBXGroup;
+			children = (
+				98584AC2277E42E80028DBEA /* FinanceService.swift */,
+				FCDDEFA727E3824F00D04706 /* FinanceEndpoint.swift */,
+			);
+			path = Finance;
+			sourceTree = "<group>";
+		};
+		FCDDEFAB27E3ED3A00D04706 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FCDDEFAE27E3ED8B00D04706 /* FinanceApp+Double.swift */,
+			);
+			name = Extensions;
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -443,18 +489,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				98584AC3277E42E80028DBEA /* FinanceService.swift in Sources */,
+				FCDDEFA827E3824F00D04706 /* FinanceEndpoint.swift in Sources */,
 				98584B04277E51DA0028DBEA /* ContactCellView.swift in Sources */,
 				FCFC264F27E00BCF0017B4AF /* ActivityDetailsRouter.swift in Sources */,
 				98584AD0277E4F0A0028DBEA /* SampleProtocols.swift in Sources */,
+				FCDDEFAF27E3ED8B00D04706 /* FinanceApp+Double.swift in Sources */,
 				98584B10277E605F0028DBEA /* ActivityDetailsViewController.swift in Sources */,
 				98584AFE277E51A70028DBEA /* ActivityListView.swift in Sources */,
 				98584B20277E60740028DBEA /* ContactListViewController.swift in Sources */,
 				98584AF4277E50430028DBEA /* ConfirmationViewController.swift in Sources */,
 				FCFC265127E00BE80017B4AF /* ActivityDetailsProtocols.swift in Sources */,
 				98584AFC277E51960028DBEA /* ActivityCellView.swift in Sources */,
+				FCDDEFAA27E3840900D04706 /* Activity.swift in Sources */,
+				FCDDEF9F27E3807F00D04706 /* HTTPClient.swift in Sources */,
 				FCFC264B27E00BB00017B4AF /* ActivityDetailsInteractor.swift in Sources */,
 				98584AFA277E51850028DBEA /* HomeHeaderView.swift in Sources */,
 				98584AE8277E50430028DBEA /* TransfersViewController.swift in Sources */,
+				FCDDEFA527E380C300D04706 /* Endpoint.swift in Sources */,
+				FCDDEFA127E3809F00D04706 /* RequestError.swift in Sources */,
 				FCFC264D27E00BC20017B4AF /* ActivityDetailsPresenter.swift in Sources */,
 				98584B14277E605F0028DBEA /* ActivityDetailsView.swift in Sources */,
 				98584AE7277E50430028DBEA /* TransfersView.swift in Sources */,
@@ -464,6 +516,7 @@
 				98584A6F277E32C30028DBEA /* SceneDelegate.swift in Sources */,
 				98426FAC27A6FC8000B09645 /* UserProfileHeaderView.swift in Sources */,
 				98584AA7277E35F10028DBEA /* HomeView.swift in Sources */,
+				FCDDEFA327E380AF00D04706 /* RequestMethod.swift in Sources */,
 				98584B1F277E60740028DBEA /* ContactListView.swift in Sources */,
 				98584ACD277E4F0A0028DBEA /* SampleViewController.swift in Sources */,
 				98584ACE277E4F0A0028DBEA /* SampleRouter.swift in Sources */,
