@@ -23,15 +23,4 @@ extension FinanceEndpoint: Endpoint {
             return .get
         }
     }
-
-    var header: [String: String]? {
-        return nil
-    }
-    
-    var body: [String: String]? {
-        switch self {
-        case .activityDetail:
-            return nil
-        }
-    }
 }

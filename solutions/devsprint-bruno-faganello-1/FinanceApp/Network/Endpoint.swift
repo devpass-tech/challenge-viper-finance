@@ -15,6 +15,14 @@ protocol Endpoint {
 
 extension Endpoint {
     var baseURL: String {
-        return "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/"
+        return Constants.baseURL
+    }
+    
+    var header: [String: String]? {
+        return nil
+    }
+
+    var body: [String: String]? {
+        return nil
     }
 }

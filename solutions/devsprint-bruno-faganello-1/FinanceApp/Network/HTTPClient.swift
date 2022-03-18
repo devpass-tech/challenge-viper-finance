@@ -16,7 +16,12 @@ extension HTTPClient {
         endpoint: Endpoint,
         responseModel: T.Type
     ) async -> Result<T, RequestError> {
-        guard let url = URL(string: endpoint.baseURL + endpoint.path) else {
+        
+        var urlComponents = URLComponents()
+        urlComponents.host = endpoint.baseURL
+        urlComponents.path = endpoint.path
+        
+        guard let url = urlComponents.url else {
             return .failure(.invalidURL)
         }
         

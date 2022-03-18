@@ -132,7 +132,7 @@ final class ActivityDetailsView: UIView {
     
     func setupWithActivity(_ activity: Activity) {
         activityNameLabel.text = activity.name
-        priceLabel.text = activity.price.toBRL()
+        priceLabel.text = activity.price.toBRLCurrency()
         timeLabel.text = activity.time
         categoryLabel.text = activity.category.rawValue
     }
