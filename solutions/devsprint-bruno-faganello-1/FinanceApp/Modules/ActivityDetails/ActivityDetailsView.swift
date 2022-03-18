@@ -129,4 +129,11 @@ final class ActivityDetailsView: UIView {
     private func configureViews() {
         backgroundColor = .white
     }
+    
+    func setupWithActivity(_ activity: Activity) {
+        activityNameLabel.text = activity.name
+        priceLabel.text = activity.price.toBRLCurrency()
+        timeLabel.text = activity.time
+        categoryLabel.text = activity.category.rawValue
+    }
 }

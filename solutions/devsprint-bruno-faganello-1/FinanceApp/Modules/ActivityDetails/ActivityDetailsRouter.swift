@@ -21,7 +21,7 @@ final class ActivityDetailsRouter: ActivityDetailsRouterProtocol {
         viewController.presenter = presenter
         viewController.presenter?.router = ActivityDetailsRouter()
         viewController.presenter?.view = viewController
-        viewController.presenter?.interactor = ActivityDetailsInteractor()
+        viewController.presenter?.interactor = ActivityDetailsInteractor(service: FinanceService())
         viewController.presenter?.interactor?.presenter = presenter
 
         return viewController
