@@ -8,5 +8,5 @@
 import Foundation
 
 struct Constants {
-    static let baseURL = "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/"
+    static let baseURL = "raw.githubusercontent.com"
 }

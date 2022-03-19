@@ -10,7 +10,7 @@ import Foundation
 struct Activity: Codable {
     
     enum CategoryType: String, Codable {
-        case mall
+        case shopping = "Shopping"
     }
     
     let name: String

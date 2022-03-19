@@ -11,6 +11,7 @@ import Foundation
 
 protocol ActivityDetailsInteractorDelegate: AnyObject {
     func didFetchActivity(_ activity: Activity)
+    func didFailFetchActivity(error: ActivityDetailError?)
 }
 
 // MARK: - ActivityDetailsInteractor
@@ -20,23 +21,25 @@ final class ActivityDetailsInteractor: ActivityDetailsInteractorProtocol {
     // MARK: Public Properties
     
     weak var presenter: ActivityDetailsInteractorDelegate?
-    private let service: FinanceServiceProtocol
     
-    init(service: FinanceServiceProtocol) {
-        self.service = service
+    // MARK: - Private Properties
+
+    private let repository: ActivityDetailRepositoryProtocol
+    
+    init(repository: ActivityDetailRepositoryProtocol = ActivityDetailRepository()) {
+        self.repository = repository
     }
 
     // MARK: - Public Methods
 
     func fetchData() {
-        Task.init(priority: .background) {
-            let result = await service.fetchActivityDetail()
-            switch result {
-            case .success(let activityDetail):
-                presenter?.didFetchActivity(activityDetail)
-            case .failure:
-                break
+        repository.fetchActivityDetail { [weak self] activity, error in
+            guard let self = self else { return }
+            guard let activity = activity else {
+                self.presenter?.didFailFetchActivity(error: error)
+                return
             }
+            self.presenter?.didFetchActivity(activity)
         }
     }
 }
