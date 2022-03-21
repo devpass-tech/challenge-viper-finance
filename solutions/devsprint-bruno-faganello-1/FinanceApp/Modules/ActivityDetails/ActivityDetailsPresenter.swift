@@ -11,6 +11,7 @@ import Foundation
 
 protocol ActivityDetailsPresenterDelegate: AnyObject {
     func showData(_ activity: Activity)
+    func showError(message: String)
 }
 
 // MARK: - ActivityDetailsPresenter
@@ -33,6 +34,17 @@ final class ActivityDetailsPresenter: ActivityDetailsPresenterProtocol {
 // MARK: - ActivityDetailsInteractorDelegate
 
 extension ActivityDetailsPresenter: ActivityDetailsInteractorDelegate {
+    func didFailFetchActivity(error: ActivityDetailError?) {
+        guard let error = error else {
+            view?.showError(message: "Unknown error.")
+            return
+        }
+        switch error {
+        case .invalidID:
+            view?.showError(message: "Invalid ID for Activity.")
+        }
+    }
+    
     func didFetchActivity(_ activity: Activity) {
         view?.showData(activity)
     }

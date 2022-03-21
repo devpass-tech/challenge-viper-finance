@@ -36,4 +36,8 @@ extension ActivityDetailsViewController: ActivityDetailsPresenterDelegate {
     func showData(_ activity: Activity) {
         contentView.setupWithActivity(activity)
     }
+    
+    func showError(message: String) {
+        showAlertError(message: message)
+    }
 }

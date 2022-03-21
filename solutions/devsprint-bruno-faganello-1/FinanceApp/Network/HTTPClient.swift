@@ -18,6 +18,7 @@ extension HTTPClient {
     ) async -> Result<T, RequestError> {
         
         var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
         urlComponents.host = endpoint.baseURL
         urlComponents.path = endpoint.path
         

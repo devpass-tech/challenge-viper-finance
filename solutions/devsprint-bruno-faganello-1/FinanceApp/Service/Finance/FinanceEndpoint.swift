@@ -13,7 +13,7 @@ extension FinanceEndpoint: Endpoint {
     var path: String {
         switch self {
         case .activityDetail:
-            return "activity_details_endpoint.json"
+            return "/devpass-tech/challenge-finance-app/main/api/activity_details_endpoint.json"
         }
     }
 
