@@ -14,7 +14,7 @@ struct Activity: Codable {
     }
     
     let name: String
-    let category: CategoryType
+    let category: CategoryType?
     let price: Double
     let time: String
 }

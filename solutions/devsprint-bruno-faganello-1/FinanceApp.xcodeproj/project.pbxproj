@@ -43,6 +43,15 @@
 		98584B14277E605F0028DBEA /* ActivityDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584B0E277E605F0028DBEA /* ActivityDetailsView.swift */; };
 		98584B1F277E60740028DBEA /* ContactListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584B19277E60740028DBEA /* ContactListView.swift */; };
 		98584B20277E60740028DBEA /* ContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584B1A277E60740028DBEA /* ContactListViewController.swift */; };
+		FC5FD84F27E9206D00C33A48 /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5FD84E27E9206D00C33A48 /* Collection+Extension.swift */; };
+		FC6B058F27E7B7C400000672 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6B058E27E7B7C400000672 /* HomeInteractor.swift */; };
+		FC6B059127E7B7CE00000672 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6B059027E7B7CE00000672 /* HomePresenter.swift */; };
+		FC6B059327E7B7D800000672 /* HomeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6B059227E7B7D800000672 /* HomeProtocols.swift */; };
+		FC6B059527E7B7E200000672 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6B059427E7B7E200000672 /* HomeRouter.swift */; };
+		FC6B059727E7BF2400000672 /* HomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6B059627E7BF2400000672 /* HomeRepository.swift */; };
+		FC6B059927E7BFEA00000672 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6B059827E7BFEA00000672 /* HomeService.swift */; };
+		FC6B059B27E7C00900000672 /* HomeEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6B059A27E7C00900000672 /* HomeEndpoint.swift */; };
+		FC6B059F27E7C0C400000672 /* HomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6B059E27E7C0C400000672 /* HomeData.swift */; };
 		FC7A85C627E550BB008D437B /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7A85C527E550BB008D437B /* Double+Extension.swift */; };
 		FC7A85C927E5700A008D437B /* ActivityDetailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7A85C827E5700A008D437B /* ActivityDetailRepository.swift */; };
 		FC7A85CB27E576E8008D437B /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7A85CA27E576E8008D437B /* UIViewController+Extension.swift */; };
@@ -117,6 +126,15 @@
 		98584B0E277E605F0028DBEA /* ActivityDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityDetailsView.swift; sourceTree = "<group>"; };
 		98584B19277E60740028DBEA /* ContactListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListView.swift; sourceTree = "<group>"; };
 		98584B1A277E60740028DBEA /* ContactListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListViewController.swift; sourceTree = "<group>"; };
+		FC5FD84E27E9206D00C33A48 /* Collection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
+		FC6B058E27E7B7C400000672 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		FC6B059027E7B7CE00000672 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		FC6B059227E7B7D800000672 /* HomeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProtocols.swift; sourceTree = "<group>"; };
+		FC6B059427E7B7E200000672 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		FC6B059627E7BF2400000672 /* HomeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRepository.swift; sourceTree = "<group>"; };
+		FC6B059827E7BFEA00000672 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
+		FC6B059A27E7C00900000672 /* HomeEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEndpoint.swift; sourceTree = "<group>"; };
+		FC6B059E27E7C0C400000672 /* HomeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeData.swift; path = FinanceApp/Service/Entities/HomeData.swift; sourceTree = SOURCE_ROOT; };
 		FC7A85C527E550BB008D437B /* Double+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		FC7A85C827E5700A008D437B /* ActivityDetailRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailRepository.swift; sourceTree = "<group>"; };
 		FC7A85CA27E576E8008D437B /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -125,7 +143,7 @@
 		FCDDEFA227E380AF00D04706 /* RequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
 		FCDDEFA427E380C300D04706 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		FCDDEFA727E3824F00D04706 /* FinanceEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceEndpoint.swift; sourceTree = "<group>"; };
-		FCDDEFA927E3840900D04706 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Activity.swift; path = FinanceApp/Service/Finance/Activity.swift; sourceTree = SOURCE_ROOT; };
+		FCDDEFA927E3840900D04706 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Activity.swift; path = FinanceApp/Service/Entities/Activity.swift; sourceTree = SOURCE_ROOT; };
 		FCDDEFB327E4CBFC00D04706 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FCFC264A27E00BB00017B4AF /* ActivityDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsInteractor.swift; sourceTree = "<group>"; };
 		FCFC264C27E00BC20017B4AF /* ActivityDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsPresenter.swift; sourceTree = "<group>"; };
@@ -245,8 +263,12 @@
 		98584A9F277E35780028DBEA /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				FC6B058E27E7B7C400000672 /* HomeInteractor.swift */,
+				FC6B059227E7B7D800000672 /* HomeProtocols.swift */,
+				FC6B059427E7B7E200000672 /* HomeRouter.swift */,
 				98584AA6277E35F10028DBEA /* HomeView.swift */,
 				98584AA4277E35E90028DBEA /* HomeViewController.swift */,
+				FC6B059027E7B7CE00000672 /* HomePresenter.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -256,17 +278,10 @@
 			children = (
 				FC7A85C727E56FDA008D437B /* Repository */,
 				FCDDEFA627E3823900D04706 /* Finance */,
-				98584AC1277E42CB0028DBEA /* Entities */,
+				FC5FD84D27E907C400C33A48 /* Home */,
+				FC5FD84C27E907A300C33A48 /* Entities */,
 			);
 			path = Service;
-			sourceTree = "<group>";
-		};
-		98584AC1277E42CB0028DBEA /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-				FCDDEFA927E3840900D04706 /* Activity.swift */,
-			);
-			path = Entities;
 			sourceTree = "<group>";
 		};
 		98584AC4277E4F0A0028DBEA /* SampleModule */ = {
@@ -348,11 +363,30 @@
 			path = ContactList;
 			sourceTree = "<group>";
 		};
+		FC5FD84C27E907A300C33A48 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				FCDDEFA927E3840900D04706 /* Activity.swift */,
+				FC6B059E27E7C0C400000672 /* HomeData.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		FC5FD84D27E907C400C33A48 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				FC6B059827E7BFEA00000672 /* HomeService.swift */,
+				FC6B059A27E7C00900000672 /* HomeEndpoint.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		FC7A85C227E5509B008D437B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				FC7A85C527E550BB008D437B /* Double+Extension.swift */,
 				FC7A85CA27E576E8008D437B /* UIViewController+Extension.swift */,
+				FC5FD84E27E9206D00C33A48 /* Collection+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -361,6 +395,7 @@
 			isa = PBXGroup;
 			children = (
 				FC7A85C827E5700A008D437B /* ActivityDetailRepository.swift */,
+				FC6B059627E7BF2400000672 /* HomeRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -521,10 +556,12 @@
 				98584B04277E51DA0028DBEA /* ContactCellView.swift in Sources */,
 				FCFC264F27E00BCF0017B4AF /* ActivityDetailsRouter.swift in Sources */,
 				98584AD0277E4F0A0028DBEA /* SampleProtocols.swift in Sources */,
+				FC6B059F27E7C0C400000672 /* HomeData.swift in Sources */,
 				FC7A85C927E5700A008D437B /* ActivityDetailRepository.swift in Sources */,
 				98584B10277E605F0028DBEA /* ActivityDetailsViewController.swift in Sources */,
 				98584AFE277E51A70028DBEA /* ActivityListView.swift in Sources */,
 				98584B20277E60740028DBEA /* ContactListViewController.swift in Sources */,
+				FC6B059527E7B7E200000672 /* HomeRouter.swift in Sources */,
 				98584AF4277E50430028DBEA /* ConfirmationViewController.swift in Sources */,
 				FCFC265127E00BE80017B4AF /* ActivityDetailsProtocols.swift in Sources */,
 				98584AFC277E51960028DBEA /* ActivityCellView.swift in Sources */,
@@ -534,15 +571,20 @@
 				98584AFA277E51850028DBEA /* HomeHeaderView.swift in Sources */,
 				98584AE8277E50430028DBEA /* TransfersViewController.swift in Sources */,
 				FCDDEFA527E380C300D04706 /* Endpoint.swift in Sources */,
+				FC6B059B27E7C00900000672 /* HomeEndpoint.swift in Sources */,
 				FC7A85CB27E576E8008D437B /* UIViewController+Extension.swift in Sources */,
 				FCDDEFA127E3809F00D04706 /* RequestError.swift in Sources */,
 				FCFC264D27E00BC20017B4AF /* ActivityDetailsPresenter.swift in Sources */,
+				FC6B059127E7B7CE00000672 /* HomePresenter.swift in Sources */,
+				FC5FD84F27E9206D00C33A48 /* Collection+Extension.swift in Sources */,
 				FCDDEFB427E4CBFC00D04706 /* Constants.swift in Sources */,
 				98584B14277E605F0028DBEA /* ActivityDetailsView.swift in Sources */,
 				98584AE7277E50430028DBEA /* TransfersView.swift in Sources */,
 				98584AF3277E50430028DBEA /* ConfirmationView.swift in Sources */,
+				FC6B059927E7BFEA00000672 /* HomeService.swift in Sources */,
 				98584AEE277E50430028DBEA /* UserProfileViewController.swift in Sources */,
 				98584A6D277E32C30028DBEA /* AppDelegate.swift in Sources */,
+				FC6B059327E7B7D800000672 /* HomeProtocols.swift in Sources */,
 				98584A6F277E32C30028DBEA /* SceneDelegate.swift in Sources */,
 				98426FAC27A6FC8000B09645 /* UserProfileHeaderView.swift in Sources */,
 				19AAF6B827E138E60030BBF2 /* TransferInteractor.swift in Sources */,
@@ -553,12 +595,14 @@
 				98584ACD277E4F0A0028DBEA /* SampleViewController.swift in Sources */,
 				98584ACE277E4F0A0028DBEA /* SampleRouter.swift in Sources */,
 				98584ACB277E4F0A0028DBEA /* SampleInteractor.swift in Sources */,
+				FC6B059727E7BF2400000672 /* HomeRepository.swift in Sources */,
 				98584AA5277E35E90028DBEA /* HomeViewController.swift in Sources */,
 				19AAF6BD27E13E230030BBF2 /* TransferProtocols.swift in Sources */,
 				98584ACC277E4F0A0028DBEA /* SampleView.swift in Sources */,
 				FC7A85C627E550BB008D437B /* Double+Extension.swift in Sources */,
 				98426FAA27A6EC8700B09645 /* TabBarController.swift in Sources */,
 				19AAF6B027E113850030BBF2 /* TransferPresenter.swift in Sources */,
+				FC6B058F27E7B7C400000672 /* HomeInteractor.swift in Sources */,
 				98584AED277E50430028DBEA /* UserProfileView.swift in Sources */,
 				98584ACF277E4F0A0028DBEA /* SamplePresenter.swift in Sources */,
 			);
