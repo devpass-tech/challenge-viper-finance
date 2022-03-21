@@ -79,7 +79,12 @@ extension ActivityListView: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ActivityCellView
-        cell.setupWithActivity(items[indexPath.row])
+        
+        guard let activity = items[safe: indexPath.row] else {
+            return cell
+        }
+        
+        cell.setupWithActivity(activity)
 
         return cell
     }

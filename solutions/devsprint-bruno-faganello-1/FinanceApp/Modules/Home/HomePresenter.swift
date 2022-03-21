@@ -34,11 +34,7 @@ final class HomePresenter: HomePresenterProtocol {
 // MARK: - HomeInteractorDelegate
 
 extension HomePresenter: HomeInteractorDelegate {
-    func didFailFetchHomeData(error: HomeError?) {
-        guard let error = error else {
-            view?.showError(message: "Unknown error.")
-            return
-        }
+    func didFailFetchHomeData(error: HomeError) {
         switch error {
         case .unknown:
             view?.showError(message: "We can't fetch the data. Try again later.")

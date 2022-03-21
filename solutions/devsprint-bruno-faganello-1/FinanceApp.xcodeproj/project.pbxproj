@@ -43,6 +43,7 @@
 		98584B14277E605F0028DBEA /* ActivityDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584B0E277E605F0028DBEA /* ActivityDetailsView.swift */; };
 		98584B1F277E60740028DBEA /* ContactListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584B19277E60740028DBEA /* ContactListView.swift */; };
 		98584B20277E60740028DBEA /* ContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98584B1A277E60740028DBEA /* ContactListViewController.swift */; };
+		FC5FD84F27E9206D00C33A48 /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5FD84E27E9206D00C33A48 /* Collection+Extension.swift */; };
 		FC6B058F27E7B7C400000672 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6B058E27E7B7C400000672 /* HomeInteractor.swift */; };
 		FC6B059127E7B7CE00000672 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6B059027E7B7CE00000672 /* HomePresenter.swift */; };
 		FC6B059327E7B7D800000672 /* HomeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6B059227E7B7D800000672 /* HomeProtocols.swift */; };
@@ -125,6 +126,7 @@
 		98584B0E277E605F0028DBEA /* ActivityDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityDetailsView.swift; sourceTree = "<group>"; };
 		98584B19277E60740028DBEA /* ContactListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListView.swift; sourceTree = "<group>"; };
 		98584B1A277E60740028DBEA /* ContactListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListViewController.swift; sourceTree = "<group>"; };
+		FC5FD84E27E9206D00C33A48 /* Collection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
 		FC6B058E27E7B7C400000672 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		FC6B059027E7B7CE00000672 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		FC6B059227E7B7D800000672 /* HomeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProtocols.swift; sourceTree = "<group>"; };
@@ -384,6 +386,7 @@
 			children = (
 				FC7A85C527E550BB008D437B /* Double+Extension.swift */,
 				FC7A85CA27E576E8008D437B /* UIViewController+Extension.swift */,
+				FC5FD84E27E9206D00C33A48 /* Collection+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -573,6 +576,7 @@
 				FCDDEFA127E3809F00D04706 /* RequestError.swift in Sources */,
 				FCFC264D27E00BC20017B4AF /* ActivityDetailsPresenter.swift in Sources */,
 				FC6B059127E7B7CE00000672 /* HomePresenter.swift in Sources */,
+				FC5FD84F27E9206D00C33A48 /* Collection+Extension.swift in Sources */,
 				FCDDEFB427E4CBFC00D04706 /* Constants.swift in Sources */,
 				98584B14277E605F0028DBEA /* ActivityDetailsView.swift in Sources */,
 				98584AE7277E50430028DBEA /* TransfersView.swift in Sources */,

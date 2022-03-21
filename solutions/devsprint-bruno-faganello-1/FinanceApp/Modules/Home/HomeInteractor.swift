@@ -10,7 +10,7 @@ import Foundation
 // MARK: - HomeInteractorDelegate
 
 protocol HomeInteractorDelegate: AnyObject {
-    func didFailFetchHomeData(error: HomeError?)
+    func didFailFetchHomeData(error: HomeError)
     func didFetchHomeData(_ homeData: HomeData)
 }
 
@@ -36,9 +36,13 @@ final class HomeInteractor: HomeIteractorProtocol {
 
     func fetchData() {
         repository?.fetchHomeData(completion: { [weak self] homeData, homeError in
-            guard let self = self else { return }
-            guard let homeData = homeData else {
-                self.presenter?.didFailFetchHomeData(error: homeError)
+            guard let self = self,
+                  let homeData = homeData else {
+                if let homeError = homeError {
+                    self?.presenter?.didFailFetchHomeData(error: homeError)
+                } else {
+                    self?.presenter?.didFailFetchHomeData(error: .unknown)
+                }
                 return
             }
             self.presenter?.didFetchHomeData(homeData)
