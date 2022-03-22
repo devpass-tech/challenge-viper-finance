@@ -2,7 +2,6 @@ import Foundation
 import UIKit
 
 protocol TransferPresenterDelegate: AnyObject {
-
     func showData()
 }
 

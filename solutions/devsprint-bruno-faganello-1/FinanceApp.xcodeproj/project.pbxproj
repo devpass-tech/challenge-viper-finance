@@ -130,6 +130,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19FEB6DC27E3EE0500EBED0D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		98584A60277E32C30028DBEA = {
 			isa = PBXGroup;
 			children = (
@@ -253,6 +260,7 @@
 		98584AD1277E50430028DBEA /* Transfers */ = {
 			isa = PBXGroup;
 			children = (
+				19FEB6DC27E3EE0500EBED0D /* Model */,
 				19AAF6B727E138E60030BBF2 /* TransferInteractor.swift */,
 				19AAF6AF27E113850030BBF2 /* TransferPresenter.swift */,
 				98584AD3277E50430028DBEA /* TransfersView.swift */,
