@@ -19,7 +19,7 @@ final class ContactListPresenter: ContactListPresenterProtocol {
     
     // MARK: Public Properties
     
-    var view: ContactListPresenterDelegate?
+    weak var view: ContactListPresenterDelegate?
     var interactor: ContactListInteractorProtocol?
     var router: ContactListRouterProtocol?
     
