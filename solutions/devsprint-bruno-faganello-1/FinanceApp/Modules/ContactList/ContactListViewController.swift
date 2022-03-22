@@ -7,9 +7,21 @@
 
 import UIKit
 
-class ContactListViewController: UIViewController {
+// MARK: - ContactListViewController
 
+final class ContactListViewController: UIViewController {
+
+    // MARK: Public Properties
+    
+    var presenter: ContactListPresenterProtocol?
+    
     override func loadView() {
         self.view = ContactListView()
     }
+}
+
+// MARK: - ContactListPresenterDelegate
+
+extension ContactListViewController: ContactListPresenterDelegate {
+    
 }

@@ -7,37 +7,64 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+// MARK: - HomeViewController
 
-    lazy var homeView: HomeView = {
+final class HomeViewController: UIViewController {
 
+    // MARK: Public Properties
+
+    var presenter: HomePresenterProtocol?
+
+    // MARK: Private Properties
+    
+    private lazy var homeView: HomeView = {
         let homeView = HomeView()
         homeView.delegate = self
         return homeView
     }()
 
-    override func viewDidLoad() {
-
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Profile", style: .plain, target: self, action: #selector(openProfile))
-    }
+    // MARK: LifeCycle
 
     override func loadView() {
         self.view = homeView
     }
 
-    @objc
-    func openProfile() {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        presenter?.viewDidLoad()
+        setUpView()
+    }
 
+    // MARK: Private Methods
+
+    @objc
+    private func openProfile() {
         let navigationController = UINavigationController(rootViewController: UserProfileViewController())
         self.present(navigationController, animated: true)
     }
+    
+    private func setUpView() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Profile", style: .plain, target: self, action: #selector(openProfile))
+    }
 }
 
+// MARK: - HomeViewDelegate
+
 extension HomeViewController: HomeViewDelegate {
-
     func didSelectActivity() {
-
-        let activityDetailsViewController = ActivityDetailsViewController()
+        let activityDetailsViewController = ActivityDetailsRouter.createModule()
         self.navigationController?.pushViewController(activityDetailsViewController, animated: true)
+    }
+}
+
+// MARK: - HomePresenterDelegate
+
+extension HomeViewController: HomePresenterDelegate {
+    func showError(message: String) {
+        showAlertError(message: message)
+    }
+    
+    func showData(homeData: HomeData) {
+        homeView.setupWithHomeData(homeData)
     }
 }

@@ -7,9 +7,37 @@
 
 import UIKit
 
-class ActivityDetailsViewController: UIViewController {
+final class ActivityDetailsViewController: UIViewController {
+
+    // MARK: Public Properties
+
+    var presenter: ActivityDetailsPresenterProtocol?
+    
+    // MARK: - Private Properties
+
+    private lazy var contentView = ActivityDetailsView()
+    
+    // MARK: UIViewController LifeCycle
 
     override func loadView() {
-        self.view = ActivityDetailsView()
+        self.view = contentView
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        presenter?.viewDidLoad()
+    }
+}
+
+// MARK: - ActivityDetailsPresenterDelegate
+
+extension ActivityDetailsViewController: ActivityDetailsPresenterDelegate {
+    func showData(_ activity: Activity) {
+        contentView.setupWithActivity(activity)
+    }
+    
+    func showError(message: String) {
+        showAlertError(message: message)
     }
 }
