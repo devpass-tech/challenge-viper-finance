@@ -21,7 +21,7 @@ class TransferRouter: TransferRouterProtocol {
     }
     
     func navigateToChooseContacts(controller: UIViewController) {
-        let contactsController = ContactListViewController()
+        let contactsController = ContactListRouter.createModule()
         controller.navigationController?.present(contactsController, animated: true)
     }
     
