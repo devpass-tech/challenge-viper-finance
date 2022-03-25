@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		190A226427ED195F00BD2CFC /* Transfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190A226327ED195F00BD2CFC /* Transfer.swift */; };
+		190A226727ED1A2000BD2CFC /* TransferRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190A226627ED1A2000BD2CFC /* TransferRepository.swift */; };
+		190A226A27ED1DDA00BD2CFC /* TransferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190A226927ED1DDA00BD2CFC /* TransferService.swift */; };
+		190A226C27ED2AE300BD2CFC /* TransferEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190A226B27ED2AE300BD2CFC /* TransferEndpoint.swift */; };
 		19AAF6B027E113850030BBF2 /* TransferPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AAF6AF27E113850030BBF2 /* TransferPresenter.swift */; };
 		19AAF6B827E138E60030BBF2 /* TransferInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AAF6B727E138E60030BBF2 /* TransferInteractor.swift */; };
 		19AAF6BB27E13D5D0030BBF2 /* TransferRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AAF6BA27E13D5D0030BBF2 /* TransferRouter.swift */; };
@@ -90,6 +94,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		190A226327ED195F00BD2CFC /* Transfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transfer.swift; sourceTree = "<group>"; };
+		190A226627ED1A2000BD2CFC /* TransferRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferRepository.swift; sourceTree = "<group>"; };
+		190A226927ED1DDA00BD2CFC /* TransferService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferService.swift; sourceTree = "<group>"; };
+		190A226B27ED2AE300BD2CFC /* TransferEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferEndpoint.swift; sourceTree = "<group>"; };
 		19AAF6AF27E113850030BBF2 /* TransferPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferPresenter.swift; sourceTree = "<group>"; };
 		19AAF6B727E138E60030BBF2 /* TransferInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferInteractor.swift; sourceTree = "<group>"; };
 		19AAF6BA27E13D5D0030BBF2 /* TransferRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferRouter.swift; sourceTree = "<group>"; };
@@ -184,9 +192,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		190A226527ED19EF00BD2CFC /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				190A226627ED1A2000BD2CFC /* TransferRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		190A226827ED1DC300BD2CFC /* Transfer */ = {
+			isa = PBXGroup;
+			children = (
+				190A226927ED1DDA00BD2CFC /* TransferService.swift */,
+				190A226B27ED2AE300BD2CFC /* TransferEndpoint.swift */,
+			);
+			path = Transfer;
+			sourceTree = "<group>";
+		};
 		19FEB6DC27E3EE0500EBED0D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				190A226327ED195F00BD2CFC /* Transfer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -292,6 +318,7 @@
 		98584AB8277E374A0028DBEA /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				190A226827ED1DC300BD2CFC /* Transfer */,
 				FCDDEF9D27E3804300D04706 /* Manager */,
 				FCDDEFA627E3823900D04706 /* Finance */,
 				FC5FD84D27E907C400C33A48 /* Home */,
@@ -315,6 +342,7 @@
 		98584AD1277E50430028DBEA /* Transfers */ = {
 			isa = PBXGroup;
 			children = (
+				190A226527ED19EF00BD2CFC /* Repository */,
 				19FEB6DC27E3EE0500EBED0D /* Model */,
 				19AAF6B727E138E60030BBF2 /* TransferInteractor.swift */,
 				19AAF6AF27E113850030BBF2 /* TransferPresenter.swift */,
@@ -571,6 +599,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				190A226427ED195F00BD2CFC /* Transfer.swift in Sources */,
 				98584AC3277E42E80028DBEA /* FinanceService.swift in Sources */,
 				FC5FD85727E966CE00C33A48 /* ContactListPresenter.swift in Sources */,
 				FCDDEFA827E3824F00D04706 /* FinanceEndpoint.swift in Sources */,
@@ -596,6 +625,7 @@
 				FC6B059B27E7C00900000672 /* HomeEndpoint.swift in Sources */,
 				FC7A85CB27E576E8008D437B /* UIViewController+Extension.swift in Sources */,
 				FCDDEFA127E3809F00D04706 /* RequestError.swift in Sources */,
+				190A226A27ED1DDA00BD2CFC /* TransferService.swift in Sources */,
 				FCFC264D27E00BC20017B4AF /* ActivityDetailsPresenter.swift in Sources */,
 				FC6B059127E7B7CE00000672 /* HomePresenter.swift in Sources */,
 				FC5FD84F27E9206D00C33A48 /* Collection+Extension.swift in Sources */,
@@ -610,6 +640,7 @@
 				98584A6F277E32C30028DBEA /* SceneDelegate.swift in Sources */,
 				98426FAC27A6FC8000B09645 /* UserProfileHeaderView.swift in Sources */,
 				19AAF6B827E138E60030BBF2 /* TransferInteractor.swift in Sources */,
+				190A226727ED1A2000BD2CFC /* TransferRepository.swift in Sources */,
 				98584AA7277E35F10028DBEA /* HomeView.swift in Sources */,
 				FCDDEFA327E380AF00D04706 /* RequestMethod.swift in Sources */,
 				98584B1F277E60740028DBEA /* ContactListView.swift in Sources */,
@@ -619,6 +650,7 @@
 				98584ACE277E4F0A0028DBEA /* SampleRouter.swift in Sources */,
 				98584ACB277E4F0A0028DBEA /* SampleInteractor.swift in Sources */,
 				FC6B059727E7BF2400000672 /* HomeRepository.swift in Sources */,
+				190A226C27ED2AE300BD2CFC /* TransferEndpoint.swift in Sources */,
 				98584AA5277E35E90028DBEA /* HomeViewController.swift in Sources */,
 				19AAF6BD27E13E230030BBF2 /* TransferProtocols.swift in Sources */,
 				98584ACC277E4F0A0028DBEA /* SampleView.swift in Sources */,
