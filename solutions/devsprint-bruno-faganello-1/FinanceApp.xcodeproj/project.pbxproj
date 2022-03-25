@@ -11,6 +11,9 @@
 		190A226727ED1A2000BD2CFC /* TransferRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190A226627ED1A2000BD2CFC /* TransferRepository.swift */; };
 		190A226A27ED1DDA00BD2CFC /* TransferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190A226927ED1DDA00BD2CFC /* TransferService.swift */; };
 		190A226C27ED2AE300BD2CFC /* TransferEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190A226B27ED2AE300BD2CFC /* TransferEndpoint.swift */; };
+		190A226F27ED54A100BD2CFC /* TransferRepositoryUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190A226E27ED54A100BD2CFC /* TransferRepositoryUnitTest.swift */; };
+		190A227427ED67BD00BD2CFC /* TransferServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190A227327ED67BD00BD2CFC /* TransferServiceMock.swift */; };
+		190A227627ED6AAD00BD2CFC /* TransferMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190A227527ED6AAD00BD2CFC /* TransferMock.swift */; };
 		19AAF6B027E113850030BBF2 /* TransferPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AAF6AF27E113850030BBF2 /* TransferPresenter.swift */; };
 		19AAF6B827E138E60030BBF2 /* TransferInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AAF6B727E138E60030BBF2 /* TransferInteractor.swift */; };
 		19AAF6BB27E13D5D0030BBF2 /* TransferRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AAF6BA27E13D5D0030BBF2 /* TransferRouter.swift */; };
@@ -98,6 +101,9 @@
 		190A226627ED1A2000BD2CFC /* TransferRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferRepository.swift; sourceTree = "<group>"; };
 		190A226927ED1DDA00BD2CFC /* TransferService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferService.swift; sourceTree = "<group>"; };
 		190A226B27ED2AE300BD2CFC /* TransferEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferEndpoint.swift; sourceTree = "<group>"; };
+		190A226E27ED54A100BD2CFC /* TransferRepositoryUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferRepositoryUnitTest.swift; sourceTree = "<group>"; };
+		190A227327ED67BD00BD2CFC /* TransferServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferServiceMock.swift; sourceTree = "<group>"; };
+		190A227527ED6AAD00BD2CFC /* TransferMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferMock.swift; sourceTree = "<group>"; };
 		19AAF6AF27E113850030BBF2 /* TransferPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferPresenter.swift; sourceTree = "<group>"; };
 		19AAF6B727E138E60030BBF2 /* TransferInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferInteractor.swift; sourceTree = "<group>"; };
 		19AAF6BA27E13D5D0030BBF2 /* TransferRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferRouter.swift; sourceTree = "<group>"; };
@@ -209,6 +215,24 @@
 			path = Transfer;
 			sourceTree = "<group>";
 		};
+		190A226D27ED547400BD2CFC /* Transfer */ = {
+			isa = PBXGroup;
+			children = (
+				190A227227ED565700BD2CFC /* Mock */,
+				190A226E27ED54A100BD2CFC /* TransferRepositoryUnitTest.swift */,
+			);
+			path = Transfer;
+			sourceTree = "<group>";
+		};
+		190A227227ED565700BD2CFC /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				190A227327ED67BD00BD2CFC /* TransferServiceMock.swift */,
+				190A227527ED6AAD00BD2CFC /* TransferMock.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 		19FEB6DC27E3EE0500EBED0D /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +279,7 @@
 		98584A82277E32C60028DBEA /* FinanceAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				190A226D27ED547400BD2CFC /* Transfer */,
 				98584A83277E32C60028DBEA /* FinanceAppTests.swift */,
 			);
 			path = FinanceAppTests;
@@ -668,7 +693,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				190A227627ED6AAD00BD2CFC /* TransferMock.swift in Sources */,
+				190A226F27ED54A100BD2CFC /* TransferRepositoryUnitTest.swift in Sources */,
 				98584A84277E32C60028DBEA /* FinanceAppTests.swift in Sources */,
+				190A227427ED67BD00BD2CFC /* TransferServiceMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,3 +1,3 @@
-struct Transfer: Codable {
+struct Transfer: Codable, Equatable {
     let success: Bool
 }
