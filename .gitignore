@@ -58,6 +58,11 @@ Pods/
 
 Carthage/Build
 
+## XCodegen
+
+solutions/devsprint-caio-santos-3/*.xcodeproj/*
+solutions/devsprint-caio-santos-3/*.xcworkspace/*
+
 # fastlane
 #
 # It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
