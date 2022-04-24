@@ -9,7 +9,7 @@ import UIKit
 
 final class ConfirmationViewController: UIViewController {
     var presenter: ConfirmationPresenterProtocol
-    private let confirmationView: ConfirmationView = ConfirmationView(state: .loading)
+    private(set) var confirmationView: ConfirmationView = ConfirmationView(state: .loading)
 
     init(presenter: ConfirmationPresenterProtocol) {
         self.presenter = presenter

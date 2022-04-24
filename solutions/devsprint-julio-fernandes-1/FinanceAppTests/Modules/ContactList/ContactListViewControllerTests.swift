@@ -21,6 +21,15 @@ final class ContactListViewControllerTests: XCTestCase {
         sut.viewDidLoad()
         XCTAssertTrue(presenterSpy.viewDidLoadCalled)
     }
+
+    func test_showData() {
+        XCTAssertEqual(sut.contactList.count, 0)
+
+        sut.showData([ContactEntity(name: "", phone: "")])
+
+        XCTAssertEqual(sut.contactList.count, 1)
+    }
+
 }
 
 final class ContactListPresenterProtocolSpy: ContactListPresenterProtocol {
@@ -46,7 +55,7 @@ final class ContactListInteractorProtocolSpy: ContactListInteractorProtocol {
 }
 
 final class ContactListRouterProtocolSpy: ContactListRouterProtocol {
-    static func createModule() -> UINavigationController {
-        return UINavigationController()
+    static func createModule() -> UIViewController {
+        return UIViewController()
     }
 }

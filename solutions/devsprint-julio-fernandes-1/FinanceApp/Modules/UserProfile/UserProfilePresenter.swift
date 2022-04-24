@@ -36,7 +36,4 @@ extension UserProfilePresenter: UserProfileInteractorDelegate {
         view?.showData()
     }
 
-    func didReceiveError(error: Error) {
-    }
-
 }

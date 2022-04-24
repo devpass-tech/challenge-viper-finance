@@ -87,13 +87,11 @@ final class TransfersView: UIView {
 	
 	@objc
 	func chooseContact() {
-		
 		delegate?.didPressChooseContactButton()
 	}
 	
 	@objc
 	func transfer() {
-		
 		delegate?.didPressTransferButton()
 	}
 	

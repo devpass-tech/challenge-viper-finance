@@ -58,9 +58,9 @@ final class HomeView: UIView {
             activityListView.heightAnchor.constraint(equalToConstant: estimatedHeight)
         ])
     }
-    
+
     @available(*, unavailable)
-	 required init?(coder: NSCoder) {
+    required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
@@ -72,3 +72,4 @@ extension HomeView: ActivityListViewDelegate {
         delegate?.didSelectActivity()
     }
 }
+
