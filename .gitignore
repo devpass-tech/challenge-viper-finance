@@ -59,7 +59,7 @@ Pods/
 Carthage/Build
 
 ## XCodegen
-solutions/devsprint-caio-santos-3/
+#solutions/devsprint-caio-santos-3/
 solutions/devsprint-caio-santos-3/*.xcodeproj/*
 solutions/devsprint-caio-santos-3/*.xcworkspace/*
 
