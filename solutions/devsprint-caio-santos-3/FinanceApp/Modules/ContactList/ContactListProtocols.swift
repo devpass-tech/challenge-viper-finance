@@ -28,3 +28,15 @@ protocol ContactListInteractorProtocol {
     var presenter: ContactListInteractorDelegate? { get set }
     func fetchData()
 }
+
+//Mark: Delegate Protocols
+
+protocol ContactListPresenterDelegate: AnyObject {
+
+    func showData()
+}
+
+protocol ContactListInteractorDelegate: AnyObject {
+
+    func didFetchData()
+}

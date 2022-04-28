@@ -7,11 +7,6 @@
 
 import Foundation
 
-protocol ContactListPresenterDelegate: AnyObject {
-
-    func showData()
-}
-
 class ContactListPresenter: ContactListPresenterProtocol {
 
     weak var view: ContactListPresenterDelegate?

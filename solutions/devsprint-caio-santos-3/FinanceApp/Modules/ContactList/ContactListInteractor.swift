@@ -7,11 +7,6 @@
 
 import Foundation
 
-protocol ContactListInteractorDelegate: AnyObject {
-
-    func didFetchData()
-}
-
 class ContactListInteractor: ContactListInteractorProtocol {
 
     weak var presenter: ContactListInteractorDelegate?
