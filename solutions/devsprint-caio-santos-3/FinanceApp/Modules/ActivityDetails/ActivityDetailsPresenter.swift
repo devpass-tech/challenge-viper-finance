@@ -16,8 +16,16 @@ protocol ActivityDetailsPresenterDelegate: AnyObject {
 class ActivityDetailsPresenter: ActivityDetailsPresenterProtocol {
     
     weak var view: ActivityDetailsPresenterDelegate?
-    var interactor: ActivityDetailsInteractorProtocol?
-    var router: ActivityDetailsRouterProtocol?
+    private var interactor: ActivityDetailsInteractorProtocol?
+    private var router: ActivityDetailsRouterProtocol?
+    
+    internal init(view: ActivityDetailsPresenterDelegate? = nil,
+                  interactor: ActivityDetailsInteractorProtocol? = nil,
+                  router: ActivityDetailsRouterProtocol? = nil) {
+        self.view = view
+        self.interactor = interactor
+        self.router = router
+    }
     
     func viewDidLoad() {
         
