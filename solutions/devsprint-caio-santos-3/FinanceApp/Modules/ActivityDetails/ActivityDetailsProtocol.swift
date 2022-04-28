@@ -11,13 +11,12 @@ import UIKit
 protocol ActivityDetailsPresenterProtocol {
     
     var view: ActivityDetailsPresenterDelegate? { get set }
-    var interactor: ActivityDetailsInteractorProtocol? { get set }
-    var router: ActivityDetailsRouterProtocol? { get set }
 
     func viewDidLoad()
 }
 
 protocol ActivityDetailsRouterProtocol {
+    var viewController: UIViewController?  { get set }
     
     static func createModule() -> UINavigationController
     func navigateToNewModule()

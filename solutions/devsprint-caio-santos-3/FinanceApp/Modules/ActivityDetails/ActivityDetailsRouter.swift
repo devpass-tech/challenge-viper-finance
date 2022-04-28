@@ -10,18 +10,22 @@ import UIKit
 
 class ActivityDetailsRouter: ActivityDetailsRouterProtocol {
     
+    weak var viewController: UIViewController?
+    
     static func createModule() -> UINavigationController {
         
         let viewController = ActivityDetailsViewController()
         let navigationController = UINavigationController(rootViewController: viewController)
         
-        let presenter: ActivityDetailsPresenterProtocol & ActivityDetailsInteractorDelegate = ActivityDetailsPresenter()
+        let router = ActivityDetailsRouter()
+        let interactor = ActivityDetailsInteractor()
         
-        viewController.presenter = presenter
-        viewController.presenter?.router = ActivityDetailsRouter()
-        viewController.presenter?.view = viewController
-        viewController.presenter?.interactor = ActivityDetailsInteractor()
-        viewController.presenter?.interactor?.presenter = presenter
+        let presenter: ActivityDetailsPresenterProtocol & ActivityDetailsInteractorDelegate = ActivityDetailsPresenter(view: viewController,
+                                                                                                                       interactor: interactor,
+                                                                                                                       router: router)
+        
+        interactor.presenter = presenter
+        router.viewController = viewController
         
         return navigationController
     }
@@ -29,4 +33,5 @@ class ActivityDetailsRouter: ActivityDetailsRouterProtocol {
     func navigateToNewModule() {
         
     }
+
 }
