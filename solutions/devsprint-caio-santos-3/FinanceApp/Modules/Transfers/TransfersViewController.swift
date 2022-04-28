@@ -7,8 +7,14 @@
 
 import UIKit
 
-class TransfersViewController: UIViewController {
+protocol TransfersControlling where Self: UIViewController {
+}
 
+class TransfersViewController: UIViewController,
+                               TransfersControlling {
+    
+    private var presenter: TransfersPresenting?
+    
     lazy var transferView: TransfersView = {
 
         let transferView = TransfersView()
@@ -19,19 +25,23 @@ class TransfersViewController: UIViewController {
     override func loadView() {
         self.view = transferView
     }
+    
+    init(presenter: TransfersPresenting) {
+        super.init(nibName: nil, bundle: nil)
+        self.presenter = presenter
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 
 extension TransfersViewController: TransferViewDelegate {
-
     func didPressChooseContactButton() {
-
-        let navigationController = UINavigationController(rootViewController: ContactListViewController())
-        self.present(navigationController, animated: true)
+        presenter?.chooseNavigateToContactList()
     }
-
+    
     func didPressTransferButton() {
-
-        let navigationController = UINavigationController(rootViewController: ConfirmationViewController())
-        self.present(navigationController, animated: true)
+        presenter?.chooseTransferMoney()
     }
 }
