@@ -5,10 +5,9 @@
 //  Created by Rodrigo Borges on 30/12/21.
 //
 
-import Foundation
 import UIKit
 
-class UserProfileView: UIView {
+final class UserProfileView: UIView {
 
     private lazy var tableView: UITableView = {
 
