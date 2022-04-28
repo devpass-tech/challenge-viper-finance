@@ -28,5 +28,3 @@ protocol SampleInteractorProtocol {
     var presenter: SampleInteractorDelegate? { get set }
     func fetchData()
 }
-
-
