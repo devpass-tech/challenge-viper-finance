@@ -15,7 +15,7 @@ protocol TransferViewDelegate: AnyObject {
 }
 
 class TransfersView: UIView {
-
+    
     weak var delegate: TransferViewDelegate?
 
     let stackView: UIStackView = {
@@ -62,7 +62,6 @@ class TransfersView: UIView {
 
     init() {
         super.init(frame: .zero)
-
         backgroundColor = .white
 
         stackView.addArrangedSubview(amountTextField)
@@ -84,13 +83,11 @@ class TransfersView: UIView {
 
     @objc
     func chooseContact() {
-
         delegate?.didPressChooseContactButton()
     }
 
     @objc
     func transfer() {
-
         delegate?.didPressTransferButton()
     }
 

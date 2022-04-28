@@ -14,9 +14,7 @@ class SampleRouter: SampleRouterProtocol {
 
         let viewController = SampleViewController()
         let navigationController = UINavigationController(rootViewController: viewController)
-
         let presenter: SamplePresenterProtocol & SampleInteractorDelegate = SamplePresenter()
-
         viewController.presenter = presenter
         viewController.presenter?.router = SampleRouter()
         viewController.presenter?.view = viewController
