@@ -14,15 +14,17 @@ protocol HomePresenterProtocol {
     var router: HomeRouterProtocol { get set }
     
     func viewDidLoad()
-    func pushToUserProfile(navigation: UINavigationController)
-    func pushToActivityDetails(navigation: UINavigationController)
+    func presentUserProfile()
+    func pushToActivityDetails()
 }
 
 protocol HomeRouterProtocol {
+    var viewController: UIViewController?  { get set }
+    
     static func createModule() -> UIViewController
     
-    func pushToUserProfile(navigation: UINavigationController)
-    func pushToActivityDetails(navigation: UINavigationController)
+    func presentUserProfile()
+    func pushToActivityDetails()
 }
 
 protocol HomeInteractorProtocol {

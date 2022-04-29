@@ -30,12 +30,12 @@ final class HomePresenter: HomePresenterProtocol {
         interactor.fetchData()
     }
     
-    func pushToUserProfile(navigation: UINavigationController){
-        router.pushToUserProfile(navigation: navigation)
+    func presentUserProfile(){
+        router.presentUserProfile()
     }
     
-    func pushToActivityDetails(navigation: UINavigationController) {
-        router.pushToActivityDetails(navigation: navigation)
+    func pushToActivityDetails() {
+        router.pushToActivityDetails()
     }
 }
 
