@@ -13,9 +13,9 @@ class ContactListPresenter: ContactListPresenterProtocol {
     var interactor: ContactListInteractorProtocol?
     var router: ContactListRouterProtocol?
 
-    internal init(view: ContactListPresenterDelegate? = nil,
-                  interactor: ContactListInteractorProtocol? = nil,
-                  router: ContactListRouterProtocol? = nil) {
+    internal init(view: ContactListPresenterDelegate?,
+                  interactor: ContactListInteractorProtocol?,
+                  router: ContactListRouterProtocol?) {
         self.view = view
         self.interactor = interactor
         self.router = router
