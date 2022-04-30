@@ -17,6 +17,8 @@ final class HomeInteractor: HomeInteractorProtocol {
     weak var presenter: HomeInteractorDelegate?
         
     func fetchData() {
+        
+        
         presenter?.didFetchData()
     }
 }
