@@ -10,12 +10,12 @@ import Foundation
 class ContactListPresenter: ContactListPresenterProtocol {
 
     weak var view: ContactListPresenterDelegate?
-    var interactor: ContactListInteractorProtocol?
-    var router: ContactListRouterProtocol?
+    private let interactor: ContactListInteractorProtocol
+    private let router: ContactListRouterProtocol
 
     internal init(view: ContactListPresenterDelegate?,
-                  interactor: ContactListInteractorProtocol?,
-                  router: ContactListRouterProtocol?) {
+                  interactor: ContactListInteractorProtocol,
+                  router: ContactListRouterProtocol) {
         self.view = view
         self.interactor = interactor
         self.router = router
@@ -23,7 +23,7 @@ class ContactListPresenter: ContactListPresenterProtocol {
     
     func viewDidLoad() {
 
-        interactor?.fetchData()
+        interactor.fetchData()
     }
 }
 
