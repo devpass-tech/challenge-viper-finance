@@ -13,12 +13,12 @@ class UserProfileRouter: UserProfileRouterProtocol {
 
     static func createModule() -> UINavigationController {
         var presenter: UserProfilePresentable = UserProfilePresenter()
-        let interactor = UserProfileInteractor()
+        let interactor = UserProfileInteractor(service: FinanceService())
         let viewController = UserProfileViewController(presenter: presenter)
         let navigationController = UINavigationController(rootViewController: viewController)
         
         presenter.view = viewController
-        presenter.interactor = UserProfileInteractor()
+        presenter.interactor = interactor
         presenter.router = UserProfileRouter()
         interactor.presenter = presenter
         
