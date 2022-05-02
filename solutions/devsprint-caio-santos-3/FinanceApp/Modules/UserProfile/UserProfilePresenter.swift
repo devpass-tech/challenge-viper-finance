@@ -20,9 +20,11 @@ class UserProfilePresenter: UserProfilePresenterProtocol {
 }
 
 extension UserProfilePresenter: UserProfileInteractorDelegate {
-
-    func didFetchData() {
+    
+    func didFetchData(_ user: UserEntity) {
         view?.showData()
     }
+    
+    func didErrorData(error: FinanceServiceError) { }
 
 }
