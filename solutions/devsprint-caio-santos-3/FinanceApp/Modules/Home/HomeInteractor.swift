@@ -9,14 +9,22 @@ import Foundation
 
 protocol HomeInteractorDelegate: AnyObject {
     
-    func didFetchData()
+    func didFetchData(home: Home)
 }
 
 final class HomeInteractor: HomeInteractorProtocol {
     
     weak var presenter: HomeInteractorDelegate?
-        
+    
+    private var service: FinanceServiceProtocol
+    
+    init(service: FinanceServiceProtocol) {
+        self.service = service
+    }
+    
     func fetchData() {
-        presenter?.didFetchData()
+        service.load(endpoint: .home) { (response: Result<Home, FinanceServiceError>) in
+            
+        }
     }
 }

@@ -52,7 +52,7 @@ extension HomeViewController: HomeViewDelegate {
 
 extension HomeViewController: HomePresenterDelegate {
     
-    func showData() {
-        print("Here is your data, View!")
+    func showData(home: Home) {
+        homeView.updateView(home: home)
     }
 }

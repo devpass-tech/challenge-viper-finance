@@ -73,4 +73,8 @@ extension HomeView: ActivityListViewDelegate {
 
         delegate?.didSelectActivity()
     }
+    
+    func updateView (home: Home) {
+        
+    }
 }
