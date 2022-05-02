@@ -24,7 +24,7 @@ final class HomeInteractor: HomeInteractorProtocol {
     
     func fetchData() {
         service.load(endpoint: .home) { (response: Result<Home, FinanceServiceError>) in
-            
+    
         }
     }
 }
