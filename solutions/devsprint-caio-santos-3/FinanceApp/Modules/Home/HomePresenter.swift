@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol HomePresenterDelegate: AnyObject {
-    func showData(home: Home)
+    func showData(home: HomeDTO)
 }
 
 final class HomePresenter: HomePresenterProtocol {
@@ -40,7 +40,39 @@ final class HomePresenter: HomePresenterProtocol {
 }
 
 extension HomePresenter: HomeInteractorDelegate {
+    func didErrorData(error: FinanceServiceError) {
+        
+    }
+    
     func didFetchData(home: Home) {
-        view?.showData(home: home)
+        view?.showData(home: .init(balance: home.balance.toCurrency(),
+                                   savings: home.savings.toCurrency(),
+                                   spending: home.spending.toCurrency(),
+                                   activity: home.activity.compactMap( { .init(name: $0.name,
+                                                                               price: $0.price.toCurrency(),
+                                                                               time: $0.time)
+        })))
+    }
+}
+
+struct HomeDTO {
+    let balance, savings, spending: String
+    let activity: [ActivityDTO]
+    
+    init(balance: String, savings: String, spending: String, activity: [ActivityDTO]) {
+        self.balance = balance
+        self.savings = savings
+        self.spending = spending
+        self.activity = activity
+    }
+}
+
+struct ActivityDTO {
+    let name, price, time: String
+    
+    internal init(name: String, price: String, time: String) {
+        self.name = name
+        self.price = price
+        self.time = time
     }
 }

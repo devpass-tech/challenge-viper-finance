@@ -12,7 +12,6 @@ class HomeViewController: UIViewController {
     var presenter: HomePresenterProtocol?
     
     lazy var homeView: HomeView = {
-        
         let homeView = HomeView()
         homeView.delegate = self
         return homeView

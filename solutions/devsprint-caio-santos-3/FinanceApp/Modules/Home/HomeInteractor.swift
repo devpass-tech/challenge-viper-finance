@@ -10,6 +10,7 @@ import Foundation
 protocol HomeInteractorDelegate: AnyObject {
     
     func didFetchData(home: Home)
+    func didErrorData(error: FinanceServiceError)
 }
 
 final class HomeInteractor: HomeInteractorProtocol {
@@ -23,8 +24,18 @@ final class HomeInteractor: HomeInteractorProtocol {
     }
     
     func fetchData() {
-        service.load(endpoint: .home) { (response: Result<Home, FinanceServiceError>) in
-    
-        }
-    }
+       service.load(endpoint: .home) { [weak self] (response: Result<Home, FinanceServiceError>) in
+           guard let presenter = self?.presenter else {
+               return
+           }
+
+           
+           switch response {
+           case .success(let success):
+               presenter.didFetchData(home: success)
+           case .failure(let failure):
+               presenter.didErrorData(error: failure)
+           }
+       }
+   }
 }

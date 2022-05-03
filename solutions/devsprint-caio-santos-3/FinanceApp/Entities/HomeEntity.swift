@@ -9,12 +9,12 @@ import Foundation
 
 struct Home: Codable {
     let balance: Double
-    let savings, spending: Int
+    let savings, spending: Double
     let activity: [Activity]
 }
 
 struct Activity: Codable {
     let name: String
-    let price: Int
+    let price: Double
     let time: String
 }

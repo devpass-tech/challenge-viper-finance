@@ -18,7 +18,6 @@ class HomeView: UIView {
     weak var delegate: HomeViewDelegate?
 
     let stackView: UIStackView = {
-
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -27,13 +26,11 @@ class HomeView: UIView {
     }()
 
     let homeHeaderView: HomeHeaderView = {
-
         let homeHeaderView = HomeHeaderView()
         return homeHeaderView
     }()
 
     lazy var activityListView: ActivityListView = {
-
         let activityListView = ActivityListView()
         activityListView.translatesAutoresizingMaskIntoConstraints = false
         activityListView.delegate = self
@@ -74,7 +71,11 @@ extension HomeView: ActivityListViewDelegate {
         delegate?.didSelectActivity()
     }
     
-    func updateView (home: Home) {
+    func updateView(home: Home) {
+        homeHeaderView.updateView(balance: home.balance,
+                                  savings: home.savings,
+                                  spending: home.spending)
+        
         
     }
 }
