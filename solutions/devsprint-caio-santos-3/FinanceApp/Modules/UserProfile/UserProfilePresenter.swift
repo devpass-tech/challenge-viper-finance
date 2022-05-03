@@ -7,11 +7,10 @@
 
 import Foundation
 
-class UserProfilePresenter: UserProfilePresenterProtocol {
+final class UserProfilePresenter: UserProfilePresenterProtocol {
 
     weak var view: UserProfilePresenterDelegate?
     var interactor: UserProfileInteractorProtocol?
-    var router: UserProfileRouterProtocol?
 
     func viewDidLoad() {
         interactor?.fetchData()

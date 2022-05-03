@@ -7,7 +7,7 @@
 
 import Foundation
 
-class UserProfileInteractor: UserProfileInteractorProtocol {
+final class UserProfileInteractor: UserProfileInteractorProtocol {
 
     weak var presenter: UserProfileInteractorDelegate?
 
