@@ -11,15 +11,13 @@ import UIKit
 protocol ContactListPresenterProtocol {
 
     var view: ContactListPresenterDelegate? { get set }
-    var interactor: ContactListInteractorProtocol? { get set }
-    var router: ContactListRouterProtocol? { get set }
 
     func viewDidLoad()
 }
 
 protocol ContactListRouterProtocol {
 
-    static func createModule() -> UINavigationController
+    static func createModule() -> UIViewController
     func navigateToNewModule()
 }
 
