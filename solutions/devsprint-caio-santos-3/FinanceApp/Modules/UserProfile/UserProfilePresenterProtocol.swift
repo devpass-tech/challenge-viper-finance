@@ -30,7 +30,8 @@ protocol UserProfileInteractorProtocol {
 }
 
 protocol UserProfileInteractorDelegate: AnyObject {
-    func didFetchData()
+    func didFetchData(_ user: UserEntity)
+    func didErrorData(error: FinanceServiceError)
 }
 
 // MARK: - Protocol Factory
