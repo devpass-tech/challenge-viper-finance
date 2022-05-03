@@ -107,16 +107,4 @@ class HomeHeaderView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    func updateView(balance: String, savings: String, spending: String) {
-        label.text = balance
-        savingsValueLabel.text = savings
-        spendingValueLabel.text = spending
-    }
-}
-
-extension Double {
-    func toCurrency() -> String {
-        return "R$ \(self)"
-    }
 }

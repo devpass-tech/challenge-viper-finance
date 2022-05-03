@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension String {
+extension Double {
     func toBRLCurrency(identifier: String = "pt_BR") -> String? {
         let formatter = NumberFormatter()
         formatter.locale = Locale(identifier: identifier)

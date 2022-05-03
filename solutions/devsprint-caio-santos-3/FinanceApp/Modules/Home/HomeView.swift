@@ -62,6 +62,14 @@ class HomeView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func updateView(_ home: Home) {
+        homeHeaderView.label.text = home.balance.toBRLCurrency()
+        homeHeaderView.savingsLabel.text = home.savings.toBRLCurrency()
+        homeHeaderView.spendingLabel.text = home.spending.toBRLCurrency()
+        
+        activityListView.items = home.activity
+    }
 }
 
 extension HomeView: ActivityListViewDelegate {
@@ -69,15 +77,5 @@ extension HomeView: ActivityListViewDelegate {
     func didSelectedActivity() {
 
         delegate?.didSelectActivity()
-    }
-    
-    func updateView(home: HomeDTO) {
-        homeHeaderView.updateView(balance: home.balance,
-                                  savings: home.savings,
-                                  spending: home.spending)
-        
-        activityListView.items = home.activity
-        
-        
     }
 }

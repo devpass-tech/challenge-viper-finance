@@ -50,12 +50,12 @@ extension HomeViewController: HomeViewDelegate {
 }
 
 extension HomeViewController: HomePresenterDelegate {
+    
     func showError(message: String) {
         showAlertError(message: message)
     }
     
-    
-    func showData(home: HomeDTO) {
-        homeView.updateView(home: home)
+    func showData(home: Home) {
+        homeView.updateView(home)
     }
 }
