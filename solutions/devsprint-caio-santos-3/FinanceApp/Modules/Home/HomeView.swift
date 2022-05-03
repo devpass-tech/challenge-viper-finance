@@ -71,10 +71,12 @@ extension HomeView: ActivityListViewDelegate {
         delegate?.didSelectActivity()
     }
     
-    func updateView(home: Home) {
+    func updateView(home: HomeDTO) {
         homeHeaderView.updateView(balance: home.balance,
                                   savings: home.savings,
                                   spending: home.spending)
+        
+        activityListView.items = home.activity
         
         
     }

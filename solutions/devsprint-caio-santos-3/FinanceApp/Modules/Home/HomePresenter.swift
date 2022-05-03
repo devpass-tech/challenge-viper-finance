@@ -10,6 +10,7 @@ import UIKit
 
 protocol HomePresenterDelegate: AnyObject {
     func showData(home: HomeDTO)
+    func showError(message: String)
 }
 
 final class HomePresenter: HomePresenterProtocol {
@@ -41,7 +42,7 @@ final class HomePresenter: HomePresenterProtocol {
 
 extension HomePresenter: HomeInteractorDelegate {
     func didErrorData(error: FinanceServiceError) {
-        
+        view?.showError(message: error.localizedDescription)
     }
     
     func didFetchData(home: Home) {

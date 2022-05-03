@@ -13,6 +13,12 @@ protocol ActivityListViewDelegate: AnyObject {
 }
 
 class ActivityListView: UIView {
+    
+    var items: [ActivityDTO] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
 
     weak var delegate: ActivityListViewDelegate?
 
@@ -68,13 +74,16 @@ extension ActivityListView: UITableViewDataSource {
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return 5
+        return items.count
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ActivityCellView
-
+        guard let activity = items[safe: indexPath.row] else {
+            return cell
+        }
+        cell.setupWithActivity(activity)
         return cell
     }
 }

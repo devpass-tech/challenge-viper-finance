@@ -108,7 +108,7 @@ class HomeHeaderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func updateView(balance: Double, savings: Double, spending: Double) {
+    func updateView(balance: String, savings: String, spending: String) {
         label.text = balance
         savingsValueLabel.text = savings
         spendingValueLabel.text = spending

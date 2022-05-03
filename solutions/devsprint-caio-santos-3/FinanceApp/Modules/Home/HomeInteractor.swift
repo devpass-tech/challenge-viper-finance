@@ -29,7 +29,6 @@ final class HomeInteractor: HomeInteractorProtocol {
                return
            }
 
-           
            switch response {
            case .success(let success):
                presenter.didFetchData(home: success)
