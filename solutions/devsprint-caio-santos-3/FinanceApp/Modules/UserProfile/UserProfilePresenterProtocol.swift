@@ -16,10 +16,11 @@ protocol UserProfilePresenterProtocol {
     var interactor: UserProfileInteractorProtocol? { get set }
 
     func viewDidLoad()
+    func getUserProfileCell(indexPath: IndexPath) -> AccountCell?
 }
 
 protocol UserProfilePresenterDelegate: AnyObject {
-    func showData()
+    func showData(with user: UserEntity)
 }
 
 // MARK: - Protocols Interactor
@@ -37,4 +38,16 @@ protocol UserProfileInteractorDelegate: AnyObject {
 // MARK: - Protocol Factory
 protocol ModuleFactory {
     func createModule() -> UIViewController
+}
+
+// MARK: - Protocol Views
+protocol UserProfileViewDelegate: AnyObject {
+    func getUserProfileCell(indexPath: IndexPath) -> AccountCell?
+}
+
+protocol UserProfileHeaderViewProtocol {
+    var name: String { get }
+    var agency: String { get }
+    var account: String { get }
+    var bank: String { get }
 }
