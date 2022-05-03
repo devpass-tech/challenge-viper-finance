@@ -8,7 +8,15 @@
 import Foundation
 import UIKit
 
+protocol ConfirmationViewDelegate: AnyObject {
+    
+    func didPressNice()
+    
+}
+
 class ConfirmationView: UIView {
+    
+    private weak var delegate: ConfirmationViewDelegate?
 
     let stackView: UIStackView = {
 
@@ -47,6 +55,7 @@ class ConfirmationView: UIView {
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 14
+        //button.addTarget(ConfirmationView.self, action: #selector(niceButton), for: .touchUpInside)
         return button
     }()
 
@@ -81,4 +90,8 @@ class ConfirmationView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    @objc func niceButton() {
+        delegate?.didPressNice()
+    }
+    
 }
