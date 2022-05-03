@@ -31,7 +31,7 @@ final class HomeRouter: HomeRouterProtocol {
     }
     
     func presentUserProfile() {
-        viewController?.present(UserProfileRouter.createModule(), animated: true)
+        viewController?.present(UserProfileFactory().createModule(), animated: true)
     }
     
     func pushToActivityDetails() {
