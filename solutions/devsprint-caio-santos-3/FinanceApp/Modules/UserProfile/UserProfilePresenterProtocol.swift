@@ -7,11 +7,13 @@
 
 import UIKit
 
+// MARK: - typealias Presenter
+typealias UserProfilePresentable = UserProfilePresenterProtocol & UserProfileInteractorDelegate
+
 // MARK: - Protocols Presenter
 protocol UserProfilePresenterProtocol {
     var view: UserProfilePresenterDelegate? { get set }
     var interactor: UserProfileInteractorProtocol? { get set }
-    var router: UserProfileRouterProtocol? { get set }
 
     func viewDidLoad()
 }
@@ -31,7 +33,7 @@ protocol UserProfileInteractorDelegate: AnyObject {
     func didFetchData()
 }
 
-// MARK: - Protocols Router
-protocol UserProfileRouterProtocol {
-    static func createModule() -> UINavigationController
+// MARK: - Protocol Factory
+protocol ModuleFactory {
+    func createModule() -> UIViewController
 }
