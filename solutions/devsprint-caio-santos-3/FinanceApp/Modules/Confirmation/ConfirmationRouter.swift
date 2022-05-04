@@ -12,10 +12,8 @@ class ConfirmationRouter: ConfirmationRouterProtocol {
 
     weak var viewController: UIViewController?
     
-    static func createModule() -> UINavigationController {
-        
+    static func createModule() -> UIViewController {
         let viewController = ConfirmationViewController()
-        let navigation = UINavigationController(rootViewController: viewController)
         
         let router = ConfirmationRouter()
         let interactor = ConfirmationInteractor()
@@ -25,8 +23,7 @@ class ConfirmationRouter: ConfirmationRouterProtocol {
         interactor.presenter = presenter
         router.viewController = viewController
         
-        return navigation
-        
+        return viewController
     }
     
     func navigateNewModule() {

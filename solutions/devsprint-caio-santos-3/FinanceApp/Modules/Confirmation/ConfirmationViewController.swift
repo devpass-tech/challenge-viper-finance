@@ -13,7 +13,6 @@ class ConfirmationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         presenter?.viewDidLoad()
     }
 
@@ -25,6 +24,5 @@ class ConfirmationViewController: UIViewController {
 extension ConfirmationViewController: ConfirmationPresenterDelegate {
     
     func showData() {
-         
     }
 }

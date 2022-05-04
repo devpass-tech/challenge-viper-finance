@@ -24,7 +24,7 @@ protocol ConfirmationInteractorProtocol: AnyObject {
 
 protocol ConfirmationRouterProtocol: AnyObject {
     
-    static func createModule() -> UINavigationController
+    static func createModule() -> UIViewController
     func navigateNewModule()
     
 }

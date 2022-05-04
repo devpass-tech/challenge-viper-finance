@@ -29,11 +29,8 @@ class ConfirmationPresenter: ConfirmationPresenterProtocol {
         
     }
     
-    
     func viewDidLoad() {
-        
         interactor?.fetchData()
-        
     }
 }
 
@@ -42,6 +39,5 @@ extension ConfirmationPresenter: ConfirmationInteractorDelegate {
     func didFetchData() {
         
         view?.showData()
-    
     }
 }
