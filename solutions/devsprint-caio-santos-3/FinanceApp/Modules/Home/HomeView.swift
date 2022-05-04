@@ -64,11 +64,8 @@ class HomeView: UIView {
     }
     
     func updateView(_ home: Home) {
-        homeHeaderView.label.text = home.balance.toBRLCurrency()
-        homeHeaderView.savingsLabel.text = home.savings.toBRLCurrency()
-        homeHeaderView.spendingLabel.text = home.spending.toBRLCurrency()
-        
-        activityListView.items = home.activity
+        homeHeaderView.updateView(home)
+        activityListView.updateView(home.activity)
     }
 }
 

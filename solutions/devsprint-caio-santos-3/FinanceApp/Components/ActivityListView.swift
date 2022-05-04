@@ -49,6 +49,10 @@ class ActivityListView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func updateView(_ activity: [Activity]) {
+        self.items = activity
+    }
 }
 
 extension ActivityListView {
