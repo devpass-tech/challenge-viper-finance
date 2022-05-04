@@ -21,6 +21,8 @@ final class UserProfileView: UIView {
         tableView.tableHeaderView = headerView
         return tableView
     }()
+    
+    weak var delegate: UserProfileViewDelegate?
 
     init() {
         super.init(frame: .zero)
@@ -40,14 +42,20 @@ final class UserProfileView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func updateHeaderView(user: UserProfileHeaderViewProtocol) {
+        if let view = tableView.tableHeaderView as? UserProfileHeaderView {
+            view.updateView(user)
+        }
+    }
+    
+    func reloadTableView() {
+        tableView.reloadData()
+    }
+    
 }
 
 extension UserProfileView: UITableViewDataSource {
-
-    func numberOfSections(in tableView: UITableView) -> Int {
-
-        return 1
-    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
@@ -55,25 +63,11 @@ extension UserProfileView: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         let cell = UITableViewCell(style: .value1, reuseIdentifier: "Cell")
-
-        switch indexPath.row {
-        case 0:
-
-            cell.textLabel?.text = "Phone"
-            cell.detailTextLabel?.text = "+55 (11) 99999-9999"
-        case 1:
-
-            cell.textLabel?.text = "E-mail"
-            cell.detailTextLabel?.text = "user@devpass.com"
-        case 2:
-
-            cell.textLabel?.text = "Address"
-            cell.detailTextLabel?.text = "Rua Bela Cintra, 495"
-        default:
-            break
-        }
+        let userProfile = delegate?.getUserProfileCell(indexPath: indexPath)
+        
+        cell.textLabel?.text = userProfile?.title
+        cell.detailTextLabel?.text = userProfile?.description
         return cell
     }
 
