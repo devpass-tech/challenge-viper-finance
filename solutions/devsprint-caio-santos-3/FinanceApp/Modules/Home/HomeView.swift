@@ -63,7 +63,7 @@ class HomeView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func updateView(_ home: Home) {
+    func updateView(_ home: HomeDTO) {
         homeHeaderView.updateView(home)
         activityListView.updateView(home.activity)
     }

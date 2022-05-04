@@ -108,9 +108,9 @@ class HomeHeaderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func updateView(_ home: Home) {
-        self.label.text = home.balance.toBRLCurrency()
-        self.savingsLabel.text = home.savings.toBRLCurrency()
-        spendingLabel.text = home.spending.toBRLCurrency()
+    func updateView(_ home: HomeDTO) {
+        self.label.text = home.balance
+        self.savingsValueLabel.text = home.savings
+        self.spendingValueLabel.text = home.spending
     }
 }

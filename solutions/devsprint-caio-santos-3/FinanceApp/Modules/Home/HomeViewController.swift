@@ -55,7 +55,7 @@ extension HomeViewController: HomePresenterDelegate {
         showAlertError(message: message)
     }
     
-    func showData(home: Home) {
+    func showData(_ home: HomeDTO) {
         DispatchQueue.main.async {
             self.homeView.updateView(home)
         }

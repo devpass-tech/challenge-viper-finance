@@ -14,7 +14,7 @@ protocol ActivityListViewDelegate: AnyObject {
 
 class ActivityListView: UIView {
     
-    var items: [Activity] = [] {
+    var items: [ActivityDTO] = [] {
          didSet {
              tableView.reloadData()
          }
@@ -50,7 +50,7 @@ class ActivityListView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func updateView(_ activity: [Activity]) {
+    func updateView(_ activity: [ActivityDTO]) {
         self.items = activity
     }
 }

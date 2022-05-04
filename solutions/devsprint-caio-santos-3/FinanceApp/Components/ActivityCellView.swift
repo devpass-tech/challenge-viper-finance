@@ -66,9 +66,9 @@ class ActivityCellView: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupWithActivity(_ activity: Activity) {
+    func setupWithActivity(_ activity: ActivityDTO) {
         activityNameLabel.text = activity.name
-        activityInfoLabel.text = "\(activity.price.toBRLCurrency() ?? "") • \(activity.time)"
+        activityInfoLabel.text = activity.info
     }
 }
 
