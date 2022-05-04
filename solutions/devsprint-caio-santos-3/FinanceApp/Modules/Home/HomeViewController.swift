@@ -56,6 +56,9 @@ extension HomeViewController: HomePresenterDelegate {
     }
     
     func showData(home: Home) {
-        homeView.updateView(home)
+        DispatchQueue.main.async {
+            self.homeView.updateView(home)
+        }
+        
     }
 }
