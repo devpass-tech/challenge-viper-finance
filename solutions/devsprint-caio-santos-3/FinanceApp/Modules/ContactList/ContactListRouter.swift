@@ -8,24 +8,25 @@
 import Foundation
 import UIKit
 
-class ContactListRouter: ContactListRouterProtocol {
+final class ContactListRouter: ContactListRouterProtocol {
     
     weak var viewController: UIViewController?
     
     static func createModule() -> UIViewController {
+        let service = FinanceService()
         
-        let viewController = ContactListViewController()
         
         let router = ContactListRouter()
-        let interactor = ContactListInteractor()
-        
-        let presenter: ContactListPresenterProtocol & ContactListInteractorDelegate = ContactListPresenter(view: viewController,
-                                                                                                                       interactor: interactor,
-                                                                                                                       router: router)
+        let interactor = ContactListInteractor(service: service)
+        var presenter: ContactListPresenterProtocol & ContactListInteractorDelegate = ContactListPresenter(
+                                                                                        interactor: interactor,
+                                                                                        router: router
+                                                                                        )
+        let viewController = ContactListViewController(presenter: presenter)
         
         interactor.presenter = presenter
         router.viewController = viewController
-        
+        presenter.view = viewController
         return viewController
     }
     

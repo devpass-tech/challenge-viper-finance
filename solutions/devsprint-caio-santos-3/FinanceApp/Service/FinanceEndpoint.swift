@@ -9,4 +9,5 @@ import Foundation
 
 enum FinanceEndpoint: String {
     case userProfile = "user_profile_endpoint"
+    case contactList = "contact_list_endpoint"
 }

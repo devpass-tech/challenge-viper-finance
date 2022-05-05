@@ -8,7 +8,9 @@
 import UIKit
 
 class ContactCellView: UITableViewCell {
-
+   static let cellSize = CGFloat(82)
+   static let cellIdentifier = "ContactCellIdentifier"
+    
    private var mainStackView: UIStackView = {
        let stack = UIStackView(frame: .zero)
        stack.translatesAutoresizingMaskIntoConstraints = false
@@ -88,6 +90,11 @@ extension ContactCellView {
             self.avatarImageView.heightAnchor.constraint(equalToConstant: 50),
 
         ])
+    }
+    
+    func setupLabels(contacts: ContactListEntity) {
+        contactNameLabel.text = contacts.name
+        contactPhoneLabel.text = contacts.phone
     }
 }
 

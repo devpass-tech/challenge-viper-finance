@@ -7,12 +7,23 @@
 
 import Foundation
 
-class ContactListInteractor: ContactListInteractorProtocol {
+final class ContactListInteractor: ContactListInteractorProtocol {
 
     weak var presenter: ContactListInteractorDelegate?
+    private let service: FinanceServiceProtocol
+    
+    init(service: FinanceServiceProtocol){
+        self.service = service
+    }
 
     func fetchData() {
-
-        presenter?.didFetchData()
+        service.load(endpoint: .contactList) { (response: Result<[ContactListEntity], FinanceServiceError>) in
+            switch response {
+            case .success(let list):
+                self.presenter?.didFetchData(contactList: list)
+            case .failure(let failure):
+                break
+            }
+        }
     }
 }
