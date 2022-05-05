@@ -51,7 +51,7 @@ private extension TransfersRouter {
     }
 
     func didPressTransferButton() {
-        let vc =  ConfirmationViewController()
+        let vc =  ConfirmationRouter.createModule()
         controller?.present(vc, animated: true)
     }
 }

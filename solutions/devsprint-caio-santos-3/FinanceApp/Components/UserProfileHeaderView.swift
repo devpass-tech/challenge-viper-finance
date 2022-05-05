@@ -7,9 +7,9 @@
 
 import UIKit
 
-class UserProfileHeaderView: UIView {
+final class UserProfileHeaderView: UIView {
 
-    let stackView: UIStackView = {
+    private let stackView: UIStackView = {
 
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -20,7 +20,7 @@ class UserProfileHeaderView: UIView {
         return stackView
     }()
 
-    let imageView: UIImageView = {
+    private let imageView: UIImageView = {
 
         let imageView = UIImageView()
         imageView.image = UIImage(named: "avatar-placeholder")
@@ -29,38 +29,34 @@ class UserProfileHeaderView: UIView {
         return imageView
     }()
 
-    let nameLabel: UILabel = {
+    private let nameLabel: UILabel = {
 
         let label = UILabel()
-        label.text = "User Name"
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 17)
         return label
     }()
 
-    let agencyLabel: UILabel = {
+    private let agencyLabel: UILabel = {
 
         let label = UILabel()
-        label.text = "Agency 0001"
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 15)
         return label
     }()
 
-    let accountLabel: UILabel = {
+    private let accountLabel: UILabel = {
 
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Account 123456-7"
         label.font = UIFont.systemFont(ofSize: 15)
         return label
     }()
 
-    let bankLabel: UILabel = {
+    private let bankLabel: UILabel = {
 
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Devpass Bank"
         label.font = UIFont.systemFont(ofSize: 15)
 
         return label
@@ -92,4 +88,12 @@ class UserProfileHeaderView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func updateView(_ user: UserProfileHeaderViewProtocol) {
+        nameLabel.text = user.name
+        agencyLabel.text = user.agency
+        accountLabel.text = user.account
+        bankLabel.text = user.bank
+    }
+
 }

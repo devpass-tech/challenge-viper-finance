@@ -22,7 +22,9 @@ final class UserProfileViewController: UIViewController {
     }
     
     override func loadView() {
-        self.view = UserProfileView()
+        let userProfileView = UserProfileView()
+        userProfileView.delegate = self
+        self.view = userProfileView
     }
     
     override func viewDidLoad() {
@@ -34,7 +36,23 @@ final class UserProfileViewController: UIViewController {
 }
 
 extension UserProfileViewController: UserProfilePresenterDelegate {
+    
+    func showData(with user: UserEntity) {
+        DispatchQueue.main.async {
+            if let view = self.view as? UserProfileView {
+                let viewData = UserProfileHeaderViewData(user: user)
+                view.updateHeaderView(user: viewData)
+                view.reloadTableView()
+            }
+        }
+    }
+    
+}
 
-    func showData() { }
-
+extension UserProfileViewController: UserProfileViewDelegate {
+    
+    func getUserProfileCell(indexPath: IndexPath) -> AccountCell? {
+        return presenter.getUserProfileCell(indexPath: indexPath)
+    }
+    
 }

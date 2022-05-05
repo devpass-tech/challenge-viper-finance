@@ -12,6 +12,8 @@ typealias HomeInterable = HomePresenterProtocol & HomeInteractorDelegate
 
 final class HomeRouter: HomeRouterProtocol {
     
+    weak var viewController: UIViewController?
+    
     static func createModule() -> UIViewController {
         let interactor = HomeInteractor()
         let router = HomeRouter()
@@ -22,8 +24,17 @@ final class HomeRouter: HomeRouterProtocol {
         let viewController: HomeViewController = HomeViewController(presenter: presenter)
         
         presenter.view = viewController
+        router.viewController = viewController
         interactor.presenter = presenter
         
         return viewController
+    }
+    
+    func presentUserProfile() {
+        viewController?.present(UserProfileFactory().createModule(), animated: true)
+    }
+    
+    func pushToActivityDetails() {
+        viewController?.navigationController?.pushViewController(ActivityDetailsRouter.createModule(), animated: true)
     }
 }

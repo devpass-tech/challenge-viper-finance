@@ -7,17 +7,20 @@
 
 import UIKit
 
+// MARK: - typealias Presenter
+typealias UserProfilePresentable = UserProfilePresenterProtocol & UserProfileInteractorDelegate
+
 // MARK: - Protocols Presenter
 protocol UserProfilePresenterProtocol {
     var view: UserProfilePresenterDelegate? { get set }
     var interactor: UserProfileInteractorProtocol? { get set }
-    var router: UserProfileRouterProtocol? { get set }
 
     func viewDidLoad()
+    func getUserProfileCell(indexPath: IndexPath) -> AccountCell?
 }
 
 protocol UserProfilePresenterDelegate: AnyObject {
-    func showData()
+    func showData(with user: UserEntity)
 }
 
 // MARK: - Protocols Interactor
@@ -28,10 +31,23 @@ protocol UserProfileInteractorProtocol {
 }
 
 protocol UserProfileInteractorDelegate: AnyObject {
-    func didFetchData()
+    func didFetchData(_ user: UserEntity)
+    func didErrorData(error: FinanceServiceError)
 }
 
-// MARK: - Protocols Router
-protocol UserProfileRouterProtocol {
-    static func createModule() -> UINavigationController
+// MARK: - Protocol Factory
+protocol ModuleFactory {
+    func createModule() -> UIViewController
+}
+
+// MARK: - Protocol Views
+protocol UserProfileViewDelegate: AnyObject {
+    func getUserProfileCell(indexPath: IndexPath) -> AccountCell?
+}
+
+protocol UserProfileHeaderViewProtocol {
+    var name: String { get }
+    var agency: String { get }
+    var account: String { get }
+    var bank: String { get }
 }
