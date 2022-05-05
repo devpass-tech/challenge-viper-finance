@@ -15,7 +15,7 @@ final class ContactListViewController: UIViewController {
     }()
     
     private var contactList: [ContactListEntity] = []
-    var presenter: ContactListPresenterProtocol?
+    var presenter: ContactListPresenterProtocol
     
     init(presenter: ContactListPresenterProtocol) {
         self.presenter = presenter
@@ -29,7 +29,7 @@ final class ContactListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        presenter?.viewDidLoad()
+        presenter.viewDidLoad()
     }
     
     override func loadView() {

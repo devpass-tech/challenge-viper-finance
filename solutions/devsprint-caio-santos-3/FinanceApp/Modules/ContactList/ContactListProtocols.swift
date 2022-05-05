@@ -37,4 +37,5 @@ protocol ContactListPresenterDelegate: AnyObject {
 protocol ContactListInteractorDelegate: AnyObject {
 
     func didFetchData(contactList: [ContactListEntity])
+    func didErrorData(error: FinanceServiceError)
 }

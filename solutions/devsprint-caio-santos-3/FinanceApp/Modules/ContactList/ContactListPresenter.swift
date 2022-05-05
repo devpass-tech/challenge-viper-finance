@@ -29,4 +29,6 @@ extension ContactListPresenter: ContactListInteractorDelegate {
     func didFetchData(contactList: [ContactListEntity]) {
         view?.showData(contactList)
     }
+    
+    func didErrorData(error: FinanceServiceError){}
 }
