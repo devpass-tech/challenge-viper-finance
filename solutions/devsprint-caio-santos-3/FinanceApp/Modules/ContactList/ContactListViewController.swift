@@ -9,17 +9,31 @@ import UIKit
 
 final class ContactListViewController: UIViewController {
     
-    private lazy var contentView: ContactListView = {
-        return ContactListView(tableViewDataSource: self,
-                               tableViewDelegate: self)
-    }()
-    
     private var contactList: [ContactListEntity] = []
     var presenter: ContactListPresenterProtocol
+    
+    //MARK: Var
+    
+    lazy var contactTableView: UITableView = {
+
+        let tableView = UITableView(frame: .zero)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.register(ContactCellView.self, forCellReuseIdentifier: ContactCellView.cellIdentifier)
+        return tableView
+    }()
+    
+    //MARK: Init
     
     init(presenter: ContactListPresenterProtocol) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
+        contactTableView.dataSource = self
+        contactTableView.delegate = self
+        contactTableView.backgroundColor = .white
+        addSubviews()
+        configureConstraints()
+
+        contactTableView.reloadData()
     }
     
     required init?(coder: NSCoder) {
@@ -28,14 +42,28 @@ final class ContactListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = .white
         presenter.viewDidLoad()
     }
     
-    override func loadView() {
-        self.view = self.contentView
+    func addSubviews() {
+
+        view.addSubview(contactTableView)
+    }
+    
+    func configureConstraints() {
+
+        NSLayoutConstraint.activate([
+
+            contactTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            contactTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            contactTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            contactTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+        ])
     }
 }
+
+//MARK: TableView DataSource
 
 extension ContactListViewController: UITableViewDataSource {
 
@@ -55,6 +83,8 @@ extension ContactListViewController: UITableViewDataSource {
     }
 }
 
+//MARK: TableView Delegate
+
 extension ContactListViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -65,7 +95,6 @@ extension ContactListViewController: UITableViewDelegate {
 
     }
 }
-
 
 extension ContactListViewController: ContactListPresenterDelegate {
 
