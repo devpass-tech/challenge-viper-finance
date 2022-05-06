@@ -14,12 +14,7 @@ protocol ActivityListViewDelegate: AnyObject {
 
 class ActivityListView: UIView {
     
-    var items: [ActivityDTO] = [] {
-         didSet {
-             tableView.reloadData()
-         }
-     }
-
+    var viewController: HomeViewControllerInputProtocol?
     weak var delegate: ActivityListViewDelegate?
 
     static let cellSize = CGFloat(82)
@@ -50,8 +45,8 @@ class ActivityListView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func updateView(_ activity: [ActivityDTO]) {
-        self.items = activity
+    func updateView() {
+        tableView.reloadData()
     }
 }
 
@@ -78,16 +73,15 @@ extension ActivityListView: UITableViewDataSource {
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return items.count
+        return viewController?.getActivityData()?.count ?? 0
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ActivityCellView
-        
-        guard let activity = items[safe: indexPath.row] else {
-            return cell
+        guard let items = viewController?.getActivityData(), let activity = items[safe: indexPath.row] else {
+            return UITableViewCell()
         }
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ActivityCellView
         cell.setupWithActivity(activity)
         return cell
     }

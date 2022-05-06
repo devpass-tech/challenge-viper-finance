@@ -9,15 +9,16 @@ import Foundation
 import UIKit
 
 protocol HomePresenterDelegate: AnyObject {
-    func showData(_ home: HomeDTO)
+    func showData()
     func showError(message: String)
 }
 
 final class HomePresenter: HomePresenterProtocol {
-    
     weak var view: HomePresenterDelegate?
     var interactor: HomeInteractorProtocol
     var router: HomeRouterProtocol
+    
+    var homeDTO: HomeDTO?
     
     init(
         interactor: HomeInteractorProtocol,
@@ -38,6 +39,14 @@ final class HomePresenter: HomePresenterProtocol {
     func pushToActivityDetails() {
         router.pushToActivityDetails()
     }
+    
+    func getHomeData() -> HomeDTO? {
+        return homeDTO
+    }
+    
+    func getActivityData() -> [ActivityDTO]? {
+        return homeDTO?.activity
+    }
 }
 
 extension HomePresenter: HomeInteractorDelegate {
@@ -46,10 +55,10 @@ extension HomePresenter: HomeInteractorDelegate {
     }
     
     func didFetchData(_ home: Home) {
-        let homeDTO = HomeDTO(balance: home.balance.toBRLCurrency() ?? "",
-                              savings: home.savings.toBRLCurrency() ?? "",
-                              spending: home.spending.toBRLCurrency() ?? "",
-                              activity: home.activity.compactMap({.init(name: $0.name, info: "\($0.price.toBRLCurrency() ?? "") • \($0.time)")}))
-        view?.showData(homeDTO)
+        homeDTO = HomeDTO(balance: home.balance.toBRLCurrency() ?? "",
+                          savings: home.savings.toBRLCurrency() ?? "",
+                          spending: home.spending.toBRLCurrency() ?? "",
+                          activity: home.activity.compactMap({.init(name: $0.name, info: "\($0.price.toBRLCurrency() ?? "") • \($0.time)")}))
+        view?.showData()
     }
 }

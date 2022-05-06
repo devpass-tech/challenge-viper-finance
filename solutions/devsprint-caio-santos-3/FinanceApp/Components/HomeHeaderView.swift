@@ -9,7 +9,9 @@ import Foundation
 import UIKit
 
 class HomeHeaderView: UIView {
-    
+        
+    var viewController: HomeViewControllerInputProtocol?
+
     private lazy var  stackView: UIStackView = {
         
         let stackView = UIStackView()
@@ -108,9 +110,14 @@ class HomeHeaderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func updateView(_ home: HomeDTO) {
-        self.label.text = home.balance
-        self.savingsValueLabel.text = home.savings
-        self.spendingValueLabel.text = home.spending
+    func updateView() {
+        guard let homeDTO = viewController?.getHomeData() else {
+            return
+        }
+        
+        self.label.text = homeDTO.balance
+        self.savingsValueLabel.text = homeDTO.savings
+        self.spendingValueLabel.text = homeDTO.spending
     }
 }
+

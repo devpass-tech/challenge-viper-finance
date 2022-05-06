@@ -15,6 +15,7 @@ protocol HomeViewDelegate: AnyObject {
 
 class HomeView: UIView {
 
+    let viewController: HomeViewControllerInputProtocol?
     weak var delegate: HomeViewDelegate?
 
     let stackView: UIStackView = {
@@ -38,7 +39,8 @@ class HomeView: UIView {
     }()
 
 
-    init() {
+    init(viewController: HomeViewControllerInputProtocol?) {
+        self.viewController = viewController
         super.init(frame: .zero)
 
         backgroundColor = .white
@@ -57,15 +59,18 @@ class HomeView: UIView {
             
             activityListView.heightAnchor.constraint(equalToConstant: estimatedHeight)
         ])
+        
+        homeHeaderView.viewController = viewController
+        activityListView.viewController = viewController
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func updateView(_ home: HomeDTO) {
-        homeHeaderView.updateView(home)
-        activityListView.updateView(home.activity)
+    func updateView() {
+        homeHeaderView.updateView()
+        activityListView.updateView()
     }
 }
 

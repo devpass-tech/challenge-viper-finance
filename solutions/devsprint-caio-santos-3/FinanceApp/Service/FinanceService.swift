@@ -24,11 +24,13 @@ struct FinanceService: FinanceServiceProtocol {
         completion: @escaping (Result<T, FinanceServiceError>) -> Void
     ) where T : Decodable {
         
-        guard let url = URL(string: "https://raw.githubusercontent.com/devpass-tech/challenge-viper-finance/main/api/\(endpoint.rawValue).json") else { return completion(.failure(.invalidURL)) }
+        guard let url = URL(string: "https://raw.githubusercontent.com/devpass-tech/challenge-viper-finance/main/api/\(endpoint.rawValue).json") else {
+            return completion(.failure(.invalidURL))
+        }
         
         let request = URLRequest(url: url)
+        
         let dataTask = session.dataTask(with: request) { data, response, error in
-            
             if let error = error {
                 return completion(.failure(.errorGeneric(description: error.localizedDescription)))
             }
