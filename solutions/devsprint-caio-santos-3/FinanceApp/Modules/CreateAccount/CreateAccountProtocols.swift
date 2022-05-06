@@ -7,6 +7,8 @@ protocol CreateAccountPresenterOutputProtocol: AnyObject {
 protocol CreateAccountPresenterInputProtocol: AnyObject {
     func viewDidAppear()
     func createAccount(email: String, password: String)
+    func getEmail() -> String
+    func getPassword() -> String
 }
 
 // MARK: - Interactor
@@ -22,4 +24,16 @@ protocol CreateAccountInteractorOutputProtocol: AnyObject {
 // MARK: - Router
 protocol CreateAccountRouterProtocol: AnyObject {
     func showHomeView()
+}
+
+// MARK: - Transporter
+
+struct CreateAccountTransporter {
+    let email: String
+    let password: String
+    
+    internal init(email: String, password: String) {
+        self.email = email
+        self.password = password
+    }
 }

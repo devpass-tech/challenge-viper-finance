@@ -9,8 +9,9 @@ final class LoginRouter {
 
 // MARK: - Router Protocol
 extension LoginRouter: LoginRouterProtocol {
-    func showCreateAccountView() {
-        let createAccountViewController = CreateAccountConfigurator().createModule()
+    func showCreateAccountView(email: String, password: String) {
+        let createAccountViewController = CreateAccountConfigurator(transporter: .init(email: email,
+                                                                                       password: password)).createModule()
         viewController?.navigationController?.pushViewController(createAccountViewController, animated: true)
     }
 

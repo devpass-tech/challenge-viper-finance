@@ -7,7 +7,7 @@ protocol LoginPresenterOutputProtocol: AnyObject {
 protocol LoginPresenterInputProtocol: AnyObject {
     func viewDidAppear()
     func authenticate(email: String, password: String)
-    func showCreateAccountView()
+    func showCreateAccountView(email: String, password: String)
 }
 
 // MARK: - Interactor
@@ -23,6 +23,6 @@ protocol LoginInteractorOutputProtocol: AnyObject {
 
 // MARK: - Router
 protocol LoginRouterProtocol: AnyObject {
-    func showCreateAccountView()
+    func showCreateAccountView(email: String, password: String)
     func showHomeView()
 }

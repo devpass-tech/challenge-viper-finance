@@ -107,7 +107,8 @@ final class LoginViewController: UIViewController {
     // MARK: - Internal Methods
     @objc
     func didTapCreateAccountButton() {
-        presenter.showCreateAccountView()
+        presenter.showCreateAccountView(email: emailTextField.text ?? "",
+                                        password: passwordTextField.text ?? "")
     }
 
     @objc

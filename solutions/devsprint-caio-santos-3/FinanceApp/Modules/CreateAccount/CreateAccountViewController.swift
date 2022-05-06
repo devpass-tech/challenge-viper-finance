@@ -112,6 +112,9 @@ extension CreateAccountViewController {
         
         buildViewHierarchy()
         setupConstraints()
+        
+        emailTextField.text = presenter.getEmail()
+        passwordTextField.text = presenter.getPassword()
     }
     
     func buildViewHierarchy() {

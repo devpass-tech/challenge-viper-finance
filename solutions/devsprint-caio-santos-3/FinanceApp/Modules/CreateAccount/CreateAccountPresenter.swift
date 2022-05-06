@@ -11,15 +11,16 @@ final class CreateAccountPresenter {
     // MARK: - Internal Properties
 
     // MARK: - Private Properties
+    private let transporter: CreateAccountTransporter
     
     // MARK: - Inits
     
-    init(
-        router: CreateAccountRouterProtocol,
-        interactor: CreateAccountInteractorInputProtocol
-    ) {
+    init(router: CreateAccountRouterProtocol,
+         interactor: CreateAccountInteractorInputProtocol,
+         transporter: CreateAccountTransporter) {
         self.router = router
         self.interactor = interactor
+        self.transporter = transporter
     }
     
     // MARK: - Internal Methods
@@ -40,6 +41,14 @@ final class CreateAccountPresenter {
 
 // MARK: - Input Protocol
 extension CreateAccountPresenter: CreateAccountPresenterInputProtocol {
+    func getEmail() -> String {
+        transporter.email
+    }
+    
+    func getPassword() -> String {
+        transporter.password
+    }
+    
     func viewDidAppear() {
         trackScreenView()
     }

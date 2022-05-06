@@ -40,8 +40,8 @@ extension LoginPresenter: LoginPresenterInputProtocol {
         }
     }
     
-    func showCreateAccountView() {
-        router.showCreateAccountView()
+    func showCreateAccountView(email: String, password: String) {
+        router.showCreateAccountView(email: email, password: password)
     }
     
     func viewDidAppear() {
