@@ -14,7 +14,7 @@ final class ContactListViewController: UIViewController {
     
     //MARK: Var
     
-    lazy var contactTableView: UITableView = {
+    private lazy var contactTableView: UITableView = {
 
         let tableView = UITableView(frame: .zero)
         tableView.translatesAutoresizingMaskIntoConstraints = false
