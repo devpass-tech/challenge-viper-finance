@@ -16,6 +16,8 @@ protocol HomePresenterProtocol {
     func viewDidLoad()
     func presentUserProfile()
     func pushToActivityDetails()
+    func getHomeData() -> HomeDTO?
+    func getActivityData() -> [ActivityDTO]?
 }
 
 protocol HomeRouterProtocol {
@@ -31,4 +33,9 @@ protocol HomeInteractorProtocol {
     var presenter: HomeInteractorDelegate? { get set }
     
     func fetchData()
+}
+
+protocol HomeViewControllerInputProtocol {
+    func getHomeData() -> HomeDTO?
+    func getActivityData() -> [ActivityDTO]?
 }

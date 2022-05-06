@@ -12,8 +12,7 @@ class HomeViewController: UIViewController {
     var presenter: HomePresenterProtocol?
     
     lazy var homeView: HomeView = {
-        
-        let homeView = HomeView()
+        let homeView = HomeView(viewController: self)
         homeView.delegate = self
         return homeView
     }()
@@ -52,7 +51,23 @@ extension HomeViewController: HomeViewDelegate {
 
 extension HomeViewController: HomePresenterDelegate {
     
+    func showError(message: String) {
+        showAlertError(message: message)
+    }
+    
     func showData() {
-        print("Here is your data, View!")
+        DispatchQueue.main.async {
+            self.homeView.updateView()
+        }
+    }
+}
+
+extension HomeViewController: HomeViewControllerInputProtocol {
+    func getHomeData() -> HomeDTO? {
+        return presenter?.getHomeData()
+    }
+    
+    func getActivityData() -> [ActivityDTO]? {
+        return presenter?.getActivityData()
     }
 }
