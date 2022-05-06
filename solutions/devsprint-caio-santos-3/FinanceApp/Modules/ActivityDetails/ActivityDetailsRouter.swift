@@ -5,7 +5,6 @@
 //  Created by Bruno Vieira Souza on 26/04/22.
 //
 
-import Foundation
 import UIKit
 
 class ActivityDetailsRouter: ActivityDetailsRouterProtocol {
@@ -25,10 +24,6 @@ class ActivityDetailsRouter: ActivityDetailsRouterProtocol {
         router.viewController = viewController
         
         return viewController
-    }
-    
-    func navigateToNewModule() {
-        
     }
 
 }

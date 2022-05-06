@@ -19,7 +19,6 @@ protocol ActivityDetailsRouterProtocol {
     var viewController: UIViewController?  { get set }
     
     static func createModule() -> UIViewController
-    func navigateToNewModule()
 
 }
 
