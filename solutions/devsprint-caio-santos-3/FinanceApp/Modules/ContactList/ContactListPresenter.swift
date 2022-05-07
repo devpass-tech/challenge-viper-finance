@@ -7,16 +7,14 @@
 
 import Foundation
 
-class ContactListPresenter: ContactListPresenterProtocol {
+final class ContactListPresenter: ContactListPresenterProtocol {
 
-    weak var view: ContactListPresenterDelegate?
+    var view: ContactListPresenterDelegate?
     private let interactor: ContactListInteractorProtocol
     private let router: ContactListRouterProtocol
 
-    internal init(view: ContactListPresenterDelegate?,
-                  interactor: ContactListInteractorProtocol,
+    internal init(interactor: ContactListInteractorProtocol,
                   router: ContactListRouterProtocol) {
-        self.view = view
         self.interactor = interactor
         self.router = router
     }
@@ -28,9 +26,9 @@ class ContactListPresenter: ContactListPresenterProtocol {
 }
 
 extension ContactListPresenter: ContactListInteractorDelegate {
-
-    func didFetchData() {
-
-        view?.showData()
+    func didFetchData(contactList: [ContactListEntity]) {
+        view?.showData(contactList)
     }
+    
+    func didErrorData(error: FinanceServiceError){}
 }

@@ -46,8 +46,9 @@ extension TransfersRouter: TransfersRoutering {
 
 private extension TransfersRouter {
     func didPressChooseContactButton() {
-        let vc =  ContactListViewController()
-        controller?.present(vc, animated: true)
+        let vc =  ContactListRouter.createModule()
+        let navController = UINavigationController(rootViewController: vc)
+        self.controller?.present(navController, animated: true)
     }
 
     func didPressTransferButton() {

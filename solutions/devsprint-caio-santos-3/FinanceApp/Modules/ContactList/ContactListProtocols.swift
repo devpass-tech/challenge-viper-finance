@@ -31,10 +31,11 @@ protocol ContactListInteractorProtocol {
 
 protocol ContactListPresenterDelegate: AnyObject {
 
-    func showData()
+    func showData(_ contactList: [ContactListEntity])
 }
 
 protocol ContactListInteractorDelegate: AnyObject {
 
-    func didFetchData()
+    func didFetchData(contactList: [ContactListEntity])
+    func didErrorData(error: FinanceServiceError)
 }
