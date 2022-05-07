@@ -15,10 +15,10 @@ protocol HomeViewDelegate: AnyObject {
 
 class HomeView: UIView {
 
+    let viewController: HomeViewControllerInputProtocol?
     weak var delegate: HomeViewDelegate?
 
     let stackView: UIStackView = {
-
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -27,13 +27,11 @@ class HomeView: UIView {
     }()
 
     let homeHeaderView: HomeHeaderView = {
-
         let homeHeaderView = HomeHeaderView()
         return homeHeaderView
     }()
 
     lazy var activityListView: ActivityListView = {
-
         let activityListView = ActivityListView()
         activityListView.translatesAutoresizingMaskIntoConstraints = false
         activityListView.delegate = self
@@ -41,7 +39,8 @@ class HomeView: UIView {
     }()
 
 
-    init() {
+    init(viewController: HomeViewControllerInputProtocol?) {
+        self.viewController = viewController
         super.init(frame: .zero)
 
         backgroundColor = .white
@@ -51,7 +50,7 @@ class HomeView: UIView {
         stackView.setCustomSpacing(32, after: homeHeaderView)
         addSubview(stackView)
 
-        let estimatedHeight = CGFloat(activityListView.tableView.numberOfRows(inSection: 0))*ActivityListView.cellSize
+        let estimatedHeight = CGFloat(5)*ActivityListView.cellSize
 
         NSLayoutConstraint.activate([
             stackView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
@@ -60,10 +59,18 @@ class HomeView: UIView {
             
             activityListView.heightAnchor.constraint(equalToConstant: estimatedHeight)
         ])
+        
+        homeHeaderView.viewController = viewController
+        activityListView.viewController = viewController
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func updateView() {
+        homeHeaderView.updateView()
+        activityListView.updateView()
     }
 }
 

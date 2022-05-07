@@ -15,7 +15,8 @@ final class HomeRouter: HomeRouterProtocol {
     weak var viewController: UIViewController?
     
     static func createModule() -> UIViewController {
-        let interactor = HomeInteractor()
+        let service = FinanceService()
+        let interactor = HomeInteractor(service: service)
         let router = HomeRouter()
         var presenter: HomeInterable = HomePresenter(
             interactor: interactor,

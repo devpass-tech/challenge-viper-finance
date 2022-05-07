@@ -13,7 +13,8 @@ protocol ActivityListViewDelegate: AnyObject {
 }
 
 class ActivityListView: UIView {
-
+    
+    var viewController: HomeViewControllerInputProtocol?
     weak var delegate: ActivityListViewDelegate?
 
     static let cellSize = CGFloat(82)
@@ -43,6 +44,10 @@ class ActivityListView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func updateView() {
+        tableView.reloadData()
+    }
 }
 
 extension ActivityListView {
@@ -68,13 +73,16 @@ extension ActivityListView: UITableViewDataSource {
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return 5
+        return viewController?.getActivityData()?.count ?? 0
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        guard let items = viewController?.getActivityData(), let activity = items[safe: indexPath.row] else {
+            return UITableViewCell()
+        }
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ActivityCellView
-
+        cell.setupWithActivity(activity)
         return cell
     }
 }
