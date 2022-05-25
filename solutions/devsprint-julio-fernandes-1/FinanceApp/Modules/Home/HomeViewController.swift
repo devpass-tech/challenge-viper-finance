@@ -7,15 +7,13 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController {
     
     // MARK: Properties
-
-    var presenter: HomePresenterProtocol
+    private var presenter: HomePresenterProtocol
     
     // MARK: Components
-
-    lazy var homeView: HomeView = {
+    private lazy var homeView: HomeView = {
         let homeView = HomeView()
         homeView.delegate = self
         return homeView
@@ -46,8 +44,7 @@ class HomeViewController: UIViewController {
 
     @objc
     func openProfile() {
-        let navigationController = UserProfileRouter.createModule()
-        self.present(navigationController, animated: true)
+        presenter.navigateToUserProfile()
     }
 }
 
@@ -55,8 +52,7 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: HomeViewDelegate {
     func didSelectActivity() {
-        let activityDetailsViewController = ActivityDetailsRouter.createModule()
-        self.navigationController?.pushViewController(activityDetailsViewController, animated: true)
+        presenter.navigateToActivity()
     }
 }
 

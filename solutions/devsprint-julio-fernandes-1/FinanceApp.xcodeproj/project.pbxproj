@@ -467,12 +467,12 @@
 		98584B07277E5FF60028DBEA /* ActivityDetails */ = {
 			isa = PBXGroup;
 			children = (
+				6CC0698227AA108000973C57 /* ActivityDetailsInteractor.swift */,
 				BCE6192727B5C24C0058BD36 /* Entities */,
 				98584B0E277E605F0028DBEA /* ActivityDetailsView.swift */,
 				98584B0A277E605F0028DBEA /* ActivityDetailsViewController.swift */,
-				6CC0698227AA108000973C57 /* ActivityDetailsInteractor.swift */,
-				6CC0698427AA109100973C57 /* ActivityDetailsPresenter.swift */,
 				6CC0698627AA109C00973C57 /* ActivityDetailsRouter.swift */,
+				6CC0698427AA109100973C57 /* ActivityDetailsPresenter.swift */,
 				6CC0698827AA115300973C57 /* ActivityDetailsProtocols.swift */,
 			);
 			path = ActivityDetails;
@@ -776,6 +776,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = x86_64;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -837,6 +838,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = x86_64;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
