@@ -15,6 +15,7 @@ protocol HomePresenterDelegate: AnyObject {
 
 // MARK: Class
 final class HomePresenter: HomePresenterProtocol {
+	
     // MARK: Properties
     weak var view: HomePresenterDelegate?
     var interactor: HomeInteractorProtocol
@@ -32,6 +33,15 @@ final class HomePresenter: HomePresenterProtocol {
     func viewDidLoad() {
         interactor.didFetchData()
     }
+	
+    func navigateToActivity() {
+        router.navigateToActivity()
+    }
+	
+    func navigateToUserProfile() {
+        router.navigateToUserProfile()
+    }
+
 }
 
 // MARK: Extensions

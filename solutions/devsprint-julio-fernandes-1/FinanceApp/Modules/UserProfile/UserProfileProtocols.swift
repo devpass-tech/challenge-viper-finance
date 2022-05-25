@@ -16,7 +16,7 @@ protocol UserProfilePresenterProtocol {
 }
 
 protocol UserProfileRouterProtocol {
-	static func createModule() -> UINavigationController
+	static func createModule() -> UIViewController
 }
 
 protocol UserProfileInteractorProtocol {
