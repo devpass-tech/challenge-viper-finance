@@ -7,37 +7,39 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController {
+    
+    var presenter: HomePresenterProtocol?
 
     lazy var homeView: HomeView = {
-
         let homeView = HomeView()
         homeView.delegate = self
         return homeView
     }()
 
     override func viewDidLoad() {
-
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Profile", style: .plain, target: self, action: #selector(openProfile))
+        presenter?.viewDidLoad()
     }
 
     override func loadView() {
         self.view = homeView
-    }
-
-    @objc
-    func openProfile() {
-
-        let navigationController = UINavigationController(rootViewController: UserProfileViewController())
-        self.present(navigationController, animated: true)
     }
 }
 
 extension HomeViewController: HomeViewDelegate {
 
     func didSelectActivity() {
-
         let activityDetailsViewController = ActivityDetailsConfigurator.createModule()
         self.navigationController?.pushViewController(activityDetailsViewController, animated: true)
+    }
+}
+
+extension HomeViewController: HomePresenterDelegate {
+    func setupNavigationItem(_ item: UIBarButtonItem) {
+        navigationItem.rightBarButtonItem = item
+    }
+    
+    func reloadData() {
+        print("reload data")
     }
 }
