@@ -12,7 +12,6 @@ import UIKit
 final class ActivityDetailsConfigurator: ActivityDetailsConfiguratorProtocol {
     
     static func createModule() -> UIViewController {
-        
         let view = ActivityDetailsViewController()
         let interactor = ActivityDetailsInteractor()
         let presenter = ActivityDetailsPresenter()

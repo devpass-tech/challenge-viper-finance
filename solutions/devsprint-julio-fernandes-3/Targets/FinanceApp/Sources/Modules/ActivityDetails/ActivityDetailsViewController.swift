@@ -29,6 +29,7 @@ final class ActivityDetailsViewController: UIViewController {
 }
 
 extension ActivityDetailsViewController: ActivityDetailsPresenterDelegate {
+    
     func update(viewModel: ActivityDetailsViewModel) {
         (self.view as? ActivityDetailsView)?.update(viewModel: viewModel)
     }
