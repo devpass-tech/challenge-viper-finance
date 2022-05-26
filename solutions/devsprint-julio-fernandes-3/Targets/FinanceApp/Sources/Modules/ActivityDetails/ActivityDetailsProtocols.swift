@@ -7,3 +7,38 @@
 //
 
 import Foundation
+import UIKit
+
+protocol ActivityDetailsPresenterProtocol {
+    var view: ActivityDetailsPresenterDelegate? { get set }
+    var interactor: ActivityDetailsInteractorProtocol? { get set }
+    var router: ActivityDetailsRouterProtocol? { get set }
+    
+    func viewDidLoad()
+}
+
+protocol ActivityDetailsInteractorDelegate: AnyObject {
+    func didFetch(data: ActivityDetailsDTO)
+}
+
+protocol ActivityDetailsInteractorProtocol {
+    var presenter: ActivityDetailsInteractorDelegate? { get set }
+    
+    func fetchData()
+}
+
+protocol ActivityDetailsViewControllerProtocol: AnyObject {
+    var presenter: ActivityDetailsPresenterProtocol? { get set }
+}
+
+protocol ActivityDetailsPresenterDelegate: AnyObject {
+    func update(viewModel: ActivityDetailsViewModel)
+}
+
+protocol ActivityDetailsConfiguratorProtocol {
+    static func createModule() -> UIViewController
+}
+
+protocol ActivityDetailsRouterProtocol {
+    
+}
