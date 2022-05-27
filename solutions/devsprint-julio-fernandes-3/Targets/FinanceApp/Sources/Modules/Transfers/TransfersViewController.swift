@@ -7,7 +7,9 @@
 
 import UIKit
 
-class TransfersViewController: UIViewController {
+final class TransfersViewController: UIViewController {
+    
+    var presenter: TransfersPresenterProtocol?
 
     lazy var transferView: TransfersView = {
 
@@ -33,5 +35,11 @@ extension TransfersViewController: TransferViewDelegate {
 
         let navigationController = UINavigationController(rootViewController: ConfirmationViewController())
         self.present(navigationController, animated: true)
+    }
+}
+
+extension TransfersViewController: TransfersPresenterDelegate {
+    func showData() {
+        print("Show data")
     }
 }
