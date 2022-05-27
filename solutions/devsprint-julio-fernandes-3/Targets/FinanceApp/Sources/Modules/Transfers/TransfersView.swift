@@ -14,7 +14,7 @@ protocol TransferViewDelegate: AnyObject {
     func didPressTransferButton()
 }
 
-class TransfersView: UIView {
+final class TransfersView: UIView {
 
     weak var delegate: TransferViewDelegate?
 
