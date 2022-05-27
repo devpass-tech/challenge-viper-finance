@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ActivityDetailsView: UIView {
+final class ActivityDetailsView: UIView {
 
     let stackView: UIStackView = {
 
@@ -24,7 +24,6 @@ class ActivityDetailsView: UIView {
     let imageView: UIImageView = {
 
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "bag.circle.fill")
         imageView.layer.cornerRadius = 50
         imageView.clipsToBounds = true
         return imageView
@@ -33,7 +32,6 @@ class ActivityDetailsView: UIView {
     let activityNameLabel: UILabel = {
 
         let label = UILabel()
-        label.text = "Mall"
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 17)
         return label
@@ -42,7 +40,6 @@ class ActivityDetailsView: UIView {
     let categoryLabel: UILabel = {
 
         let label = UILabel()
-        label.text = "Shopping"
         label.textAlignment = .center
         return label
     }()
@@ -57,7 +54,6 @@ class ActivityDetailsView: UIView {
 
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "$100"
         label.font = UIFont.boldSystemFont(ofSize: 34)
         return label
     }()
@@ -66,7 +62,6 @@ class ActivityDetailsView: UIView {
 
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "8:57 AM"
         return label
     }()
 
@@ -120,5 +115,13 @@ class ActivityDetailsView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func update(viewModel: ActivityDetailsViewModel) {
+        activityNameLabel.text = viewModel.activityName
+        categoryLabel.text = viewModel.category
+        priceLabel.text = viewModel.price
+        timeLabel.text = viewModel.time
+        imageView.image = viewModel.image
     }
 }
