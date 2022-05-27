@@ -20,7 +20,9 @@ final class ActivityDetailsViewController: UIViewController {
     var presenter: ActivityDetailsPresenterProtocol?
     
     override func loadView() {
-        self.view = ActivityDetailsView()
+        let activityDetailsView = ActivityDetailsView()
+        activityDetailsView.delegate = self
+        self.view = activityDetailsView
     }
     
     override func viewDidLoad() {
@@ -32,5 +34,12 @@ extension ActivityDetailsViewController: ActivityDetailsPresenterDelegate {
     
     func update(viewModel: ActivityDetailsViewModel) {
         (self.view as? ActivityDetailsView)?.update(viewModel: viewModel)
+    }
+}
+
+extension ActivityDetailsViewController: ActivityDetailsViewDelegate {
+    
+    func didPressReportIssueButton() {
+        presenter?.presentReportIssue()
     }
 }

@@ -19,6 +19,10 @@ final class ActivityDetailsPresenter: ActivityDetailsPresenterProtocol {
         interactor?.fetchData()
     }
     
+    func presentReportIssue() {
+        router?.presentReportIssue()
+    }
+    
     private func parse(activityDetailsDTO: ActivityDetailsDTO) -> ActivityDetailsViewModel {
         return ActivityDetailsViewModel(
             activityName: activityDetailsDTO.activityName,

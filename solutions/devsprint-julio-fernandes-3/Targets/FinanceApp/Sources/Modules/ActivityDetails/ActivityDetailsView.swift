@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 
 final class ActivityDetailsView: UIView {
+    
+    weak var delegate: ActivityDetailsViewDelegate?
 
     let stackView: UIStackView = {
 
@@ -73,6 +75,7 @@ final class ActivityDetailsView: UIView {
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 14
+        button.addTarget(self, action: #selector(reportIssueButtonAction), for: .touchUpInside)
         return button
     }()
 
@@ -123,5 +126,10 @@ final class ActivityDetailsView: UIView {
         priceLabel.text = viewModel.price
         timeLabel.text = viewModel.time
         imageView.image = viewModel.image
+    }
+    
+    @objc
+    private func reportIssueButtonAction() {
+        delegate?.didPressReportIssueButton()
     }
 }
