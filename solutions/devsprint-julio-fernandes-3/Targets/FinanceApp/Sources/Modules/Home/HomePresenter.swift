@@ -23,6 +23,10 @@ final class HomePresenter: HomePresenterProtocol {
     func openProfile() {
         router?.navigateToProfileModule()
     }
+    
+    func openActivityDetails() {
+        router?.navigateToActivityDetailsModule()
+    }
 }
 
 extension HomePresenter: HomeInteractorDelegate {
