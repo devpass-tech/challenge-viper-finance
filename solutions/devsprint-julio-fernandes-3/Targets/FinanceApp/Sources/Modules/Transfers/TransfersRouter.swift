@@ -6,8 +6,19 @@
 //  Copyright © 2022 tuist.io. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 final class TransfersRouter: TransfersRouterProtocol {
-    // TODO: Implement navigation methods and update protocol TransfersRouterProtocol
+    
+    var view: UIViewController?
+    
+    func navigateToContactListModule() {
+        let navigationController = UINavigationController(rootViewController: ContactListViewController())
+        view?.present(navigationController, animated: true)
+    }
+    
+    func navigateToConfirmationModule() {
+        let navigationController = UINavigationController(rootViewController: ConfirmationViewController())
+        view?.present(navigationController, animated: true)
+    }
 }

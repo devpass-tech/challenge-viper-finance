@@ -13,6 +13,9 @@ protocol TransfersPresenterProtocol {
     var view: TransfersPresenterDelegate? { get set }
     var interactor: TransfersInteractorProtocol? { get set }
     var router: TransfersRouterProtocol? { get set }
+    
+    func openContactList()
+    func openTransferConfirmation()
 }
 
 // MARK: TransfersPresenterDelegate
@@ -36,4 +39,8 @@ protocol TransfersConfiguratorProtocol {
 }
 
 // MARK: TransfersRouterProtocol
-protocol TransfersRouterProtocol {}
+protocol TransfersRouterProtocol {
+    var view: UIViewController? { get set }
+    func navigateToContactListModule()
+    func navigateToConfirmationModule()
+}

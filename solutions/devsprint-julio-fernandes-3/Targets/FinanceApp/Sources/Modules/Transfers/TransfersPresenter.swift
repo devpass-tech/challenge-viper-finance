@@ -13,7 +13,13 @@ final class TransfersPresenter: TransfersPresenterProtocol {
     var interactor: TransfersInteractorProtocol?
     var router: TransfersRouterProtocol?
     
-    // TODO: Implement methods TransfersPresenter, TransfersPresenterDelegate, integration TransfersPresenter with TransfersViewController and update protocol TransfersPresenterProtocol
+    func openContactList() {
+        router?.navigateToContactListModule()
+    }
+    
+    func openTransferConfirmation() {
+        router?.navigateToConfirmationModule()
+    }
 }
 
 extension TransfersPresenter: TransfersInteractorDelegate {

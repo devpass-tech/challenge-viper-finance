@@ -26,15 +26,11 @@ final class TransfersViewController: UIViewController {
 extension TransfersViewController: TransferViewDelegate {
 
     func didPressChooseContactButton() {
-
-        let navigationController = UINavigationController(rootViewController: ContactListViewController())
-        self.present(navigationController, animated: true)
+        presenter?.openContactList()
     }
 
     func didPressTransferButton() {
-
-        let navigationController = UINavigationController(rootViewController: ConfirmationViewController())
-        self.present(navigationController, animated: true)
+        presenter?.openTransferConfirmation()
     }
 }
 
