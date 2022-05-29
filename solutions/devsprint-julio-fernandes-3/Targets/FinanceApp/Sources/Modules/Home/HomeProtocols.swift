@@ -26,7 +26,11 @@ protocol HomePresenterDelegate: AnyObject {
 //MARK: HomeInteractorProtocol (input)
 protocol HomeInteractorProtocol {
     var presenter: HomeInteractorDelegate? { get set }
-    func fetchData()
+    
+    func fetchTotal()
+    func fetchSavings()
+    func fetchSpendings()
+    func fetchActivities()
 }
 
 //MARK: HomeInteractorDelegate (output)

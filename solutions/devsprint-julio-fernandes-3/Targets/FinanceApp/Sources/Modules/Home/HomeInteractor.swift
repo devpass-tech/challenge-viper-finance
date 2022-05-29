@@ -9,12 +9,22 @@
 import Foundation
 
 final class HomeInteractor: HomeInteractorProtocol {
-    
+
     weak var presenter: HomeInteractorDelegate?
-    
-    func fetchData() {
-        presenter?.didFetchData()
+
+    func fetchTotal() {
+        print("did fetch total")
     }
     
+    func fetchSavings() {
+        print("did fetch savings")
+    }
     
+    func fetchSpendings() {
+        print("did fetch spendings")
+    }
+    
+    func fetchActivities() {
+        print("did fetch activities")
+    }
 }

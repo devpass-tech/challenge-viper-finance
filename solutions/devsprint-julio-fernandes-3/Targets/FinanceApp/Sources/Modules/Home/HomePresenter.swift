@@ -15,7 +15,6 @@ final class HomePresenter: HomePresenterProtocol {
     var router: HomeRouterProtocol?
     
     func viewDidLoad() {
-        interactor?.fetchData()
         view?.setupNavigationItem(UIBarButtonItem(title: "Profile", style: .plain, target: self, action: #selector(openProfile)))
     }
     
