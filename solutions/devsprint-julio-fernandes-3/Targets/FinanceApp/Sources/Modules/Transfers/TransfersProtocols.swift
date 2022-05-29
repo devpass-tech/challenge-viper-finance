@@ -14,23 +14,25 @@ protocol TransfersPresenterProtocol {
     var interactor: TransfersInteractorProtocol? { get set }
     var router: TransfersRouterProtocol? { get set }
     
+    func onTapTransfer(value: String)
     func openContactList()
     func openTransferConfirmation()
 }
 
 // MARK: TransfersPresenterDelegate
 protocol TransfersPresenterDelegate: AnyObject {
-    func showData()
+    func showData(transfer: TransfersEntity)
 }
 
 // MARK: TransfersInteractorProtocol
 protocol TransfersInteractorProtocol {
     var presenter: TransfersInteractorDelegate? { get set }
+    func transfer(value: String)
 }
 
 // MARK: TransfersInteractorDelegate
 protocol TransfersInteractorDelegate: AnyObject {
-    func didFetchData(transfer: Bool)
+    func didFetchData(transfer: TransfersEntity)
 }
 
 // MARK: TransfersConfiguratorProtocol

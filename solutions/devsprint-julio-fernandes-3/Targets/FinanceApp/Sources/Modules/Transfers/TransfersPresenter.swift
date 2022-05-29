@@ -13,6 +13,10 @@ final class TransfersPresenter: TransfersPresenterProtocol {
     var interactor: TransfersInteractorProtocol?
     var router: TransfersRouterProtocol?
     
+    func onTapTransfer(value: String) {
+        interactor?.transfer(value: value)
+    }
+    
     func openContactList() {
         router?.navigateToContactListModule()
     }
@@ -23,7 +27,7 @@ final class TransfersPresenter: TransfersPresenterProtocol {
 }
 
 extension TransfersPresenter: TransfersInteractorDelegate {
-    func didFetchData(transfer: Bool) {
-        view?.showData()
+    func didFetchData(transfer: TransfersEntity) {
+        view?.showData(transfer: transfer)
     }
 }

@@ -9,7 +9,6 @@
 import UIKit
 
 final class TransfersRouter: TransfersRouterProtocol {
-    
     var view: UIViewController?
     
     func navigateToContactListModule() {
