@@ -13,11 +13,21 @@ final class TransfersPresenter: TransfersPresenterProtocol {
     var interactor: TransfersInteractorProtocol?
     var router: TransfersRouterProtocol?
     
-    // TODO: Implement methods TransfersPresenter, TransfersPresenterDelegate, integration TransfersPresenter with TransfersViewController and update protocol TransfersPresenterProtocol
+    func onTapTransfer(value: String) {
+        interactor?.transfer(value: value)
+    }
+    
+    func openContactList() {
+        router?.navigateToContactListModule()
+    }
+    
+    func openTransferConfirmation() {
+        router?.navigateToConfirmationModule()
+    }
 }
 
 extension TransfersPresenter: TransfersInteractorDelegate {
-    func didFetchData(transfer: Bool) {
-        view?.showData()
+    func didFetchData(transfer: TransfersEntity) {
+        view?.showData(transfer: transfer)
     }
 }

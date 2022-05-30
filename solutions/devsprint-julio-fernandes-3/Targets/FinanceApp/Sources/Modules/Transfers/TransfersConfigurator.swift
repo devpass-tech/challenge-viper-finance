@@ -20,6 +20,7 @@ final class TransfersConfigurator: TransfersConfiguratorProtocol {
         presenter.router = router
         presenter.interactor = interactor
         interactor.presenter = presenter
+        router.view = view
         
         return view
     }

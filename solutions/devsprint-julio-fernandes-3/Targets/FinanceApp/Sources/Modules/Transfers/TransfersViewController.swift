@@ -8,8 +8,8 @@
 import UIKit
 
 final class TransfersViewController: UIViewController {
-    
     var presenter: TransfersPresenterProtocol?
+    private(set) var transferAmount: String = ""
 
     lazy var transferView: TransfersView = {
 
@@ -21,25 +21,36 @@ final class TransfersViewController: UIViewController {
     override func loadView() {
         self.view = transferView
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        gesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(gesture)
+    }
+    
+    @objc private func hideKeyboard() {
+        view.endEditing(true)
+    }
 }
 
 extension TransfersViewController: TransferViewDelegate {
+    func setTransferAmount(value: String) {
+        transferAmount = value
+    }
 
     func didPressChooseContactButton() {
-
-        let navigationController = UINavigationController(rootViewController: ContactListViewController())
-        self.present(navigationController, animated: true)
+        presenter?.openContactList()
     }
 
     func didPressTransferButton() {
-
-        let navigationController = UINavigationController(rootViewController: ConfirmationViewController())
-        self.present(navigationController, animated: true)
+        presenter?.openTransferConfirmation()
     }
 }
 
 extension TransfersViewController: TransfersPresenterDelegate {
-    func showData() {
+    func showData(transfer: TransfersEntity) {
         print("Show data")
     }
 }

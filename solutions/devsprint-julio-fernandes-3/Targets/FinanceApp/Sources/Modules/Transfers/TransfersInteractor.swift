@@ -11,5 +11,7 @@ import Foundation
 final class TransfersInteractor: TransfersInteractorProtocol {
     weak var presenter: TransfersInteractorDelegate?
     
-    // TODO: Implement data access methods and update protocol TransfersInteractorProtocol
+    func transfer(value: String) {
+        presenter?.didFetchData(transfer: TransfersEntity.init(success: true))
+    }
 }

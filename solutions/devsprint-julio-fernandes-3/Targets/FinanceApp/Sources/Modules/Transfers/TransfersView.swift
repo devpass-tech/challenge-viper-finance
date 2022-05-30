@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol TransferViewDelegate: AnyObject {
-
+    func setTransferAmount(value: String)
     func didPressChooseContactButton()
     func didPressTransferButton()
 }
@@ -80,17 +80,21 @@ final class TransfersView: UIView {
             transferButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
             transferButton.heightAnchor.constraint(equalToConstant: 56)
         ])
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(amountDidChange), name: UITextField.textDidChangeNotification, object: nil)
+    }
+    
+    @objc func amountDidChange() {
+        if let amount = amountTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines), !amount.isEmpty {
+            delegate?.setTransferAmount(value: amount)
+        }
     }
 
-    @objc
-    func chooseContact() {
-
+    @objc func chooseContact() {
         delegate?.didPressChooseContactButton()
     }
 
-    @objc
-    func transfer() {
-
+    @objc func transfer() {
         delegate?.didPressTransferButton()
     }
 
