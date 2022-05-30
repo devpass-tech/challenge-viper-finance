@@ -22,6 +22,7 @@ final class ActivityDetailsConfigurator: ActivityDetailsConfiguratorProtocol {
         presenter.view = view
         presenter.interactor = interactor
         presenter.router = router
+        router.view = view
         
         return view
     }

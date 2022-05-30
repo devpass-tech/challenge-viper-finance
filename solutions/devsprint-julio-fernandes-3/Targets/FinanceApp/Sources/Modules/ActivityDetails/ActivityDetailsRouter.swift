@@ -7,7 +7,20 @@
 //
 
 import Foundation
+import UIKit
 
 final class ActivityDetailsRouter: ActivityDetailsRouterProtocol {
+    
+    var view: UIViewController?
+    
+    func presentReportIssue() {
+        let successAlert = UIAlertController(
+            title: "Success!",
+            message: "Issue Reported",
+            preferredStyle: .alert
+        )
+        successAlert.addAction(UIAlertAction(title: "OK", style: .default))
+        view?.present(successAlert, animated: true)
+    }
     
 }

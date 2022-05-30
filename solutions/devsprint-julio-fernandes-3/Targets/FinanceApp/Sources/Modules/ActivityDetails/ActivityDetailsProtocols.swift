@@ -15,6 +15,7 @@ protocol ActivityDetailsPresenterProtocol {
     var router: ActivityDetailsRouterProtocol? { get set }
     
     func viewDidLoad()
+    func presentReportIssue()
 }
 
 protocol ActivityDetailsInteractorDelegate: AnyObject {
@@ -31,6 +32,10 @@ protocol ActivityDetailsViewControllerProtocol: AnyObject {
     var presenter: ActivityDetailsPresenterProtocol? { get set }
 }
 
+protocol ActivityDetailsViewDelegate: AnyObject {
+    func didPressReportIssueButton()
+}
+
 protocol ActivityDetailsPresenterDelegate: AnyObject {
     func update(viewModel: ActivityDetailsViewModel)
 }
@@ -40,5 +45,6 @@ protocol ActivityDetailsConfiguratorProtocol {
 }
 
 protocol ActivityDetailsRouterProtocol {
-    
+    var view: UIViewController? { get set }
+    func presentReportIssue()
 }
