@@ -15,6 +15,7 @@ protocol HomePresenterProtocol {
     var router: HomeRouterProtocol? { get set }
 
     func viewDidLoad()
+    func openActivityDetails()
 }
 
 //MARK: HomePresenterDelegate (output)
@@ -43,4 +44,5 @@ protocol HomeConfiguratorProtocol {
 protocol HomeRouterProtocol {
     var view: UIViewController? { get  set }
     func navigateToProfileModule()
+    func navigateToActivityDetailsModule()
 }

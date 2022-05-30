@@ -16,4 +16,9 @@ final class HomeRouter: HomeRouterProtocol {
         let navigationController = UINavigationController(rootViewController: UserProfileViewController())
         view?.present(navigationController, animated: true)
     }
+    
+    func navigateToActivityDetailsModule() {
+        let activityDetailsViewController = ActivityDetailsConfigurator.createModule()
+        view?.navigationController?.pushViewController(activityDetailsViewController, animated: true)
+    }
 }
