@@ -50,8 +50,6 @@ extension ActivityDetailsPresenter: ActivityDetailsInteractorDelegate {
     
     func didFetch(data: ActivityDetailsDTO) {
         let activityViewModel = self.parse(activityDetailsDTO: data)
-        DispatchQueue.main.async { [weak self] in
-            self?.view?.update(viewModel: activityViewModel)
-        }
+        view?.update(viewModel: activityViewModel)
     }
 }

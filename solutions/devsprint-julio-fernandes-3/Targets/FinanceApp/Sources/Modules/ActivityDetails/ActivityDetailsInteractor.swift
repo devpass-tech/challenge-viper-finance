@@ -19,16 +19,15 @@ struct ActivityDetailsDTO {
 final class ActivityDetailsInteractor: ActivityDetailsInteractorProtocol {
     
     weak var presenter: ActivityDetailsInteractorDelegate?
+    let service: TempActivityDetailsServiceProtocol
     
-    private let data = ActivityDetailsDTO(
-        activityName: "Mall",
-        category: "Shopping",
-        price: 100,
-        time: Date(timeIntervalSince1970: 1653566228),
-        imageName: "bag.circle.fill"
-    )
+    init(service: TempActivityDetailsServiceProtocol) {
+        self.service = service
+    }
     
     func fetchData() {
-        presenter?.didFetch(data: data)
+        service.fetch() { [weak self] data in
+            self?.presenter?.didFetch(data: data)
+        }
     }
 }
