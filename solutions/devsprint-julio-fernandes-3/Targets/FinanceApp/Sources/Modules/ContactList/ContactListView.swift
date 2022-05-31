@@ -14,7 +14,7 @@ class ContactListView: UIView {
 
     private let cellIdentifier = "ContactCellIdentifier"
 
-    lazy var tableView: UITableView = {
+    private(set) lazy var tableView: UITableView = {
 
         let tableView = UITableView(frame: .zero)
         tableView.translatesAutoresizingMaskIntoConstraints = false
