@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class ActivityDetailsView: UIView {
+final class ActivityDetailsView: UIView, ActivityDetailsViewProtocol {
     
     weak var delegate: ActivityDetailsViewDelegate?
 
@@ -117,7 +117,7 @@ final class ActivityDetailsView: UIView {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        return nil
     }
     
     func update(viewModel: ActivityDetailsViewModel) {
