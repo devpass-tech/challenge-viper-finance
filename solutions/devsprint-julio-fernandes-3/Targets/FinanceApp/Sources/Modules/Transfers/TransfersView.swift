@@ -18,7 +18,7 @@ final class TransfersView: UIView {
 
     weak var delegate: TransferViewDelegate?
 
-    let stackView: UIStackView = {
+    private(set) lazy var stackView: UIStackView = {
 
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -28,7 +28,7 @@ final class TransfersView: UIView {
         return stackView
     }()
 
-    let amountTextField: UITextField = {
+    private(set) lazy var amountTextField: UITextField = {
 
         let textField = UITextField()
         textField.placeholder = "$0"
@@ -38,7 +38,7 @@ final class TransfersView: UIView {
         return textField
     }()
 
-    let chooseContactButton: UIButton = {
+    private(set) lazy var chooseContactButton: UIButton = {
 
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -48,7 +48,7 @@ final class TransfersView: UIView {
         return button
     }()
 
-    let transferButton: UIButton = {
+    private(set) lazy var transferButton: UIButton = {
 
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false

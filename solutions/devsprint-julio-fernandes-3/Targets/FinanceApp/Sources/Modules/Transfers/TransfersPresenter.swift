@@ -6,7 +6,7 @@
 //  Copyright © 2022 tuist.io. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 final class TransfersPresenter: TransfersPresenterProtocol {
     weak var view: TransfersPresenterDelegate?

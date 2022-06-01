@@ -12,6 +12,6 @@ final class TransfersInteractor: TransfersInteractorProtocol {
     weak var presenter: TransfersInteractorDelegate?
     
     func transfer(value: String) {
-        presenter?.didFetchData(transfer: TransfersEntity.init(success: true))
+        presenter?.didFetchData(transfer: TransfersEntity(success: true))
     }
 }

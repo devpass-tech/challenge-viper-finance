@@ -44,5 +44,7 @@ final class HomePresenterProtocolSpy: HomePresenterProtocol {
         viewDidLoadCalled = true
         viewDidLoadCountCalled += 1
     }
+    
+    func openActivityDetails() {}
 
 }
