@@ -11,9 +11,29 @@ import Foundation
 final class ContactListPresenter: ContactListPresenterProtocol {
     weak var view: ContactListPresenterDelegate?
     var interactor: ContactListInteractorProtocol?
-    var router: ContactListRouterProtocol?
+    
+    var contactList: [ContactEntity] = []
     
     func viewDidLoad() {
         interactor?.fetchData()
+    }
+    
+    func numberOfRowsInSection() -> Int {
+        return contactList.count
+    }
+    
+    func getContactNameLabel(index: Int) -> String {
+        return contactList[index].name
+    }
+    
+    func getcContactPhoneLabel(index: Int) -> String {
+        return contactList[index].phone
+    }
+}
+
+// MARK: ContactListInteractorDelegate
+extension ContactListPresenter: ContactListInteractorDelegate {
+    func didFetchData(contactList: [ContactEntity]) {
+        self.contactList = contactList
     }
 }

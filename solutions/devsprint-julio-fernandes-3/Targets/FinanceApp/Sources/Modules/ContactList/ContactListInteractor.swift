@@ -12,6 +12,7 @@ final class ContactListInteractor: ContactListInteractorProtocol {
     weak var presenter: ContactListInteractorDelegate?
     
     func fetchData() {
-        presenter?.didFetchData()
+        let contactList: [ContactEntity] = []
+        presenter?.didFetchData(contactList: contactList)
     }
 }
