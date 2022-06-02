@@ -12,7 +12,8 @@ final class TransfersRouter: TransfersRouterProtocol {
     var view: UIViewController?
     
     func navigateToContactListModule() {
-        let navigationController = UINavigationController(rootViewController: ContactListViewController())
+        let viewController = ContactListConfigurator.createModule()
+        let navigationController = UINavigationController(rootViewController: viewController)
         view?.present(navigationController, animated: true)
     }
     

@@ -35,6 +35,7 @@ final class TransfersViewController: UIViewController {
     }
 }
 
+// MARK: TransferViewDelegate
 extension TransfersViewController: TransferViewDelegate {
     func setTransferAmount(value: String) {
         transferAmount = value
@@ -49,6 +50,7 @@ extension TransfersViewController: TransferViewDelegate {
     }
 }
 
+// MARK: TransfersPresenterDelegate
 extension TransfersViewController: TransfersPresenterDelegate {
     func showData(transfer: TransfersEntity) {
         print("Show data")

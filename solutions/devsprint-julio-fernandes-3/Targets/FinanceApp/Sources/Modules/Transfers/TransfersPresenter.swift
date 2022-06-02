@@ -26,6 +26,7 @@ final class TransfersPresenter: TransfersPresenterProtocol {
     }
 }
 
+// MARK: TransfersInteractorDelegate
 extension TransfersPresenter: TransfersInteractorDelegate {
     func didFetchData(transfer: TransfersEntity) {
         view?.showData(transfer: transfer)
