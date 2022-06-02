@@ -9,6 +9,11 @@
 import Foundation
 import UIKit
 
+protocol ActivityDetailsViewProtocol {
+    var delegate: ActivityDetailsViewDelegate? { get set }
+    func update(viewModel: ActivityDetailsViewModel)
+}
+
 protocol ActivityDetailsPresenterProtocol {
     var view: ActivityDetailsPresenterDelegate? { get set }
     var interactor: ActivityDetailsInteractorProtocol? { get set }

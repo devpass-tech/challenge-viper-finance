@@ -12,21 +12,22 @@ import UIKit
 final class ActivityDetailsConfigurator: ActivityDetailsConfiguratorProtocol {
     
     static func createModule() -> UIViewController {
-        let view = ActivityDetailsViewController()
+        let view = ActivityDetailsView()
+        let controller = ActivityDetailsViewController(activityDetailsView: view)
         let presenter = ActivityDetailsPresenter()
         let router = ActivityDetailsRouter()
         let interactor = ActivityDetailsInteractor(
             service: MainQueueActivityDetailsServiceDecorator(TempActivityDetailsService())
         )
         
-        view.presenter = presenter
+        controller.presenter = presenter
         interactor.presenter = presenter
-        presenter.view = view
+        presenter.view = controller
         presenter.interactor = interactor
         presenter.router = router
-        router.view = view
+        router.view = controller
         
-        return view
+        return controller
     }
 }
 

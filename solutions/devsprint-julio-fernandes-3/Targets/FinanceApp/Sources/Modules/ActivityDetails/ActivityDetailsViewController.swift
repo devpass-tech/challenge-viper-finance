@@ -18,11 +18,20 @@ struct ActivityDetailsViewModel {
 final class ActivityDetailsViewController: UIViewController {
     
     var presenter: ActivityDetailsPresenterProtocol?
+    private var activityDetailsView: ActivityDetailsViewProtocol
+    
+    init(activityDetailsView: ActivityDetailsViewProtocol) {
+        self.activityDetailsView = activityDetailsView
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        return nil
+    }
     
     override func loadView() {
-        let activityDetailsView = ActivityDetailsView()
         activityDetailsView.delegate = self
-        self.view = activityDetailsView
+        self.view = activityDetailsView as? UIView
     }
     
     override func viewDidLoad() {
@@ -33,7 +42,7 @@ final class ActivityDetailsViewController: UIViewController {
 extension ActivityDetailsViewController: ActivityDetailsPresenterDelegate {
     
     func update(viewModel: ActivityDetailsViewModel) {
-        (self.view as? ActivityDetailsView)?.update(viewModel: viewModel)
+        activityDetailsView.update(viewModel: viewModel)
     }
 }
 
