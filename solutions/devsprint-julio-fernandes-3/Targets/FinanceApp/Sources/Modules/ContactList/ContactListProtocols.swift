@@ -12,14 +12,13 @@ import UIKit
 protocol ContactListPresenterProtocol {
     var view: ContactListPresenterDelegate? { get set }
     var interactor: ContactListInteractorProtocol? { get set }
-    var router: ContactListRouterProtocol? { get set }
     
     func viewDidLoad()
 }
 
 // MARK: ContactListPresenterDelegate
 protocol ContactListPresenterDelegate: AnyObject {
-    func showData()
+    func showData(contactList: [ContactEntity])
 }
 
 // MARK: ContactListInteractorProtocol
@@ -30,13 +29,10 @@ protocol ContactListInteractorProtocol {
 
 // MARK: ContactListInteractorDelegate
 protocol ContactListInteractorDelegate: AnyObject {
-    func didFetchData()
+    func didFetchData(contactList: [ContactEntity])
 }
 
 // MARK: ContactListConfiguratorProtocol
 protocol ContactListConfiguratorProtocol {
     static func createModule() -> UIViewController
 }
-
-// MARK: ContactListRouterProtocol
-protocol ContactListRouterProtocol {}
