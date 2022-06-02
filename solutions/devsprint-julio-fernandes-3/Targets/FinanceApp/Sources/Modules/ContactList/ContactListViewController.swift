@@ -10,7 +10,7 @@ import UIKit
 protocol ContactListViewControllerProtocol {
     func numberOfRowsInSection() -> Int
     func getContactNameLabel(index: Int) -> String
-    func getcContactPhoneLabel(index: Int) -> String
+    func getContactPhoneLabel(index: Int) -> String
 }
 
 class ContactListViewController: UIViewController {
@@ -53,7 +53,7 @@ extension ContactListViewController: ContactListViewControllerProtocol {
         return presenter?.getContactNameLabel(index: index) ?? ""
     }
     
-    func getcContactPhoneLabel(index: Int) -> String {
-        return presenter?.getcContactPhoneLabel(index: index) ?? ""
+    func getContactPhoneLabel(index: Int) -> String {
+        return presenter?.getContactPhoneLabel(index: index) ?? ""
     }
 }

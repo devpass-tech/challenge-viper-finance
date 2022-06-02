@@ -76,7 +76,7 @@ extension ContactListView: UITableViewDataSource {
         }
         
         cell.contactNameLabel.text = viewController?.getContactNameLabel(index: indexPath.row)
-        cell.contactPhoneLabel.text = viewController?.getcContactPhoneLabel(index: indexPath.row)
+        cell.contactPhoneLabel.text = viewController?.getContactPhoneLabel(index: indexPath.row)
 
         return cell
     }

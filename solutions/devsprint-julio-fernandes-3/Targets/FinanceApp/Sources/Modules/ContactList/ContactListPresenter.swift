@@ -26,7 +26,7 @@ final class ContactListPresenter: ContactListPresenterProtocol {
         return contactList[index].name
     }
     
-    func getcContactPhoneLabel(index: Int) -> String {
+    func getContactPhoneLabel(index: Int) -> String {
         return contactList[index].phone
     }
 }
