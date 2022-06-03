@@ -7,15 +7,13 @@
 
 import UIKit
 
-protocol ContactListViewControllerProtocol {
-    func numberOfRowsInSection() -> Int
-    func getContactNameLabel(index: Int) -> String
-    func getContactPhoneLabel(index: Int) -> String
-}
-
-class ContactListViewController: UIViewController {
+final class ContactListViewController: UIViewController {
     var presenter: ContactListPresenterProtocol?
-    var contactList: [ContactEntity]?
+    private(set) var contactList: [ContactEntity] = []
+    
+    private(set) lazy var contactListView: ContactListView = {
+        return ContactListView(tableViewDataSource: self, tableViewDelegate: self)
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,9 +21,36 @@ class ContactListViewController: UIViewController {
     }
 
     override func loadView() {
-        let contactListView = ContactListView()
-        contactListView.delegate = self
-        self.view = contactListView
+        self.view = self.contactListView
+    }
+}
+
+// MARK: UITableViewDataSource
+extension ContactListViewController: UITableViewDataSource {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return contactList.count
+    }
+
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ContactCellView.cellIdentifier, for: indexPath) as? ContactCellView else {
+            return UITableViewCell()
+        }
+        
+        cell.setupContactCell(contact: contactList[indexPath.row])
+
+        return cell
+    }
+}
+
+// MARK: UITableViewDelegate
+extension ContactListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return ContactCellView.cellSize
+    }
+
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.dismiss(animated: true)
+        tableView.reloadData()
     }
 }
 
@@ -33,27 +58,5 @@ class ContactListViewController: UIViewController {
 extension ContactListViewController: ContactListPresenterDelegate {
     func showData(contactList: [ContactEntity]) {
         self.contactList = contactList
-    }
-}
-
-// MARK: ContactListViewDelegate
-extension ContactListViewController: ContactListViewDelegate {
-    func didSelectContact() {
-        print("didSelectContact tapped")
-        self.dismiss(animated: true, completion: nil)
-    }
-}
-
-extension ContactListViewController: ContactListViewControllerProtocol {
-    func numberOfRowsInSection() -> Int {
-        return presenter?.numberOfRowsInSection() ?? 0
-    }
-    
-    func getContactNameLabel(index: Int) -> String {
-        return presenter?.getContactNameLabel(index: index) ?? ""
-    }
-    
-    func getContactPhoneLabel(index: Int) -> String {
-        return presenter?.getContactPhoneLabel(index: index) ?? ""
     }
 }

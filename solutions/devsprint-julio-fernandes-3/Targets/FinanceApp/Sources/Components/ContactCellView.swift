@@ -8,8 +8,10 @@
 import UIKit
 
 class ContactCellView: UITableViewCell {
-
-   private var mainStackView: UIStackView = {
+   static let cellSize = CGFloat(82)
+   static let cellIdentifier = "ContactCellIdentifier"
+   
+    private var mainStackView: UIStackView = {
        let stack = UIStackView(frame: .zero)
        stack.translatesAutoresizingMaskIntoConstraints = false
        stack.spacing = 16
@@ -30,7 +32,6 @@ class ContactCellView: UITableViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.cornerRadius = 25
         imageView.layer.masksToBounds = true
-        imageView.image = UIImage(named: "avatar-placeholder")
         return imageView
     }()
 
@@ -38,7 +39,6 @@ class ContactCellView: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.boldSystemFont(ofSize: 17)
-        label.text = "Contact Name"
         return label
     }()
 
@@ -47,7 +47,6 @@ class ContactCellView: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .gray
         label.font = UIFont.systemFont(ofSize: 14)
-        label.text = "(11) 99999-9999"
         return label
     }()
 
@@ -60,7 +59,18 @@ class ContactCellView: UITableViewCell {
     }
 
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        return nil
+    }
+    
+    override func prepareForReuse() {
+        avatarImageView.image = UIImage(named: "avatar-placeholder")
+        contactNameLabel.text = ""
+        contactPhoneLabel.text = ""
+    }
+    
+    func setupContactCell(contact: ContactEntity) {
+        contactNameLabel.text = contact.name
+        contactPhoneLabel.text = contact.phone
     }
 }
 

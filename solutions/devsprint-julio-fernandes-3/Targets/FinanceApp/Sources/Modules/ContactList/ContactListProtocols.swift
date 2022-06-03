@@ -14,9 +14,6 @@ protocol ContactListPresenterProtocol {
     var interactor: ContactListInteractorProtocol? { get set }
     
     func viewDidLoad()
-    func numberOfRowsInSection() -> Int
-    func getContactNameLabel(index: Int) -> String
-    func getContactPhoneLabel(index: Int) -> String
 }
 
 // MARK: ContactListPresenterDelegate
