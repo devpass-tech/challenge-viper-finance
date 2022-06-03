@@ -13,7 +13,8 @@ final class HomeRouter: HomeRouterProtocol {
     var view: UIViewController?
     
     func navigateToProfileModule() {
-        let navigationController = UINavigationController(rootViewController: UserProfileViewController())
+        let viewController = UserProfileConfigurator.createModule()
+        let navigationController = UINavigationController(rootViewController: viewController)
         view?.present(navigationController, animated: true)
     }
     

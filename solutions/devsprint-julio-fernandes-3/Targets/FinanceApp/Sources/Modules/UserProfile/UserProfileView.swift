@@ -8,7 +8,10 @@
 import Foundation
 import UIKit
 
-class UserProfileView: UIView {
+final class UserProfileView: UIView {
+
+    private var headerView = UserProfileHeaderView()
+    private var userData: UserData?
 
     private lazy var tableView: UITableView = {
 
@@ -17,7 +20,6 @@ class UserProfileView: UIView {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         tableView.dataSource = self
 
-        let headerView = UserProfileHeaderView()
         headerView.frame = CGRect(x: 0, y: 0, width: 0, height: 232)
         tableView.tableHeaderView = headerView
         return tableView
@@ -52,34 +54,30 @@ extension UserProfileView: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return 3
+        return userData?.personalData.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = UITableViewCell(style: .value1, reuseIdentifier: "Cell")
-
-        switch indexPath.row {
-        case 0:
-
-            cell.textLabel?.text = "Phone"
-            cell.detailTextLabel?.text = "+55 (11) 99999-9999"
-        case 1:
-
-            cell.textLabel?.text = "E-mail"
-            cell.detailTextLabel?.text = "user@devpass.com"
-        case 2:
-
-            cell.textLabel?.text = "Address"
-            cell.detailTextLabel?.text = "Rua Bela Cintra, 495"
-        default:
-            break
-        }
+        cell.textLabel?.text = userData?.personalData[indexPath.row].label
+        cell.detailTextLabel?.text = userData?.personalData[indexPath.row].content
+        
         return cell
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "My account"
     }
-
+    
+    func update(userData: UserData) {
+        self.userData = userData
+        headerView.nameLabel.text = userData.username
+        headerView.agencyLabel.text = userData.agency
+        headerView.accountLabel.text = userData.account
+        headerView.bankLabel.text = userData.bank
+        tableView.reloadData()
+    }
 }
+
+
