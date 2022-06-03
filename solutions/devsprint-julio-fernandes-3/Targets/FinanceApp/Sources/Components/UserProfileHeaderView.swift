@@ -7,9 +7,9 @@
 
 import UIKit
 
-class UserProfileHeaderView: UIView {
+final class UserProfileHeaderView: UIView {
 
-    var stackView: UIStackView = {
+    lazy var stackView: UIStackView = {
 
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -20,7 +20,7 @@ class UserProfileHeaderView: UIView {
         return stackView
     }()
 
-    var imageView: UIImageView = {
+    lazy var imageView: UIImageView = {
 
         let imageView = UIImageView()
         imageView.image = UIImage(named: "avatar-placeholder")
@@ -29,7 +29,7 @@ class UserProfileHeaderView: UIView {
         return imageView
     }()
 
-    var nameLabel: UILabel = {
+    lazy var nameLabel: UILabel = {
 
         let label = UILabel()
         label.textAlignment = .center
@@ -37,7 +37,7 @@ class UserProfileHeaderView: UIView {
         return label
     }()
 
-    var agencyLabel: UILabel = {
+    lazy var agencyLabel: UILabel = {
 
         let label = UILabel()
         label.textAlignment = .center
@@ -45,7 +45,7 @@ class UserProfileHeaderView: UIView {
         return label
     }()
 
-    var accountLabel: UILabel = {
+    lazy var accountLabel: UILabel = {
 
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -53,7 +53,7 @@ class UserProfileHeaderView: UIView {
         return label
     }()
 
-    var bankLabel: UILabel = {
+    lazy var bankLabel: UILabel = {
 
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false

@@ -12,7 +12,8 @@ final class UserProfileViewController: UIViewController, UserProfileViewControll
     var presenter: UserProfilePresenterProtocol?
     private lazy var profileView = UserProfileView()
     
-   override func loadView() {
+    override func loadView() {
+        super.loadView()
         self.view = profileView
     }
     
