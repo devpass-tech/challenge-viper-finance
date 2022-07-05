@@ -138,6 +138,8 @@ solutions/devsprint-julio-fernandes-3/!*.xcworkspace/contents.xcworkspacedata
 ### Projects ###
 solutions/devsprint-julio-fernandes-3/*.xcodeproj
 solutions/devsprint-julio-fernandes-3/*.xcworkspace
+solutions/devsprint-caio-santos-6/*.xcodeproj
+solutions/devsprint-caio-santos-6/*.xcworkspace
 
 ### Tuist derived files ###
 graph.dot

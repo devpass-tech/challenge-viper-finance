@@ -1,0 +1,58 @@
+name: FinanceApp
+options:
+  bundleIdPrefix: com.devpass
+  deploymentTarget:
+    iOS: 15.0
+  # postGenCommand: pod install
+
+targets:
+  FinanceApp:
+    type: application
+    platform: iOS
+    sources: 
+      - FinanceApp
+    scheme:
+      testTargets:
+      - FinanceAppTests
+      - FinanceAppUITests
+
+    info:
+      path: FinanceApp/Resources/Info.plist
+      properties:
+        UISupportedInterfaceOrientations: []
+        NSAppTransportSecurity: true
+        UILaunchStoryboardName: LaunchScreen
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+          UISceneConfigurations:
+            UIWindowSceneSessionRoleApplication:
+              - UISceneConfigurationName: Default Configuration
+                UISceneDelegateClassName: $(PRODUCT_MODULE_NAME).SceneDelegate
+
+  FinanceAppTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: FinanceAppTests
+        includes:
+          - "**/*.swift"
+
+    settings:
+      TEST_HOST: "$(BUILT_PRODUCTS_DIR)/FinanceApp.app/FinanceApp"
+
+    info:
+      path: FinanceAppTests/Info.plist
+
+  FinanceAppUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: FinanceAppUITests
+        includes:
+          - "**/*.swift"
+
+    settings:
+      TEST_TARGET_NAME: "FinanceApp"
+
+    info:
+      path: FinanceAppUITests/Info.plist      
