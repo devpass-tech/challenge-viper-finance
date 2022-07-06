@@ -7,17 +7,17 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
-
+final class HomeViewController: UIViewController {
+    var presenter: HomePresenterProtocol?
+    
     lazy var homeView: HomeView = {
-
-        let homeView = HomeView()
+        let homeView: HomeView = HomeView()
         homeView.delegate = self
         return homeView
     }()
 
     override func viewDidLoad() {
-
+        presenter?.viewDidLoad()
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Profile", style: .plain, target: self, action: #selector(openProfile))
     }
 
@@ -25,19 +25,17 @@ class HomeViewController: UIViewController {
         self.view = homeView
     }
 
-    @objc
-    func openProfile() {
-
-        let navigationController = UINavigationController(rootViewController: UserProfileViewController())
-        self.present(navigationController, animated: true)
+    @objc func openProfile() {
+        guard let navigation = self.navigationController else { return }
+        presenter?.navigationToNewScreen(navigation: navigation)
     }
 }
 
 extension HomeViewController: HomeViewDelegate {
-
     func didSelectActivity() {
-
-        let activityDetailsViewController = ActivityDetailsViewController()
-        self.navigationController?.pushViewController(activityDetailsViewController, animated: true)
+        let vc = ActivityDetailsViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
+
+extension HomeViewController: HomePresenterDelegate {}
