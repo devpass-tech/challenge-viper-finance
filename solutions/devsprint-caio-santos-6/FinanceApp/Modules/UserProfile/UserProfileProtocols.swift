@@ -29,7 +29,7 @@ protocol UserProfileInteractorProtocol {
 }
 
 protocol UserProfileInteractorDelegate: AnyObject {
-    func didFetchData(data: Any) // 3: --> Volta pra presenter o dado
+    func didFetchData(user: User, accountInfos: [AccountData]) // 3: --> Volta pra presenter o dado
     func didFetchDataWithError() // 3: --> Volta pra presenter que deu erro
 }
 
@@ -39,7 +39,7 @@ protocol UserProfilePresenterDelegate: AnyObject {
 }
 
 protocol UserProfileRouterProtocol {
-    static func createModule() -> UINavigationController
+    static func createModule() -> UIViewController
 }
 
 protocol UserProfileViewControllerProtocol {

@@ -27,16 +27,15 @@ class HomeViewController: UIViewController {
 
     @objc
     func openProfile() {
-
-        let navigationController = UINavigationController(rootViewController: UserProfileViewController())
-        self.present(navigationController, animated: true)
+        let viewController = UserProfileRouter.createModule()
+        let navigationController = UINavigationController(rootViewController: viewController)
+        present(navigationController, animated: true)
     }
 }
 
 extension HomeViewController: HomeViewDelegate {
 
     func didSelectActivity() {
-
         let activityDetailsViewController = ActivityDetailsViewController()
         self.navigationController?.pushViewController(activityDetailsViewController, animated: true)
     }

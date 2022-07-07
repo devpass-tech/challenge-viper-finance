@@ -8,6 +8,8 @@
 import UIKit
 
 class UserProfileViewController: UIViewController {
+    
+    var presenter: UserProfilePresenterProtocol?
 
     private lazy var tableView: UITableView = {
 
@@ -24,7 +26,7 @@ class UserProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         setupView()
-        // presenter.
+        presenter?.viewDidLoad()
     }
 }
 
@@ -49,13 +51,11 @@ extension UserProfileViewController {
 extension UserProfileViewController: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-
-        return 1
+        return presenter?.numberOfSections() ?? 0
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        return 3
+        return presenter?.numberOfRows(at: section) ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -84,5 +84,23 @@ extension UserProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "My account"
     }
+}
 
+// MARK: - UserProfilePresenterDelegate
+extension UserProfileViewController: UserProfilePresenterDelegate {
+    func showData() {
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.reloadData()
+        }
+        
+        print("showData called")
+    }
+    
+    func showError() {
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.isHidden = true
+        }
+        
+        print("showError called")
+    }
 }

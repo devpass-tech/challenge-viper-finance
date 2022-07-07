@@ -15,6 +15,7 @@ class TransfersRouter: TransfersRouterProtocol {
         viewController.presenter = presenter
         viewController.presenter?.router = TransfersRouter()
         viewController.presenter?.view = viewController
+        viewController.presenter?.interactor = TransfersInteractor()
         viewController.presenter?.interactor?.presenter = presenter
         
         return viewController
