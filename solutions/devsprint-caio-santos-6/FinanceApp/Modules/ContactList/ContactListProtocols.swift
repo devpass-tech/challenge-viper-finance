@@ -9,6 +9,7 @@ import Foundation
 
 protocol ContactListPresenterProtocol: AnyObject {
 	var view: ContactListPresenterDelegate? { get set }
+	func numberOfRowsInSection() -> Int
 }
 
 protocol ContactListPresenterDelegate: AnyObject  {

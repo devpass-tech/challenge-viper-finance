@@ -57,7 +57,7 @@ extension ContactListViewController: UITableViewDataSource {
 
 	public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-		return 10
+		presenter?.numberOfRowsInSection() ?? .zero
 	}
 
 	public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -77,4 +77,8 @@ extension ContactListViewController: UITableViewDelegate {
 	public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
 	}
+}
+
+extension ContactListViewController: ContactListPresenterDelegate {
+	
 }

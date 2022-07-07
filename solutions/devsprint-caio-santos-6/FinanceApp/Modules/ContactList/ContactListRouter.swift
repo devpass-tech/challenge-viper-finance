@@ -8,10 +8,12 @@
 import Foundation
 
 
-struct ContactListConfigurator {
+struct ContactListRouter {
 	static func createModule() -> ContactListViewController {
-		let viewController = ContactListViewController()
-		viewController.presenter = ContactListPresenter()
-		return viewController
+		let view = ContactListViewController()
+		let presenter =  ContactListPresenter()
+		view.presenter = presenter
+		presenter.view = view
+		return view
 	}
 }

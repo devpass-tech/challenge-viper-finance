@@ -8,5 +8,10 @@
 import Foundation
 
 class ContactListPresenter: ContactListPresenterProtocol {
+	
 	weak var view: ContactListPresenterDelegate?
+	
+	func numberOfRowsInSection() -> Int {
+		10
+	}
 }
