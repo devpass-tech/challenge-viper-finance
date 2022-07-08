@@ -63,7 +63,9 @@ extension ContactListViewController: UITableViewDataSource {
 	public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
 		let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ContactCellView
-
+		if let dto = presenter?.getDTOforCell(at: indexPath) {
+			cell.setup(with: dto)
+		}
 		return cell
 	}
 }

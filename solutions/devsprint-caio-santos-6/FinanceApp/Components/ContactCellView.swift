@@ -8,6 +8,12 @@
 import UIKit
 
 class ContactCellView: UITableViewCell {
+	
+	struct DTO {
+		let avatarImageName: String
+		let contactNameText: String
+		let contactPhoneText: String
+	}
 
    private var mainStackView: UIStackView = {
        let stack = UIStackView(frame: .zero)
@@ -62,6 +68,12 @@ class ContactCellView: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+	
+	func setup(with dto: DTO) {
+		avatarImageView.image = .init(named: dto.avatarImageName)
+		contactNameLabel.text = dto.contactNameText
+		contactPhoneLabel.text = dto.contactPhoneText
+	}
 }
 
 extension ContactCellView {

@@ -10,8 +10,10 @@ import Foundation
 protocol ContactListPresenterProtocol: AnyObject {
 	var view: ContactListPresenterDelegate? { get set }
 	func numberOfRowsInSection() -> Int
+	func getDTOforCell(at row: IndexPath) -> ContactCellView.DTO?
 }
 
 protocol ContactListPresenterDelegate: AnyObject  {
 	
 }
+

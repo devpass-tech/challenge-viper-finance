@@ -11,6 +11,10 @@ class ContactListPresenter: ContactListPresenterProtocol {
 	
 	weak var view: ContactListPresenterDelegate?
 	
+	func getDTOforCell(at row: IndexPath) -> ContactCellView.DTO? {
+		.init(avatarImageName: "avatar-placeholder", contactNameText: "Contact name", contactPhoneText: "5555-55555")
+	}
+	
 	func numberOfRowsInSection() -> Int {
 		10
 	}
