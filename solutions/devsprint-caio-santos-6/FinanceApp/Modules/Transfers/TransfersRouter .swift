@@ -8,6 +8,14 @@
 import UIKit
 
 class TransfersRouter: TransfersRouterProtocol {
+    func navigateToContactList(navigation: UINavigationController) {
+        navigation.present(ContactListViewController(), animated: true)
+    }
+    
+    func navigateToConfirmation(navigation: UINavigationController) {
+        navigation.present(ConfirmationViewController(), animated: true)
+    }
+    
     static func makeTransfersController() -> UIViewController {
         let viewController  = TransfersViewController()
         let presenter: TransfersPresenterProtocol & TransfersInteractorDelegate = TransfersPresenter()
