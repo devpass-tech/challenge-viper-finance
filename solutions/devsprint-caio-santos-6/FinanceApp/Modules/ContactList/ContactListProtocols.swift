@@ -15,7 +15,7 @@ protocol ContactListPresenterProtocol: AnyObject {
 	func viewDidLoad()
 }
 
-protocol ContactListPresenterDelegate: AnyObject  {
+protocol ContactListPresenterDelegate: AnyObject {
 	func updateView()
 	func showError(message: String)
 }

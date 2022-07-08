@@ -16,11 +16,11 @@ class ContactListPresenter: ContactListPresenterProtocol {
 			view?.updateView()
 		}
 	}
-	
+
 	func viewDidLoad() {
 		interactor?.fetchData()
 	}
-	
+
 	func getDTOforCell(at indexPath: IndexPath) -> ContactCellView.DTO? {
 		guard contacts.indices.contains(indexPath.row) else { return nil }
 		let contact = contacts[indexPath.row]
@@ -28,7 +28,7 @@ class ContactListPresenter: ContactListPresenterProtocol {
 					 contactNameText: contact.name,
 					 contactPhoneText: contact.phone)
 	}
-	
+
 	func numberOfRowsInSection() -> Int {
 		contacts.count
 	}
@@ -38,7 +38,7 @@ extension ContactListPresenter: ContactListInteractorDelegate {
 	func didFetchWithError() {
 		view?.showError(message: "Aconteceu algo inesperado")
 	}
-	
+
 	func didFetchData(contacts: [Contact]) {
 		self.contacts = contacts
 	}

@@ -11,7 +11,6 @@ class ContactListViewController: UIViewController {
 	static let cellSize = CGFloat(82)
 
 	private let cellIdentifier = "ContactCellIdentifier"
-	
 	var presenter: ContactListPresenterProtocol?
 
 	lazy var tableView: UITableView = {
@@ -22,14 +21,13 @@ class ContactListViewController: UIViewController {
 		tableView.delegate = self
 		return tableView
 	}()
-    
+
 	override func viewDidLoad() {
 		view.backgroundColor = .white
 		addSubviews()
 		configureConstraints()
 		presenter?.viewDidLoad()
 	}
-	
 }
 
 extension ContactListViewController {
@@ -43,7 +41,7 @@ extension ContactListViewController {
 			tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
 			tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
 			tableView.topAnchor.constraint(equalTo: view.topAnchor),
-			tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+			tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
 		])
 	}
 }
@@ -54,10 +52,11 @@ extension ContactListViewController: UITableViewDataSource {
 	}
 
 	public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ContactCellView
-		if let dto = presenter?.getDTOforCell(at: indexPath) {
-			cell.setup(with: dto)
-		}
+		guard
+			let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ContactCellView,
+			let dto = presenter?.getDTOforCell(at: indexPath)
+		else { return .init(frame: .zero)}
+		cell.setup(with: dto)
 		return cell
 	}
 }
@@ -80,7 +79,7 @@ extension ContactListViewController: ContactListPresenterDelegate {
 		alert.addAction(action)
 		present(alert, animated: true)
 	}
-	
+
 	func updateView() {
 		DispatchQueue.main.async { [weak self] in
 			self?.tableView.reloadData()

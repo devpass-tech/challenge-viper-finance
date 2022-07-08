@@ -12,7 +12,7 @@ struct ContactListRouter: ContactListRouterProtocol {
 		let view = ContactListViewController()
 		let presenter =  ContactListPresenter()
 		let interactor = ContactListInteractor()
-		
+
 		presenter.view = view
 		presenter.interactor = interactor
 		
