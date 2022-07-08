@@ -25,16 +25,18 @@ final class HomeViewController: UIViewController {
         self.view = homeView
     }
 
-    @objc func openProfile() {
-        guard let navigation = self.navigationController else { return }
-        presenter?.navigationToNewScreen(navigation: navigation)
+    @objc
+    func openProfile() {
+        let viewController = UserProfileRouter.createModule()
+        let navigationController = UINavigationController(rootViewController: viewController)
+        present(navigationController, animated: true)
     }
 }
 
 extension HomeViewController: HomeViewDelegate {
     func didSelectActivity() {
-        let vc = ActivityDetailsViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        let activityDetailsViewController = ActivityDetailsViewController()
+        self.navigationController?.pushViewController(activityDetailsViewController, animated: true)
     }
 }
 
