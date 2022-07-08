@@ -7,13 +7,18 @@
 
 import Foundation
 
-
-struct ContactListRouter {
-	static func createModule() -> ContactListViewController {
+struct ContactListRouter: ContactListRouterProtocol {
+	func createModule() -> ContactListViewController {
 		let view = ContactListViewController()
 		let presenter =  ContactListPresenter()
-		view.presenter = presenter
+		let interactor = ContactListInteractor()
+		
 		presenter.view = view
+		presenter.interactor = interactor
+		
+		interactor.presenter = presenter
+		
+		view.presenter = presenter
 		return view
 	}
 }

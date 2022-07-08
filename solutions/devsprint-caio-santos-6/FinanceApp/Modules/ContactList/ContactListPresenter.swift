@@ -10,17 +10,36 @@ import Foundation
 class ContactListPresenter: ContactListPresenterProtocol {
 	
 	weak var view: ContactListPresenterDelegate?
-	weak var interactor: ContactListInteractorDelegate?
+	var interactor: ContactListInteractorProtocol?
+	var contacts: [Contact] = [] {
+		didSet {
+			view?.updateView()
+		}
+	}
 	
-	func getDTOforCell(at row: IndexPath) -> ContactCellView.DTO? {
-		.init(avatarImageName: "avatar-placeholder", contactNameText: "Contact name", contactPhoneText: "5555-55555")
+	func viewDidLoad() {
+		interactor?.fetchData()
+	}
+	
+	func getDTOforCell(at indexPath: IndexPath) -> ContactCellView.DTO? {
+		guard contacts.indices.contains(indexPath.row) else { return nil }
+		let contact = contacts[indexPath.row]
+		return .init(avatarImageName: contact.image,
+					 contactNameText: contact.name,
+					 contactPhoneText: contact.phone)
 	}
 	
 	func numberOfRowsInSection() -> Int {
-		10
+		contacts.count
 	}
 }
 
 extension ContactListPresenter: ContactListInteractorDelegate {
+	func didFetchWithError() {
+		view?.showError(message: "Aconteceu algo inesperado")
+	}
 	
+	func didFetchData(contacts: [Contact]) {
+		self.contacts = contacts
+	}
 }
