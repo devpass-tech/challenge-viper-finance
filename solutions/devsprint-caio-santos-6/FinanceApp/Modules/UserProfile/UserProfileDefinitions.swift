@@ -23,11 +23,23 @@ struct User: Codable {
         self.address = address
         self.account = account
     }
+    
+    static func fixture() -> User {
+        .init(name: "name",
+              phone: "phone",
+              email: "email",
+              address: "address",
+              account: .fixture())
+    }
 }
 
 struct Account: Codable {
     let agency: String?
     let account: String?
+    
+    static func fixture() -> Account {
+        .init(agency: "agency", account: "account")
+    }
 }
 
 struct AccountData {

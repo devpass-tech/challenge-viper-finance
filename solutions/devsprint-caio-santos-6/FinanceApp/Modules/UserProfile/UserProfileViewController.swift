@@ -17,6 +17,7 @@ class UserProfileViewController: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         tableView.dataSource = self
+        tableView.delegate = self
 
         let headerView = UserProfileHeaderView()
         headerView.frame = CGRect(x: 0, y: 0, width: 0, height: 232)
@@ -48,7 +49,7 @@ extension UserProfileViewController {
 
 // MARK: - UITableViewDataSource
 
-extension UserProfileViewController: UITableViewDataSource {
+extension UserProfileViewController: UITableViewDataSource, UITableViewDelegate {
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return presenter?.numberOfSections() ?? 0
@@ -59,30 +60,47 @@ extension UserProfileViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let data = presenter?.getLabelValue(at: indexPath) else {
+            return UITableViewCell()
+        }
 
         let cell = UITableViewCell(style: .value1, reuseIdentifier: "Cell")
+        cell.textLabel?.text = data.label
+        cell.detailTextLabel?.text = data.value
 
-        switch indexPath.row {
-        case 0:
-
-            cell.textLabel?.text = "Phone"
-            cell.detailTextLabel?.text = "+55 (11) 99999-9999"
-        case 1:
-
-            cell.textLabel?.text = "E-mail"
-            cell.detailTextLabel?.text = "user@devpass.com"
-        case 2:
-
-            cell.textLabel?.text = "Address"
-            cell.detailTextLabel?.text = "Rua Bela Cintra, 495"
-        default:
-            break
-        }
+//        switch indexPath.row {
+//        case 0:
+//
+//            cell.textLabel?.text = "Phone"
+//            cell.detailTextLabel?.text = "+55 (11) 99999-9999"
+//        case 1:
+//
+//            cell.textLabel?.text = "E-mail"
+//            cell.detailTextLabel?.text = "user@devpass.com"
+//        case 2:
+//
+//            cell.textLabel?.text = "Address"
+//            cell.detailTextLabel?.text = "Rua Bela Cintra, 495"
+//        default:
+//            break
+//        }
+        
+        
         return cell
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "My account"
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let message = presenter?.showSelectedValue(index: indexPath.row) else {
+            return
+        }
+
+        let alert = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Click", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
@@ -92,15 +110,11 @@ extension UserProfileViewController: UserProfilePresenterDelegate {
         DispatchQueue.main.async { [weak self] in
             self?.tableView.reloadData()
         }
-        
-        print("showData called")
     }
     
     func showError() {
         DispatchQueue.main.async { [weak self] in
             self?.tableView.isHidden = true
         }
-        
-        print("showError called")
     }
 }

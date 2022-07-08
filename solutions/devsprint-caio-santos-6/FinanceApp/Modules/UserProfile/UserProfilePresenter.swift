@@ -12,7 +12,6 @@ class UserProfilePresenter: UserProfilePresenterProtocol {
     var interactor: UserProfileInteractorProtocol?
     var router: UserProfileRouterProtocol?
     
-    var data: Any?
     var user: User?
     var accountInfos: [AccountData]?
     
@@ -20,8 +19,14 @@ class UserProfilePresenter: UserProfilePresenterProtocol {
         interactor?.fetchData()
     }
     
-    func showSelectedValue(index: Int) -> String {
-        ""
+    func showSelectedValue(index: Int) -> String? {
+        guard let data = accountInfos,
+              let label = data[index].label,
+              let value = data[index].value else {
+            return nil
+        }
+        
+        return "Você tocou no item \(label), cujo valor é \(value)"
     }
     
     func numberOfSections() -> Int {
@@ -29,7 +34,7 @@ class UserProfilePresenter: UserProfilePresenterProtocol {
     }
     
     func numberOfRows(at section: Int) -> Int {
-        3
+        accountInfos?.count ?? 0
     }
     
     func titleForHeaderInSection(_ section: Int) -> String {
@@ -37,7 +42,13 @@ class UserProfilePresenter: UserProfilePresenterProtocol {
     }
     
     func getLabelValue(at indexPath: IndexPath) -> (label: String, value: String) {
-        (label: "", value: "")
+        guard let data = accountInfos,
+              let label = data[indexPath.row].label,
+              let value = data[indexPath.row].value else {
+            return (label: "", value: "")
+        }
+        
+        return (label: label, value: value)
     }
 }
 

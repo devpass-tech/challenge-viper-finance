@@ -12,11 +12,9 @@ protocol UserProfilePresenterProtocol {
     var view: UserProfilePresenterDelegate? { get set }
     var interactor: UserProfileInteractorProtocol? { get set }
     var router: UserProfileRouterProtocol? { get set }
-    
-    var data: Any? { get set }
 
     func viewDidLoad() // 1: --> Pedir os dados para Interactor
-    func showSelectedValue(index: Int) -> String // Ex.: Você tocou no item {LABEL} cujo valor é {VALUE}
+    func showSelectedValue(index: Int) -> String? // Ex.: Você tocou no item {LABEL} cujo valor é {VALUE}
     func numberOfSections() -> Int
     func numberOfRows(at section: Int) -> Int
     func titleForHeaderInSection(_ section: Int) -> String
