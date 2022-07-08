@@ -82,5 +82,9 @@ extension ContactListViewController: UITableViewDelegate {
 }
 
 extension ContactListViewController: ContactListPresenterDelegate {
-	
+	func updateView() {
+		DispatchQueue.main.async { [weak self] in
+			self?.tableView.reloadData()
+		}
+	}
 }
