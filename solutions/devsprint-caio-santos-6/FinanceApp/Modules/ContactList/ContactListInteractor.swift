@@ -12,7 +12,7 @@ class ContactListInteractor: ContactListInteractorProtocol {
 	var presenter: ContactListInteractorDelegate?
 
 	func fetchData() {
-		DispatchQueue.main.asyncAfter(deadline: .now() + 0.5 ) { [weak self] in
+        DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 0.5 ) { [weak self] in
 			let successChance = Int.random(in: 1...4)
 			switch successChance {
 			case 1:

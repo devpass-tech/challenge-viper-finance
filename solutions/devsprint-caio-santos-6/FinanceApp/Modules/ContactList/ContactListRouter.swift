@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct ContactListRouter: ContactListRouterProtocol {
-	func createModule() -> ContactListViewController {
+class ContactListRouter: ContactListRouterProtocol {
+	static func createModule() -> ContactListViewController {
 		let view = ContactListViewController()
 		let presenter =  ContactListPresenter()
 		let interactor = ContactListInteractor()

@@ -65,19 +65,19 @@ extension ContactListViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		return Self.cellSize
 	}
-	public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-	}
 }
 
 extension ContactListViewController: ContactListPresenterDelegate {
 	func showError(message: String) {
-		let alert = UIAlertController(title: "Ops..", message: message, preferredStyle: .alert)
-		let action = UIAlertAction(title: "Tente de novo", style: .default) { [weak self] _ in
-			self?.presenter?.viewDidLoad()
-		}
-		alert.addAction(action)
-		present(alert, animated: true)
+        let alert = UIAlertController(title: "Ops..", message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Tente de novo", style: .default) { [weak self] _ in
+            self?.presenter?.viewDidLoad()
+        }
+        alert.addAction(action)
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.present(alert, animated: true)
+        }
 	}
 
 	func updateView() {

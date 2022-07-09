@@ -9,20 +9,23 @@ import Foundation
 
 class UserProfileInteractor: UserProfileInteractorProtocol {
     weak var presenter: UserProfileInteractorDelegate?
+    private let service: FinanceServiceProtocol
     
-    let apiURL = "https://raw.githubusercontent.com/devpass-tech/challenge-viper-finance/main/api/user_profile_endpoint.json"
-    
+    init(service: FinanceServiceProtocol) {
+        self.service = service
+    }
+
     func fetchData() {
-        // CHAMADA DE API
-        // case result
-            // Sucesso
-        
-        DispatchQueue.global().async { [weak self] in
+        service.load(endpoint: .userProfile) { [weak self] (response: Result<User, FinanceServiceError>) in
             guard let safeSelf = self else { return }
-            safeSelf.presenter?.didFetchData(user: User.fixture(), accountInfos: safeSelf.getAccountInfos())
+            
+            switch response {
+            case let .success(user):
+                safeSelf.presenter?.didFetchData(user: user, accountInfos: safeSelf.getAccountInfos())
+            case .failure:
+                safeSelf.presenter?.didFetchDataWithError()
+            }
         }
-            // Erro
-//                presenter?.didFetchDataWithError()
     }
     
     func getAccountInfos() -> [AccountData] {

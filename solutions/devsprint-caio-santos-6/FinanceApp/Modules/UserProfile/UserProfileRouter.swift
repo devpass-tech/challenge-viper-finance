@@ -13,7 +13,7 @@ class UserProfileRouter: UserProfileRouterProtocol {
     static func createModule() -> UIViewController {
         let viewController = UserProfileViewController()
         let presenter = UserProfilePresenter()
-        let interactor = UserProfileInteractor()
+        let interactor = UserProfileInteractor(service: FinanceService())
         
         presenter.view = viewController
         presenter.router = UserProfileRouter()

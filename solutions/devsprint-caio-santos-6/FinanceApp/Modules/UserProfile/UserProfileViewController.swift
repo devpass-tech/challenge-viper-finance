@@ -68,24 +68,6 @@ extension UserProfileViewController: UITableViewDataSource, UITableViewDelegate 
         cell.textLabel?.text = data.label
         cell.detailTextLabel?.text = data.value
 
-//        switch indexPath.row {
-//        case 0:
-//
-//            cell.textLabel?.text = "Phone"
-//            cell.detailTextLabel?.text = "+55 (11) 99999-9999"
-//        case 1:
-//
-//            cell.textLabel?.text = "E-mail"
-//            cell.detailTextLabel?.text = "user@devpass.com"
-//        case 2:
-//
-//            cell.textLabel?.text = "Address"
-//            cell.detailTextLabel?.text = "Rua Bela Cintra, 495"
-//        default:
-//            break
-//        }
-        
-        
         return cell
     }
 

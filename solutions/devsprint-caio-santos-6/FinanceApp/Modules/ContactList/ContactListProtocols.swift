@@ -30,6 +30,6 @@ protocol ContactListInteractorDelegate: AnyObject {
 	func didFetchWithError()
 }
 
-protocol ContactListRouterProtocol {
-	func createModule() -> ContactListViewController
+protocol ContactListRouterProtocol: AnyObject {
+	static func createModule() -> ContactListViewController
 }

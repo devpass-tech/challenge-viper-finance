@@ -9,7 +9,7 @@ import UIKit
 
 class TransfersRouter: TransfersRouterProtocol {
     func navigateToContactList(navigation: UINavigationController) {
-        navigation.present(ContactListViewController(), animated: true)
+        navigation.present(ContactListRouter.createModule(), animated: true)
     }
     
     func navigateToConfirmation(navigation: UINavigationController) {
