@@ -8,30 +8,33 @@
 import UIKit
 
 class TransfersViewController: UIViewController {
-
+    var presenter: TransfersPresenterProtocol?
+    
     lazy var transferView: TransfersView = {
-
         let transferView = TransfersView()
         transferView.delegate = self
         return transferView
     }()
-
+    
     override func loadView() {
         self.view = transferView
     }
 }
 
 extension TransfersViewController: TransferViewDelegate {
-
     func didPressChooseContactButton() {
-
-		let navigationController = UINavigationController(rootViewController: ContactListRouter().createModule())
-        self.present(navigationController, animated: true)
+        guard let navigationController = self.navigationController else { return }
+        presenter?.goToContactList(navigation: navigationController)
     }
-
+    
     func didPressTransferButton() {
+        guard let navigationController = self.navigationController else { return }
+        presenter?.goToConfirmation(navigation: navigationController)
+    }
+}
 
-        let navigationController = UINavigationController(rootViewController: ConfirmationViewController())
-        self.present(navigationController, animated: true)
+extension TransfersViewController: TransfersPresenterDelegate {
+    func showDataOnView() {
+        print("show data on view")
     }
 }
