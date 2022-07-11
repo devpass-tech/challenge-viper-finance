@@ -8,8 +8,17 @@
 import UIKit
 
 class ConfirmationViewController: UIViewController {
-
+    let screenView = ConfirmationView()
+    
     override func loadView() {
-        self.view = ConfirmationView()
+        screenView.delegate = self
+        view = screenView
     }
 }
+
+extension ConfirmationViewController: ConfirmationViewDelegate {
+    func didTapButton() {
+        dismiss(animated: true, completion: nil)
+    }
+}
+

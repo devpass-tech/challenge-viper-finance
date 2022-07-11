@@ -8,13 +8,17 @@
 import UIKit
 
 protocol TransfersPresenterDelegate: AnyObject {
-    func showDataOnView()
+    func showDataOnView(transfer: Transfer)
 }
 
 
 class TransfersPresenter: TransfersPresenterProtocol {
+    weak var view: TransfersPresenterDelegate?
+    var interactor: TransfersInteractorProtocol?
+    var router: TransfersRouterProtocol?
+    
     func viewDidLoad() {
-        interactor?.fetchData()
+//        interactor?.fetchData()
     }
     
     func goToContactList(navigation: UINavigationController) {
@@ -22,17 +26,13 @@ class TransfersPresenter: TransfersPresenterProtocol {
     }
     
     func goToConfirmation(navigation: UINavigationController) {
+        interactor?.fetchData()
         router?.navigateToConfirmation(navigation: navigation)
     }
-    
-    weak var view: TransfersPresenterDelegate?
-    var interactor: TransfersInteractorProtocol?
-    var router: TransfersRouterProtocol?
-    
 }
 
 extension TransfersPresenter: TransfersInteractorDelegate {
-    func didFetchData() {
-        view?.showDataOnView()
+    func didFetchData(transfer: Transfer) {
+        view?.showDataOnView(transfer: transfer)
     }
 }

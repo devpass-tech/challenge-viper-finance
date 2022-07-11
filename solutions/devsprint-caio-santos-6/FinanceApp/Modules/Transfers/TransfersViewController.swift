@@ -19,6 +19,10 @@ class TransfersViewController: UIViewController {
     override func loadView() {
         self.view = transferView
     }
+    
+    override func viewDidLoad() {
+        presenter?.viewDidLoad()
+    }
 }
 
 extension TransfersViewController: TransferViewDelegate {
@@ -34,7 +38,7 @@ extension TransfersViewController: TransferViewDelegate {
 }
 
 extension TransfersViewController: TransfersPresenterDelegate {
-    func showDataOnView() {
-        print("show data on view")
+    func showDataOnView(transfer: Transfer) {
+        print("presenter send: \(transfer)")
     }
 }

@@ -25,6 +25,8 @@ protocol TransfersRouterProtocol {
 
 protocol TransfersInteractorProtocol {
     var presenter: TransfersInteractorDelegate? { get set }
+    var networkService: FinanceServiceProtocol? { get set }
+    
     func fetchData()
 }
 
