@@ -9,12 +9,14 @@ import Foundation
 
 protocol TransfersInteractorDelegate: AnyObject {
     func didFetchData(transfer: Transfer)
+    func didFetchDataWithError()
 }
 
 class TransfersInteractor: TransfersInteractorProtocol {
-    var networkService: FinanceServiceProtocol?
     weak var presenter: TransfersInteractorDelegate?
     
+    private var networkService: FinanceServiceProtocol?
+
     init (networkService: FinanceServiceProtocol) {
         self.networkService = networkService
     }
@@ -30,6 +32,7 @@ class TransfersInteractor: TransfersInteractorProtocol {
             case .success(let transfer):
                 presenter.didFetchData(transfer: transfer)
             case .failure(let error):
+                presenter.didFetchDataWithError()
                 print(error.localizedDescription)
             }
         }

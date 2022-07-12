@@ -8,7 +8,8 @@
 import UIKit
 
 protocol TransfersPresenterDelegate: AnyObject {
-    func showDataOnView(transfer: Transfer)
+//    func showDataOnView()
+    func showError()
 }
 
 
@@ -17,22 +18,29 @@ class TransfersPresenter: TransfersPresenterProtocol {
     var interactor: TransfersInteractorProtocol?
     var router: TransfersRouterProtocol?
     
+    private var transfer: Transfer?
+    
     func viewDidLoad() {
-//        interactor?.fetchData()
+
     }
     
-    func goToContactList(navigation: UINavigationController) {
-        router?.navigateToContactList(navigation: navigation)
-    }
-    
-    func goToConfirmation(navigation: UINavigationController) {
+    func doTransfer() {
         interactor?.fetchData()
-        router?.navigateToConfirmation(navigation: navigation)
+    }
+    
+    func goToContactList() {
+        router?.navigateToContactList()
     }
 }
 
 extension TransfersPresenter: TransfersInteractorDelegate {
+    func didFetchDataWithError() {
+        view?.showError()
+    }
+    
     func didFetchData(transfer: Transfer) {
-        view?.showDataOnView(transfer: transfer)
+        self.transfer = transfer
+//        view?.showDataOnView()
+        router?.navigateToConfirmation()
     }
 }

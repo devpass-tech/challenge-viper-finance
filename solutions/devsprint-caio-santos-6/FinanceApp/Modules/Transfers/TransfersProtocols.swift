@@ -13,19 +13,20 @@ protocol TransfersPresenterProtocol {
     var router: TransfersRouterProtocol? { get set }
     
     func viewDidLoad()
-    func goToContactList(navigation: UINavigationController)
-    func goToConfirmation(navigation: UINavigationController)
+    func doTransfer()
+    func goToContactList()
 }
 
 protocol TransfersRouterProtocol {
+    var viewController: UIViewController? { get set }
+    
     static func makeTransfersController() -> UIViewController
-    func navigateToContactList(navigation: UINavigationController)
-    func navigateToConfirmation(navigation: UINavigationController)
+    func navigateToContactList()
+    func navigateToConfirmation()
 }
 
 protocol TransfersInteractorProtocol {
     var presenter: TransfersInteractorDelegate? { get set }
-    var networkService: FinanceServiceProtocol? { get set }
     
     func fetchData()
 }

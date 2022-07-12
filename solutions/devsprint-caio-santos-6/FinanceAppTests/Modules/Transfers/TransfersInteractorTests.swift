@@ -17,24 +17,42 @@ class TransfersInteractorTests: XCTestCase {
     }
     
     func test_fetchData_withValidResponse_shouldReturnTransfer() throws {
-        sut = .init(networkService: NetworkServiceMock())
-        let mock = Transfer(success: true)
-        var result = [Transfer?]()
+        sut = .init(networkService: NetworkServiceMock()) // <<<< withValidResponse
+        let spy = TransfersInteractorDelegateSpy()
+        sut.presenter = spy
+//        let mock = Transfer(success: true)
+//        var result = [Transfer?]()
         
-        sut.networkService?.load(endpoint: .transfers, completion: { transfer in
-            
-        })
+//        sut.networkService?.load(endpoint: .transfers, completion: { transfer in
+//            
+//        })
         
-        XCTAssertEqual(result.first, mock)
+        sut.fetchData()
+        
+        XCTAssertTrue(spy.didFetchDataCalled)
+    }
+}
+
+class TransfersInteractorDelegateSpy: TransfersInteractorDelegate {
+    var didFetchDataCalled = false
+    var didFetchDataWithErrorCalled = false
+
+    func didFetchData(transfer: Transfer) {
+        didFetchDataCalled = true
+    }
+    
+    func didFetchDataWithError() {
+        didFetchDataWithErrorCalled = true
     }
 }
 
 class NetworkServiceMock: FinanceServiceProtocol {
+    var isError = false
+    
     func load<T>(endpoint: FinanceEndpoint,
                  completion: @escaping (Result<T, FinanceServiceError>) -> Void)
     where T : Decodable {
-        
+        completion(.success(Transfer.init(success: true) as! T))
     }
-  
 }
 
