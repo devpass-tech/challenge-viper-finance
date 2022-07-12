@@ -8,31 +8,39 @@
 import UIKit
 
 protocol TransfersPresenterDelegate: AnyObject {
-    func showDataOnView()
+//    func showDataOnView()
+    func showError()
 }
 
 
 class TransfersPresenter: TransfersPresenterProtocol {
-    func viewDidLoad() {
-        interactor?.fetchData()
-    }
-    
-    func goToContactList(navigation: UINavigationController) {
-        router?.navigateToContactList(navigation: navigation)
-    }
-    
-    func goToConfirmation(navigation: UINavigationController) {
-        router?.navigateToConfirmation(navigation: navigation)
-    }
-    
     weak var view: TransfersPresenterDelegate?
     var interactor: TransfersInteractorProtocol?
     var router: TransfersRouterProtocol?
     
+    private var transfer: Transfer?
+    
+    func viewDidLoad() {
+
+    }
+    
+    func doTransfer() {
+        interactor?.fetchData()
+    }
+    
+    func goToContactList() {
+        router?.navigateToContactList()
+    }
 }
 
 extension TransfersPresenter: TransfersInteractorDelegate {
-    func didFetchData() {
-        view?.showDataOnView()
+    func didFetchDataWithError() {
+        view?.showError()
+    }
+    
+    func didFetchData(transfer: Transfer) {
+        self.transfer = transfer
+//        view?.showDataOnView()
+        router?.navigateToConfirmation()
     }
 }

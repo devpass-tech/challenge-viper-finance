@@ -19,22 +19,30 @@ class TransfersViewController: UIViewController {
     override func loadView() {
         self.view = transferView
     }
+    
+    override func viewDidLoad() {
+        presenter?.viewDidLoad()
+    }
 }
 
 extension TransfersViewController: TransferViewDelegate {
     func didPressChooseContactButton() {
-        guard let navigationController = self.navigationController else { return }
-        presenter?.goToContactList(navigation: navigationController)
+        presenter?.goToContactList()
     }
     
     func didPressTransferButton() {
-        guard let navigationController = self.navigationController else { return }
-        presenter?.goToConfirmation(navigation: navigationController)
+        presenter?.doTransfer()
     }
 }
 
 extension TransfersViewController: TransfersPresenterDelegate {
-    func showDataOnView() {
-        print("show data on view")
+    func showError() {
+        print("Deu ruim.")
     }
+//
+//    func showDataOnView() {
+//        print("Deu bom")
+//        guard let navigationController = self.navigationController else { return }
+//        presenter?.goToConfirmation(navigation: navigationController)
+//    }
 }

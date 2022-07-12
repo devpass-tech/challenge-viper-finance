@@ -8,22 +8,33 @@
 import UIKit
 
 class TransfersRouter: TransfersRouterProtocol {
-    func navigateToContactList(navigation: UINavigationController) {
-        navigation.present(ContactListRouter.createModule(), animated: true)
+    var viewController: UIViewController?
+    
+    internal init(viewController: UIViewController? = nil) {
+        self.viewController = viewController
     }
     
-    func navigateToConfirmation(navigation: UINavigationController) {
-        navigation.present(ConfirmationViewController(), animated: true)
+    func navigateToContactList() {
+        DispatchQueue.main.async { [weak self] in
+            self?.viewController?.navigationController?.present(ContactListRouter.createModule(), animated: true)
+        }
+    }
+    
+    func navigateToConfirmation() {
+        DispatchQueue.main.async { [weak self] in
+            self?.viewController?.navigationController?.present(ConfirmationViewController(), animated: true)
+        }
     }
     
     static func makeTransfersController() -> UIViewController {
         let viewController  = TransfersViewController()
         let presenter: TransfersPresenterProtocol & TransfersInteractorDelegate = TransfersPresenter()
+        let router = TransfersRouter(viewController: viewController)
         
         viewController.presenter = presenter
-        viewController.presenter?.router = TransfersRouter()
+        viewController.presenter?.router = router
         viewController.presenter?.view = viewController
-        viewController.presenter?.interactor = TransfersInteractor()
+        viewController.presenter?.interactor = TransfersInteractor(networkService: FinanceService())
         viewController.presenter?.interactor?.presenter = presenter
         
         return viewController
