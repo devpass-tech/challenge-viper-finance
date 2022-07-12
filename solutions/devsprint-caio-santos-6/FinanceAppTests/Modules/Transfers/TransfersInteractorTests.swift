@@ -52,7 +52,9 @@ class NetworkServiceMock: FinanceServiceProtocol {
     func load<T>(endpoint: FinanceEndpoint,
                  completion: @escaping (Result<T, FinanceServiceError>) -> Void)
     where T : Decodable {
-        completion(.success(Transfer.init(success: true) as! T))
+        guard let data = Transfer(success: true) as? T else { return }
+        
+        completion(.success(data))
     }
 }
 
