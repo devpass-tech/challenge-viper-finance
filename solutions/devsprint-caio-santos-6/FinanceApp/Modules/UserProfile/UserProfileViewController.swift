@@ -90,7 +90,16 @@ extension UserProfileViewController: UITableViewDataSource, UITableViewDelegate 
 extension UserProfileViewController: UserProfilePresenterDelegate {
     func showData() {
         DispatchQueue.main.async { [weak self] in
-            self?.tableView.reloadData()
+            guard let self = self else { return }
+            
+            self.tableView.reloadData()
+            
+            if let headerView = self.tableView.tableHeaderView as? UserProfileHeaderView,
+               let user = self.presenter?.getUser() {
+                headerView.nameLabel.text = user.name
+                headerView.agencyLabel.text = "Agencia: \(user.account?.agency ?? "")"
+                headerView.accountLabel.text = "Conta: \(user.account?.account ?? "")"
+            }
         }
     }
     

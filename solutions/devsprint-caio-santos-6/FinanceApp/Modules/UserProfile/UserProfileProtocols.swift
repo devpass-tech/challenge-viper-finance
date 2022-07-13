@@ -19,6 +19,7 @@ protocol UserProfilePresenterProtocol {
     func numberOfRows(at section: Int) -> Int
     func titleForHeaderInSection(_ section: Int) -> String
     func getLabelValue(at indexPath: IndexPath) -> (label: String, value: String)
+    func getUser() -> User?
 }
 
 protocol UserProfileInteractorProtocol {

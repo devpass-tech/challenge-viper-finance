@@ -50,6 +50,10 @@ class UserProfilePresenter: UserProfilePresenterProtocol {
         
         return (label: label, value: value)
     }
+    
+    func getUser() -> User? {
+        user
+    }
 }
 
 extension UserProfilePresenter: UserProfileInteractorDelegate {
