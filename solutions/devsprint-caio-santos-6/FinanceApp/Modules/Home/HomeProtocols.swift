@@ -14,6 +14,7 @@ protocol HomeInteractorProtocol {
 protocol HomeRouterProtocol {
     static func createModule() -> UIViewController
     func navigationToNewScreen(navigation: UINavigationController)
+    func showActivityDetailsView(navigation: UINavigationController)
 }
 
 protocol HomePresenterProtocol {
@@ -23,4 +24,5 @@ protocol HomePresenterProtocol {
     
     func viewDidLoad()
     func navigationToNewScreen(navigation: UINavigationController)
+    func showActivityDetailsView(navigation: UINavigationController)
 }

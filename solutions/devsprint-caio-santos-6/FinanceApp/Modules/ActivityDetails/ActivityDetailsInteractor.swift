@@ -1,3 +1,4 @@
+import Foundation
 
 final class ActivityDetailsInteractor {
     
@@ -24,6 +25,11 @@ final class ActivityDetailsInteractor {
 extension ActivityDetailsInteractor: ActivityDetailsInteractorInputProtocol {
     func makeReport() {
         print("do any report logic")
-        output?.sendReport()
+        
+        // Simulando saída da main thread na chamada de um serviço
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            self?.output?.sendReport()
+        }
+        
     }
 }

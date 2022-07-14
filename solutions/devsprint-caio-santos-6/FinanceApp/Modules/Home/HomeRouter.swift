@@ -8,8 +8,6 @@
 import UIKit
 
 final class HomeRouter: HomeRouterProtocol {
-
-    
     static func createModule() -> UIViewController {
         let viewController: HomeViewController = HomeViewController()
         let presenter: HomePresenterProtocol & HomeInteractorDelegate = HomePresenter()
@@ -25,5 +23,9 @@ final class HomeRouter: HomeRouterProtocol {
     
     func navigationToNewScreen(navigation: UINavigationController) {
         navigation.present(UserProfileViewController(), animated: true)
+    }
+    
+    func showActivityDetailsView(navigation: UINavigationController) {
+        navigation.pushViewController(ActivityDetailsConfigurator().createModule(), animated: true)
     }
 }

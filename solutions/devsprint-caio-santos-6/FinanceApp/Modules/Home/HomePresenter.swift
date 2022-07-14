@@ -22,6 +22,10 @@ final class HomePresenter: HomePresenterProtocol {
     func navigationToNewScreen(navigation: UINavigationController) {
         router?.navigationToNewScreen(navigation: navigation)
     }
+    
+    func showActivityDetailsView(navigation: UINavigationController) {
+        router?.showActivityDetailsView(navigation: navigation)
+    }
 }
 
 extension HomePresenter: HomeInteractorDelegate {}

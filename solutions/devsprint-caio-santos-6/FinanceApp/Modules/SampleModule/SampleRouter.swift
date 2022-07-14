@@ -22,6 +22,7 @@ class SampleRouter: SampleRouterProtocol {
         viewController.presenter?.view = viewController
         viewController.presenter?.interactor = SampleInteractor()
         viewController.presenter?.interactor?.presenter = presenter
+        
         return navigationController
     }
 

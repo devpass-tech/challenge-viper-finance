@@ -28,8 +28,8 @@ class ActivityDetailsViewController: UIViewController {
 
 extension ActivityDetailsViewController: ActivityDetailsPresenterOutputProtocol {
     func showReportAlert() {
-        let alert = UIAlertController(title: "", message: "Report Issue", preferredStyle: .alert)
-        let action = UIAlertAction(title: "", style: .default)
+        let alert = UIAlertController(title: "Alert", message: "Report Issue", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default)
         alert.addAction(action)
         
         DispatchQueue.main.async { [weak self] in
