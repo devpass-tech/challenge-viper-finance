@@ -8,7 +8,13 @@
 import Foundation
 import UIKit
 
+protocol ActivityDetailsViewOutput: AnyObject {
+    func didTapButton()
+}
+
 class ActivityDetailsView: UIView {
+    
+    weak var delegate: ActivityDetailsViewOutput?
 
     let stackView: UIStackView = {
 
@@ -78,6 +84,7 @@ class ActivityDetailsView: UIView {
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 14
+        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         return button
     }()
 
@@ -120,5 +127,11 @@ class ActivityDetailsView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension ActivityDetailsView {
+    @objc func buttonAction(sender: UIButton) {
+        delegate?.didTapButton()
     }
 }
