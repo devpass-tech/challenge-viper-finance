@@ -22,7 +22,7 @@ class TransfersRouter: TransfersRouterProtocol {
     
     func navigateToConfirmation() {
         DispatchQueue.main.async { [weak self] in
-            self?.viewController?.navigationController?.present(ConfirmationViewController(), animated: true)
+            self?.viewController?.navigationController?.present(ConfirmationConfigurator().createModule(), animated: true)
         }
     }
     
