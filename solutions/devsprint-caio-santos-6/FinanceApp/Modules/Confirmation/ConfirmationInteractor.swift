@@ -17,6 +17,12 @@ final class ConfirmationInteractor {
 // MARK: - Input Protocol
 extension ConfirmationInteractor: ConfirmationInteractorInputProtocol {
     func tappedNice() {
-        output?.niceButtonResponse()
+        for _ in 1...3 {
+            output?.niceButtonResponse()
+        }
+        
+//        output?.sample3()
+//        output?.sample1()
+//        output?.sample2()
     }
 }

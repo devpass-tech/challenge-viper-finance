@@ -17,7 +17,7 @@ class TransfersInteractorTests: XCTestCase {
     }
     
     func test_fetchData_withValidResponse_shouldReturnTransfer() throws {
-        sut = .init(networkService: NetworkServiceMock()) // <<<< withValidResponse
+        sut = .init(networkService: FinanceServiceMock()) // <<<< withValidResponse
         let spy = TransfersInteractorDelegateSpy()
         sut.presenter = spy
 //        let mock = Transfer(success: true)
@@ -46,7 +46,7 @@ class TransfersInteractorDelegateSpy: TransfersInteractorDelegate {
     }
 }
 
-class NetworkServiceMock: FinanceServiceProtocol {
+class FinanceServiceMock: FinanceServiceProtocol {
     var isError = false
     
     func load<T>(endpoint: FinanceEndpoint,

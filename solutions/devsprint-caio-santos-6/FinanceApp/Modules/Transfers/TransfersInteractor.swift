@@ -15,15 +15,15 @@ protocol TransfersInteractorDelegate: AnyObject {
 class TransfersInteractor: TransfersInteractorProtocol {
     weak var presenter: TransfersInteractorDelegate?
     
-    private var networkService: FinanceServiceProtocol?
+    private var service: FinanceServiceProtocol?
 
-    init (networkService: FinanceServiceProtocol) {
-        self.networkService = networkService
+    init (service: FinanceServiceProtocol) {
+        self.service = service
     }
     
     func fetchData() {
-        guard let networkService = networkService else { return }
-        networkService.load(endpoint: .transfers) { [presenter] (response: Result<Transfer, FinanceServiceError>) in
+        guard let service = service else { return }
+        service.load(endpoint: .transfers) { [presenter] (response: Result<Transfer, FinanceServiceError>) in
             guard let presenter = presenter else {
                 return
             }

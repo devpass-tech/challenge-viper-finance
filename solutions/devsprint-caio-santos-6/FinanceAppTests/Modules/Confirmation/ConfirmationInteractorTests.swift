@@ -10,25 +10,48 @@ import XCTest
 
 class  ConfirmationInteractorTests: XCTestCase {
 
-    var sut:  ConfirmationInteractor!
+    var sut: ConfirmationInteractor!
 
     override func tearDown() {
         sut = nil
     }
-    
+
     func test_niceButtonResponse() throws {
+        sut = .init()
+        
         let spy = ConfirmationInteractorDelegateSpy()
         sut.output = spy
-        
+
         sut.tappedNice()
-        
-        XCTAssertTrue(spy.niceButtonResponseCalled)
+
+        //        XCTAssertEqual(spy.calledMethods, [.niceButtonResponse, .sample1, .sample2, .sample3])
+        XCTAssertEqual(spy.calledMethods, [.niceButtonResponse, .niceButtonResponse])
     }
 }
 
 class ConfirmationInteractorDelegateSpy:  ConfirmationInteractorOutputProtocol {
-    var niceButtonResponseCalled: Bool = false
+    enum Methods {
+        case niceButtonResponse
+        case sample1
+        case sample2
+        case sample3
+    }
+    
+    var calledMethods: [Methods] = []
+    
     func niceButtonResponse() {
-        niceButtonResponseCalled = true
+        calledMethods.append(.niceButtonResponse)
+    }
+    
+    func sample1() {
+        calledMethods.append(.sample1)
+    }
+    
+    func sample2() {
+        calledMethods.append(.sample2)
+    }
+    
+    func sample3() {
+        calledMethods.append(.sample3)
     }
 }
