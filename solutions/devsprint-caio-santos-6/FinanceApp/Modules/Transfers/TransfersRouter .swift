@@ -34,7 +34,7 @@ class TransfersRouter: TransfersRouterProtocol {
         viewController.presenter = presenter
         viewController.presenter?.router = router
         viewController.presenter?.view = viewController
-        viewController.presenter?.interactor = TransfersInteractor(networkService: FinanceService())
+        viewController.presenter?.interactor = TransfersInteractor(service: NetworkService())
         viewController.presenter?.interactor?.presenter = presenter
         
         return viewController
