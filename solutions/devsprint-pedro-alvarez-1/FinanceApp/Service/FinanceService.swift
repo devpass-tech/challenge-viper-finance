@@ -7,8 +7,15 @@
 
 import Foundation
 
-class FinanceService {
+protocol FinanceServiceProtocol {
+    func fetchHomeData(_ completion: @escaping (HomeData?) -> Void)
+    func fetchActivityDetails(_ completion: @escaping (ActivityDetails?) -> Void)
+    func fetchContactList(_ completion: @escaping ([Contact]?) -> Void)
+    func transferAmount(_ completion: @escaping (TransferResult?) -> Void)
+    func fetchUserProfile(_ completion: @escaping (UserProfile?) -> Void)
+}
 
+class FinanceService: FinanceServiceProtocol {
     func fetchHomeData(_ completion: @escaping (HomeData?) -> Void) {
 
         let url = URL(string: "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/home_endpoint.json")!
