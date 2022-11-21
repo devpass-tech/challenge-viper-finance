@@ -13,6 +13,7 @@ struct ActivityDetailsEntity: Decodable {
     let category: String
     let time: String
     
+    //Stub to unit test
     static var stub: ActivityDetailsEntity {
         ActivityDetailsEntity(
             name: "Mall",
