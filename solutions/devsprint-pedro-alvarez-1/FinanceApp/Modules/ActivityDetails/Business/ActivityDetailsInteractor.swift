@@ -10,7 +10,7 @@ protocol ActivityDetailsInteractorInput {
 }
 
 protocol ActivityDetailsInteractorOutput: AnyObject {
-    func didFetchDetail(_ data: ActivityDetails)
+    func didFetchDetail(_ data: ActivityDetailsEntity)
 }
 
 final class ActivityDetailsInteractor: ActivityDetailsInteractorInput {

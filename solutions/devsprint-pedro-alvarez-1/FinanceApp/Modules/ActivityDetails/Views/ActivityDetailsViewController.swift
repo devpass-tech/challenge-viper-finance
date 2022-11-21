@@ -9,10 +9,17 @@ import UIKit
 
 class ActivityDetailsViewController: UIViewController {
     private let presenter: ActivityDetailsPresenterIntput
+    lazy var rootView = ActivityDetailsView()
     
     init(presenter: ActivityDetailsPresenterIntput) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        presenter.viewDidLoad()
     }
     
     required init?(coder: NSCoder) {
@@ -20,14 +27,14 @@ class ActivityDetailsViewController: UIViewController {
     }
     
     override func loadView() {
-        self.view = ActivityDetailsView()
-        presenter.fetchActivityDetails()
+        self.view = rootView
     }
 }
 
 extension ActivityDetailsViewController: ActivityDetailsPresenterOutput {
-    func showActivityDetails(_ data: ActivityDetails) {
-        // TODO: implement in the next PR
-        print("Data ViewController: \(data)")
+    func updateView() {
+        DispatchQueue.main.async {
+            self.rootView.setup(self.presenter.viewModel)
+        }
     }
 }

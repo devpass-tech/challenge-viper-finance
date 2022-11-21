@@ -8,17 +8,23 @@
 import Foundation
 
 protocol ActivityDetailsPresenterIntput {
-    func fetchActivityDetails()
+    func viewDidLoad()
+    var viewModel: ActivityDetailsViewModel? { get }
 }
 
 protocol ActivityDetailsPresenterOutput: AnyObject {
-    func showActivityDetails(_ data: ActivityDetails)
+    func updateView()
 }
 
 final class ActivityDetailsPresenter: ActivityDetailsPresenterIntput {
     private let interactor: ActivityDetailsInteractorInput
     private let router: ActivityDetailsRouterInput
     weak var view: ActivityDetailsPresenterOutput?
+    private(set) var viewModel: ActivityDetailsViewModel? {
+        didSet {
+            view?.updateView()
+        }
+    }
     
     init(interactor: ActivityDetailsInteractorInput,
          router: ActivityDetailsRouterInput) {
@@ -26,13 +32,13 @@ final class ActivityDetailsPresenter: ActivityDetailsPresenterIntput {
         self.router = router
     }
     
-    func fetchActivityDetails() {
+    func viewDidLoad() {
         interactor.fetchDetails()
     }
 }
 
 extension ActivityDetailsPresenter: ActivityDetailsInteractorOutput {
-    func didFetchDetail(_ data: ActivityDetails) {
-        view?.showActivityDetails(data)
+    func didFetchDetail(_ data: ActivityDetailsEntity) {
+        viewModel = .init(entity: data)
     }
 }
