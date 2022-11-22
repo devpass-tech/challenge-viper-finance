@@ -18,7 +18,7 @@ protocol ContactListInteractorOutput: AnyObject {
 final class ContactListInteractor {
 
     private var contacts = [Contact]()
-    private var service: FinanceService
+    private var service: FinanceServiceProtocol
     weak var presenter: ContactListInteractorOutput?
 
     init(service: FinanceService) {
