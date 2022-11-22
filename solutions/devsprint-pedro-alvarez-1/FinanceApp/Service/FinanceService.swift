@@ -7,8 +7,15 @@
 
 import Foundation
 
-class FinanceService {
+protocol FinanceServiceProtocol {
+    func fetchHomeData(_ completion: @escaping (HomeData?) -> Void)
+    func fetchActivityDetails(_ completion: @escaping (ActivityDetailsEntity?) -> Void)
+    func fetchContactList(_ completion: @escaping ([Contact]?) -> Void)
+    func transferAmount(_ completion: @escaping (TransferResult?) -> Void)
+    func fetchUserProfile(_ completion: @escaping (UserProfile?) -> Void)
+}
 
+class FinanceService: FinanceServiceProtocol {
     func fetchHomeData(_ completion: @escaping (HomeData?) -> Void) {
 
         let url = URL(string: "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/home_endpoint.json")!
@@ -39,7 +46,7 @@ class FinanceService {
         dataTask.resume()
     }
 
-    func fetchActivityDetails(_ completion: @escaping (ActivityDetails?) -> Void) {
+    func fetchActivityDetails(_ completion: @escaping (ActivityDetailsEntity?) -> Void) {
 
         let url = URL(string: "https://raw.githubusercontent.com/devpass-tech/challenge-finance-app/main/api/activity_details_endpoint.json")!
 
@@ -58,7 +65,7 @@ class FinanceService {
             do {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
-                let activityDetails = try decoder.decode(ActivityDetails.self, from: data)
+                let activityDetails = try decoder.decode(ActivityDetailsEntity.self, from: data)
                 completion(activityDetails)
             } catch {
                 print(error)
