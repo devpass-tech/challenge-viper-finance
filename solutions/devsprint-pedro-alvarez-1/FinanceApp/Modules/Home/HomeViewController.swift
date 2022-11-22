@@ -28,7 +28,7 @@ class HomeViewController: UIViewController {
     @objc
     func openProfile() {
 
-        let navigationController = UINavigationController(rootViewController: UserProfileViewController())
+        let navigationController = UINavigationController(rootViewController: UserProfileFactory.build())
         self.present(navigationController, animated: true)
     }
 }
@@ -36,8 +36,7 @@ class HomeViewController: UIViewController {
 extension HomeViewController: HomeViewDelegate {
 
     func didSelectActivity() {
-
-        let activityDetailsViewController = ActivityDetailsViewController()
-        self.navigationController?.pushViewController(activityDetailsViewController, animated: true)
+        let controller = ActivityDetailsFactory.build()
+        self.navigationController?.pushViewController(controller, animated: true)
     }
 }
