@@ -269,8 +269,10 @@
 		98584AD8277E50430028DBEA /* UserProfile */ = {
 			isa = PBXGroup;
 			children = (
-				98584ADA277E50430028DBEA /* UserProfileView.swift */,
-				98584ADB277E50430028DBEA /* UserProfileViewController.swift */,
+				B7CBC76F292D780300D66D0C /* Router */,
+				B7CBC76C292D77D400D66D0C /* Presentation */,
+				B7CBC76E292D77E200D66D0C /* View */,
+				B7CBC76D292D77DA00D66D0C /* Business */,
 			);
 			path = UserProfile;
 			sourceTree = "<group>";
@@ -313,6 +315,36 @@
 				98584B1A277E60740028DBEA /* ContactListViewController.swift */,
 			);
 			path = ContactList;
+			sourceTree = "<group>";
+		};
+		B7CBC76C292D77D400D66D0C /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		B7CBC76D292D77DA00D66D0C /* Business */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Business;
+			sourceTree = "<group>";
+		};
+		B7CBC76E292D77E200D66D0C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				98584ADA277E50430028DBEA /* UserProfileView.swift */,
+				98584ADB277E50430028DBEA /* UserProfileViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B7CBC76F292D780300D66D0C /* Router */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
