@@ -7,7 +7,7 @@
 
 enum ContactListFactory {
     static func build() -> ContactListViewController {
-        let interactor = ContactListInteractor(service: FinanceService())
+        let interactor = ContactListInteractor()
         let router = ContactListRouter()
         let presenter = ContactListPresenter(interactor: interactor, router: router)
         let viewController = ContactListViewController(presenter: presenter)

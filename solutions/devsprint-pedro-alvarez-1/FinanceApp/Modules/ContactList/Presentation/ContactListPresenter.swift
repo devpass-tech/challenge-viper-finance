@@ -17,6 +17,8 @@ protocol ContactListPresenterOutput: AnyObject {
 }
 
 final class ContactListPresenter: NSObject {
+
+    static let contactListViewCellSize = 82
     private let interactor: ContactListInteractorInput
     private let router: ContactListRouterProtocol
     weak var view: ContactListPresenterOutput?
@@ -58,8 +60,8 @@ extension ContactListPresenter: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ContactCellIdentifier",
-                                                 for: indexPath) as! ContactCellView
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ContactCellView.self),
+                                                       for: indexPath) as? ContactCellView else { return UITableViewCell()}
 
         cell.setupContent(with: contacts[indexPath.row])
         return cell
@@ -68,6 +70,6 @@ extension ContactListPresenter: UITableViewDataSource {
 
 extension ContactListPresenter: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return ContactListView.cellSize
+        return CGFloat(ContactListPresenter.contactListViewCellSize)
     }
 }

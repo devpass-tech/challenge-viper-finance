@@ -8,11 +8,16 @@
 import UIKit
 
 protocol ContactListRouterProtocol {
-
+    func createModule()
 }
 
 final class ContactListRouter: ContactListRouterProtocol {
-    var viewController: UIViewController?
+
+    weak var viewController: UIViewController?
+
+    func createModule() {
+
+    }
 
     func navigate() {
 

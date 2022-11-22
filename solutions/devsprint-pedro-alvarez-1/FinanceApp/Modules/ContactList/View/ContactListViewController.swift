@@ -10,7 +10,7 @@ import UIKit
 class ContactListViewController: UIViewController {
 
     private let presenter: ContactListPresenterInput
-    private let contactListView = ContactListView()
+    private lazy var contactListView = ContactListView()
 
     init(presenter: ContactListPresenterInput) {
         self.presenter = presenter
@@ -39,6 +39,8 @@ class ContactListViewController: UIViewController {
 
 extension ContactListViewController: ContactListPresenterOutput {
     func updateUI() {
-        contactListView.tableView.reloadData()
+        DispatchQueue.main.async {
+            self.contactListView.tableView.reloadData()
+        }
     }
 }

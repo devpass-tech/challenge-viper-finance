@@ -18,20 +18,13 @@ protocol ContactListInteractorOutput: AnyObject {
 final class ContactListInteractor {
 
     private var contacts = [Contact]()
-    private var service: FinanceService
     weak var presenter: ContactListInteractorOutput?
 
-    init(service: FinanceService) {
-        self.service = service
-    }
 }
 
 extension ContactListInteractor: ContactListInteractorInput {
     func fetchContacts() {
-        service.fetchContactList { [weak self] contacts in
-            guard let self = self, let contacts = contacts else { return }
-            self.contacts = contacts
-            self.presenter?.didFetchContacts(contacts)
-        }
+        contacts = Contact.stub
+        presenter?.didFetchContacts(contacts)
     }
 }

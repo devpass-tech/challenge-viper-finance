@@ -11,12 +11,11 @@ import UIKit
 class ContactListView: UIView {
 
     static let cellSize = CGFloat(82)
-    private let cellIdentifier = "ContactCellIdentifier"
 
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(ContactCellView.self, forCellReuseIdentifier: self.cellIdentifier)
+        tableView.register(ContactCellView.self, forCellReuseIdentifier: String(describing: ContactCellView.self))
         return tableView
     }()
 
