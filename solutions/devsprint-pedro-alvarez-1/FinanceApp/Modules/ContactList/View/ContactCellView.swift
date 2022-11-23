@@ -89,5 +89,10 @@ extension ContactCellView {
 
         ])
     }
+
+    func setupContent(with contact: ContactListViewModel) {
+        contactNameLabel.text = contact.name
+        contactPhoneLabel.text = contact.phone
+    }
 }
 
