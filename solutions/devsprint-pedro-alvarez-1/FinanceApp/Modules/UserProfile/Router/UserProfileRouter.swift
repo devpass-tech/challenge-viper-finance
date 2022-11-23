@@ -8,10 +8,18 @@
 import Foundation
 
 protocol UserProfileRouterInput {
-
+    func createModule()
 }
 
 final class UserProfileRouter: UserProfileRouterInput {
-
+    
     weak var view: UserProfileViewController?
+    
+    func createModule() {
+        
+    }
+    
+    func navigate() {
+        
+    }
 }

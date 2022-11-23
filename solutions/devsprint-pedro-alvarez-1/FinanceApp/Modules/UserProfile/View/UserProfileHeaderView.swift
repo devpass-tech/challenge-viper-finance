@@ -9,8 +9,7 @@ import UIKit
 
 class UserProfileHeaderView: UIView {
 
-    let stackView: UIStackView = {
-
+    private lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -20,8 +19,7 @@ class UserProfileHeaderView: UIView {
         return stackView
     }()
 
-    let imageView: UIImageView = {
-
+    private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "avatar-placeholder")
         imageView.layer.cornerRadius = 50
@@ -29,8 +27,7 @@ class UserProfileHeaderView: UIView {
         return imageView
     }()
 
-    let nameLabel: UILabel = {
-
+    private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.text = "User Name"
         label.textAlignment = .center
@@ -38,8 +35,7 @@ class UserProfileHeaderView: UIView {
         return label
     }()
 
-    let agencyLabel: UILabel = {
-
+    private lazy var agencyLabel: UILabel = {
         let label = UILabel()
         label.text = "Agency 0001"
         label.textAlignment = .center
@@ -47,8 +43,7 @@ class UserProfileHeaderView: UIView {
         return label
     }()
 
-    let accountLabel: UILabel = {
-
+    private lazy var accountLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Account 123456-7"
@@ -56,8 +51,7 @@ class UserProfileHeaderView: UIView {
         return label
     }()
 
-    let bankLabel: UILabel = {
-
+    private lazy var bankLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Devpass Bank"
@@ -91,5 +85,11 @@ class UserProfileHeaderView: UIView {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    func setupContent(userProfileViewModel: UserProfileViewModel) {
+        nameLabel.text = userProfileViewModel.name
+        agencyLabel.text = userProfileViewModel.account.agency
+        accountLabel.text = userProfileViewModel.account.account
     }
 }

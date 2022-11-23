@@ -8,14 +8,14 @@
 import Foundation
 
 protocol UserProfileInteractorInput {
-
+    func fetchUserProfile()
 }
 
 protocol UserProfileInteractorOutput: AnyObject {
-
+    func didFetchUserProfile(_ userProfile: UserProfile?)
 }
 
-final class UserProfileInteractor: UserProfileInteractorInput {
+final class UserProfileInteractor {
 
     private let service: FinanceServiceProtocol
     weak var presenter: UserProfileInteractorOutput?
@@ -24,3 +24,14 @@ final class UserProfileInteractor: UserProfileInteractorInput {
         self.service = service
     }
 }
+
+extension UserProfileInteractor: UserProfileInteractorInput {
+
+    func fetchUserProfile() {
+        service.fetchUserProfile { userProfile in
+            self.presenter?.didFetchUserProfile(userProfile)
+        }
+    }
+}
+
+

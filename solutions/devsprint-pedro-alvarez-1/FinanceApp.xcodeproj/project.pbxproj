@@ -47,6 +47,7 @@
 		B76575BB292D79ED006CC052 /* UserProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76575BA292D79ED006CC052 /* UserProfilePresenter.swift */; };
 		B76575BD292D7A37006CC052 /* UserProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76575BC292D7A37006CC052 /* UserProfileRouter.swift */; };
 		B76575BF292D7C6E006CC052 /* UserProfileFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76575BE292D7C6E006CC052 /* UserProfileFactory.swift */; };
+		B76575C1292EB873006CC052 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76575C0292EB873006CC052 /* UserProfileViewModel.swift */; };
 		BF140A9029282D0B00EFB7B8 /* ActivityDetailsPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF140A8F29282D0B00EFB7B8 /* ActivityDetailsPresenterTest.swift */; };
 		BF44482829258C070053DCED /* ActivityDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF44482729258C070053DCED /* ActivityDetailsPresenter.swift */; };
 		BF44482A29258C240053DCED /* ActivityDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF44482929258C240053DCED /* ActivityDetailsInteractor.swift */; };
@@ -118,6 +119,7 @@
 		B76575BA292D79ED006CC052 /* UserProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfilePresenter.swift; sourceTree = "<group>"; };
 		B76575BC292D7A37006CC052 /* UserProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileRouter.swift; sourceTree = "<group>"; };
 		B76575BE292D7C6E006CC052 /* UserProfileFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileFactory.swift; sourceTree = "<group>"; };
+		B76575C0292EB873006CC052 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
 		BF140A8F29282D0B00EFB7B8 /* ActivityDetailsPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsPresenterTest.swift; sourceTree = "<group>"; };
 		BF44482729258C070053DCED /* ActivityDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsPresenter.swift; sourceTree = "<group>"; };
 		BF44482929258C240053DCED /* ActivityDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsInteractor.swift; sourceTree = "<group>"; };
@@ -290,8 +292,8 @@
 			isa = PBXGroup;
 			children = (
 				B7CBC76F292D780300D66D0C /* Router */,
-				B7CBC76C292D77D400D66D0C /* Presentation */,
 				B7CBC76E292D77E200D66D0C /* View */,
+				B7CBC76C292D77D400D66D0C /* Presentation */,
 				B7CBC76D292D77DA00D66D0C /* Business */,
 			);
 			path = UserProfile;
@@ -314,7 +316,6 @@
 				98584AFD277E51A70028DBEA /* ActivityListView.swift */,
 				98584B03277E51DA0028DBEA /* ContactCellView.swift */,
 				98426FA927A6EC8700B09645 /* TabBarController.swift */,
-				98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -344,6 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				B76575BA292D79ED006CC052 /* UserProfilePresenter.swift */,
+				B76575C0292EB873006CC052 /* UserProfileViewModel.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -359,6 +361,7 @@
 		B7CBC76E292D77E200D66D0C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				98426FAB27A6FC8000B09645 /* UserProfileHeaderView.swift */,
 				98584ADA277E50430028DBEA /* UserProfileView.swift */,
 				98584ADB277E50430028DBEA /* UserProfileViewController.swift */,
 			);
@@ -572,6 +575,7 @@
 				98584B14277E605F0028DBEA /* ActivityDetailsView.swift in Sources */,
 				98D2FF07291D6826006DAA3B /* TransferResult.swift in Sources */,
 				98584AE7277E50430028DBEA /* TransfersView.swift in Sources */,
+				B76575C1292EB873006CC052 /* UserProfileViewModel.swift in Sources */,
 				98584AF3277E50430028DBEA /* ConfirmationView.swift in Sources */,
 				98584AEE277E50430028DBEA /* UserProfileViewController.swift in Sources */,
 				B76575BD292D7A37006CC052 /* UserProfileRouter.swift in Sources */,
